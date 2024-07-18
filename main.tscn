@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dajxbnwr06r6q"]
+
+[ext_resource type="PackedScene" uid="uid://bo2haq3yn3u2l" path="res://street.tscn" id="1_4bfjp"]
+[ext_resource type="PackedScene" uid="uid://did0c73dbegc4" path="res://red_car.tscn" id="2_gyv45"]
+
+[node name="main" type="Node3D"]
+
+[node name="street" parent="." instance=ExtResource("1_4bfjp")]
+
+[node name="Car" parent="." instance=ExtResource("2_gyv45")]
+transform = Transform3D(-0.0579474, 0, -0.99832, 0, 1, 0, 0.99832, 0, -0.0579474, 0.665062, 1.58139, -10.8179)
