@@ -37,21 +37,62 @@ func _physics_process(delta):
 		turn_left(delta)
 	elif Input.is_action_pressed("ui_right"):
 		turn_right(delta)
-
-	print(velocity)
+	else:
+		recover_guesture(delta)
+		
+	if Input.is_action_pressed("ui_up"):
+		climb(delta)
+	elif Input.is_action_pressed("ui_down"):
+		dive(delta)
+	else:
+		recover_horizontal(delta)
+	
+	#print("rotation.y = %s" % rotation.y)
+	var rotations = get_rotation_degrees()
+	var rotation_x = rotations[0]
+	var rotation_y = rotations[1]
+	var rotation_z = rotations[2]
+	
+	#print(get_rotation_degrees()[1])
+	#print("cos 90 = %s" % cos(deg_to_rad(rotation_y)))
+	#print(velocity)
+	velocity.z = -cos(deg_to_rad(rotation_y)) * SPEED
+	velocity.x = -sin(deg_to_rad(rotation_y)) * SPEED
+	velocity.y = sin(deg_to_rad(rotation_x)) * SPEED
 	move_and_slide()
+	
+func dive(delta):
+	if rotation.x > -1.0:
+		rotation.x = rotation.x - delta * TURN_SPEED
 
+func climb(delta):
+	if rotation.x < 0.5:
+		rotation.x = rotation.x + delta * TURN_SPEED
+
+func recover_horizontal(delta):
+	var offset = delta * TURN_SPEED
+	if rotation.x <= offset and rotation.x >= -1 * offset:
+		rotation.x = 0
+	elif rotation.x < 0:
+		rotation.x = rotation.x + offset
+	else:
+		rotation.x = rotation.x - offset
 
 func turn_left(delta):
-	if rotation.y < 1:
-		rotation.y = rotation.y + delta * TURN_SPEED
-	
+	rotation.y = rotation.y + delta * TURN_SPEED
 	if rotation.z < 0.75:
 		rotation.z = rotation.z + delta * TURN_SPEED
 
 func turn_right(delta):
-	if rotation.y > -1:
-		rotation.y = rotation.y - delta * TURN_SPEED
-	
+	rotation.y = rotation.y - delta * TURN_SPEED
 	if rotation.z > -0.75:
 		rotation.z = rotation.z - delta * TURN_SPEED
+		
+func recover_guesture(delta):
+	var offset = delta * TURN_SPEED
+	if rotation.z <= offset and rotation.z >= -1 * offset:
+		rotation.z = 0
+	elif rotation.z < 0:
+		rotation.z = rotation.z + offset
+	else:
+		rotation.z = rotation.z - offset
