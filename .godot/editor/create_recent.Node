@@ -1,7 +1,7 @@
 CollisionShape3D
+RigidBody3D
 StaticBody3D
 Area3D
-RigidBody3D
 Camera3D
 CharacterBody3D
 SpringArm3D

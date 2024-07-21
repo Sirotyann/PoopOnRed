@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dajxbnwr06r6q"]
 
-[ext_resource type="PackedScene" uid="uid://bo2haq3yn3u2l" path="res://street.tscn" id="1_4bfjp"]
-[ext_resource type="PackedScene" uid="uid://did0c73dbegc4" path="res://red_car.tscn" id="2_gyv45"]
+[ext_resource type="PackedScene" uid="uid://bo2haq3yn3u2l" path="res://scences/maps/street.tscn" id="1_4bfjp"]
+[ext_resource type="PackedScene" uid="uid://did0c73dbegc4" path="res://scences/cars/red_car.tscn" id="2_gyv45"]
 
 [node name="main" type="Node3D"]
 

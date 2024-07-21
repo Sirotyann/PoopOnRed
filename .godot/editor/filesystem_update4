@@ -1,4 +1,8 @@
-res://dove.tscn
+res://scences/birds/shit.tscn
 res://resources/mesh_lib/road.tres
-res://dove.gd
-res://street.tscn
+res://scences/maps/street.tscn
+res://scences/birds/shit.gd
+res://scences/birds/dove.tscn
+res://scences/birds/dove.gd
+res://scences/birds/guano.tscn
+res://scences/cars/red_car.tscn
