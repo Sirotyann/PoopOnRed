@@ -201,3 +201,20 @@ shape = SubResource("BoxShape3D_48aya")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.99991, -3.31256e-10, -0.0134386, 0.00558529, 0.909541, 0.415577, 0.012223, -0.415614, 0.909459, 0.0840454, 2.13916, 3.87289)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 23.0
+offset_top = 15.0
+offset_right = 63.0
+offset_bottom = 38.0
+text = "Score:
+
+"
+
+[node name="Score" type="Label" parent="."]
+offset_left = 78.0
+offset_top = 16.0
+offset_right = 118.0
+offset_bottom = 39.0
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+text = "0"

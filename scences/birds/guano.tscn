@@ -1,4 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://e0cjh0l5yixr"]
+[gd_scene load_steps=6 format=3 uid="uid://e0cjh0l5yixr"]
+
+[ext_resource type="Script" path="res://scences/birds/guano.gd" id="1_npeay"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4ys3a"]
 resource_name = "Material.001"
@@ -46,6 +48,9 @@ radius = 1.06255
 [node name="guano" type="RigidBody3D"]
 collision_layer = 4
 collision_mask = 5
+max_contacts_reported = 5
+contact_monitor = true
+script = ExtResource("1_npeay")
 
 [node name="Cube" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.0662961, 0, 0, 0, 0.0953648, 0, 0, 0, 0.0763681, 0, -0.0231637, 0)
@@ -55,3 +60,7 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.0621911, 0, 0, 0, 0.116063, 0, 0, 0, 0.0763681, 0, 0.0182079, 0)
 shape = SubResource("SphereShape3D_nmuu6")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
+[connection signal="child_entered_tree" from="CollisionShape3D" to="." method="_on_collision_shape_3d_child_entered_tree"]

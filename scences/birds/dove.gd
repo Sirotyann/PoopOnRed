@@ -1,6 +1,10 @@
 extends CharacterBody3D
 
+signal point_increase
+
 var Guano = preload("res://scences/birds/guano.tscn")
+
+var point = 0
 
 const SPEED = 7.5
 const JUMP_VELOCITY = 4.5
@@ -91,13 +95,13 @@ func recover_guesture(delta):
 # --- excrete ---
 func shoot():
 	if can_excrete:
-		print("shoot")
 		var guano: RigidBody3D = Guano.instantiate()
 		var self_position = get_global_position()
 		guano.position = Vector3(self_position[0], self_position[1] - 0.2, self_position[2])
 		guano.rotation = self.rotation
 		guano.linear_velocity = self.velocity
 		can_excrete = false
+		guano.connect("collide_with_vehicle", self.add_point)
 		get_parent().add_child(guano)
 		var timer = Timer.new()
 		timer.one_shot = true
@@ -105,6 +109,11 @@ func shoot():
 		timer.timeout.connect(refresh_excrete)
 		add_child(timer)
 		timer.start();
+
+func add_point():
+	point += 1
+	#point_increase.emit(point)
+	$Score.text = "%s" % point
 
 func refresh_excrete():
 	can_excrete = true

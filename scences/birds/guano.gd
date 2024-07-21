@@ -1,9 +1,9 @@
-extends Node3D
+extends RigidBody3D
 
+signal collide_with_vehicle
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#$dove.connect("")
 	pass # Replace with function body.
 
 
@@ -11,6 +11,8 @@ func _ready():
 func _process(delta):
 	pass
 
-func _on_dove_point_increase(val):
-	print("update point %s", val)
-	#pass # Replace with function body.
+func _on_body_entered(body):
+	body.get_groups()
+	if body.is_in_group("vehicle"):
+		collide_with_vehicle.emit()
+		queue_free()

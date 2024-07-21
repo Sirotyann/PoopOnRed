@@ -6,3 +6,5 @@ res://scences/birds/dove.tscn
 res://scences/birds/dove.gd
 res://scences/birds/guano.tscn
 res://scences/cars/red_car.tscn
+res://scences/birds/guano.gd
+res://scences/maps/street.gd
