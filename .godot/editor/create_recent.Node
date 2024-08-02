@@ -1,8 +1,8 @@
-GridMap
+CollisionShape3D
 StaticBody3D
+GridMap
 Area3D
 MeshInstance3D
-CollisionShape3D
 RigidBody3D
 DirectionalLight3D
 WorldEnvironment
