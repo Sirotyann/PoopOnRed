@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://w7n3scmnsp5p"
+path="res://.godot/imported/car_sedan_wheel_front_left.obj-a6763fb17000a45b6ab295ad53380a84.mesh"
+
+[deps]
+
+files=["res://.godot/imported/car_sedan_wheel_front_left.obj-a6763fb17000a45b6ab295ad53380a84.mesh"]
+
+source_file="res://resources/kit/KayKit_City_Builder/Assets/obj/car_sedan_wheel_front_left.obj"
+dest_files=["res://.godot/imported/car_sedan_wheel_front_left.obj-a6763fb17000a45b6ab295ad53380a84.mesh", "res://.godot/imported/car_sedan_wheel_front_left.obj-a6763fb17000a45b6ab295ad53380a84.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

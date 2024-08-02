@@ -6,7 +6,7 @@ var Guano = preload("res://scences/birds/guano.tscn")
 
 var point = 0
 
-const SPEED = 7.5
+const SPEED = 2#7.5
 const JUMP_VELOCITY = 4.5
 const TURN_SPEED = 0.5
 
@@ -21,6 +21,15 @@ func _ready():
 func _process(delta):
 	if Input.is_action_pressed("shoot"):
 		shoot()
+	
+	# 是不是撞了
+	for index in get_slide_collision_count():
+		var collision = get_slide_collision(index)
+		var collider = collision.get_collider()
+		var layer = collider.get_collision_layer() 
+		if layer == 1:
+			print("Dead!")
+			get_tree().paused = true
 
 func _physics_process(delta):
 	# Add the gravity.

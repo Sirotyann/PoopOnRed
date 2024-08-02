@@ -1,0 +1,82 @@
+[gd_scene load_steps=11 format=3 uid="uid://cmbya6u4ad56g"]
+
+[ext_resource type="Script" path="res://scences/maps/town/town.gd" id="1_v46mq"]
+[ext_resource type="PackedScene" uid="uid://cnswya7xxnln5" path="res://scences/birds/dove.tscn" id="1_vi8go"]
+[ext_resource type="MeshLibrary" uid="uid://dl3xqra7746d5" path="res://resources/mesh_lib/kaykit_city.tres" id="2_8frsx"]
+[ext_resource type="MeshLibrary" uid="uid://cbnrxmxka2mw4" path="res://resources/mesh_lib/buildings.tres" id="2_ofniu"]
+
+[sub_resource type="Gradient" id="Gradient_tvb4g"]
+offsets = PackedFloat32Array(0, 0.508108, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.31802, 0.31802, 0.31802, 1, 0.560955, 0.560955, 0.560955, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_dlplv"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_iak1w"]
+color_ramp = SubResource("Gradient_tvb4g")
+noise = SubResource("FastNoiseLite_dlplv")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_864kq"]
+albedo_color = Color(0.215686, 0.215686, 0.207843, 1)
+metallic = 1.0
+metallic_texture = SubResource("NoiseTexture2D_iak1w")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_n0tbr"]
+material = SubResource("StandardMaterial3D_864kq")
+top_radius = 300.0
+bottom_radius = 3000.0
+height = 0.5
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_6006a"]
+height = 0.5
+radius = 10000.0
+
+[node name="Town" type="Node3D"]
+script = ExtResource("1_v46mq")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.753563, 0.657375, 0, -0.657375, -0.753563, -16.5939, 10.1724, 0.971474)
+light_color = Color(1, 1, 0.945098, 1)
+light_energy = 1.478
+light_indirect_energy = 1.08
+light_volumetric_fog_energy = 1.358
+shadow_enabled = true
+shadow_opacity = 0.52
+shadow_blur = 2.194
+directional_shadow_split_1 = 0.17
+directional_shadow_split_2 = 0.153
+directional_shadow_fade_start = 0.822
+directional_shadow_max_distance = 100.5
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_mask = 3
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.253159, 0)
+mesh = SubResource("CylinderMesh_n0tbr")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("CylinderShape3D_6006a")
+
+[node name="dove" parent="." instance=ExtResource("1_vi8go")]
+transform = Transform3D(-0.01, 3.48787e-18, -1.50996e-09, 3.48787e-18, 0.01, -3.48787e-18, 1.50996e-09, -3.48787e-18, -0.01, 2.08165e-12, 2.18223, 2.08165e-12)
+collision_mask = 3
+
+[node name="RoadMap" type="GridMap" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, -1, 2.08165e-12)
+mesh_library = ExtResource("2_8frsx")
+collision_mask = 3
+data = {
+"cells": PackedInt32Array(0, 0, 31, 0, 1, 31, 0, 2, 31, 0, 3, 31, 0, 4, 31, 0, 5, 31, 0, 6, 31, 0, 7, 31, 0, 8, 31, 0, 9, 31, 0, 10, 31, 0, 65535, 31, 0, 65534, 31, 0, 65532, 31, 0, 65533, 31, 0, 65531, 31, 0, 65530, 31, 0, 65529, 31, 0, 65528, 31, 0, 65527, 29, 0, 11, 30, 1, 11, 1441823, 2, 11, 1048607, 3, 11, 1048607, 4, 11, 1048607, 5, 11, 1048607, 6, 11, 1048607, 7, 11, 1048607, 8, 11, 1048607, 1, 65527, 1048607, 2, 65527, 1048607, 3, 65527, 1048607, 4, 65527, 1048607, 5, 65527, 1441823, 6, 65527, 1441823, 7, 65527, 1441823, 8, 65527, 1441823, 9, 65527, 1441823, 10, 65527, 1441823, 11, 65527, 1441820, 11, 65528, 655391, 11, 65529, 655391, 11, 65530, 655391, 11, 65531, 655391, 11, 65532, 655391, 11, 65533, 655391, 11, 65534, 655391, 11, 65535, 655391, 11, 1, 655391, 11, 0, 655391, 11, 2, 655391, 11, 3, 655391, 11, 5, 655391, 11, 4, 655391, 11, 6, 655391, 11, 7, 655391, 11, 8, 655391, 11, 9, 655391, 11, 10, 655391, 11, 11, 655390, 10, 11, 1048607, 9, 11, 1048607, 65535, 11, 1048607, 65534, 11, 1048607, 65533, 11, 1048607, 65532, 11, 1048607, 65531, 11, 1048607, 65530, 11, 1048607, 65529, 11, 1048607, 65528, 11, 1048607, 65527, 11, 1048607, 65526, 11, 1048607, 65525, 11, 1048607, 65524, 11, 1048604, 65524, 10, 31, 65524, 9, 31, 65524, 8, 31, 65524, 7, 31, 65524, 6, 31, 65524, 5, 31, 65524, 4, 31, 65524, 3, 31, 65524, 2, 31, 65524, 1, 31, 65524, 0, 31, 65524, 65535, 31, 65524, 65534, 31, 65524, 65532, 31, 65524, 65533, 31, 65524, 65531, 31, 65524, 65530, 31, 65524, 65529, 31, 65524, 65528, 31, 65524, 65527, 31, 65524, 65526, 31, 65524, 65525, 31, 65524, 65524, 31, 65524, 65523, 31, 65524, 65522, 31, 65524, 65521, 31, 65524, 65520, 1441825, 65525, 65520, 1441823, 65526, 65520, 1441823, 65527, 65520, 1441823, 65528, 65520, 1441823, 65529, 65520, 1441823, 65530, 65520, 1441823, 65531, 65520, 1441823, 65532, 65520, 1441823, 65533, 65520, 1441823, 65534, 65520, 1441823, 65535, 65520, 1441823, 0, 65520, 1441823, 1, 65520, 1441823, 2, 65520, 1441823, 3, 65520, 1441823, 4, 65520, 1441823, 5, 65520, 1441823, 6, 65520, 1441823, 7, 65520, 1441823, 8, 65520, 1441823, 9, 65520, 1441823, 10, 65520, 1441823, 11, 65520, 1441823, 12, 65520, 1441823, 13, 65520, 1441823, 14, 65520, 1441823, 65535, 5, 1441792, 65535, 6, 1441792, 65535, 7, 1441792, 65535, 8, 1441792, 65535, 4, 1441792, 65535, 3, 1441792, 65535, 9, 1441792, 65535, 10, 1441792)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="BuildingMap" type="GridMap" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, -1, 2.08165e-12)
+mesh_library = ExtResource("2_ofniu")
+collision_mask = 3
+data = {
+"cells": PackedInt32Array(65535, 6, 1441792)
+}
+
+[connection signal="child_entered_tree" from="BuildingMap" to="." method="_on_building_map_child_entered_tree"]

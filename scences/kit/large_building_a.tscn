@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2x1d6d45tbko"]
+
+[ext_resource type="PackedScene" uid="uid://0t8t0nq3ywbq" path="res://resources/models/large_building_a.glb" id="1_w2hao"]
+
+[node name="large_building_a" instance=ExtResource("1_w2hao")]
+
+[node name="@StaticBody3D@109484" parent="." index="1"]
+collision_mask = 3

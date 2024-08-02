@@ -15,6 +15,14 @@ run/main_scene="res://scences/maps/street.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/zylann.hterrain/plugin.cfg")
+
+[filesystem]
+
+import/fbx/enabled=false
+
 [input]
 
 shoot={

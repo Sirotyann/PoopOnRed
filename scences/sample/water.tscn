@@ -1,0 +1,65 @@
+[gd_scene load_steps=11 format=3 uid="uid://dkyxjqvnkh32"]
+
+[ext_resource type="Material" uid="uid://c3ee5vlxxya4q" path="res://scences/sample/water.tres" id="1_qoybm"]
+[ext_resource type="Shader" path="res://scences/sample/ocean.gdshader" id="2_0nwwx"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f2ji4"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_5hcuo"]
+material = SubResource("StandardMaterial3D_f2ji4")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ga6y6"]
+albedo_color = Color(0.964706, 0.466667, 0.588235, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_i2p1u"]
+size = Vector2(10, 10)
+subdivide_width = 200
+subdivide_depth = 200
+orientation = 1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_irxt4"]
+render_priority = 0
+shader = ExtResource("2_0nwwx")
+shader_parameter/WATER_COL = Vector4(0.04, 0.38, 0.88, 1)
+shader_parameter/WATER2_COL = Vector4(0.04, 0.35, 0.78, 1)
+shader_parameter/FOAM_COL = Vector4(0.8125, 0.9609, 0.9648, 1)
+shader_parameter/distortion_speed = 2.0
+shader_parameter/tile = Vector2(5, 5)
+shader_parameter/height = 2.0
+shader_parameter/wave_size = Vector2(2, 2)
+shader_parameter/wave_speed = 1.5
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_glht2"]
+material = SubResource("ShaderMaterial_irxt4")
+size = Vector2(10000, 10000)
+
+[sub_resource type="Sky" id="Sky_yf8ir"]
+
+[sub_resource type="Environment" id="Environment_sumv7"]
+background_mode = 4
+sky = SubResource("Sky_yf8ir")
+
+[node name="Water" type="Node3D"]
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.245018, -2.77553)
+mesh = SubResource("PlaneMesh_5hcuo")
+skeleton = NodePath("../MeshInstance3D")
+surface_material_override/0 = SubResource("StandardMaterial3D_ga6y6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("QuadMesh_i2p1u")
+surface_material_override/0 = ExtResource("1_qoybm")
+
+[node name="Ocean" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.4816, -36.5624, -20.6535)
+visible = false
+mesh = SubResource("PlaneMesh_glht2")
+skeleton = NodePath("../MeshInstance3D")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.984177, 0.177188, 0, -0.177188, 0.984177, 0, 10.0747, 0)
+environment = SubResource("Environment_sumv7")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.699726, 0.714412, 0, -0.714412, 0.699726, 0, 27.3903, 0)
