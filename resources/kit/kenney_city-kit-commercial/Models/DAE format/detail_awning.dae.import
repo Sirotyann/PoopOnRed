@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cgsf5mxb83xau"
-path="res://.godot/imported/large_buildingA.glb-99f8d3f668eb6a8d9f003d2f236dd798.scn"
+uid="uid://chebiionc60n6"
+path="res://.godot/imported/detail_awning.dae-db9b93ee0fb1fa8321d14f1151a06f27.scn"
 
 [deps]
 
-source_file="res://resources/kit/large_buildingA.glb"
-dest_files=["res://.godot/imported/large_buildingA.glb-99f8d3f668eb6a8d9f003d2f236dd798.scn"]
+source_file="res://resources/kit/kenney_city-kit-commercial/Models/DAE format/detail_awning.dae"
+dest_files=["res://.godot/imported/detail_awning.dae-db9b93ee0fb1fa8321d14f1151a06f27.scn"]
 
 [params]
 

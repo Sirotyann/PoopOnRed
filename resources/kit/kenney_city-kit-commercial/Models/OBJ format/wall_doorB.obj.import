@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://pndldnuklsdx"
+path="res://.godot/imported/wall_doorB.obj-8faea543eaaf8948b8dbf6f7811a5679.mesh"
+
+[deps]
+
+files=["res://.godot/imported/wall_doorB.obj-8faea543eaaf8948b8dbf6f7811a5679.mesh"]
+
+source_file="res://resources/kit/kenney_city-kit-commercial/Models/OBJ format/wall_doorB.obj"
+dest_files=["res://.godot/imported/wall_doorB.obj-8faea543eaaf8948b8dbf6f7811a5679.mesh", "res://.godot/imported/wall_doorB.obj-8faea543eaaf8948b8dbf6f7811a5679.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
