@@ -1,3 +1,4 @@
+Node3D
 GridMap
 CollisionShape3D
 StaticBody3D
@@ -7,7 +8,6 @@ RigidBody3D
 DirectionalLight3D
 WorldEnvironment
 Camera3D
-Node3D
 CSGBox3D
 HTerrain
 Label

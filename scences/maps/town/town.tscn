@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://cmbya6u4ad56g"]
+[gd_scene load_steps=13 format=3 uid="uid://cmbya6u4ad56g"]
 
 [ext_resource type="Script" path="res://scences/maps/town/town.gd" id="1_v46mq"]
 [ext_resource type="PackedScene" uid="uid://cnswya7xxnln5" path="res://dove.tscn" id="1_vi8go"]
 [ext_resource type="MeshLibrary" uid="uid://dl3xqra7746d5" path="res://resources/mesh_lib/kaykit_city.tres" id="2_8frsx"]
 [ext_resource type="MeshLibrary" uid="uid://cbnrxmxka2mw4" path="res://resources/mesh_lib/buildings.tres" id="2_ofniu"]
-[ext_resource type="MeshLibrary" uid="uid://bkv5cairwlrba" path="res://resources/mesh_lib/road_staff.tres" id="5_raev5"]
+[ext_resource type="MeshLibrary" uid="uid://b8i8fwejch777" path="res://resources/mesh_lib/road_staff.tres" id="5_raev5"]
+[ext_resource type="PackedScene" uid="uid://cdy0r6nd1gury" path="res://scences/kit/nature/trees_16.tscn" id="6_0lcjl"]
 
 [sub_resource type="Gradient" id="Gradient_tvb4g"]
 offsets = PackedFloat32Array(0, 0.508108, 1)
@@ -88,5 +89,8 @@ cell_size = Vector3(1, 1, 1)
 data = {
 "cells": PackedInt32Array(0, 19, 10)
 }
+
+[node name="Trees16" parent="." instance=ExtResource("6_0lcjl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.528, 1.1, 6.958)
 
 [connection signal="child_entered_tree" from="BuildingMap" to="." method="_on_building_map_child_entered_tree"]

@@ -200,7 +200,7 @@ transform = Transform3D(1, -4.02216e-24, 0, -4.02216e-24, 1, 0, 0, 0, 1, 0.08404
 shape = SubResource("BoxShape3D_48aya")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.99991, 4.02387e-08, -0.0134387, 0.00820526, 0.79196, 0.610519, 0.0106429, -0.610574, 0.791888, -0.257499, 4.46751, 4.25916)
+transform = Transform3D(0.99991, 4.73622e-08, -0.0134387, 0.00918378, 0.730055, 0.683327, 0.00981099, -0.683388, 0.729989, -0.257499, 5.03703, 3.5707)
 
 [node name="Label" type="Label" parent="."]
 offset_left = 23.0
