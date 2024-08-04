@@ -6,9 +6,9 @@ var Guano = preload("res://scences/birds/guano.tscn")
 
 var point = 0
 
-const SPEED = 2#7.5
+const SPEED = 3#7.5
 const JUMP_VELOCITY = 4.5
-const TURN_SPEED = 0.5
+const TURN_SPEED = 1
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -40,16 +40,16 @@ func _physics_process(delta):
 	#if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		#velocity.y = JUMP_VELOCITY
 		
-	if Input.is_action_pressed("ui_left"):
+	if Input.is_action_pressed("left"):
 		turn_left(delta)
-	elif Input.is_action_pressed("ui_right"):
+	elif Input.is_action_pressed("right"):
 		turn_right(delta)
 	else:
 		recover_guesture(delta)
 		
-	if Input.is_action_pressed("ui_up"):
+	if Input.is_action_pressed("up"):
 		climb(delta)
-	elif Input.is_action_pressed("ui_down"):
+	elif Input.is_action_pressed("down"):
 		dive(delta)
 	else:
 		recover_horizontal(delta)
