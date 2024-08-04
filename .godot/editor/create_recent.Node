@@ -1,6 +1,6 @@
+GridMap
 CollisionShape3D
 StaticBody3D
-GridMap
 Area3D
 MeshInstance3D
 RigidBody3D

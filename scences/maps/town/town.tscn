@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://cmbya6u4ad56g"]
+[gd_scene load_steps=12 format=3 uid="uid://cmbya6u4ad56g"]
 
 [ext_resource type="Script" path="res://scences/maps/town/town.gd" id="1_v46mq"]
 [ext_resource type="PackedScene" uid="uid://cnswya7xxnln5" path="res://dove.tscn" id="1_vi8go"]
 [ext_resource type="MeshLibrary" uid="uid://dl3xqra7746d5" path="res://resources/mesh_lib/kaykit_city.tres" id="2_8frsx"]
 [ext_resource type="MeshLibrary" uid="uid://cbnrxmxka2mw4" path="res://resources/mesh_lib/buildings.tres" id="2_ofniu"]
+[ext_resource type="MeshLibrary" uid="uid://bkv5cairwlrba" path="res://resources/mesh_lib/road_staff.tres" id="5_raev5"]
 
 [sub_resource type="Gradient" id="Gradient_tvb4g"]
 offsets = PackedFloat32Array(0, 0.508108, 1)
@@ -79,5 +80,13 @@ data = {
 "cells": PackedInt32Array(65535, 6, 1441792, 65535, 5, 1048580, 65535, 4, 1048577, 65535, 3, 1048578, 65535, 1, 1048576, 65535, 2, 1048577, 65534, 1, 1048579, 65533, 1, 1048576, 65532, 1, 1048578, 65531, 1, 1048577, 65531, 2, 1441802, 65531, 4, 1441798, 65531, 6, 1441801, 65531, 5, 1441796, 65532, 6, 5, 65533, 6, 6, 65534, 6, 4)
 }
 metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="GridMap" type="GridMap" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.450892, 0)
+mesh_library = ExtResource("5_raev5")
+cell_size = Vector3(1, 1, 1)
+data = {
+"cells": PackedInt32Array(0, 19, 10)
+}
 
 [connection signal="child_entered_tree" from="BuildingMap" to="." method="_on_building_map_child_entered_tree"]

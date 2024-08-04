@@ -9,3 +9,6 @@ res://scences/sample/sky.gdshader
 res://scences/maps/town/town.tscn
 res://scences/birds/dove.tscn
 res://scences/kit/buildings.tscn
+res://scences/kit/road.tscn
+res://scences/kit/road_staff.tscn
+res://resources/mesh_lib/road_staff.tres

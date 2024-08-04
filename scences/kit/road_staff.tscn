@@ -1,0 +1,54 @@
+[gd_scene load_steps=17 format=3 uid="uid://dwgyl7tcm8syn"]
+
+[ext_resource type="PackedScene" uid="uid://b5vtrcew4oa6x" path="res://resources/kit/KayKit_City_Builder/Assets/gltf/base.gltf" id="1_qebwb"]
+[ext_resource type="PackedScene" uid="uid://c0apxeveml5tr" path="res://resources/kit/KayKit_City_Builder/Assets/gltf/bush.gltf" id="2_86lcd"]
+[ext_resource type="PackedScene" uid="uid://dm5elt0rkierx" path="res://resources/kit/KayKit_City_Builder/Assets/gltf/dumpster.gltf" id="3_mnybw"]
+[ext_resource type="PackedScene" uid="uid://c0jg1sisicd7f" path="res://resources/kit/KayKit_City_Builder/Assets/gltf/bench.gltf" id="4_58sft"]
+[ext_resource type="PackedScene" uid="uid://cm0a3x2lus1y" path="res://resources/kit/KayKit_City_Builder/Assets/gltf/firehydrant.gltf" id="5_qjc7w"]
+[ext_resource type="PackedScene" uid="uid://db6duupjqww3j" path="res://resources/kit/KayKit_City_Builder/Assets/gltf/trafficlight_A.gltf" id="6_bc0yj"]
+[ext_resource type="PackedScene" uid="uid://dvjruc2yldg2r" path="res://resources/kit/KayKit_City_Builder/Assets/gltf/trafficlight_B.gltf" id="7_4dx2w"]
+[ext_resource type="PackedScene" uid="uid://2bpbxeibf6qr" path="res://resources/kit/KayKit_City_Builder/Assets/gltf/trafficlight_C.gltf" id="8_44rge"]
+[ext_resource type="PackedScene" uid="uid://d3dhcdmqbv6n7" path="res://resources/kit/KayKit_City_Builder/Assets/gltf/trash_A.gltf" id="9_re37r"]
+[ext_resource type="PackedScene" uid="uid://cqal4wy1hy2ya" path="res://resources/kit/KayKit_City_Builder/Assets/gltf/trash_B.gltf" id="10_buin8"]
+[ext_resource type="PackedScene" uid="uid://x8my85430fyw" path="res://resources/kit/start_kit/grass.glb" id="11_jor0w"]
+[ext_resource type="PackedScene" uid="uid://eol8xxuklnlb" path="res://resources/kit/start_kit/pavement-fountain.glb" id="12_1u8gf"]
+[ext_resource type="PackedScene" uid="uid://df4r3k8qwq6rd" path="res://resources/kit/start_kit/grass-trees-tall.glb" id="13_m38y7"]
+[ext_resource type="PackedScene" uid="uid://clrf1rjkxecjc" path="res://resources/kit/start_kit/grass-trees.glb" id="14_ktc0u"]
+[ext_resource type="PackedScene" uid="uid://bbr48ygcfym2x" path="res://resources/kit/KayKit_City_Builder/Assets/gltf/watertower.gltf" id="15_xw3rc"]
+[ext_resource type="PackedScene" uid="uid://csxkx0sd78a1l" path="res://resources/kit/KayKit_City_Builder/Assets/gltf/streetlight.gltf" id="16_ghm5e"]
+
+[node name="RoadStaff" type="Node3D"]
+
+[node name="base2" parent="." instance=ExtResource("1_qebwb")]
+
+[node name="bush2" parent="." instance=ExtResource("2_86lcd")]
+transform = Transform3D(3.74539, 0, 0, 0, 1.57382, 0, 0, 0, 3.74539, 0, 0, 0)
+
+[node name="dumpster2" parent="." instance=ExtResource("3_mnybw")]
+
+[node name="bench2" parent="." instance=ExtResource("4_58sft")]
+
+[node name="firehydrant2" parent="." instance=ExtResource("5_qjc7w")]
+transform = Transform3D(2.01348, 0, 0, 0, 1.86386, 0, 0, 0, 2.01348, 0, 0, 0)
+
+[node name="trafficlight_A2" parent="." instance=ExtResource("6_bc0yj")]
+
+[node name="trafficlight_B2" parent="." instance=ExtResource("7_4dx2w")]
+
+[node name="trafficlight_C2" parent="." instance=ExtResource("8_44rge")]
+
+[node name="trash_A2" parent="." instance=ExtResource("9_re37r")]
+
+[node name="trash_B2" parent="." instance=ExtResource("10_buin8")]
+
+[node name="grass2" parent="." instance=ExtResource("11_jor0w")]
+
+[node name="pavement-fountain2" parent="." instance=ExtResource("12_1u8gf")]
+
+[node name="grass-trees-tall2" parent="." instance=ExtResource("13_m38y7")]
+
+[node name="grass-trees2" parent="." instance=ExtResource("14_ktc0u")]
+
+[node name="watertower2" parent="." instance=ExtResource("15_xw3rc")]
+
+[node name="streetlight2" parent="." instance=ExtResource("16_ghm5e")]
