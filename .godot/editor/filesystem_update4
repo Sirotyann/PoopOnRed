@@ -7,3 +7,13 @@ res://scences/sample/sky.gdshader
 res://resources/mesh_lib/kaykit_city.tres
 res://resources/mesh_lib/buildings.tres
 res://resources/mesh_lib/road_staff.tres
+res://scences/maps/town/town.tscn
+res://scences/kit/nature/grass_16.tscn
+res://scences/kit/cars/sedan-sports.tscn
+res://scences/kit/cars/delivery.tscn
+res://scences/kit/cars/sedan-sports.gdshader
+res://scences/kit/cars/suv_white.tscn
+res://scences/birds/guano.gd
+res://dove.tscn
+res://dove.gd
+res://scences/birds/dove.tscn

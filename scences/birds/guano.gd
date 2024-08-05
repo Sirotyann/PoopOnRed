@@ -13,6 +13,7 @@ func _process(delta):
 
 func _on_body_entered(body):
 	body.get_groups()
-	if body.is_in_group("vehicle"):
+	if body.is_in_group("vehicle") and body.is_in_group("white"):
+		print('!!!')
 		collide_with_vehicle.emit()
 		queue_free()
