@@ -96,6 +96,6 @@ data = {
 }
 
 [node name="suv" parent="." instance=ExtResource("7_wm2en")]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 1.00877, 1.08661, 30.9398)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.39, 1.05, 31.458)
 
 [connection signal="child_entered_tree" from="BuildingMap" to="." method="_on_building_map_child_entered_tree"]
