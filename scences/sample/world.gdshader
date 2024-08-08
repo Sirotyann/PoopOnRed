@@ -37,5 +37,5 @@ uniform float time_scale: hint_range(0.0, 0.2, 0.005) = 0.025;
 void sky() {
 	// Called for every visible pixel in the sky background, as well as all pixels
 	// in the radiance cubemap.
-	ALBEDO = albedo;
+	//ALBEDO = albedo;
 }
