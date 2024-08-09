@@ -28,6 +28,7 @@ func _process(delta):
 	for index in get_slide_collision_count():
 		var collision = get_slide_collision(index)
 		var collider = collision.get_collider()
+		print(collider)
 		var layer = collider.get_collision_layer() 
 		if layer == 1:
 			print("Dead!")

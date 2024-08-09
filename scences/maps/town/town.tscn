@@ -1,11 +1,31 @@
-[gd_scene load_steps=14 format=3 uid="uid://cmbya6u4ad56g"]
+[gd_scene load_steps=27 format=3 uid="uid://cmbya6u4ad56g"]
 
 [ext_resource type="Script" path="res://scences/maps/town/town.gd" id="1_v46mq"]
 [ext_resource type="MeshLibrary" uid="uid://dl3xqra7746d5" path="res://resources/mesh_lib/kaykit_city.tres" id="2_8frsx"]
 [ext_resource type="MeshLibrary" uid="uid://cbnrxmxka2mw4" path="res://resources/mesh_lib/buildings.tres" id="2_ofniu"]
 [ext_resource type="MeshLibrary" uid="uid://b8i8fwejch777" path="res://resources/mesh_lib/road_staff.tres" id="5_raev5"]
 [ext_resource type="PackedScene" uid="uid://cdy0r6nd1gury" path="res://scences/kit/nature/trees_16.tscn" id="6_0lcjl"]
+[ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain.gd" id="7_cwxug"]
 [ext_resource type="PackedScene" uid="uid://cl280gxenqt7a" path="res://scences/birds/seagull.tscn" id="7_kmnj3"]
+[ext_resource type="Resource" path="res://scences/maps/town/map_data/data.hterrain" id="8_8mt5p"]
+[ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="9_nmw03"]
+[ext_resource type="Texture2D" uid="uid://8nb3p41nn1u1" path="res://scences/maps/town/town_slot0_albedo_bump.png" id="10_0dgfe"]
+[ext_resource type="Texture2D" uid="uid://r4p6mkqnppep" path="res://scences/maps/town/town_slot1_albedo_bump.png" id="11_151pb"]
+[ext_resource type="Texture2D" uid="uid://bobbnp3nrg7lp" path="res://scences/maps/town/town_slot2_albedo_bump.png" id="12_ln2h0"]
+[ext_resource type="Texture2D" uid="uid://dhwsixj5ctps3" path="res://scences/maps/town/town_slot3_albedo_bump.png" id="13_p1ntw"]
+[ext_resource type="Texture2D" uid="uid://byhy0iac748tx" path="res://scences/maps/town/town_slot2_normal_roughness.png" id="16_oaw4o"]
+[ext_resource type="Texture2D" uid="uid://he65psked2bv" path="res://scences/maps/town/town_slot3_normal_roughness.png" id="17_cpwsa"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_uhokj"]
+sky_top_color = Color(0.101961, 0.45098, 0.807843, 1)
+sky_horizon_color = Color(0.937255, 0.941176, 0.909804, 1)
+
+[sub_resource type="Sky" id="Sky_oai38"]
+sky_material = SubResource("ProceduralSkyMaterial_uhokj")
+
+[sub_resource type="Environment" id="Environment_yqmpc"]
+background_mode = 2
+sky = SubResource("Sky_oai38")
 
 [sub_resource type="Gradient" id="Gradient_tvb4g"]
 offsets = PackedFloat32Array(0, 0.508108, 1)
@@ -18,7 +38,9 @@ color_ramp = SubResource("Gradient_tvb4g")
 noise = SubResource("FastNoiseLite_dlplv")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_864kq"]
-albedo_color = Color(0.215686, 0.215686, 0.207843, 1)
+transparency = 1
+depth_draw_mode = 1
+albedo_color = Color(0.396078, 0.396078, 0.388235, 1)
 metallic = 1.0
 metallic_texture = SubResource("NoiseTexture2D_iak1w")
 
@@ -39,6 +61,11 @@ _data = {
 }
 point_count = 10
 
+[sub_resource type="Resource" id="Resource_mqdb0"]
+script = ExtResource("9_nmw03")
+mode = 0
+textures = [[ExtResource("10_0dgfe"), ExtResource("11_151pb"), ExtResource("12_ln2h0"), ExtResource("13_p1ntw")], [null, null, ExtResource("16_oaw4o"), ExtResource("17_cpwsa")]]
+
 [node name="Town" type="Node3D"]
 script = ExtResource("1_v46mq")
 
@@ -56,20 +83,27 @@ directional_shadow_split_2 = 0.153
 directional_shadow_fade_start = 0.822
 directional_shadow_max_distance = 100.5
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_yqmpc")
+
+[node name="Container" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 248.614, 2.08165e-12, 235.45)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Container"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05227, 0)
 collision_mask = 3
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Container/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.253159, 0)
+visible = false
 mesh = SubResource("CylinderMesh_n0tbr")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Container/StaticBody3D"]
 transform = Transform3D(676.76, 0, 0, 0, 2.12212, 0, 0, 0, 676.555, 0, -1.182, 0)
 shape = SubResource("CylinderShape3D_tfnd1")
 
-[node name="RoadMap" type="GridMap" parent="."]
+[node name="RoadMap" type="GridMap" parent="Container"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000352859, 1.14441e-05, -0.0135002)
 mesh_library = ExtResource("2_8frsx")
 collision_mask = 3
@@ -78,10 +112,10 @@ data = {
 }
 metadata/_editor_floor_ = Vector3(0, 0, 0)
 
-[node name="Trees16" parent="RoadMap" instance=ExtResource("6_0lcjl")]
+[node name="Trees16" parent="Container/RoadMap" instance=ExtResource("6_0lcjl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.528, 1.1, 6.49028)
 
-[node name="BuildingMap" type="GridMap" parent="."]
+[node name="BuildingMap" type="GridMap" parent="Container"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.0807152, 2.08165e-12)
 mesh_library = ExtResource("2_ofniu")
 collision_mask = 3
@@ -90,7 +124,7 @@ data = {
 }
 metadata/_editor_floor_ = Vector3(0, 0, 0)
 
-[node name="GridMap" type="GridMap" parent="."]
+[node name="GridMap" type="GridMap" parent="Container"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.450892, 0)
 mesh_library = ExtResource("5_raev5")
 cell_size = Vector3(1, 1, 1)
@@ -98,11 +132,33 @@ data = {
 "cells": PackedInt32Array(0, 19, 10)
 }
 
-[node name="seagull" parent="." instance=ExtResource("7_kmnj3")]
+[node name="seagull" parent="Container" instance=ExtResource("7_kmnj3")]
 transform = Transform3D(-1, 3.48787e-16, -1.50996e-07, 3.48787e-16, 1, -3.48787e-16, 1.50996e-07, -3.48787e-16, -1, 4.26695, 4.27782, -3.33765)
 
-[node name="Path3D" type="Path3D" parent="."]
+[node name="Path3D" type="Path3D" parent="Container"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.22716, 0)
 curve = SubResource("Curve3D_jvdbv")
 
-[connection signal="child_entered_tree" from="BuildingMap" to="." method="_on_building_map_child_entered_tree"]
+[node name="HTerrain" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1.8, 0, 0, 0, 1, 2.08165e-12, 1, 2.08165e-12)
+script = ExtResource("7_cwxug")
+_terrain_data = ExtResource("8_8mt5p")
+chunk_size = 32
+collision_enabled = true
+collision_layer = 1
+collision_mask = 7
+shader_type = "Classic4"
+custom_shader = null
+custom_globalmap_shader = null
+texture_set = SubResource("Resource_mqdb0")
+render_layers = 1
+cast_shadow = 1
+shader_params/u_ground_uv_scale_per_texture = null
+shader_params/u_depth_blending = true
+shader_params/u_triplanar = null
+shader_params/u_tile_reduction = null
+shader_params/u_globalmap_blend_start = null
+shader_params/u_globalmap_blend_distance = null
+shader_params/u_colormap_opacity_per_texture = null
+
+[connection signal="child_entered_tree" from="Container/BuildingMap" to="." method="_on_building_map_child_entered_tree"]
