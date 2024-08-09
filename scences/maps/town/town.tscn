@@ -87,7 +87,7 @@ directional_shadow_max_distance = 100.5
 environment = SubResource("Environment_yqmpc")
 
 [node name="Container" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 248.614, 2.08165e-12, 235.45)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 254.757, 2.08165e-12, 246.523)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Container"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05227, 0)
@@ -147,18 +147,11 @@ chunk_size = 32
 collision_enabled = true
 collision_layer = 1
 collision_mask = 7
-shader_type = "Classic4"
+shader_type = "LowPoly"
 custom_shader = null
 custom_globalmap_shader = null
 texture_set = SubResource("Resource_mqdb0")
 render_layers = 1
 cast_shadow = 1
-shader_params/u_ground_uv_scale_per_texture = null
-shader_params/u_depth_blending = true
-shader_params/u_triplanar = null
-shader_params/u_tile_reduction = null
-shader_params/u_globalmap_blend_start = null
-shader_params/u_globalmap_blend_distance = null
-shader_params/u_colormap_opacity_per_texture = null
 
 [connection signal="child_entered_tree" from="Container/BuildingMap" to="." method="_on_building_map_child_entered_tree"]
