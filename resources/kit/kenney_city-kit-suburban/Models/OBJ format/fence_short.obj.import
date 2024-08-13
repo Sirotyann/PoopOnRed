@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://ebweonrja1wr"
+path="res://.godot/imported/fence_short.obj-10bcfd838ea90cf6a954529146c3007b.mesh"
+
+[deps]
+
+files=["res://.godot/imported/fence_short.obj-10bcfd838ea90cf6a954529146c3007b.mesh"]
+
+source_file="res://resources/kit/kenney_city-kit-suburban/Models/OBJ format/fence_short.obj"
+dest_files=["res://.godot/imported/fence_short.obj-10bcfd838ea90cf6a954529146c3007b.mesh", "res://.godot/imported/fence_short.obj-10bcfd838ea90cf6a954529146c3007b.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

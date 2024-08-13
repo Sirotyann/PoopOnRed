@@ -1,7 +1,9 @@
-res://scences/maps/street.gdshader
-res://scences/maps/town/town.gdshader
+res://scences/maps/town/town.tscn
 res://resources/mesh_lib/kaykit_city.tres
 res://resources/mesh_lib/buildings.tres
 res://resources/mesh_lib/road_staff.tres
-res://scences/maps/town/town.tscn
+res://scences/maps/street.gdshader
+res://scences/maps/town/town.gdshader
 res://scences/kit/buildings/sky_60.tscn
+res://scences/kit/buildings.tscn
+res://scences/birds/seagull.tscn

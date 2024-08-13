@@ -1,6 +1,7 @@
-Node3D
 CollisionShape3D
 StaticBody3D
+Node3D
+GridMap
 VehicleWheel3D
 VehicleBody3D
 Path3D
@@ -11,4 +12,3 @@ MeshInstance3D
 WorldEnvironment
 HTerrain
 Sprite3D
-Sprite2D
