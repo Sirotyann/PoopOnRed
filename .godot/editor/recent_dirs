@@ -1,3 +1,6 @@
+res://scences/kit/buildings
+res://resources/kit/buildings
+res://resources/mesh_lib
 res://scences/kit/cars
 /Users/c_li/Workshop/Game/Drop/addons/zylann.hterrain/tools/brush/shapes
 res://resources/texture/Ground068_2K-JPG
@@ -7,7 +10,6 @@ res://resources/texture/Grass003_2K-JPG
 res://scences/maps/town/map_data
 res://resources/kit
 res://scences/kit/nature
-res://resources/mesh_lib
 res://scences/maps/town
 res://scences/kit
 res://resources/grass

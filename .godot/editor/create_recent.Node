@@ -1,5 +1,6 @@
-CollisionShape3D
 Node3D
+CollisionShape3D
+StaticBody3D
 VehicleWheel3D
 VehicleBody3D
 Path3D
@@ -7,7 +8,6 @@ PathFollow3D
 DirectionalLight3D
 Camera3D
 MeshInstance3D
-StaticBody3D
 WorldEnvironment
 HTerrain
 Sprite3D

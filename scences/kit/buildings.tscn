@@ -1088,7 +1088,7 @@ size = Vector3(1, 0.981934, 0.844604)
 [node name="Buildings" type="Node3D"]
 
 [node name="skyscraperA" type="MeshInstance3D" parent="."]
-transform = Transform3D(3.31033, 0, 0, 0, 6.25095, 0, 0, 0, 2.94975, -0.0894559, 0.0111246, 10.0303)
+transform = Transform3D(1, 0, 0, 0, 6.19063, 0, 0, 0, 1, -0.0894559, 0.0111246, 10.0303)
 mesh = SubResource("ArrayMesh_nf70j")
 skeleton = NodePath("")
 
