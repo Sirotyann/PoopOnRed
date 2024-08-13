@@ -6,7 +6,7 @@ var Guano = preload("res://scences/birds/guano.tscn")
 
 var point = 0
 
-const SPEED := 2.5#7.5
+const SPEED := 4.5#7.5
 const JUMP_VELOCITY := 4.5
 const TURN_SPEED := 0.8
 const CLIMB_SPEED := 0.3
@@ -43,6 +43,14 @@ func _physics_process(delta):
 	# Handle jump.
 	#if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		#velocity.y = JUMP_VELOCITY
+	
+	
+	var speed := SPEED
+	
+	#if Input.is_action_pressed("speed_up"):
+		#speed = SPEED
+	#else:
+		#speed = 0	
 		
 	if Input.is_action_pressed("left"):
 		turn_left(delta)
@@ -63,9 +71,9 @@ func _physics_process(delta):
 	var rotation_y = rotations[1]
 	var rotation_z = rotations[2]
 	
-	velocity.z = -cos(deg_to_rad(rotation_y)) * SPEED
-	velocity.x = -sin(deg_to_rad(rotation_y)) * SPEED
-	velocity.y = sin(deg_to_rad(rotation_x)) * SPEED
+	velocity.z = -cos(deg_to_rad(rotation_y)) * speed
+	velocity.x = -sin(deg_to_rad(rotation_y)) * speed
+	velocity.y = sin(deg_to_rad(rotation_x)) * speed
 	move_and_slide()
 
 # --- Charactor movemet ---	
@@ -108,14 +116,16 @@ func recover_guesture(delta):
 # --- excrete ---
 func shoot():
 	if can_excrete:
+		print('shoot!')
 		var guano: RigidBody3D = Guano.instantiate()
 		var self_position = get_global_position()
-		guano.position = Vector3(self_position[0], self_position[1] - 0.2, self_position[2])
+		#guano.position = Vector3(self_position[0], self_position[1] - 0.2, self_position[2])
+		guano.position = Vector3(self_position[0], self_position[1], self_position[2])
 		guano.rotation = self.rotation
 		guano.linear_velocity = self.velocity
 		can_excrete = false
 		guano.connect("collide_with_vehicle", self.add_point)
-		get_parent().add_child(guano)
+		get_parent().get_parent().add_child(guano)
 		var timer = Timer.new()
 		timer.one_shot = true
 		timer.wait_time = 1

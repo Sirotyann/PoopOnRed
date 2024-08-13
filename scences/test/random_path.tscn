@@ -1,0 +1,66 @@
+[gd_scene load_steps=8 format=3 uid="uid://cupuqeedo1lqt"]
+
+[ext_resource type="Script" path="res://scences/test/random_path.gd" id="1_w6wnc"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_juq81"]
+albedo_color = Color(0.690196, 0.690196, 0.690196, 1)
+metallic = 0.59
+metallic_specular = 0.55
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_1ovxn"]
+material = SubResource("StandardMaterial3D_juq81")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hipyn"]
+size = Vector3(13.7711, 0.0443726, 10.2012)
+
+[sub_resource type="Curve3D" id="Curve3D_h6l7p"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -2.74059, 0, -3.20249, 0, 0, 0, 0, 0, 0, 3.7465, 0, -4.22893, 0, 0, 0, 0, 0, 0, 6.02519, 0, -1.25225, 0, 0, 0, 0, 0, 0, 5.03981, 0, 2.77138, 0, 0, 0, 0, 0, 0, -1.07776, 0, 4.47527, 0, 0, 0, 0, 0, 0, -5.1014, 0, 0.574805, 0, 0, 0, 0, 0, 0, -2.74059, 0, -3.20249),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 7
+
+[sub_resource type="Curve3D" id="Curve3D_25epx"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -2.70231, 0, -3.18617, 0, 0, 0, 0, 0, 0, -2.99365, 0, 0.632281, 0, 0, 0, 0, 0, 0, -3.32915, 0, 4.29693, 0, 0, 0, 0, 0, 0, -5.9615, 0, 4.16789, 0, 0, 0, 0, 0, 0, -6.34861, 0, -1.84523, 0, 0, 0, 0, 0, 0, -5.9357, 0, -3.93562, 0, 0, 0, 0, 0, 0, -2.70231, 0, -3.18617),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 7
+
+[sub_resource type="Curve3D" id="Curve3D_jykgn"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -2.60654, 0, -3.1614, 0, 0, 0, 0, 0, 0, -2.52912, 0, -4.99373, 0, 0, 0, 0, 0, 0, 2.73558, 0, 2.1033, 0, 0, 0, 0, 0, 0, 6.14216, 0, -3.62594, 0, 0, 0, 0, 0, 0, -1.67748, 0, 0.477436, 0, 0, 0, 0, 0, 0, -2.60654, 0, -3.1614),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0)
+}
+point_count = 6
+
+[node name="RandomPath" type="Node3D"]
+script = ExtResource("1_w6wnc")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.6119, 0.790935, 0, -0.790935, 0.6119, 0, 2.63237, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.30508, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(6.87233, 0, 0, 0, 1, 0, 0, 0, 5.08495, 0.0325623, -0.00299072, -0.046875)
+mesh = SubResource("PlaneMesh_1ovxn")
+skeleton = NodePath("../CollisionShape3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0325623, -0.0194397, -0.046875)
+shape = SubResource("BoxShape3D_hipyn")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.25779, 0.966201, 0, -0.966201, 0.25779, 0, 5.49425, 2.12134)
+fov = 90.0
+
+[node name="Path3D" type="Path3D" parent="."]
+curve = SubResource("Curve3D_h6l7p")
+
+[node name="Path3D2" type="Path3D" parent="."]
+curve = SubResource("Curve3D_25epx")
+
+[node name="Path3D3" type="Path3D" parent="."]
+curve = SubResource("Curve3D_jykgn")

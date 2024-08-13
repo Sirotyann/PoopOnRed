@@ -1,5 +1,6 @@
-[gd_scene load_steps=19 format=3 uid="uid://44c10cj7kn6o"]
+[gd_scene load_steps=20 format=3 uid="uid://44c10cj7kn6o"]
 
+[ext_resource type="Script" path="res://scences/kit/cars/suv_white.gd" id="1_cvwri"]
 [ext_resource type="Texture2D" uid="uid://bhsokcjp6gnnk" path="res://resources/kit/suv_colormap.png" id="1_ryira"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_niegn"]
@@ -299,16 +300,19 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_3if5p")
 
 [node name="suv" type="VehicleBody3D" groups=["vehicle", "white"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.010682, 0.0160227)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 collision_layer = 4
-collision_mask = 7
+collision_mask = 3
+max_contacts_reported = 2
+contact_monitor = true
+script = ExtResource("1_cvwri")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000701904, 0.198915, -0.0109253)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.193789, 2.08165e-12)
 shape = SubResource("BoxShape3D_niegn")
 
 [node name="Node3D" type="Node3D" parent="."]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 
 [node name="body" type="MeshInstance3D" parent="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
@@ -339,3 +343,6 @@ skeleton = NodePath("")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0.3, -0.56)
 mesh = SubResource("ArrayMesh_7mesj")
 skeleton = NodePath("")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

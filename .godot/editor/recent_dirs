@@ -1,3 +1,4 @@
+res://scences/kit/cars
 /Users/c_li/Workshop/Game/Drop/addons/zylann.hterrain/tools/brush/shapes
 res://resources/texture/Ground068_2K-JPG
 res://resources/texture/Snow002_2K-JPG
@@ -5,12 +6,10 @@ res://resources/texture/Rock031_2K-JPG
 res://resources/texture/Grass003_2K-JPG
 res://scences/maps/town/map_data
 res://resources/kit
-res://scences/kit/cars
 res://scences/kit/nature
 res://resources/mesh_lib
 res://scences/maps/town
 res://scences/kit
-res://scences/sample
 res://resources/grass
 res://
 res://t_data
