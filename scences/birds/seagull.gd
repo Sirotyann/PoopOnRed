@@ -6,7 +6,7 @@ var Guano = preload("res://scences/birds/guano.tscn")
 
 var point = 0
 
-const SPEED := 4.5#7.5
+const SPEED := 5.5#7.5
 const JUMP_VELOCITY := 4.5
 const TURN_SPEED := 0.8
 const CLIMB_SPEED := 0.3
@@ -28,11 +28,11 @@ func _process(delta):
 	for index in get_slide_collision_count():
 		var collision = get_slide_collision(index)
 		var collider = collision.get_collider()
-		print(collider)
-		var layer = collider.get_collision_layer() 
-		if layer == 1:
+		print(collider.name)
+		print(collider.is_in_group('moutain'))
+		
+		if collider.is_in_group('moutain') or (collider.get_collision_layer and collider.get_collision_layer() == 1):
 			print("Dead!")
-			print(collider)
 			get_tree().paused = true
 
 func _physics_process(delta):

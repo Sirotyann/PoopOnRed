@@ -1,7 +1,7 @@
 extends Node3D
 
 const Veichle_Speed := 3.0
-const Veichle_Total_Count := 30
+const Veichle_Total_Count := 200
 
 var PathDispatcher = preload("res://general/path_dispatcher.gd")
 
@@ -12,15 +12,15 @@ var Sedan = preload("res://scences/kit/cars/sedan-sports.tscn")
 var SUV = preload("res://scences/kit/cars/suv_luxury.tscn")
 var Texi = preload("res://scences/kit/cars/taxi.tscn")
 var Truck = preload("res://scences/kit/cars/truck.tscn")
-var TruckWhite = preload("res://scences/kit/cars/truck_flat.tscn")
 var Van = preload("res://scences/kit/cars/van.tscn")
+var Hatchback = preload("res://scences/kit/cars/hatchback_sports.tscn")
 
 var passed_time := 0
 var timer
 var path_dispatcher
 var cars_to_add = []
 
-@onready var Veichle_Models = [Sedan, Delivery, SUV, Texi, Truck, TruckWhite, Van]
+@onready var Veichle_Models = [Sedan, Delivery, SUV, Texi, Truck, Van, Hatchback]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -41,6 +41,8 @@ func _ready():
 	path_dispatcher = PathDispatcher.new()
 	path_dispatcher.init($Paths.get_children(), [suv_white], Veichle_Speed)
 	add_child(path_dispatcher)
+	
+	#$Container/seagull/Camera3D.current = false
 	
 func one_sec_passed():
 	var car = cars_to_add.pop_back()

@@ -49,6 +49,6 @@ func _process(delta):
 		var path_follows = path.get_children()
 		for follow in path_follows:
 			follow.progress += delta * speed
-			if follow.progress_ratio > 0.99: path_follow_complete(path, follow)
+			#if follow.progress_ratio > 0.99: path_follow_complete(path, follow)
 
 
