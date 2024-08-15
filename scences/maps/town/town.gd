@@ -13,14 +13,14 @@ var SUV = preload("res://scences/kit/cars/suv_luxury.tscn")
 var Texi = preload("res://scences/kit/cars/taxi.tscn")
 var Truck = preload("res://scences/kit/cars/truck.tscn")
 var Van = preload("res://scences/kit/cars/van.tscn")
-var Hatchback = preload("res://scences/kit/cars/hatchback_sports.tscn")
+
 
 var passed_time := 0
 var timer
 var path_dispatcher
 var cars_to_add = []
 
-@onready var Veichle_Models = [Sedan, Delivery, SUV, Texi, Truck, Van, Hatchback]
+@onready var Veichle_Models = [Sedan, Delivery, SUV, Texi, Truck, Van]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

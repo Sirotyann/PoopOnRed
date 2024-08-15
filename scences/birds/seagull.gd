@@ -2,11 +2,11 @@ extends CharacterBody3D
 
 signal point_increase
 
-var Guano = preload("res://scences/birds/guano.tscn")
+var Guano = preload("res://scences/birds/poop.tscn")
 
 var point = 0
 
-const SPEED := 5.5#7.5
+const SPEED := 5.0#7.5
 const JUMP_VELOCITY := 4.5
 const TURN_SPEED := 0.8
 const CLIMB_SPEED := 0.3

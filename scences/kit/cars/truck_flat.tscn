@@ -181,7 +181,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_1blif")
 
-[node name="truck-flat" type="VehicleWheel3D"]
+[node name="truck-flat" type="VehicleWheel3D" groups=["vehicle"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0.192979, 0.0024353)

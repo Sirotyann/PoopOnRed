@@ -181,7 +181,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_akmxi")
 
-[node name="van" type="VehicleBody3D"]
+[node name="van" type="VehicleBody3D" groups=["vehicle"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0.208662, -0.0123047)

@@ -181,7 +181,7 @@ shadow_mesh = SubResource("ArrayMesh_qj3yh")
 [sub_resource type="BoxShape3D" id="BoxShape3D_usn55"]
 size = Vector3(0.395874, 0.39325, 0.906677)
 
-[node name="truck" type="VehicleBody3D"]
+[node name="truck" type="VehicleBody3D" groups=["vehicle"]]
 
 [node name="Node3D" type="Node3D" parent="."]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)

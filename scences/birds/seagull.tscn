@@ -201,7 +201,7 @@ transform = Transform3D(0.504503, -2.55124e-21, 6.44352e-16, -4.92675e-23, 0.332
 shape = SubResource("BoxShape3D_48aya")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.99991, -1.48139e-09, -0.0134387, 0.00750022, 0.829769, 0.558056, 0.011151, -0.558106, 0.829694, -0.00319986, 0.192689, 0.153587)
+transform = Transform3D(0.99991, -4.69077e-09, -0.0134387, 0.00803391, 0.80163, 0.597766, 0.0107728, -0.59782, 0.801558, -0.00319986, 0.144197, 0.124778)
 fov = 70.7733
 
 [node name="Label" type="Label" parent="."]

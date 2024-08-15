@@ -1,6 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://bnvfulv7v7gmh"]
+[gd_scene load_steps=14 format=3 uid="uid://ctcja2uu3pb0h"]
 
 [ext_resource type="Texture2D" uid="uid://bak4o0bh1o10t" path="res://resources/kit/kenney_car-kit/Models/GLB format/Textures/colormap.png" id="1_abqyb"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qiiym"]
+size = Vector3(1.27991, 1.12036, 2.61365)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h4kqv"]
 resource_name = "colormap"
@@ -178,28 +181,31 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_6ov31")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_qiiym"]
-size = Vector3(1.27991, 1.12036, 2.61365)
+[node name="hatchback-sports" type="VehicleBody3D" groups=["vehicle"]]
+transform = Transform3D(0.105833, 0, 0, 0, 0.0881967, 0, 0, 0, 0.105833, 0, 0, 0)
 
-[node name="hatchback-sports" type="VehicleWheel3D"]
-transform = Transform3D(0.189003, 0, 0, 0, 0.171283, 0, 0, 0, 0.189003, 0, 0, 0)
+[node name="Node3D" type="Node3D" parent="."]
 
-[node name="wheel-front-left" type="MeshInstance3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0100708, 0.563354, -0.0100708)
+shape = SubResource("BoxShape3D_qiiym")
+
+[node name="wheel-front-left" type="MeshInstance3D" parent="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0.3, 0.81)
 mesh = SubResource("ArrayMesh_siusc")
 skeleton = NodePath("")
 
-[node name="wheel-back-right" type="MeshInstance3D" parent="."]
+[node name="wheel-back-right" type="MeshInstance3D" parent="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0.3, -0.81)
 mesh = SubResource("ArrayMesh_ro1im")
 skeleton = NodePath("")
 
-[node name="wheel-back-left" type="MeshInstance3D" parent="."]
+[node name="wheel-back-left" type="MeshInstance3D" parent="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0.3, -0.81)
 mesh = SubResource("ArrayMesh_d242k")
 skeleton = NodePath("")
 
-[node name="wheel-front-right" type="MeshInstance3D" parent="."]
+[node name="wheel-front-right" type="MeshInstance3D" parent="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0.3, 0.81)
 mesh = SubResource("ArrayMesh_wwtys")
 skeleton = NodePath("")
@@ -208,7 +214,3 @@ skeleton = NodePath("")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, -0.025)
 mesh = SubResource("ArrayMesh_amm15")
 skeleton = NodePath("")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0100708, 0.563354, -0.0100708)
-shape = SubResource("BoxShape3D_qiiym")
