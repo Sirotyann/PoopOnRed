@@ -111,7 +111,7 @@ _data = {
 }
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_48aya"]
-size = Vector3(0.28743, 0.0348493, 0.134117)
+size = Vector3(0.242146, 0.0348493, 0.088705)
 
 [node name="seagull" type="CharacterBody3D"]
 transform = Transform3D(-1, 3.48787e-16, -8.74228e-08, 3.48787e-16, 1, -3.48787e-16, 8.74228e-08, -3.48787e-16, -1, 0, 0, 0)
@@ -197,7 +197,7 @@ libraries = {
 }
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.504503, -2.55124e-21, -3.04145e-16, -4.17131e-23, 0.332457, 2.38517e-23, 0, -2.64698e-23, 0.621118, 0.000434337, 0.0281813, -0.0747339)
+transform = Transform3D(0.504503, -2.55124e-21, 6.44352e-16, -4.92675e-23, 0.332457, 2.39102e-23, 0, -2.64698e-23, 0.621118, 0.000177424, 0.0281813, -0.081659)
 shape = SubResource("BoxShape3D_48aya")
 
 [node name="Camera3D" type="Camera3D" parent="."]

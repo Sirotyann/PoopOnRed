@@ -1,6 +1,7 @@
 extends RigidBody3D
 
 signal collide_with_vehicle
+signal collide_with_white_vehicle
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -13,7 +14,11 @@ func _process(delta):
 
 func _on_body_entered(body):
 	body.get_groups()
-	if body.is_in_group("vehicle") and body.is_in_group("white"):
+	if body.is_in_group("vehicle"):
 		print('!!!')
 		collide_with_vehicle.emit()
+		
+		if body.is_in_group("white"):
+			collide_with_white_vehicle.emit()
+			
 		queue_free()

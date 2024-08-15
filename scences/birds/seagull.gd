@@ -125,7 +125,8 @@ func shoot():
 		guano.linear_velocity = self.velocity
 		can_excrete = false
 		guano.connect("collide_with_vehicle", self.add_point)
-		get_parent().get_parent().add_child(guano)
+		guano.connect("collide_with_white_vehicle", self.shoot_target)
+		get_tree().root.add_child(guano)
 		var timer = Timer.new()
 		timer.one_shot = true
 		timer.wait_time = 1
@@ -137,6 +138,9 @@ func add_point():
 	point += 1
 	#point_increase.emit(point)
 	$Score.text = "%s" % point
+
+func shoot_target():
+	point += 9
 
 func refresh_excrete():
 	can_excrete = true
