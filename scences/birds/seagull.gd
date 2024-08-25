@@ -34,6 +34,13 @@ func _process(delta):
 		if collider.is_in_group('moutain') or (collider.get_collision_layer and collider.get_collision_layer() == 1):
 			print("Dead!")
 			get_tree().paused = true
+			
+	# 切换视角
+	if Input.is_action_just_pressed("SwitchCamera"):
+		$Camera2.set_current(true)
+	elif Input.is_action_just_released("SwitchCamera"):
+		$Camera1.set_current(true)
+		#print($Camera1.current)	
 
 func _physics_process(delta):
 	# Add the gravity.

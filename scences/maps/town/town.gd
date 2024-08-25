@@ -20,18 +20,18 @@ var timer
 var path_dispatcher
 var cars_to_add = []
 
-@onready var Veichle_Models = [Sedan, Delivery, SUV, Texi, Truck, Van]
+@onready var Veichle_Models = [Sedan, Delivery, SUV, Texi, Truck, Van, SUVWhite]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#$BuildingMap.get_child(0).connect("")
 	timer = Timer.new()
-	timer.wait_time = 1.0
+	timer.wait_time = 1.5
 	timer.connect('timeout', self.one_sec_passed)
 	add_child(timer)
 	timer.start()
 	
-	var suv_white = SUVWhite.instantiate()
+	#var suv_white = SUVWhite.instantiate()
 	
 	for n in Veichle_Total_Count:
 		var index = randi_range(0, Veichle_Models.size() - 1)
@@ -39,7 +39,7 @@ func _ready():
 		cars_to_add.push_back(model.instantiate())
 	
 	path_dispatcher = PathDispatcher.new()
-	path_dispatcher.init($Paths.get_children(), [suv_white], Veichle_Speed)
+	path_dispatcher.init($Paths.get_children(), [], Veichle_Speed)
 	add_child(path_dispatcher)
 	
 	#$Container/seagull/Camera3D.current = false

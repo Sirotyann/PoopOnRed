@@ -1,7 +1,6 @@
-[gd_scene load_steps=17 format=3 uid="uid://siox7jb2yjr4"]
+[gd_scene load_steps=16 format=3 uid="uid://siox7jb2yjr4"]
 
 [ext_resource type="Texture2D" uid="uid://bak4o0bh1o10t" path="res://resources/kit/kenney_car-kit/Models/GLB format/Textures/colormap.png" id="1_glc6o"]
-[ext_resource type="Script" path="res://scences/kit/cars/sedan-sports.gd" id="1_slepf"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_05ajk"]
 size = Vector3(0.405746, 0.337021, 0.743469)
@@ -214,12 +213,11 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_py1ei")
 
-[node name="sedan-sports" type="VehicleBody3D" groups=["vehicle"]]
+[node name="sedan-sports" type="VehicleBody3D" groups=["red", "vehicle"]]
 collision_layer = 4
 collision_mask = 7
 max_contacts_reported = 2
 contact_monitor = true
-script = ExtResource("1_slepf")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.1631, 2.08165e-12)
