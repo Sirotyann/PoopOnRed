@@ -1,10 +1,10 @@
+res://scences/test/random_path.tscn
+res://scences/birds/poop.gd
 res://resources/mesh_lib/kaykit_city.tres
 res://resources/mesh_lib/buildings.tres
 res://resources/mesh_lib/decoration.tres
 res://scences/maps/street.gdshader
 res://scences/maps/town/town.gdshader
-res://scences/birds/poop.tscn
-res://scences/birds/poop.gd
+res://scences/test/random_path.gd
 res://scences/maps/town/town.tscn
-res://scences/birds/seagull.tscn
-res://scences/birds/seagull.gd
+res://general/path_dispatcher.gd

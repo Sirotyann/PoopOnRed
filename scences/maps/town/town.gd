@@ -20,7 +20,7 @@ var timer
 var path_dispatcher
 var cars_to_add = []
 
-@onready var Veichle_Models = [Sedan, Delivery, SUV, Texi, Truck, Van, SUVWhite]
+@onready var Veichle_Models = [Delivery, SUV, Texi, Truck, Van, SUVWhite]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

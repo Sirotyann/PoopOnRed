@@ -1,13 +1,13 @@
+Path3D
+PathFollow3D
+Node3D
 Camera3D
 CollisionShape3D
-Node3D
 RigidBody3D
 VehicleBody3D
 VehicleWheel3D
 StaticBody3D
 GridMap
-Path3D
-PathFollow3D
 DirectionalLight3D
 MeshInstance3D
 WorldEnvironment

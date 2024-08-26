@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://cupuqeedo1lqt"]
+[gd_scene load_steps=10 format=3 uid="uid://cupuqeedo1lqt"]
 
 [ext_resource type="Script" path="res://scences/test/random_path.gd" id="1_w6wnc"]
+[ext_resource type="PackedScene" uid="uid://44c10cj7kn6o" path="res://scences/kit/cars/suv_white.tscn" id="2_aqei7"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_juq81"]
 albedo_color = Color(0.690196, 0.690196, 0.690196, 1)
@@ -13,26 +14,33 @@ material = SubResource("StandardMaterial3D_juq81")
 [sub_resource type="BoxShape3D" id="BoxShape3D_hipyn"]
 size = Vector3(13.7711, 0.0443726, 10.2012)
 
-[sub_resource type="Curve3D" id="Curve3D_h6l7p"]
+[sub_resource type="Curve3D" id="Curve3D_1sn3r"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -2.74059, 0, -3.20249, 0, 0, 0, 0, 0, 0, 3.7465, 0, -4.22893, 0, 0, 0, 0, 0, 0, 6.02519, 0, -1.25225, 0, 0, 0, 0, 0, 0, 5.03981, 0, 2.77138, 0, 0, 0, 0, 0, 0, -1.07776, 0, 4.47527, 0, 0, 0, 0, 0, 0, -5.1014, 0, 0.574805, 0, 0, 0, 0, 0, 0, -2.74059, 0, -3.20249),
-"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0)
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -5.37291, 0, -5.63638, 0, 0, 0, 0, 0, 0, 5.84339, 0, -5.69284, 0, 0, 0, 0, 0, 0, 5.84339, 0, 5.1659, 0, 0, 0, 0, 0, 0, -5.33527, 0, 5.12826, 0, 0, 0, 0, 0, 0, -5.37291, 0, -5.63638),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
 }
-point_count = 7
+point_count = 5
 
-[sub_resource type="Curve3D" id="Curve3D_25epx"]
+[sub_resource type="Curve3D" id="Curve3D_516a0"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -2.70231, 0, -3.18617, 0, 0, 0, 0, 0, 0, -2.99365, 0, 0.632281, 0, 0, 0, 0, 0, 0, -3.32915, 0, 4.29693, 0, 0, 0, 0, 0, 0, -5.9615, 0, 4.16789, 0, 0, 0, 0, 0, 0, -6.34861, 0, -1.84523, 0, 0, 0, 0, 0, 0, -5.9357, 0, -3.93562, 0, 0, 0, 0, 0, 0, -2.70231, 0, -3.18617),
-"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0)
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -4.77069, 0, -5.09062, 0, 0, 0, 0, 0, 0, 5.35409, 0, -5.03416, 0, 0, 0, 0, 0, 0, 5.18472, 0, 4.35667, 0, 0, 0, 0, 0, 0, -4.73305, 0, 4.33785, 0, 0, 0, 0, 0, 0, -4.77069, 0, -5.09062),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
 }
-point_count = 7
+point_count = 5
 
-[sub_resource type="Curve3D" id="Curve3D_jykgn"]
+[sub_resource type="Curve3D" id="Curve3D_tsi45"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -2.60654, 0, -3.1614, 0, 0, 0, 0, 0, 0, -2.52912, 0, -4.99373, 0, 0, 0, 0, 0, 0, 2.73558, 0, 2.1033, 0, 0, 0, 0, 0, 0, 6.14216, 0, -3.62594, 0, 0, 0, 0, 0, 0, -1.67748, 0, 0.477436, 0, 0, 0, 0, 0, 0, -2.60654, 0, -3.1614),
-"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0)
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -4.07438, 0, -4.50722, 0, 0, 0, 0, 0, 0, 4.71423, 0, -4.46958, 0, 0, 0, 0, 0, 0, 4.75187, 0, 3.69799, 0, 0, 0, 0, 0, 0, -3.96146, 0, 3.47216, 0, 0, 0, 0, 0, 0, -4.07438, 0, -4.50722),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
 }
-point_count = 6
+point_count = 5
+
+[sub_resource type="Curve3D" id="Curve3D_suhpn"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -5.87789, 0, 5.85608, 0, 0, 0, 0, 0, 0, -5.94332, 0, -6.13961, 0, 0, 0, 0, 0, 0, 6.22685, 0, -6.20504, 0, 0, 0, 0, 0, 0, 6.35771, 0, 5.85608, 0, 0, 0, 0, 0, 0, -5.87789, 0, 5.85608),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
+}
+point_count = 5
 
 [node name="RandomPath" type="Node3D"]
 script = ExtResource("1_w6wnc")
@@ -53,14 +61,26 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0325623, -0.0194397, -0.046
 shape = SubResource("BoxShape3D_hipyn")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.25779, 0.966201, 0, -0.966201, 0.25779, 0, 5.49425, 2.12134)
+transform = Transform3D(1, 0, 0, 0, 0.25779, 0.966201, 0, -0.966201, 0.25779, 0, 6.49425, 2.12134)
 fov = 90.0
 
+[node name="Paths" type="Node3D" parent="."]
+
+[node name="Path3D" type="Path3D" parent="Paths"]
+curve = SubResource("Curve3D_1sn3r")
+
+[node name="Path3D2" type="Path3D" parent="Paths"]
+curve = SubResource("Curve3D_516a0")
+
+[node name="Path3D3" type="Path3D" parent="Paths"]
+curve = SubResource("Curve3D_tsi45")
+
 [node name="Path3D" type="Path3D" parent="."]
-curve = SubResource("Curve3D_h6l7p")
+curve = SubResource("Curve3D_suhpn")
 
-[node name="Path3D2" type="Path3D" parent="."]
-curve = SubResource("Curve3D_25epx")
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(-4.37112e-08, 0, -0.999995, 0, 1, 0, 0.999995, 0, -4.37112e-08, 4.84333, 0, 5.85608)
+progress = 37.7386
+use_model_front = true
 
-[node name="Path3D3" type="Path3D" parent="."]
-curve = SubResource("Curve3D_jykgn")
+[node name="suv" parent="Path3D/PathFollow3D" instance=ExtResource("2_aqei7")]

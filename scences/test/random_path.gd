@@ -1,31 +1,51 @@
 extends Node3D
 
 var PathDispatcher = preload("res://general/path_dispatcher.gd")
-var suv = preload("res://scences/kit/cars/suv_white.tscn")
-var sedan = preload("res://scences/kit/cars/sedan-sports.tscn")
-var delivery = preload("res://scences/kit/cars/delivery.tscn")
 
+var Delivery = preload("res://scences/kit/cars/delivery.tscn")
+var SUVWhite = preload("res://scences/kit/cars/suv_white.tscn")
+var Sedan = preload("res://scences/kit/cars/sedan-sports.tscn")
+var SUV = preload("res://scences/kit/cars/suv_luxury.tscn")
+var Texi = preload("res://scences/kit/cars/taxi.tscn")
+var Truck = preload("res://scences/kit/cars/truck.tscn")
+var Van = preload("res://scences/kit/cars/van.tscn")
 
 @onready var paths = [$Path3D, $Path3D2, $Path3D3]
+@onready var Veichle_Models = [ Delivery, SUV, Texi, Truck, SUVWhite]
+
+const Veichle_Speed := 3.0
+const Veichle_Total_Count := 10
 
 var follows = []
 
 var current_path_follow = null
 
-var suv_0 = null
+var timer
+var cars_to_add = []
+var path_dispatcher
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
-	suv_0 = suv.instantiate()
-	var sedan_0 = sedan.instantiate()
-	var sedan_1 = sedan.instantiate()
+func _ready():	
+	for n in Veichle_Total_Count:
+		var index = randi_range(0, Veichle_Models.size() - 1)
+		var model = Veichle_Models[index]
+		cars_to_add.push_back(model.instantiate())
+		
 	#follow_random_path(suv_0, paths)
-	var path_dispather = PathDispatcher.new()
+	path_dispatcher = PathDispatcher.new()
+	path_dispatcher.init([$Paths/Path3D, $Paths/Path3D2], cars_to_add, Veichle_Speed)
+	add_child(path_dispatcher)
+	pass
 	
-	#add_child(suv_0)
-	add_child(path_dispather)
+## Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	$Path3D/PathFollow3D.progress += delta * Veichle_Speed
+				
+func add_car():
+	var car = cars_to_add.pop_back()
+	if car != null: 
+		path_dispatcher.add_item(car)
 	
-	path_dispather.init(paths, [suv_0, sedan_0, sedan_1], 3.5)
 	
 #func get_follow_from_path(path):
 	#var children = path.get_children()
@@ -50,13 +70,4 @@ func _ready():
 	#for child in children:
 		#item.remove_child(child)
 #
-## Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-	#var speed = 3.5
-	#if current_path_follow != null:
-		#current_path_follow.progress += delta * speed
-		#
-		#if current_path_follow.progress_ratio > 0.99:
-			#print('!! complete move')
-			#remove_children(current_path_follow)
-			#follow_random_path(suv_0, paths)
+
