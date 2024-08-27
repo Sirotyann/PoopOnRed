@@ -33,7 +33,7 @@ func random_pick_path(item):
 	#cloned_paths.push_back(cloned_path)
 	var follow = get_item_path_follow(item)
 	follow.progress = paths_offset[index]
-	paths_offset[index] += 5.0
+	paths_offset[index] += 15.0
 	path.add_child(follow)
 	#follow.set_progress_ratio(0.89)
 	#cloned_path.add_child(follow)

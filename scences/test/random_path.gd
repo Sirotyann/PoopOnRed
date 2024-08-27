@@ -11,10 +11,10 @@ var Truck = preload("res://scences/kit/cars/truck.tscn")
 var Van = preload("res://scences/kit/cars/van.tscn")
 
 @onready var paths = [$Path3D, $Path3D2, $Path3D3]
-@onready var Veichle_Models = [ Delivery, SUV, Texi, Truck, SUVWhite]
+@onready var Veichle_Models = [ Delivery, SUV ]
 
 const Veichle_Speed := 3.0
-const Veichle_Total_Count := 10
+const Veichle_Total_Count := 5
 
 var follows = []
 
@@ -33,7 +33,7 @@ func _ready():
 		
 	#follow_random_path(suv_0, paths)
 	path_dispatcher = PathDispatcher.new()
-	path_dispatcher.init([$Paths/Path3D, $Paths/Path3D2], cars_to_add, Veichle_Speed)
+	path_dispatcher.init([$Paths/Path3D], cars_to_add, Veichle_Speed)
 	add_child(path_dispatcher)
 	pass
 	

@@ -182,7 +182,8 @@ shadow_mesh = SubResource("ArrayMesh_qj3yh")
 size = Vector3(0.395874, 0.39325, 0.906677)
 
 [node name="truck" type="VehicleBody3D" groups=["vehicle"]]
-collision_mask = 3
+collision_layer = 4
+collision_mask = 11
 
 [node name="Node3D" type="Node3D" parent="."]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)

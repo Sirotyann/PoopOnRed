@@ -8,3 +8,16 @@ res://scences/maps/town/town.gdshader
 res://scences/test/random_path.gd
 res://scences/maps/town/town.tscn
 res://general/path_dispatcher.gd
+res://scences/maps/town/town.gd
+res://scences/birds/seagull.gd
+res://scences/kit/cars/delivery.tscn
+res://scences/kit/cars/suv_luxury.tscn
+res://scences/kit/cars/hatchback_sports.tscn
+res://scences/kit/cars/police.tscn
+res://scences/kit/cars/taxi.tscn
+res://scences/kit/cars/truck.tscn
+res://scences/kit/cars/truck_flat.tscn
+res://scences/kit/cars/van.tscn
+res://scences/birds/poop.tscn
+res://scences/kit/cars/sedan-sports.tscn
+res://scences/kit/cars/suv_white.tscn

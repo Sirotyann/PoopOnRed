@@ -2,20 +2,22 @@ extends CharacterBody3D
 
 signal point_increase
 
-var Guano = preload("res://scences/birds/poop.tscn")
+var Poop = preload("res://scences/birds/poop.tscn")
 
 var point = 0
 
-const SPEED := 5.0#7.5
+const SPEED := 4.5#7.5
 const JUMP_VELOCITY := 4.5
-const TURN_SPEED := 0.8
+const TURN_SPEED := 1.2
 const CLIMB_SPEED := 0.3
-const DIVE_SPEED := 1.0
+const DIVE_SPEED := 1.2
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 var can_excrete = true
+
+var is_hover = false
 
 func _ready():
 	$AnimationPlayer.play('fly')
@@ -52,8 +54,10 @@ func _physics_process(delta):
 		#velocity.y = JUMP_VELOCITY
 	
 	
-	var speed := SPEED
+	var speed := 0.0 if is_hover else SPEED
 	
+	if Input.is_action_just_pressed("hover"):
+		is_hover = !is_hover
 	#if Input.is_action_pressed("speed_up"):
 		#speed = SPEED
 	#else:
@@ -124,16 +128,16 @@ func recover_guesture(delta):
 func shoot():
 	if can_excrete:
 		print('shoot!')
-		var guano: RigidBody3D = Guano.instantiate()
+		var poo: RigidBody3D = Poop.instantiate()
 		var self_position = get_global_position()
-		#guano.position = Vector3(self_position[0], self_position[1] - 0.2, self_position[2])
-		guano.position = Vector3(self_position[0], self_position[1], self_position[2])
-		guano.rotation = self.rotation
-		guano.linear_velocity = self.velocity
+		#poo.position = Vector3(self_position[0], self_position[1] - 0.2, self_position[2])
+		poo.position = Vector3(self_position[0], self_position[1], self_position[2])
+		poo.rotation = self.rotation
+		poo.linear_velocity = self.velocity
 		can_excrete = false
-		guano.connect("collide_with_vehicle", self.add_point)
-		guano.connect("collide_with_white_vehicle", self.shoot_target)
-		get_tree().root.add_child(guano)
+		poo.connect("collide_with_vehicle", self.add_point)
+		poo.connect("collide_with_white_vehicle", self.shoot_target)
+		get_tree().root.add_child(poo)
 		var timer = Timer.new()
 		timer.one_shot = true
 		timer.wait_time = 1
