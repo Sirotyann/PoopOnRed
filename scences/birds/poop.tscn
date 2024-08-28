@@ -111,8 +111,8 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_spcu0")
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_4wum3"]
-height = 1.99629
-radius = 0.041427
+height = 0.5404
+radius = 0.0191281
 
 [node name="poop" type="RigidBody3D"]
 collision_layer = 8
@@ -121,7 +121,7 @@ mass = 0.11
 script = ExtResource("1_66qrw")
 
 [node name="Node3D" type="Node3D" parent="."]
-transform = Transform3D(-1.329e-05, 0.000106318, -0.0925648, 0.0973621, 0.00188446, 2.14675e-18, 0.00478904, -0.0383112, -0.000256879, -1.57138e-05, -0.00170803, 0.00180278)
+transform = Transform3D(-5.50625e-06, 2.4804e-05, -0.0389236, 0.0403386, 0.000439645, 9.02711e-19, 0.00198417, -0.00893802, -0.000108018, -1.57138e-05, -0.00170803, 0.00180278)
 
 [node name="center" type="MeshInstance3D" parent="Node3D"]
 transform = Transform3D(0.0319391, 0, 0, 0, 0.308822, 0, 0, 0, 0.0319391, 0, 0, 0.0358697)
@@ -147,15 +147,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.382401, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.126555, 0.480055, -0.162666)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(-1.329e-05, 0.000106318, -0.0925648, 0.0973621, 0.00188446, 2.14675e-18, 0.00478904, -0.0383112, -0.000256879, 1.57138e-05, -0.00119002, -0.00305299)
+transform = Transform3D(-1.329e-05, 0.000106318, -0.0925648, 0.0973621, 0.00188446, 2.14675e-18, 0.00478904, -0.0383112, -0.000256879, 1.57138e-05, -0.00119002, -5.69141e-05)
 shape = SubResource("CylinderShape3D_4wum3")
 
 [node name="Area3D" type="Area3D" parent="."]
 collision_layer = 8
 collision_mask = 5
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(-0.000432945, 0.00354647, 2.50081e-05, 0.000182181, 1.39025e-05, -0.0090123, -0.00373135, -6.18454e-05, -0.000443231, 0.000298186, -0.00119073, -0.00300654)
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(-1.329e-05, 0.000106318, -0.0925648, 0.0973621, 0.00188446, 2.14675e-18, 0.00478904, -0.0383112, -0.000256879, 1.57138e-05, -0.00119002, -5.69141e-05)
 shape = SubResource("CylinderShape3D_4wum3")
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_body_entered"]

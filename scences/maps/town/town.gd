@@ -43,7 +43,7 @@ func _ready():
 	
 	path_dispatcher = PathDispatcher.new()
 	path_dispatcher.init($Paths.get_children(), cars_to_add, Veichle_Speed)
-	print(cars_to_add)
+
 	#path_dispatcher.init([$Paths/P01], [], Veichle_Speed)
 	add_child(path_dispatcher)
 	

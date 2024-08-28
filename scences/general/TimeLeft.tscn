@@ -8,7 +8,7 @@ script = ExtResource("1_4ibo0")
 [node name="Label" type="Label" parent="."]
 offset_right = 63.0
 offset_bottom = 34.0
-theme_override_colors/font_color = Color(0.32549, 0.588235, 0.32549, 1)
+theme_override_colors/font_color = Color(1, 0.443137, 0.494118, 1)
 theme_override_colors/font_shadow_color = Color(0.2, 0.2, 0.2, 1)
 theme_override_constants/shadow_offset_x = 1
 theme_override_constants/shadow_offset_y = 1

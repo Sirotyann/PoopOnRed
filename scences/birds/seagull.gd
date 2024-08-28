@@ -4,9 +4,7 @@ signal point_increase
 
 var Poop = preload("res://scences/birds/poop.tscn")
 
-var point = 0
-
-const SPEED := 4.5#7.5
+const SPEED := 0.0 #4.5
 const JUMP_VELOCITY := 4.5
 const TURN_SPEED := 1.2
 const CLIMB_SPEED := 0.3
@@ -21,6 +19,7 @@ var is_hover = false
 
 func _ready():
 	$AnimationPlayer.play('fly')
+	$CanvasLayer/TimeLeft.connect("time_out", self.time_out)
 
 func _process(delta):
 	if Input.is_action_pressed("shoot"):
@@ -32,8 +31,7 @@ func _process(delta):
 		var collider = collision.get_collider()
 		
 		if collider.is_in_group('moutain') or (collider.get_collision_layer and collider.get_collision_layer() == 1):
-			print("Dead!")
-			get_tree().paused = true
+			game_over()
 			
 	# 切换视角
 	if Input.is_action_just_pressed("SwitchCamera"):
@@ -129,6 +127,7 @@ func shoot():
 		#poo.position = Vector3(self_position[0], self_position[1] - 0.2, self_position[2])
 		poo.position = Vector3(self_position[0], self_position[1], self_position[2])
 		poo.rotation = self.rotation
+		#poo.transform.scale
 		poo.linear_velocity = self.velocity
 		can_excrete = false
 		poo.connect("collide_with_vehicle", self.add_point)
@@ -142,12 +141,20 @@ func shoot():
 		timer.start();
 
 func add_point():
-	point += 1
-	#point_increase.emit(point)
-	$Score.text = "%s" % point
+	print('Poop on Car!!')
 
 func shoot_target():
 	point += 9
 
 func refresh_excrete():
 	can_excrete = true
+
+
+# --- status --- 
+func game_over():
+	print("Dead!")
+	get_tree().paused = true
+	
+func time_out():
+	print('time out')
+	game_over()

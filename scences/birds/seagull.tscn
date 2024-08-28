@@ -211,21 +211,4 @@ transform = Transform3D(1, 0, 8.63099e-23, -3.04919e-23, -4.37114e-08, 1, 0, -1,
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="TimeLeft" parent="CanvasLayer" instance=ExtResource("2_jq2j0")]
-position = Vector2(1055, 28)
-
-[node name="Label" type="Label" parent="."]
-offset_left = 23.0
-offset_top = 15.0
-offset_right = 63.0
-offset_bottom = 38.0
-text = "Score:
-
-"
-
-[node name="Score" type="Label" parent="."]
-offset_left = 78.0
-offset_top = 16.0
-offset_right = 118.0
-offset_bottom = 39.0
-theme_override_colors/font_color = Color(0, 1, 0, 1)
-text = "0"
+position = Vector2(1074, 5)
