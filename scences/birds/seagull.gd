@@ -30,8 +30,6 @@ func _process(delta):
 	for index in get_slide_collision_count():
 		var collision = get_slide_collision(index)
 		var collider = collision.get_collider()
-		print(collider.name)
-		print(collider.is_in_group('moutain'))
 		
 		if collider.is_in_group('moutain') or (collider.get_collision_layer and collider.get_collision_layer() == 1):
 			print("Dead!")
@@ -48,11 +46,6 @@ func _physics_process(delta):
 	# Add the gravity.
 	#if not is_on_floor():
 		#velocity.y -= gravity * delta
-
-	# Handle jump.
-	#if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		#velocity.y = JUMP_VELOCITY
-	
 	
 	var speed := 0.0 if is_hover else SPEED
 	
@@ -86,43 +79,46 @@ func _physics_process(delta):
 	velocity.x = -sin(deg_to_rad(rotation_y)) * speed
 	velocity.y = sin(deg_to_rad(rotation_x)) * speed
 	move_and_slide()
-
+	
+func rotate_body(x, y, z):
+	rotation.x = x
+	rotation.y = y
+	rotation.z = z
+	
 # --- Charactor movemet ---	
 func dive(delta):
 	if rotation.x > -1.0:
-		rotation.x = rotation.x - delta * DIVE_SPEED
+		rotate_body(rotation.x - delta * DIVE_SPEED, rotation.y, rotation.z)
 
 func climb(delta):
 	if rotation.x < 0.75:
-		rotation.x = rotation.x + delta * CLIMB_SPEED
+		rotate_body(rotation.x + delta * CLIMB_SPEED, rotation.y, rotation.z)
 
 func recover_horizontal(delta):
 	var offset = delta * TURN_SPEED
 	if rotation.x <= offset and rotation.x >= -1 * offset:
-		rotation.x = 0
+		rotate_body(0, rotation.y, rotation.z)
 	elif rotation.x < 0:
-		rotation.x = rotation.x + offset
+		rotate_body(rotation.x + offset, rotation.y, rotation.z)
 	else:
-		rotation.x = rotation.x - offset
+		rotate_body(rotation.x - offset, rotation.y, rotation.z)
 
 func turn_left(delta):
-	rotation.y = rotation.y + delta * TURN_SPEED
 	if rotation.z < 0.75:
-		rotation.z = rotation.z + delta * TURN_SPEED
+		rotate_body(rotation.x, rotation.y + delta * TURN_SPEED, rotation.z + delta * TURN_SPEED)
 
 func turn_right(delta):
-	rotation.y = rotation.y - delta * TURN_SPEED
 	if rotation.z > -0.75:
-		rotation.z = rotation.z - delta * TURN_SPEED
+		rotate_body(rotation.x, rotation.y - delta * TURN_SPEED, rotation.z - delta * TURN_SPEED)
 		
 func recover_guesture(delta):
 	var offset = delta * TURN_SPEED
 	if rotation.z <= offset and rotation.z >= -1 * offset:
-		rotation.z = 0
+		rotate_body(rotation.x, rotation.y, 0)
 	elif rotation.z < 0:
-		rotation.z = rotation.z + offset
+		rotate_body(rotation.x, rotation.y, rotation.z + offset)
 	else:
-		rotation.z = rotation.z - offset
+		rotate_body(rotation.x, rotation.y, rotation.z - offset)
 
 # --- excrete ---
 func shoot():

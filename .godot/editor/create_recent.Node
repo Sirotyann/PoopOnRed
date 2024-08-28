@@ -1,3 +1,7 @@
+CanvasLayer
+Timer
+Label
+RichTextLabel
 Area3D
 VehicleBody3D
 Node3D
@@ -9,7 +13,3 @@ CollisionShape3D
 RigidBody3D
 VehicleWheel3D
 StaticBody3D
-GridMap
-DirectionalLight3D
-WorldEnvironment
-HTerrain

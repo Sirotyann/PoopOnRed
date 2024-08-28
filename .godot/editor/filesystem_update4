@@ -21,3 +21,7 @@ res://scences/kit/cars/van.tscn
 res://scences/birds/poop.tscn
 res://scences/kit/cars/sedan-sports.tscn
 res://scences/kit/cars/suv_white.tscn
+res://scences/birds/seagull.tscn
+res://scences/general/TimeLeft.tscn
+res://scences/general/TimeLeft.gd
+res://scences/general/TimeLeft.gdshader
