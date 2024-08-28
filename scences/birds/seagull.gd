@@ -4,11 +4,10 @@ signal point_increase
 
 var Poop = preload("res://scences/birds/poop.tscn")
 
-const SPEED := 0.0 #4.5
-const JUMP_VELOCITY := 4.5
-const TURN_SPEED := 1.2
+const SPEED := 4.5
+const TURN_SPEED := 1.25
 const CLIMB_SPEED := 0.3
-const DIVE_SPEED := 1.2
+const DIVE_SPEED := 1.25
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -91,6 +90,7 @@ func dive(delta):
 func climb(delta):
 	if rotation.x < 0.75:
 		rotate_body(rotation.x + delta * CLIMB_SPEED, rotation.y, rotation.z)
+	#print(self.position[2])
 
 func recover_horizontal(delta):
 	var offset = delta * TURN_SPEED
@@ -102,12 +102,24 @@ func recover_horizontal(delta):
 		rotate_body(rotation.x - offset, rotation.y, rotation.z)
 
 func turn_left(delta):
+	var _y = rotation.y + delta * TURN_SPEED
+	var _z = rotation.z + delta * TURN_SPEED
 	if rotation.z < 0.75:
-		rotate_body(rotation.x, rotation.y + delta * TURN_SPEED, rotation.z + delta * TURN_SPEED)
+		rotate_body(rotation.x, _y, _z)
+	else:
+		rotate_body(rotation.x, _y, rotation.z)
+		#print("Origin {oy} {oz} : Rotate to {x}, {y}, {z}".format({
+			#'oy': rotation.y, 'oz': rotation.z,
+			#'x':rotation.x, 'y':(rotation.y + delta * TURN_SPEED), 'z':(rotation.z + delta * TURN_SPEED)
+			#}))
 
 func turn_right(delta):
+	var _y = rotation.y - delta * TURN_SPEED
+	var _z = rotation.z - delta * TURN_SPEED
 	if rotation.z > -0.75:
-		rotate_body(rotation.x, rotation.y - delta * TURN_SPEED, rotation.z - delta * TURN_SPEED)
+		rotate_body(rotation.x, _y, _z)
+	else:
+		rotate_body(rotation.x, _y, rotation.z)
 		
 func recover_guesture(delta):
 	var offset = delta * TURN_SPEED
@@ -144,7 +156,7 @@ func add_point():
 	print('Poop on Car!!')
 
 func shoot_target():
-	point += 9
+	print('Poop on RED Car!!')
 
 func refresh_excrete():
 	can_excrete = true
