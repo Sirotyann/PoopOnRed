@@ -44,4 +44,13 @@ func _on_timer_timeout():
 	else:
 		time_out.emit()
 		$Timer.stop()
-	 
+
+func increase_time(val):
+	time_left += val
+
+func deduct_time(val):
+	var result = time_left - val
+	if result >=0:
+		time_left = 0
+	else:
+		time_left = result

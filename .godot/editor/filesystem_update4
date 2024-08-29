@@ -8,3 +8,5 @@ res://scences/maps/town/town.gdshader
 res://scences/birds/seagull.gd
 res://scences/maps/town/town.tscn
 res://scences/birds/poop.tscn
+res://scences/general/TimeLeft.gd
+res://scences/general/TimeLeft.tscn

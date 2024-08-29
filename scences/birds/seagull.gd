@@ -4,7 +4,9 @@ signal point_increase
 
 var Poop = preload("res://scences/birds/poop.tscn")
 
-const MAX_FLY_HEIGHT := 30.0 # 能飞的最大高度
+const VEHICLE_TIME_AWARD := 15.0 # 每次命中普通车的时间奖励
+
+const MAX_FLY_HEIGHT := 35.0 # 能飞的最大高度
 const WIND_SOUND_Y_MIN := 0.0 # play sound while reach hight
 const WIND_SOUND_Y_MAX := 25.0 # play sound while reach hight
 const WIND_SOUND_MIN := -80.0
@@ -80,9 +82,13 @@ func _physics_process(delta):
 	
 	velocity.z = -cos(deg_to_rad(rotation_y)) * speed
 	velocity.x = -sin(deg_to_rad(rotation_y)) * speed
-	velocity.y = sin(deg_to_rad(rotation_x)) * speed
-	move_and_slide()
 	
+	if position.y < MAX_FLY_HEIGHT:
+		velocity.y = sin(deg_to_rad(rotation_x)) * speed
+	else:
+		velocity.y = 0
+		 
+	move_and_slide()
 	play_wind_audio()
 	
 func rotate_body(x, y, z):
@@ -115,10 +121,6 @@ func turn_left(delta):
 		rotate_body(rotation.x, _y, _z)
 	else:
 		rotate_body(rotation.x, _y, rotation.z)
-		#print("Origin {oy} {oz} : Rotate to {x}, {y}, {z}".format({
-			#'oy': rotation.y, 'oz': rotation.z,
-			#'x':rotation.x, 'y':(rotation.y + delta * TURN_SPEED), 'z':(rotation.z + delta * TURN_SPEED)
-			#}))
 
 func turn_right(delta):
 	var _y = rotation.y - delta * TURN_SPEED
@@ -147,8 +149,8 @@ func shoot():
 		poo.linear_velocity = self.velocity
 		
 		can_excrete = false
-		poo.connect("collide_with_vehicle", self.add_point)
-		poo.connect("collide_with_white_vehicle", self.shoot_target)
+		poo.connect("collide_with_vehicle", self.poop_on_vehicle)
+		poo.connect("collide_with_white_vehicle", self.poop_on_red_vehicle)
 		get_tree().root.add_child(poo)
 		var timer = Timer.new()
 		timer.one_shot = true
@@ -157,15 +159,16 @@ func shoot():
 		add_child(timer)
 		timer.start();
 
-func add_point():
+func poop_on_vehicle():
+	$CanvasLayer/TimeLeft.increase_time(VEHICLE_TIME_AWARD)
+	$Bird01Audio.play()
 	print('Poop on Car!!')
 
-func shoot_target():
+func poop_on_red_vehicle():
 	print('Poop on RED Car!!')
 
 func refresh_excrete():
 	can_excrete = true
-
 
 # --- status --- 
 func game_over():
