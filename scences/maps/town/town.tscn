@@ -537,7 +537,7 @@ data = {
 }
 
 [node name="seagull" parent="Container" instance=ExtResource("7_kmnj3")]
-transform = Transform3D(-2.18557e-08, 1.74393e-16, 0.5, 1.74393e-16, 0.5, -1.74393e-16, -0.5, 1.74393e-16, -2.18557e-08, 96.749, 10, -1.28723)
+transform = Transform3D(-4.37114e-08, 3.48786e-16, 1, 3.48786e-16, 1, -3.48786e-16, -1, 3.48786e-16, -4.37114e-08, 96.749, 10, -1.28723)
 collision_mask = 0
 
 [node name="Path3D" type="Path3D" parent="Container"]
@@ -590,5 +590,4 @@ curve = SubResource("Curve3D_1u5xf")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.00549774, 0.999985, 4.37107e-08, -1.5246e-23, -4.37114e-08, 1, 0.999985, -0.00549774, -2.40314e-10, 266.405, 30, 220.439)
-visible = false
 fov = 133.623

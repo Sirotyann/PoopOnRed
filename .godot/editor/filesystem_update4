@@ -1,13 +1,10 @@
 res://scences/birds/seagull.tscn
 res://scences/birds/poop.gd
-res://scences/maps/street.gdshader
-res://scences/maps/town/town.gdshader
-res://scences/general/TimeLeft.tscn
-res://scences/general/TimeLeft.gd
-res://scences/maps/town/town.gd
-res://scences/birds/seagull.gd
-res://scences/birds/poop.tscn
 res://resources/mesh_lib/kaykit_city.tres
 res://resources/mesh_lib/buildings.tres
 res://resources/mesh_lib/decoration.tres
+res://scences/maps/street.gdshader
+res://scences/maps/town/town.gdshader
+res://scences/birds/seagull.gd
 res://scences/maps/town/town.tscn
+res://scences/birds/poop.tscn

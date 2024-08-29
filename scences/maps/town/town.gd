@@ -24,13 +24,6 @@ var cars_to_add = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#$BuildingMap.get_child(0).connect("")
-	#timer = Timer.new()
-	#timer.wait_time = 1.5
-	#timer.connect('timeout', self.one_sec_passed)
-	#add_child(timer)
-	#timer.start()
-	
 	#var suv_white = SUVWhite.instantiate()
 	for i in 2:
 		var red_sedan = Sedan.instantiate()

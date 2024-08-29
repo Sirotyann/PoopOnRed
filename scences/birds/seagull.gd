@@ -4,6 +4,12 @@ signal point_increase
 
 var Poop = preload("res://scences/birds/poop.tscn")
 
+const MAX_FLY_HEIGHT := 30.0 # 能飞的最大高度
+const WIND_SOUND_Y_MIN := 0.0 # play sound while reach hight
+const WIND_SOUND_Y_MAX := 25.0 # play sound while reach hight
+const WIND_SOUND_MIN := -80.0
+const WIND_SOUND_MAX := 0.0 
+
 const SPEED := 4.5
 const TURN_SPEED := 1.25
 const CLIMB_SPEED := 0.3
@@ -43,7 +49,7 @@ func _physics_process(delta):
 	# Add the gravity.
 	#if not is_on_floor():
 		#velocity.y -= gravity * delta
-	
+		
 	var speed := 0.0 if is_hover else SPEED
 	
 	if Input.is_action_just_pressed("hover"):
@@ -77,6 +83,8 @@ func _physics_process(delta):
 	velocity.y = sin(deg_to_rad(rotation_x)) * speed
 	move_and_slide()
 	
+	play_wind_audio()
+	
 func rotate_body(x, y, z):
 	rotation.x = x
 	rotation.y = y
@@ -90,7 +98,6 @@ func dive(delta):
 func climb(delta):
 	if rotation.x < 0.75:
 		rotate_body(rotation.x + delta * CLIMB_SPEED, rotation.y, rotation.z)
-	#print(self.position[2])
 
 func recover_horizontal(delta):
 	var offset = delta * TURN_SPEED
@@ -133,14 +140,12 @@ func recover_guesture(delta):
 # --- excrete ---
 func shoot():
 	if can_excrete:
-		print('shoot!')
 		var poo: RigidBody3D = Poop.instantiate()
 		var self_position = get_global_position()
-		#poo.position = Vector3(self_position[0], self_position[1] - 0.2, self_position[2])
-		poo.position = Vector3(self_position[0], self_position[1], self_position[2])
+		poo.position = $Armature/Marker3D.global_position
 		poo.rotation = self.rotation
-		#poo.transform.scale
 		poo.linear_velocity = self.velocity
+		
 		can_excrete = false
 		poo.connect("collide_with_vehicle", self.add_point)
 		poo.connect("collide_with_white_vehicle", self.shoot_target)
@@ -170,3 +175,19 @@ func game_over():
 func time_out():
 	print('time out')
 	game_over()
+
+# --- sound ---
+func play_wind_audio():
+	if position.y < WIND_SOUND_Y_MIN and $WindAudio.playing:
+		$WindAudio.stop()
+	elif position.y >= WIND_SOUND_Y_MAX:
+		$WindAudio.volume_db = WIND_SOUND_MAX
+		if !$WindAudio.playing: $WindAudio.play()
+	else:
+		$WindAudio.volume_db = WIND_SOUND_MIN - WIND_SOUND_MIN * (position.y - WIND_SOUND_Y_MIN) / (WIND_SOUND_Y_MAX - WIND_SOUND_Y_MIN)
+		if !$WindAudio.playing: $WindAudio.play()
+			
+	#if play and !$WindAudio.playing:
+		#$WindAudio.play()
+	#elif !play and $WindAudio.playing:
+		#$WindAudio.stop()
