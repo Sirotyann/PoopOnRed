@@ -24,6 +24,8 @@ var cars_to_add = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$BG.play()
+	$BG.volume_db = -30.0
 	#var suv_white = SUVWhite.instantiate()
 	for i in 2:
 		var red_sedan = Sedan.instantiate()
@@ -51,3 +53,7 @@ func _process(delta):
 	#for path_follow in path_follows:
 		#path_follow.progress += delta * Veichle_Speed
 	pass
+
+
+func _on_bg_finished():
+	$BG.play()

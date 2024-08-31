@@ -121,7 +121,7 @@ mass = 0.11
 script = ExtResource("1_66qrw")
 
 [node name="Node3D" type="Node3D" parent="."]
-transform = Transform3D(-5.50625e-06, 2.4804e-05, -0.0389236, 0.0403386, 0.000439645, 9.02711e-19, 0.00198417, -0.00893802, -0.000108018, -1.57138e-05, -0.00170803, 0.00180278)
+transform = Transform3D(-6.57176e-06, 5.94807e-05, -0.0668186, 0.0481445, 0.00105428, 1.54965e-18, 0.00236812, -0.0214336, -0.00018543, -2.69156e-05, -0.00191563, 0.00347427)
 
 [node name="center" type="MeshInstance3D" parent="Node3D"]
 transform = Transform3D(0.0319391, 0, 0, 0, 0.308822, 0, 0, 0, 0.0319391, 0, 0, 0.0358697)
@@ -147,10 +147,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.382401, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.126555, 0.480055, -0.162666)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(-1.329e-05, 0.000106318, -0.0925648, 0.0973621, 0.00188446, 2.14675e-18, 0.00478904, -0.0383112, -0.000256879, 1.57138e-05, -0.00119002, -5.69141e-05)
+transform = Transform3D(-1.58617e-05, 0.000254954, -0.158902, 0.116202, 0.00451899, 3.68524e-18, 0.00571576, -0.0918714, -0.000440974, 2.69156e-05, -0.00125269, -0.000931622)
 shape = SubResource("CylinderShape3D_4wum3")
 
 [node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1.71286, 0, 0, 0, 1.27978, 0, 0, 0, 2.36915, 0, 0.000270275, -0.000796784)
 collision_layer = 8
 collision_mask = 5
 

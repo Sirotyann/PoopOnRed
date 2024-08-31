@@ -3,13 +3,13 @@
 [ext_resource type="Script" path="res://scences/test/random_path.gd" id="1_w6wnc"]
 [ext_resource type="PackedScene" uid="uid://44c10cj7kn6o" path="res://scences/kit/cars/suv_white.tscn" id="2_aqei7"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_juq81"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7pkjf"]
 albedo_color = Color(0.690196, 0.690196, 0.690196, 1)
 metallic = 0.59
 metallic_specular = 0.55
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_1ovxn"]
-material = SubResource("StandardMaterial3D_juq81")
+material = SubResource("StandardMaterial3D_7pkjf")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hipyn"]
 size = Vector3(13.7711, 0.0443726, 10.2012)
@@ -79,7 +79,7 @@ curve = SubResource("Curve3D_tsi45")
 curve = SubResource("Curve3D_suhpn")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
-transform = Transform3D(-4.37112e-08, 0, -0.999995, 0, 1, 0, 0.999995, 0, -4.37112e-08, 4.84333, 0, 5.85608)
+transform = Transform3D(-4.37112e-08, 0, -0.999995, 0, 1, 0, 0.999995, 0, -4.37112e-08, 4.84337, 0, 5.85608)
 progress = 37.7386
 use_model_front = true
 

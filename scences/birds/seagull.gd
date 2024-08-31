@@ -143,15 +143,15 @@ func recover_guesture(delta):
 func shoot():
 	if can_excrete:
 		var poo: RigidBody3D = Poop.instantiate()
-		var self_position = get_global_position()
-		poo.position = $Armature/Marker3D.global_position
 		poo.rotation = self.rotation
-		poo.linear_velocity = self.velocity
+		#poo.linear_velocity = self.velocity
+		poo.give_force(self.velocity)
 		
 		can_excrete = false
 		poo.connect("collide_with_vehicle", self.poop_on_vehicle)
 		poo.connect("collide_with_white_vehicle", self.poop_on_red_vehicle)
 		get_tree().root.add_child(poo)
+		poo.position = $Armature/Marker3D.global_position
 		var timer = Timer.new()
 		timer.one_shot = true
 		timer.wait_time = 1
@@ -189,7 +189,7 @@ func play_wind_audio():
 	else:
 		$WindAudio.volume_db = WIND_SOUND_MIN - WIND_SOUND_MIN * (position.y - WIND_SOUND_Y_MIN) / (WIND_SOUND_Y_MAX - WIND_SOUND_Y_MIN)
 		if !$WindAudio.playing: $WindAudio.play()
-			
+	#pass
 	#if play and !$WindAudio.playing:
 		#$WindAudio.play()
 	#elif !play and $WindAudio.playing:

@@ -24,3 +24,6 @@ func _on_body_entered(body):
 			collide_with_white_vehicle.emit()
 			
 	self.queue_free()
+
+func give_force(direction):
+	apply_central_impulse(direction)

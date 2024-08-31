@@ -1,5 +1,9 @@
-AudioStreamPlayer
 AudioStreamPlayer3D
+AudioStreamPlayer
+MeshInstance3D
+Camera3D
+CollisionShape3D
+RigidBody3D
 Marker3D
 CanvasLayer
 Timer
@@ -8,7 +12,3 @@ RichTextLabel
 Area3D
 VehicleBody3D
 Node3D
-MeshInstance3D
-PathFollow3D
-Path3D
-Camera3D
