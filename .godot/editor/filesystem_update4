@@ -11,6 +11,4 @@ res://scences/general/TimeLeft.tscn
 res://scences/test/force_test.tscn
 res://scences/test/random_path.tscn
 res://scences/cars/red_car.tscn
-res://scences/birds/seagull.gd
 res://scences/kit/cars/sedan-sports.tscn
-res://scences/maps/town/town.gd

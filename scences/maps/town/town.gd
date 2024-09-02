@@ -1,6 +1,6 @@
 extends Node3D
 
-const Veichle_Speed := 3.2
+const Veichle_Speed := 5.2
 const Veichle_Total_Count := 98
 
 var PathDispatcher = preload("res://general/path_dispatcher.gd")
