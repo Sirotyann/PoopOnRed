@@ -8,16 +8,19 @@ var poops = []
 func _ready():
 	poops = [$poop0, $poop1, $poop2]
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
 
 func add(num):
 	if count < MAX_COUNT:
-		poops[count].visible = true
-		count += 1
+		count = min(3, count + num)
+		refresh_status()
 	
 func minus(num):
-	count -= 1
-	poops[count].visible = false
+	count = max(0, count - num)
+	refresh_status()
+	
+func refresh_status():
+	for i in poops.size():
+		poops[i].visible = (i < count)

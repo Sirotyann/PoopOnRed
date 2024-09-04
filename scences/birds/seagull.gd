@@ -165,7 +165,7 @@ func recover_guesture(delta):
 
 # --- excrete ---
 func shoot():
-	if can_excrete:
+	if can_excrete and $CanvasLayer/PoopPanel.count > 0:
 		var poo: RigidBody3D = Poop.instantiate()
 		poo.rotation = self.rotation
 		#poo.linear_velocity = self.velocity
@@ -200,6 +200,7 @@ func hit_food(food):
 	print('food!!')
 	print('get poop {n}'.format({'n': food.poop_value}))
 	$CanvasLayer/PoopPanel.add(food.poop_value)
+	food.queue_free()
 
 # --- status --- 
 func game_over():

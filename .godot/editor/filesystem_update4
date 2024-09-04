@@ -30,3 +30,12 @@ res://assets/mesh_lib/kaykit_city.tres
 res://assets/mesh_lib/buildings.tres
 res://assets/mesh_lib/decoration.tres
 res://scences/birds/poopPanel.gd
+res://scences/kit/food/croissant.tscn
+res://scences/kit/food/donut.tscn
+res://assets/shaders/glow.gdshader
+res://shaders/glow.gdshader
+res://scences/kit/food/taco.tscn
+res://scences/kit/food/fries.tscn
+res://scences/kit/food/hot_dog.tscn
+res://scences/kit/food/cake.tscn
+res://scences/kit/food/apple.tscn
