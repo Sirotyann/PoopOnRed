@@ -19,13 +19,16 @@ const DIVE_SPEED := 1.25
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+var default_gravity_speed = gravity
+var dive_speed_offset := 0.0 # dive 以后的速度加成
 
 var can_excrete = true
 
 var is_hover = false
 
+var is_debug = false
+
 func _ready():
-	$AnimationPlayer.play('fly')
 	$CanvasLayer/TimeLeft.connect("time_out", self.time_out)
 
 func _process(delta):
@@ -36,8 +39,11 @@ func _process(delta):
 	for index in get_slide_collision_count():
 		var collision = get_slide_collision(index)
 		var collider = collision.get_collider()
+		print(collider)
+		if collider.is_in_group('foood'):
+			hit_food(collider)
 		
-		if collider.is_in_group('moutain') or (collider.get_collision_layer and collider.get_collision_layer() == 1):
+		if collider.is_in_group('moutain') or (collider.get_collision_layer and (collider.get_collision_layer() == 1 or collider.get_collision_layer() == 3)):
 			game_over()
 			
 	# 切换视角
@@ -48,11 +54,8 @@ func _process(delta):
 		#print($Camera1.current)	
 
 func _physics_process(delta):
-	# Add the gravity.
-	#if not is_on_floor():
-		#velocity.y -= gravity * delta
-		
 	var speed := 0.0 if is_hover else SPEED
+	var gravity_speed = default_gravity_speed / 10
 	
 	if Input.is_action_just_pressed("hover"):
 		is_hover = !is_hover
@@ -69,16 +72,33 @@ func _physics_process(delta):
 		recover_guesture(delta)
 		
 	if Input.is_action_pressed("up"):
+		$AnimationPlayer.play('fly')
 		climb(delta)
+		gravity_speed = gravity_speed / 2
+		if dive_speed_offset > 0:
+			dive_speed_offset -= delta
+			speed += dive_speed_offset
+		else:
+			dive_speed_offset = 0.0
+		
 	elif Input.is_action_pressed("down"):
 		dive(delta)
+		gravity_speed = gravity_speed * 1.2
+		dive_speed_offset = -velocity.y
+		#gravity_speed = gravity_speed
 	else:
 		recover_horizontal(delta)
-	
+		if dive_speed_offset > 0:
+			dive_speed_offset -= delta
+			speed += dive_speed_offset
+		else:
+			dive_speed_offset = 0.0
+			
 	var rotations = get_rotation_degrees()
 	var rotation_x = rotations[0]
 	var rotation_y = rotations[1]
 	var rotation_z = rotations[2]
+	
 	
 	velocity.z = -cos(deg_to_rad(rotation_y)) * speed
 	velocity.x = -sin(deg_to_rad(rotation_y)) * speed
@@ -86,8 +106,12 @@ func _physics_process(delta):
 	if position.y < MAX_FLY_HEIGHT:
 		velocity.y = sin(deg_to_rad(rotation_x)) * speed
 	else:
-		velocity.y = 0
-		 
+		velocity.y = 0.0
+
+	# Add the gravity.
+	if not is_on_floor():
+		velocity.y -= gravity_speed
+		
 	move_and_slide()
 	play_wind_audio()
 	
@@ -146,6 +170,7 @@ func shoot():
 		poo.rotation = self.rotation
 		#poo.linear_velocity = self.velocity
 		poo.give_force(self.velocity)
+		$CanvasLayer/PoopPanel.minus(1)
 		
 		can_excrete = false
 		poo.connect("collide_with_vehicle", self.poop_on_vehicle)
@@ -169,6 +194,12 @@ func poop_on_red_vehicle():
 
 func refresh_excrete():
 	can_excrete = true
+	
+# --- eat food ---
+func hit_food(food):
+	print('food!!')
+	print('get poop {n}'.format({'n': food.poop_value}))
+	$CanvasLayer/PoopPanel.add(food.poop_value)
 
 # --- status --- 
 func game_over():
@@ -194,3 +225,4 @@ func play_wind_audio():
 		#$WindAudio.play()
 	#elif !play and $WindAudio.playing:
 		#$WindAudio.stop()
+

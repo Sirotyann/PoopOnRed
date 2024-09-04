@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://2710fxcmuowk"
+path="res://.godot/imported/block-grass-large-slope.obj-ec2be4090207a23edfb743b1ece4deac.mesh"
+
+[deps]
+
+files=["res://.godot/imported/block-grass-large-slope.obj-ec2be4090207a23edfb743b1ece4deac.mesh"]
+
+source_file="res://assets/kit/kenney_platformer-kit/Models/OBJ format/block-grass-large-slope.obj"
+dest_files=["res://.godot/imported/block-grass-large-slope.obj-ec2be4090207a23edfb743b1ece4deac.mesh", "res://.godot/imported/block-grass-large-slope.obj-ec2be4090207a23edfb743b1ece4deac.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

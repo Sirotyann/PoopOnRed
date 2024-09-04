@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bolf86ynqhy35"
+path="res://.godot/imported/trap-spikes.obj-a5462dbabd322e3eb9f0db82926d50a1.mesh"
+
+[deps]
+
+files=["res://.godot/imported/trap-spikes.obj-a5462dbabd322e3eb9f0db82926d50a1.mesh"]
+
+source_file="res://assets/kit/kenney_platformer-kit/Models/OBJ format/trap-spikes.obj"
+dest_files=["res://.godot/imported/trap-spikes.obj-a5462dbabd322e3eb9f0db82926d50a1.mesh", "res://.godot/imported/trap-spikes.obj-a5462dbabd322e3eb9f0db82926d50a1.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

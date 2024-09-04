@@ -1,7 +1,7 @@
 [gd_scene load_steps=20 format=3 uid="uid://44c10cj7kn6o"]
 
 [ext_resource type="Script" path="res://scences/kit/cars/suv_white.gd" id="1_cvwri"]
-[ext_resource type="Texture2D" uid="uid://bhsokcjp6gnnk" path="res://resources/kit/suv_colormap.png" id="1_ryira"]
+[ext_resource type="Texture2D" uid="uid://bhsokcjp6gnnk" path="res://assets/kit/suv_colormap.png" id="1_ryira"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_niegn"]
 size = Vector3(0.389343, 0.38147, 0.771606)

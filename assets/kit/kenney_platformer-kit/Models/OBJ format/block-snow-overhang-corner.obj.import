@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bj0bq2nrg8w1h"
+path="res://.godot/imported/block-snow-overhang-corner.obj-96f4cbcd70d41eb06c56ab4d51bf096d.mesh"
+
+[deps]
+
+files=["res://.godot/imported/block-snow-overhang-corner.obj-96f4cbcd70d41eb06c56ab4d51bf096d.mesh"]
+
+source_file="res://assets/kit/kenney_platformer-kit/Models/OBJ format/block-snow-overhang-corner.obj"
+dest_files=["res://.godot/imported/block-snow-overhang-corner.obj-96f4cbcd70d41eb06c56ab4d51bf096d.mesh", "res://.godot/imported/block-snow-overhang-corner.obj-96f4cbcd70d41eb06c56ab4d51bf096d.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

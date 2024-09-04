@@ -25,7 +25,7 @@ var cars_to_add = []
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$BG.play()
-	$BG.volume_db = -30.0
+	$BG.volume_db = -10.0
 	#var suv_white = SUVWhite.instantiate()
 	for i in 2:
 		var red_sedan = Sedan.instantiate()

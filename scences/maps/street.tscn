@@ -1,9 +1,9 @@
 [gd_scene load_steps=10 format=3 uid="uid://bo2haq3yn3u2l"]
 
-[ext_resource type="MeshLibrary" uid="uid://caa1ag0kqpmf5" path="res://resources/mesh_lib/road.tres" id="1_nb8wf"]
+[ext_resource type="MeshLibrary" uid="uid://caa1ag0kqpmf5" path="res://assets/mesh_lib/road.tres" id="1_nb8wf"]
 [ext_resource type="Script" path="res://scences/maps/street.gd" id="1_q4a4h"]
 [ext_resource type="PackedScene" uid="uid://chvulfol2q5w5" path="res://scences/cars/red_car.tscn" id="2_71hov"]
-[ext_resource type="MeshLibrary" uid="uid://dl3xqra7746d5" path="res://resources/mesh_lib/kaykit_city.tres" id="3_015lo"]
+[ext_resource type="MeshLibrary" uid="uid://dl3xqra7746d5" path="res://assets/mesh_lib/kaykit_city.tres" id="3_015lo"]
 [ext_resource type="PackedScene" uid="uid://cnswya7xxnln5" path="res://dove.tscn" id="4_w6hqx"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6ot5k"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://cgtot8oohdcg1"]
 
-[ext_resource type="Texture2D" uid="uid://bak4o0bh1o10t" path="res://resources/kit/kenney_car-kit/Models/GLB format/Textures/colormap.png" id="1_t5s00"]
+[ext_resource type="Texture2D" uid="uid://bak4o0bh1o10t" path="res://assets/kit/kenney_car-kit/Models/GLB format/Textures/colormap.png" id="1_t5s00"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_chokx"]
 size = Vector3(0.417145, 0.475891, 0.952667)

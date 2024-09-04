@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://7c6mormabwn1"]
 
-[ext_resource type="Texture2D" uid="uid://bak4o0bh1o10t" path="res://resources/kit/kenney_car-kit/Models/GLB format/Textures/colormap.png" id="1_p35fx"]
+[ext_resource type="Texture2D" uid="uid://bak4o0bh1o10t" path="res://assets/kit/kenney_car-kit/Models/GLB format/Textures/colormap.png" id="1_p35fx"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l8bmj"]
 resource_name = "colormap"

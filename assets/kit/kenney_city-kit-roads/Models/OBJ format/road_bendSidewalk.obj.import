@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://5bcjjy4yvw4w"
+path="res://.godot/imported/road_bendSidewalk.obj-402320aa7d09286fa70aac55e71bd467.mesh"
+
+[deps]
+
+files=["res://.godot/imported/road_bendSidewalk.obj-402320aa7d09286fa70aac55e71bd467.mesh"]
+
+source_file="res://assets/kit/kenney_city-kit-roads/Models/OBJ format/road_bendSidewalk.obj"
+dest_files=["res://.godot/imported/road_bendSidewalk.obj-402320aa7d09286fa70aac55e71bd467.mesh", "res://.godot/imported/road_bendSidewalk.obj-402320aa7d09286fa70aac55e71bd467.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

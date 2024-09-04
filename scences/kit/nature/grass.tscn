@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bfsdfjk87ep80"]
 
-[ext_resource type="PackedScene" uid="uid://x8my85430fyw" path="res://resources/kit/start_kit/grass.glb" id="1_0ur2o"]
+[ext_resource type="PackedScene" uid="uid://x8my85430fyw" path="res://assets/kit/start_kit/grass.glb" id="1_0ur2o"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pnwe1"]
 size = Vector3(1, 0.0575562, 1)

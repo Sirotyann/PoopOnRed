@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://ce1j8vik2cjbf"]
+
+[ext_resource type="Script" path="res://scences/birds/poopPanel.gd" id="1_sm26s"]
+[ext_resource type="Texture2D" uid="uid://cyhvasqel6w36" path="res://assets/images/poop.png" id="2_8ivxn"]
+
+[node name="PoopPanel" type="Node2D"]
+script = ExtResource("1_sm26s")
+metadata/_edit_horizontal_guides_ = [230.0]
+
+[node name="poop0" type="Sprite2D" parent="."]
+position = Vector2(30, 30)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_8ivxn")
+
+[node name="poop1" type="Sprite2D" parent="."]
+position = Vector2(60, 30)
+scale = Vector2(0.3, 0.297036)
+texture = ExtResource("2_8ivxn")
+
+[node name="poop2" type="Sprite2D" parent="."]
+position = Vector2(90, 30)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_8ivxn")

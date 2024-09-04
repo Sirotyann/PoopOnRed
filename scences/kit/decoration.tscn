@@ -1,8 +1,8 @@
 [gd_scene load_steps=18 format=3 uid="uid://dj2ctcaqjpqjd"]
 
-[ext_resource type="Texture2D" uid="uid://cx1ljoyr6smwn" path="res://resources/kit/KayKit_City_Builder/Assets/gltf/citybits_texture.png" id="1_me78y"]
-[ext_resource type="Texture2D" uid="uid://cgbkjiq08gaay" path="res://resources/kit/start_kit/Textures/colormap.png" id="2_u0rac"]
-[ext_resource type="Texture2D" uid="uid://dp7cr32oxjt2f" path="res://resources/kit/kenney_platformer-kit/Models/GLB format/Textures/colormap.png" id="3_pp5a2"]
+[ext_resource type="Texture2D" uid="uid://cx1ljoyr6smwn" path="res://assets/kit/KayKit_City_Builder/Assets/gltf/citybits_texture.png" id="1_me78y"]
+[ext_resource type="Texture2D" uid="uid://cgbkjiq08gaay" path="res://assets/kit/start_kit/Textures/colormap.png" id="2_u0rac"]
+[ext_resource type="Texture2D" uid="uid://dp7cr32oxjt2f" path="res://assets/kit/kenney_platformer-kit/Models/GLB format/Textures/colormap.png" id="3_pp5a2"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w3lb7"]
 resource_name = "citybits_texture"
