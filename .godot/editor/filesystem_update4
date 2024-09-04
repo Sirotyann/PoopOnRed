@@ -39,3 +39,5 @@ res://scences/kit/food/fries.tscn
 res://scences/kit/food/hot_dog.tscn
 res://scences/kit/food/cake.tscn
 res://scences/kit/food/apple.tscn
+res://scences/test/test_add_child.tscn
+res://scences/test/test_add_child.gd

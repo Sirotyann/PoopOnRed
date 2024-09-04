@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://cmbya6u4ad56g"]
+[gd_scene load_steps=41 format=3 uid="uid://cmbya6u4ad56g"]
 
 [ext_resource type="Script" path="res://scences/maps/town/town.gd" id="1_v46mq"]
 [ext_resource type="MeshLibrary" uid="uid://dl3xqra7746d5" path="res://assets/mesh_lib/kaykit_city.tres" id="2_8frsx"]
@@ -16,21 +16,12 @@
 [ext_resource type="Texture2D" uid="uid://r4p6mkqnppep" path="res://scences/maps/town/town_slot1_albedo_bump.png" id="11_151pb"]
 [ext_resource type="MeshLibrary" uid="uid://bl56je43h6t68" path="res://assets/mesh_lib/decoration.tres" id="11_sarhb"]
 [ext_resource type="Texture2D" uid="uid://bobbnp3nrg7lp" path="res://scences/maps/town/town_slot2_albedo_bump.png" id="12_ln2h0"]
-[ext_resource type="PackedScene" uid="uid://bnuu85k6ju73p" path="res://scences/kit/food/donut.tscn" id="13_0yup4"]
-[ext_resource type="PackedScene" uid="uid://do18j1arfb5hn" path="res://scences/kit/food/fries.tscn" id="13_74npf"]
-[ext_resource type="PackedScene" uid="uid://b4rk7ordk504p" path="res://scences/kit/food/cake.tscn" id="13_472nd"]
-[ext_resource type="PackedScene" uid="uid://c5l03qjar3qv4" path="res://scences/kit/food/taco.tscn" id="13_g3bqy"]
-[ext_resource type="PackedScene" uid="uid://d4hussr0h0u8s" path="res://scences/kit/food/pizza.tscn" id="13_mrnpk"]
-[ext_resource type="PackedScene" uid="uid://btwwxc3dlfe06" path="res://scences/kit/food/apple.tscn" id="13_np6d3"]
 [ext_resource type="Texture2D" uid="uid://dhwsixj5ctps3" path="res://scences/maps/town/town_slot3_albedo_bump.png" id="13_p1ntw"]
-[ext_resource type="PackedScene" uid="uid://d0uk04n8owk5e" path="res://scences/kit/food/croissant.tscn" id="13_w1b3r"]
 [ext_resource type="PackedScene" uid="uid://dejgjwi0epnnj" path="res://scences/kit/buildings/sky_60.tscn" id="16_8fug5"]
 [ext_resource type="Texture2D" uid="uid://byhy0iac748tx" path="res://scences/maps/town/town_slot2_normal_roughness.png" id="16_oaw4o"]
 [ext_resource type="PackedScene" uid="uid://bqvahti2j4sbq" path="res://scences/kit/buildings/sky_30.tscn" id="17_7at7y"]
 [ext_resource type="Texture2D" uid="uid://he65psked2bv" path="res://scences/maps/town/town_slot3_normal_roughness.png" id="17_cpwsa"]
-[ext_resource type="PackedScene" uid="uid://bylm2jmfl8iuf" path="res://scences/kit/food/hot_dog.tscn" id="19_3yknc"]
 [ext_resource type="AudioStream" uid="uid://7sdom7ls4dq1" path="res://audios/Fate-from-Above-ext.ogg" id="23_knnat"]
-[ext_resource type="PackedScene" uid="uid://3g2ob3xoqeme" path="res://scences/kit/food/burger.tscn" id="23_w24ow"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_uhokj"]
 sky_top_color = Color(0.101961, 0.45098, 0.807843, 1)
@@ -553,43 +544,52 @@ transform = Transform3D(-4.37114e-08, 3.48786e-16, 1, 3.48786e-16, 1, -3.48786e-
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.22716, 0)
 curve = SubResource("Curve3D_jvdbv")
 
-[node name="Food" type="Node3D" parent="Container"]
+[node name="FoodCoords" type="Node3D" parent="Container"]
 
-[node name="apple" parent="Container/Food" instance=ExtResource("13_np6d3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.6188, 5.32251, 1.42738)
-visible = false
+[node name="Marker01" type="Marker3D" parent="Container/FoodCoords"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.990158, 10.8474, -19.5482)
 
-[node name="cake" parent="Container/Food" instance=ExtResource("13_472nd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.3864, 6.34173, 0)
-visible = false
+[node name="Marker02" type="Marker3D" parent="Container/FoodCoords"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.3562, 2.98312, -60.8138)
 
-[node name="fries" parent="Container/Food" instance=ExtResource("13_74npf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60.3217, 5.4806, -11.5405)
-visible = false
+[node name="Marker03" type="Marker3D" parent="Container/FoodCoords"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.4334, 4.16519, 22.0738)
 
-[node name="taco" parent="Container/Food" instance=ExtResource("13_g3bqy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 67.1358, 5.31096, 0.765381)
-visible = false
+[node name="Marker04" type="Marker3D" parent="Container/FoodCoords"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 28, 8)
 
-[node name="burger" parent="Container/Food" instance=ExtResource("23_w24ow")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68.0714, 4.1874, -3.48105)
-visible = false
+[node name="Marker05" type="Marker3D" parent="Container/FoodCoords"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.73698, 5.98816, 22.1245)
 
-[node name="pizza" parent="Container/Food" instance=ExtResource("13_mrnpk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66.9491, 3.88895, 4.55621)
-visible = false
+[node name="Marker06" type="Marker3D" parent="Container/FoodCoords"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.463, 28, -16.937)
 
-[node name="donut" parent="Container/Food" instance=ExtResource("13_0yup4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66.6963, 3.40775, 0)
-visible = false
+[node name="Marker07" type="Marker3D" parent="Container/FoodCoords"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.576, 28, 40.826)
 
-[node name="croissant" parent="Container/Food" instance=ExtResource("13_w1b3r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68.3848, 4.35264, 1.35666)
-visible = false
+[node name="Marker08" type="Marker3D" parent="Container/FoodCoords"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.571, 32, -61.285)
 
-[node name="hot-dog" parent="Container/Food" instance=ExtResource("19_3yknc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 69.8183, 10.6161, 0)
-visible = false
+[node name="Marker09" type="Marker3D" parent="Container/FoodCoords"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50.354, 15, 42.768)
+
+[node name="Marker10" type="Marker3D" parent="Container/FoodCoords"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.1453, 3.97865, 45.1255)
+
+[node name="Marker11" type="Marker3D" parent="Container/FoodCoords"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.951, 25, -17.624)
+
+[node name="Marker12" type="Marker3D" parent="Container/FoodCoords"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.604, 6.47005, 57.519)
+
+[node name="Marker13" type="Marker3D" parent="Container/FoodCoords"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.8821, 2.89353, 21.6614)
+
+[node name="Marker14" type="Marker3D" parent="Container/FoodCoords"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.981, 5.43329, -32.7759)
+
+[node name="Marker15" type="Marker3D" parent="Container/FoodCoords"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.8001, 21.0893, 8.44373)
 
 [node name="HTerrain" type="Node3D" parent="." groups=["moutain"]]
 transform = Transform3D(1, 0, 0, 0, 1.8, 0, 0, 0, 1, 2.08165e-12, 1, 2.08165e-12)

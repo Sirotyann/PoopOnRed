@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scences/kit/food/Food.gd" id="1_7if7b"]
 [ext_resource type="Texture2D" uid="uid://co64cnw55xgr5" path="res://assets/kit/kenney_food/Textures/colormap.png" id="2_ubqmn"]
-[ext_resource type="Shader" path="res://shaders/glow.gdshader" id="3_s162b"]
+[ext_resource type="Shader" path="res://shaders/glow.gdshader" id="3_6cdce"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_vfp8r"]
 
@@ -48,7 +48,7 @@ shadow_mesh = SubResource("ArrayMesh_m3wf6")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fe2af"]
 render_priority = 0
-shader = ExtResource("3_s162b")
+shader = ExtResource("3_6cdce")
 shader_parameter/albedo = Color(0.933333, 0.694118, 0.533333, 1)
 shader_parameter/emission_color = null
 shader_parameter/emission_amount = 5.0

@@ -2,13 +2,13 @@
 
 [ext_resource type="Script" path="res://scences/test/force_test.gd" id="1_dmu8l"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_juq81"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jymn0"]
 albedo_color = Color(0.690196, 0.690196, 0.690196, 1)
 metallic = 0.59
 metallic_specular = 0.55
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_j8w6j"]
-material = SubResource("StandardMaterial3D_juq81")
+material = SubResource("StandardMaterial3D_jymn0")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ul3ox"]
 size = Vector3(13.7711, 0.0443726, 10.2012)
