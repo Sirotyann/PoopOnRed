@@ -1,6 +1,7 @@
+res://assets/images
+res://
 res://scences/kit/food
 res://shaders
-res://assets/images
 res://audios
 res://scences/birds
 res://scences/kit/cars
@@ -10,6 +11,5 @@ res://scences/maps/town/map_data
 res://scences/kit/nature
 res://scences/maps/town
 res://scences/kit
-res://
 res://t_data
 res://scences/cars

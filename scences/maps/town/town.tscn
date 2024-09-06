@@ -643,4 +643,7 @@ fov = 133.623
 [node name="BG" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("23_knnat")
 
+[connection signal="completed" from="Container/seagull" to="." method="_on_seagull_completed"]
+[connection signal="dead" from="Container/seagull" to="." method="_on_seagull_dead"]
+[connection signal="timeout" from="Container/seagull" to="." method="_on_seagull_timeout"]
 [connection signal="finished" from="BG" to="." method="_on_bg_finished"]

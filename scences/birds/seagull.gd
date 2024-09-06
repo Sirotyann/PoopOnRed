@@ -1,6 +1,8 @@
 extends CharacterBody3D
 
-signal point_increase
+signal completed
+signal dead
+signal timeout
 
 var Poop = preload("res://scences/birds/poop.tscn")
 
@@ -44,7 +46,7 @@ func _process(delta):
 			hit_food(collider)
 		
 		if collider.is_in_group('moutain') or (collider.get_collision_layer and (collider.get_collision_layer() == 1 or collider.get_collision_layer() == 3)):
-			game_over()
+			dead.emit()
 			
 	# 切换视角
 	if Input.is_action_just_pressed("SwitchCamera"):
@@ -191,6 +193,7 @@ func poop_on_vehicle():
 
 func poop_on_red_vehicle():
 	print('Poop on RED Car!!')
+	completed.emit()
 
 func refresh_excrete():
 	can_excrete = true
@@ -203,13 +206,15 @@ func hit_food(food):
 	food.queue_free()
 
 # --- status --- 
-func game_over():
-	print("Dead!")
-	get_tree().paused = true
+#func game_over():
+	#print("Dead!")
+	#get_tree().paused = true
+	#get_tree().quit()
+	#get_tree().change_scene_to_file("res://scences/general/game_end.tscn")
 	
 func time_out():
-	print('time out')
-	game_over()
+	print('Timeout')
+	timeout.emit()
 
 # --- sound ---
 func play_wind_audio():

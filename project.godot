@@ -11,9 +11,14 @@ config_version=5
 [application]
 
 config/name="Drop"
-run/main_scene="res://scences/maps/town/town.tscn"
+run/main_scene="res://main.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
 
 [editor_plugins]
 
@@ -78,3 +83,7 @@ debug={
 3d_physics/layer_3="car"
 3d_physics/layer_4="poop"
 3d_physics/layer_5="food"
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"

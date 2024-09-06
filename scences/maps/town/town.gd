@@ -1,7 +1,7 @@
 extends Node3D
 
 const Veichle_Speed := 5.2
-const Veichle_Total_Count := 98
+const Veichle_Total_Count := 68
 
 var PathDispatcher = preload("res://general/path_dispatcher.gd")
 
@@ -84,3 +84,19 @@ func _process(delta):
 
 func _on_bg_finished():
 	$BG.play()
+
+
+func _on_seagull_completed():
+	print("Congra")
+	get_tree().change_scene_to_file("res://scences/general/completed.tscn")
+	pass # Replace with function body.
+
+func _on_seagull_dead():
+	print('dead')
+	#get_tree().change_scene_to_file("res://scences/general/gameover.tscn")
+	get_tree().change_scene_to_file.bind("res://scences/general/gameover.tscn").call_deferred()
+	pass # Replace with function body.
+
+func _on_seagull_timeout():
+	get_tree().change_scene_to_file.bind("res://scences/general/gameover.tsn").call_deferred()
+	pass # Replace with function body.
