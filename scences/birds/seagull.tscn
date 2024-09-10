@@ -218,9 +218,11 @@ transform = Transform3D(1, 0, 8.63099e-23, -3.04919e-23, -4.37114e-08, 1, 0, -1,
 follow_viewport_enabled = true
 
 [node name="PoopPanel" parent="CanvasLayer" instance=ExtResource("2_jelsa")]
+position = Vector2(91, -2)
 
 [node name="TimeLeft" parent="CanvasLayer" instance=ExtResource("2_jq2j0")]
-position = Vector2(1074, 5)
+position = Vector2(18, 8)
+scale = Vector2(1.08, 1.16)
 
 [node name="WindAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_4nw0m")

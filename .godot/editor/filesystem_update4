@@ -1,4 +1,4 @@
-res://scences/general/completed.tscn
+res://scences/maps/town/town.tscn
 res://scences/birds/poop.gd
 res://shaders/glow.gdshader
 res://assets/mesh_lib/kaykit_city.tres
@@ -6,10 +6,7 @@ res://assets/mesh_lib/buildings.tres
 res://assets/mesh_lib/decoration.tres
 res://scences/maps/street.gdshader
 res://scences/maps/town/town.gdshader
-res://scences/general/gameover.tscn
-res://scences/general/gameover.gd
-res://scences/maps/town/town.tscn
-res://scences/maps/town/town.gd
-res://main.tscn
-res://scences/general/completed.gd
 res://scences/birds/seagull.tscn
+res://scences/test/random_path.tscn
+res://scences/maps/town/town.gd
+res://general/path_dispatcher.gd

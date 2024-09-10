@@ -41,7 +41,6 @@ func _process(delta):
 	for index in get_slide_collision_count():
 		var collision = get_slide_collision(index)
 		var collider = collision.get_collider()
-		print(collider)
 		if collider.is_in_group('foood'):
 			hit_food(collider)
 		
@@ -57,7 +56,7 @@ func _process(delta):
 
 func _physics_process(delta):
 	var speed := 0.0 if is_hover else SPEED
-	var gravity_speed = default_gravity_speed / 10
+	var gravity_speed = 0.0 if is_hover else (default_gravity_speed / 10)
 	
 	if Input.is_action_just_pressed("hover"):
 		is_hover = !is_hover
@@ -100,7 +99,6 @@ func _physics_process(delta):
 	var rotation_x = rotations[0]
 	var rotation_y = rotations[1]
 	var rotation_z = rotations[2]
-	
 	
 	velocity.z = -cos(deg_to_rad(rotation_y)) * speed
 	velocity.x = -sin(deg_to_rad(rotation_y)) * speed
@@ -200,8 +198,6 @@ func refresh_excrete():
 	
 # --- eat food ---
 func hit_food(food):
-	print('food!!')
-	print('get poop {n}'.format({'n': food.poop_value}))
 	$CanvasLayer/PoopPanel.add(food.poop_value)
 	food.queue_free()
 

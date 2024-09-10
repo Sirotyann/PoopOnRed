@@ -1,7 +1,7 @@
 extends Node3D
 
 const Veichle_Speed := 5.2
-const Veichle_Total_Count := 68
+const Veichle_Total_Count := 80
 
 var PathDispatcher = preload("res://general/path_dispatcher.gd")
 
@@ -40,11 +40,14 @@ var cars_to_add = []
 	$Container/FoodCoords/Marker10, $Container/FoodCoords/Marker11, $Container/FoodCoords/Marker12,
 	$Container/FoodCoords/Marker13, $Container/FoodCoords/Marker14, $Container/FoodCoords/Marker15
 ]
-#var total_food_count := Normal_Food_Models.size() + Fantacy_Food_Models.size()
-#var remain_food_count := total_food_count
 
-# Called when the node enters the scene tree for the first time.
+@onready var veichle_paths = [
+	$Paths/Path00, $Paths/Path10, $Paths/Path11, $Paths/Path12, $Paths/Path13, $Paths/Path14, $Paths/Path15, $Paths/Path16,
+	$Paths/Path17, $Paths/Path18, $Paths/Path19
+]
+
 func _ready():
+	#$Camera3D.set_current(true)
 	$BG.play()
 	$BG.volume_db = -10.0
 	
@@ -58,7 +61,7 @@ func _ready():
 		cars_to_add.push_back(model.instantiate())
 	
 	path_dispatcher = PathDispatcher.new()
-	path_dispatcher.init($Paths.get_children(), cars_to_add, Veichle_Speed)
+	path_dispatcher.init(veichle_paths, cars_to_add, Veichle_Speed)
 	add_child(path_dispatcher)
 	
 	init_foods()
@@ -69,22 +72,19 @@ func init_foods():
 		var food = Fantacy_Food_Models[i].instantiate()
 		add_child(food)
 		food.position = Fantacy_Food_Model_COORDS[i].global_position
-		print('fantasy', food, food.position)
 		
 	Normal_Food_Model_COORDS.shuffle()
 	for i in Normal_Food_Models.size():
 		var food = Normal_Food_Models[i].instantiate()
 		add_child(food)
 		food.position = Normal_Food_Model_COORDS[i].global_position
-		print('normal', food, food.position)
 	
 func _process(delta):
+	#$Paths/Path12/PathFollow3D.progress += 0.2
 	pass
-
 
 func _on_bg_finished():
 	$BG.play()
-
 
 func _on_seagull_completed():
 	print("Congra")

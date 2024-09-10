@@ -13,8 +13,8 @@ var Van = preload("res://scences/kit/cars/van.tscn")
 @onready var paths = [$Path3D, $Path3D2, $Path3D3]
 @onready var Veichle_Models = [ Delivery, SUV ]
 
-const Veichle_Speed := 3.0
-const Veichle_Total_Count := 5
+const Veichle_Speed := 13.0
+const Veichle_Total_Count := 10
 
 var follows = []
 
@@ -30,22 +30,22 @@ func _ready():
 		var index = randi_range(0, Veichle_Models.size() - 1)
 		var model = Veichle_Models[index]
 		cars_to_add.push_back(model.instantiate())
-		
-	#follow_random_path(suv_0, paths)
-	path_dispatcher = PathDispatcher.new()
-	path_dispatcher.init([$Paths/Path3D], cars_to_add, Veichle_Speed)
-	add_child(path_dispatcher)
+	
+	#path_dispatcher = PathDispatcher.new()
+	#path_dispatcher.init([$Paths/Path3D, $Paths/Path3D2], cars_to_add, Veichle_Speed)
+	#add_child(path_dispatcher)
 	pass
 	
 ## Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	$Path3D/PathFollow3D.progress += delta * Veichle_Speed
+	pass
 				
-func add_car():
-	var car = cars_to_add.pop_back()
-	if car != null: 
-		path_dispatcher.add_item(car)
-	
+#func add_car():
+	#var car = cars_to_add.pop_back()
+	#if car != null: 
+		#path_dispatcher.add_item(car)
+	#
 	
 #func get_follow_from_path(path):
 	#var children = path.get_children()

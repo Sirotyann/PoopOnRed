@@ -1,3 +1,6 @@
+Path3D
+PathFollow3D
+Node3D
 Control
 Container
 Button
@@ -7,9 +10,5 @@ Marker3D
 CollisionShape3D
 MeshInstance3D
 Food
-Node3D
 Sprite2D
 Marker2D
-Node2D
-WorldEnvironment
-Area3D
