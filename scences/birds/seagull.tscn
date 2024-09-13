@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://cl280gxenqt7a"]
+[gd_scene load_steps=15 format=3 uid="uid://cl280gxenqt7a"]
 
 [ext_resource type="Script" path="res://scences/birds/seagull.gd" id="1_mdl4l"]
 [ext_resource type="AudioStream" uid="uid://dasq7fksviibh" path="res://audios/howling-wind.ogg" id="2_4nw0m"]
 [ext_resource type="PackedScene" uid="uid://ce1j8vik2cjbf" path="res://scences/birds/poopPanel.tscn" id="2_jelsa"]
 [ext_resource type="PackedScene" uid="uid://bt2uqmihgvcan" path="res://scences/general/TimeLeft.tscn" id="2_jq2j0"]
-[ext_resource type="AudioStream" uid="uid://cne6yyakbe4e0" path="res://audios/bird_01.ogg" id="4_qm7is"]
+[ext_resource type="Texture2D" uid="uid://b71ocjsuq2jul" path="res://assets/images/damage.png" id="4_i4eqc"]
+[ext_resource type="AudioStream" uid="uid://bwhr4bk7a2h2c" path="res://audios/success.mp3" id="5_ro0w1"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e6tyd"]
 resource_name = "Material.001"
@@ -117,6 +118,40 @@ _data = {
 [sub_resource type="BoxShape3D" id="BoxShape3D_48aya"]
 size = Vector3(0.108637, 0.0348493, 0.108317)
 
+[sub_resource type="Animation" id="Animation_suqx6"]
+resource_name = "damage"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("damage_bg:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 1.5),
+"transitions": PackedFloat32Array(0.34151, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.8), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("damage_bg:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 1.5),
+"transitions": PackedFloat32Array(0.450625, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.815686), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v1j6a"]
+_data = {
+"damage": SubResource("Animation_suqx6")
+}
+
 [node name="seagull" type="CharacterBody3D"]
 transform = Transform3D(-1, 3.48787e-16, -8.74228e-08, 3.48787e-16, 1, -3.48787e-16, 8.74228e-08, -3.48787e-16, -1, 0, 0, 0)
 collision_layer = 2
@@ -224,13 +259,24 @@ position = Vector2(91, -2)
 position = Vector2(18, 8)
 scale = Vector2(1.08, 1.16)
 
+[node name="CanvasAnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
+libraries = {
+"": SubResource("AnimationLibrary_v1j6a")
+}
+
+[node name="damage_bg" type="TextureRect" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0)
+offset_right = 1156.0
+offset_bottom = 651.0
+texture = ExtResource("4_i4eqc")
+
 [node name="WindAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_4nw0m")
 volume_db = -80.0
 
-[node name="Bird01Audio" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_qm7is")
-volume_db = 2.5
+[node name="SuccessAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_ro0w1")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3

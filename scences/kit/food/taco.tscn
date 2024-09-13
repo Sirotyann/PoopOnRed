@@ -61,6 +61,7 @@ material = SubResource("ShaderMaterial_t276p")
 collision_layer = 16
 collision_mask = 2
 script = ExtResource("1_osf6b")
+poop_value = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_1vn5m")

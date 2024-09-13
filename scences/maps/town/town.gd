@@ -1,7 +1,7 @@
 extends Node3D
 
 const Veichle_Speed := 5.2
-const Veichle_Total_Count := 80
+const Veichle_Total_Count := 70
 
 var PathDispatcher = preload("res://general/path_dispatcher.gd")
 
@@ -33,7 +33,7 @@ var cars_to_add = []
 @onready var Veichle_Models = [Delivery, SUV, Texi, Truck, Van, SUVWhite]
 @onready var Fantacy_Food_Models = [Cake, Burger, Pizza]
 @onready var Fantacy_Food_Model_COORDS = [$Container/FoodCoords/Marker01, $Container/FoodCoords/Marker02, $Container/FoodCoords/Marker03]
-@onready var Normal_Food_Models = [Apple, Coissant, Donut, Fires, Hotdog, Taco]
+@onready var Normal_Food_Models = [Apple, Coissant, Donut, Fires, Hotdog, Taco, Fires, Pizza]
 @onready var Normal_Food_Model_COORDS = [
 	$Container/FoodCoords/Marker04, $Container/FoodCoords/Marker05, $Container/FoodCoords/Marker06,
 	$Container/FoodCoords/Marker07, $Container/FoodCoords/Marker08, $Container/FoodCoords/Marker09,
@@ -45,11 +45,13 @@ var cars_to_add = []
 	$Paths/Path00, $Paths/Path10, $Paths/Path11, $Paths/Path12, $Paths/Path13, $Paths/Path14, $Paths/Path15, $Paths/Path16,
 	$Paths/Path17, $Paths/Path18, $Paths/Path19
 ]
+#@onready var veichle_paths = [ $Paths/Path10 ]
 
 func _ready():
 	#$Camera3D.set_current(true)
-	$BG.play()
-	$BG.volume_db = -10.0
+	
+	#$BG.play()
+	#$BG.volume_db = -10.0
 	
 	for i in 2:
 		var red_sedan = Sedan.instantiate()
@@ -98,5 +100,6 @@ func _on_seagull_dead():
 	pass # Replace with function body.
 
 func _on_seagull_timeout():
-	get_tree().change_scene_to_file.bind("res://scences/general/gameover.tsn").call_deferred()
+	print('TIMEOUT')
+	get_tree().change_scene_to_file.bind("res://scences/general/gameover.tscn").call_deferred()
 	pass # Replace with function body.

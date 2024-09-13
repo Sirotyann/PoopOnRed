@@ -1,4 +1,4 @@
-res://scences/maps/town/town.tscn
+res://scences/birds/seagull.tscn
 res://scences/birds/poop.gd
 res://shaders/glow.gdshader
 res://assets/mesh_lib/kaykit_city.tres
@@ -6,7 +6,14 @@ res://assets/mesh_lib/buildings.tres
 res://assets/mesh_lib/decoration.tres
 res://scences/maps/street.gdshader
 res://scences/maps/town/town.gdshader
-res://scences/birds/seagull.tscn
+res://scences/kit/cars/truck.tscn
 res://scences/test/random_path.tscn
+res://scences/maps/town/town.tscn
+res://scences/kit/food/donut.tscn
+res://scences/kit/food/fries.tscn
+res://scences/kit/food/pizza.tscn
+res://scences/kit/food/taco.tscn
+res://scences/kit/food/hot_dog.tscn
+res://scences/kit/food/burger.tscn
+res://scences/kit/food/croissant.tscn
 res://scences/maps/town/town.gd
-res://general/path_dispatcher.gd

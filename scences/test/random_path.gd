@@ -31,14 +31,14 @@ func _ready():
 		var model = Veichle_Models[index]
 		cars_to_add.push_back(model.instantiate())
 	
-	#path_dispatcher = PathDispatcher.new()
-	#path_dispatcher.init([$Paths/Path3D, $Paths/Path3D2], cars_to_add, Veichle_Speed)
-	#add_child(path_dispatcher)
+	path_dispatcher = PathDispatcher.new()
+	path_dispatcher.init([$Path3D, $Path3D2], cars_to_add, Veichle_Speed)
+	add_child(path_dispatcher)
 	pass
 	
 ## Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	$Path3D/PathFollow3D.progress += delta * Veichle_Speed
+	#$Path3D/PathFollow3D.progress += delta * Veichle_Speed
 	pass
 				
 #func add_car():

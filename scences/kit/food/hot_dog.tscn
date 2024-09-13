@@ -127,6 +127,7 @@ material = SubResource("ShaderMaterial_fp5m3")
 collision_layer = 16
 collision_mask = 2
 script = ExtResource("1_hgil4")
+poop_value = 2
 
 [node name="hot-dog" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.895106, -0.414771, 0.163558, 0.445854, 0.832702, -0.328363, 0, 0.366842, 0.930283, 0, 0, 0)

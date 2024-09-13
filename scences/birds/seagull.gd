@@ -20,7 +20,7 @@ const CLIMB_SPEED := 0.3
 const DIVE_SPEED := 1.25
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+var gravity = ProjectSettings.get_setting("physics/3d/default_gravity") * 0.7
 var default_gravity_speed = gravity
 var dive_speed_offset := 0.0 # dive 以后的速度加成
 
@@ -32,7 +32,9 @@ var is_debug = false
 
 func _ready():
 	$CanvasLayer/TimeLeft.connect("time_out", self.time_out)
-
+	$CanvasLayer/TimeLeft.connect("danger_warning", self.danger_warning)
+	$CanvasLayer/TimeLeft.connect("danger_warning_cancel", self.danger_warning_cancel)
+	
 func _process(delta):
 	if Input.is_action_pressed("shoot"):
 		shoot()
@@ -113,7 +115,7 @@ func _physics_process(delta):
 		velocity.y -= gravity_speed
 		
 	move_and_slide()
-	play_wind_audio()
+	#play_wind_audio()
 	
 func rotate_body(x, y, z):
 	rotation.x = x
@@ -168,7 +170,6 @@ func shoot():
 	if can_excrete and $CanvasLayer/PoopPanel.count > 0:
 		var poo: RigidBody3D = Poop.instantiate()
 		poo.rotation = self.rotation
-		#poo.linear_velocity = self.velocity
 		poo.give_force(self.velocity)
 		$CanvasLayer/PoopPanel.minus(1)
 		
@@ -183,10 +184,11 @@ func shoot():
 		timer.timeout.connect(refresh_excrete)
 		add_child(timer)
 		timer.start();
+		
 
 func poop_on_vehicle():
 	$CanvasLayer/TimeLeft.increase_time(VEHICLE_TIME_AWARD)
-	$Bird01Audio.play()
+	$SuccessAudio.play()
 	print('Poop on Car!!')
 
 func poop_on_red_vehicle():
@@ -208,9 +210,16 @@ func hit_food(food):
 	#get_tree().quit()
 	#get_tree().change_scene_to_file("res://scences/general/game_end.tscn")
 	
-func time_out():
-	print('Timeout')
+func time_out(): 
 	timeout.emit()
+
+func danger_warning():
+	print('danger warning')
+	$CanvasLayer/CanvasAnimationPlayer.play("damage") 
+
+func danger_warning_cancel():
+	print('danger_warning_cancel')
+	$CanvasLayer/CanvasAnimationPlayer.stop()
 
 # --- sound ---
 func play_wind_audio():
@@ -222,9 +231,3 @@ func play_wind_audio():
 	else:
 		$WindAudio.volume_db = WIND_SOUND_MIN - WIND_SOUND_MIN * (position.y - WIND_SOUND_Y_MIN) / (WIND_SOUND_Y_MAX - WIND_SOUND_Y_MIN)
 		if !$WindAudio.playing: $WindAudio.play()
-	#pass
-	#if play and !$WindAudio.playing:
-		#$WindAudio.play()
-	#elif !play and $WindAudio.playing:
-		#$WindAudio.stop()
-

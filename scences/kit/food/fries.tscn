@@ -93,6 +93,7 @@ material = SubResource("ShaderMaterial_rx1my")
 collision_layer = 16
 collision_mask = 2
 script = ExtResource("1_3gton")
+poop_value = 2
 
 [node name="fries" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.121643, 0)

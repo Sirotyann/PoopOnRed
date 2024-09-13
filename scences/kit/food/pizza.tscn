@@ -301,7 +301,7 @@ shadow_mesh = SubResource("ArrayMesh_chupm")
 collision_layer = 16
 collision_mask = 2
 script = ExtResource("1_v0w2m")
-poop_value = 2
+poop_value = 3
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("SphereMesh_8r18y")
