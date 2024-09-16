@@ -1,7 +1,9 @@
 extends Node3D
 
 const Veichle_Speed := 5.2
-const Veichle_Total_Count := 10
+const Veichle_Total_Count := 100
+
+const Red_Car_count := 2
 
 var PathDispatcher = preload("res://general/path_dispatcher.gd")
 
@@ -53,7 +55,7 @@ func _ready():
 	$BG.play()
 	$BG.volume_db = -10.0
 	
-	for i in 3:
+	for i in Red_Car_count:
 		var red_sedan = Sedan.instantiate()
 		cars_to_add.push_back(red_sedan)
 		
