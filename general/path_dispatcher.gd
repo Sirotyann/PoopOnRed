@@ -41,6 +41,7 @@ func init(_paths, _items, _speed):
 		paths_offset.push_back(10.0)
 	
 	for it in items:
+		it.gravity_scale = 0
 		random_pick_path(it)
 
 func add_item(item):
@@ -60,7 +61,14 @@ func get_item_path_follow(item):
 	if(!item_path_follow_map.has(item_id)):
 		var follow = PathFollow3D.new()
 		follow.use_model_front = true
+		follow.cubic_interp = true
+		follow.loop = true
+		follow.tilt_enabled = false
+		#follow.position = Vector3(0, 0, 0)
+		#follow.rotation = Vector3(0, 0, 0)
 		follow.add_child(item)
+		item.rotation = Vector3(0, 0, 0)
+		item.position = Vector3(0, 0, 0)
 		item_path_follow_map[item_id] = follow
 		
 	return item_path_follow_map.get(item_id)

@@ -1,7 +1,7 @@
 extends Node3D
 
 const Veichle_Speed := 5.2
-const Veichle_Total_Count := 70
+const Veichle_Total_Count := 10
 
 var PathDispatcher = preload("res://general/path_dispatcher.gd")
 
@@ -45,15 +45,15 @@ var cars_to_add = []
 	$Paths/Path00, $Paths/Path10, $Paths/Path11, $Paths/Path12, $Paths/Path13, $Paths/Path14, $Paths/Path15, $Paths/Path16,
 	$Paths/Path17, $Paths/Path18, $Paths/Path19
 ]
-#@onready var veichle_paths = [ $Paths/Path10 ]
+#@onready var veichle_paths = [ $Paths/Path15 ]
 
 func _ready():
 	#$Camera3D.set_current(true)
 	
-	#$BG.play()
-	#$BG.volume_db = -10.0
+	$BG.play()
+	$BG.volume_db = -10.0
 	
-	for i in 2:
+	for i in 3:
 		var red_sedan = Sedan.instantiate()
 		cars_to_add.push_back(red_sedan)
 		
@@ -89,17 +89,10 @@ func _on_bg_finished():
 	$BG.play()
 
 func _on_seagull_completed():
-	print("Congra")
 	get_tree().change_scene_to_file("res://scences/general/completed.tscn")
-	pass # Replace with function body.
 
 func _on_seagull_dead():
-	print('dead')
-	#get_tree().change_scene_to_file("res://scences/general/gameover.tscn")
 	get_tree().change_scene_to_file.bind("res://scences/general/gameover.tscn").call_deferred()
-	pass # Replace with function body.
 
 func _on_seagull_timeout():
-	print('TIMEOUT')
 	get_tree().change_scene_to_file.bind("res://scences/general/gameover.tscn").call_deferred()
-	pass # Replace with function body.

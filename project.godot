@@ -84,6 +84,7 @@ debug={
 3d_physics/layer_3="car"
 3d_physics/layer_4="poop"
 3d_physics/layer_5="food"
+3d_physics/layer_6="moutains"
 
 [rendering]
 

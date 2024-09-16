@@ -1,0 +1,130 @@
+[gd_scene load_steps=22 format=3 uid="uid://6kxk5itmf6m8"]
+
+[ext_resource type="Script" path="res://scences/maps/cbd/cbd.gd" id="1_mbjr3"]
+[ext_resource type="PackedScene" uid="uid://44c10cj7kn6o" path="res://scences/kit/cars/suv_white.tscn" id="3_22lch"]
+[ext_resource type="Resource" path="res://scences/maps/cbd/map_data/data.hterrain" id="3_avfqk"]
+[ext_resource type="PackedScene" uid="uid://bqvahti2j4sbq" path="res://scences/kit/buildings/sky_30.tscn" id="8_escjk"]
+[ext_resource type="PackedScene" uid="uid://cl280gxenqt7a" path="res://scences/birds/seagull.tscn" id="12_cqbys"]
+[ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain.gd" id="13_vdhwi"]
+[ext_resource type="MeshLibrary" uid="uid://cd8x6g7cf1lnf" path="res://assets/mesh_lib/road.tres" id="14_wyp8e"]
+[ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="15_22l61"]
+[ext_resource type="Texture2D" uid="uid://8nb3p41nn1u1" path="res://scences/maps/town/town_slot0_albedo_bump.png" id="16_smsbd"]
+[ext_resource type="Texture2D" uid="uid://r4p6mkqnppep" path="res://scences/maps/town/town_slot1_albedo_bump.png" id="17_d008o"]
+[ext_resource type="Texture2D" uid="uid://bobbnp3nrg7lp" path="res://scences/maps/town/town_slot2_albedo_bump.png" id="18_he21v"]
+[ext_resource type="Texture2D" uid="uid://dhwsixj5ctps3" path="res://scences/maps/town/town_slot3_albedo_bump.png" id="19_5ky74"]
+[ext_resource type="Texture2D" uid="uid://byhy0iac748tx" path="res://scences/maps/town/town_slot2_normal_roughness.png" id="20_uab77"]
+[ext_resource type="Texture2D" uid="uid://he65psked2bv" path="res://scences/maps/town/town_slot3_normal_roughness.png" id="21_ct0xo"]
+[ext_resource type="AudioStream" uid="uid://7sdom7ls4dq1" path="res://audios/Fate-from-Above-ext.ogg" id="22_wxf40"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_uhokj"]
+sky_top_color = Color(0.101961, 0.45098, 0.807843, 1)
+sky_horizon_color = Color(0.937255, 0.941176, 0.909804, 1)
+ground_bottom_color = Color(0.180392, 0.290196, 0.196078, 1)
+
+[sub_resource type="Sky" id="Sky_oai38"]
+sky_material = SubResource("ProceduralSkyMaterial_uhokj")
+
+[sub_resource type="Environment" id="Environment_yqmpc"]
+background_mode = 2
+background_energy_multiplier = 1.01
+sky = SubResource("Sky_oai38")
+
+[sub_resource type="Curve3D" id="Curve3D_dilqr"]
+bake_interval = 0.01
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 193.285, -2.18, 194.717, 0, 0, 0, 0, 0, 0, 193.285, -2.18, 189.835, 0, 0, 0, 0, 0, 0, 193.621, -2.18, 189.347, 0, 0, 0, 0, 0, 0, 204.085, -2.18, 189.317, 0, 0, 0, 0, 0, 0, 204.726, -2.18, 189.713, 0, 0, 0, 0, 0, 0, 204.696, -2.18, 200.178, 0, 0, 0, 0, 0, 0, 205.672, -2.18, 201.368, 0, 0, 0, 0, 0, 0, 216.015, -2.18, 201.368, 0, 0, 0, 0, 0, 0, 217.204, -2.18, 200.483, 0, 0, 0, 0, 0, 0, 217.296, -2.18, 189.927, 0, 0, 0, 0, 0, 0, 217.601, -2.18, 189.347, 0, 0, 0, 0, 0, 0, 240.025, -2.18, 189.317, 0, 0, 0, 0, 0, 0, 240.697, -2.18, 189.744, 0, 0, 0, 0, 0, 0, 240.727, -2.18, 200.208, 0, 0, 0, 0, 0, 0, 240.239, -2.18, 200.697, 0, 0, 0, 0, 0, 0, 229.774, -2.18, 200.727, 0, 0, 0, 0, 0, 0, 228.706, -2.18, 201.673, 0, 0, 0, 0, 0, 0, 228.676, -2.18, 212.077, 0, 0, 0, 0, 0, 0, 228.31, -2.18, 212.717, 0, 0, 0, 0, 0, 0, 193.895, -2.18, 212.748, 0, 0, 0, 0, 0, 0, 193.285, -2.18, 212.229, 0, 0, 0, 0, 0, 0, 193.285, -2.18, 194.717),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 22
+
+[sub_resource type="Curve3D" id="Curve3D_phjyw"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -0.0354614, -0.0345089, 0.0295715, 0, 0, 0, 0, 0, 0, -0.0413971, -0.0344911, -4.79196, 0, 0, 0, 0, 0, 0, -1.11646, -0.0344911, -5.71771, 0, 0, 0, 0, 0, 0, -11.5384, -0.0344911, -5.7323, 0, 0, 0, 0, 0, 0, -12.6725, -0.0344911, -4.47217, 0, 0, 0, 0, 0, 0, -12.6473, -0.0344911, 17.7313, 0, 0, 0, 0, 0, 0, -13.1287, -0.0344911, 18.2908, 0, 0, 0, 0, 0, 0, -23.3345, -0.0344911, 18.2908, 0, 0, 0, 0, 0, 0, -24.0623, -0.0344911, 17.8675, 0, 0, 0, 0, 0, 0, -24.0623, -0.0344911, 7.56932, 0, 0, 0, 0, 0, 0, -25.2335, -0.0344911, 6.19623, 0, 0, 0, 0, 0, 0, -35.5269, -0.0344911, 6.2476, 0, 0, 0, 0, 0, 0, -47.5692, -0.0344911, 6.21442, 0, 0, 0, 0, 0, 0, -48.6458, -0.0344911, 7.06938, 0, 0, 0, 0, 0, 0, -48.583, -0.0344911, 18.7906, 0, 0, 0, 0, 0, 0, -0.102737, -0.0344911, 18.7906, 0, 0, 0, 0, 0, 0, -0.00775146, -0.0344911, 9.32253, 0, 0, 0, 0, 0, 0, -0.0354614, -0.0345089, 0.0295715),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 18
+
+[sub_resource type="Resource" id="Resource_mqdb0"]
+script = ExtResource("15_22l61")
+mode = 0
+textures = [[ExtResource("16_smsbd"), ExtResource("17_d008o"), ExtResource("18_he21v"), ExtResource("19_5ky74")], [null, null, ExtResource("20_uab77"), ExtResource("21_ct0xo")]]
+
+[node name="CBD" type="Node3D"]
+script = ExtResource("1_mbjr3")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.753563, 0.657375, 0, -0.657375, -0.753563, -16.5939, 29.8719, -15.9283)
+light_color = Color(1, 1, 0.945098, 1)
+light_energy = 0.86
+light_indirect_energy = 1.08
+light_volumetric_fog_energy = 1.358
+shadow_enabled = true
+shadow_opacity = 0.52
+shadow_blur = 2.194
+directional_shadow_split_1 = 0.17
+directional_shadow_split_2 = 0.153
+directional_shadow_fade_start = 0.822
+directional_shadow_max_distance = 100.5
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_yqmpc")
+
+[node name="Paths" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 1.79, 2.08165e-12)
+top_level = true
+
+[node name="Path01" type="Path3D" parent="Paths"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 1.5, 2.08165e-12)
+curve = SubResource("Curve3D_dilqr")
+
+[node name="PathFollow" type="PathFollow3D" parent="Paths/Path01"]
+transform = Transform3D(0.999989, 0, 0.00286683, 0, 1, 0, -0.00286683, 0, 0.999989, 240.713, -2.18, 195.45)
+progress = 80.659
+use_model_front = true
+tilt_enabled = false
+
+[node name="suv" parent="Paths/Path01/PathFollow" instance=ExtResource("3_22lch")]
+
+[node name="Path02" type="Path3D" parent="Paths"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 241.35, 2.08165e-12, 218.458)
+curve = SubResource("Curve3D_phjyw")
+
+[node name="HTerrain" type="Node3D" parent="." groups=["moutain"]]
+transform = Transform3D(1, 0, 0, 0, 1.8, 0, 0, 0, 1, 2.08165e-12, 1, 2.08165e-12)
+script = ExtResource("13_vdhwi")
+_terrain_data = ExtResource("3_avfqk")
+chunk_size = 32
+collision_enabled = true
+collision_layer = 1
+collision_mask = 7
+shader_type = "LowPoly"
+custom_shader = null
+custom_globalmap_shader = null
+texture_set = SubResource("Resource_mqdb0")
+render_layers = 1
+cast_shadow = 1
+
+[node name="seagull" parent="." instance=ExtResource("12_cqbys")]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 203.028, 7.40355, 241.919)
+collision_mask = 53
+
+[node name="BG" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("22_wxf40")
+
+[node name="RoadGridMap" type="GridMap" parent="."]
+mesh_library = ExtResource("14_wyp8e")
+collision_mask = 6
+data = {
+"cells": PackedInt32Array(96, 95, 655360, 96, 96, 655360, 96, 97, 655360, 96, 98, 655360, 96, 99, 655360, 96, 100, 5, 96, 101, 655360, 96, 102, 655360, 96, 103, 655360, 96, 104, 655360, 96, 105, 655360, 96, 106, 5, 96, 107, 655360, 96, 108, 655360, 96, 109, 655360, 96, 110, 655360, 96, 111, 655360, 96, 112, 5, 96, 113, 655360, 96, 114, 655360, 96, 115, 655360, 96, 116, 655360, 96, 117, 655360, 97, 94, 1048576, 98, 94, 1048576, 99, 94, 1048576, 100, 94, 1048576, 101, 94, 1048576, 102, 94, 1441797, 103, 94, 1048576, 104, 94, 1048576, 105, 94, 1048576, 106, 94, 1048576, 107, 94, 1048576, 108, 94, 1441797, 109, 94, 1048576, 110, 94, 1048576, 111, 94, 1048576, 112, 94, 1048576, 113, 94, 1048576, 114, 94, 1441797, 115, 94, 1048576, 116, 94, 1048576, 117, 94, 1048576, 118, 94, 1441792, 96, 94, 1, 119, 94, 1441792, 102, 95, 655360, 102, 96, 655360, 102, 97, 655360, 102, 98, 655360, 102, 99, 655360, 102, 100, 3, 108, 95, 655360, 108, 96, 655360, 108, 97, 655360, 108, 98, 655360, 108, 99, 655360, 108, 100, 3, 114, 95, 655360, 114, 96, 655360, 114, 97, 655360, 114, 98, 655360, 114, 99, 655360, 114, 100, 3, 120, 95, 655360, 120, 94, 1441793, 120, 96, 655360, 120, 97, 655360, 120, 98, 655360, 120, 99, 655360, 120, 100, 655365, 120, 101, 655360, 120, 102, 655360, 120, 103, 655360, 120, 104, 655360, 120, 105, 655360, 120, 106, 655365, 120, 107, 655360, 120, 108, 655360, 120, 109, 655360, 120, 110, 655360, 120, 111, 655360, 120, 112, 655365, 120, 113, 655360, 120, 114, 655360, 120, 115, 655360, 97, 100, 1048576, 98, 100, 1048576, 99, 100, 1048576, 100, 100, 1048576, 101, 100, 1048576, 103, 100, 1048576, 104, 100, 1048576, 105, 100, 1048576, 106, 100, 1048576, 107, 100, 1048576, 109, 100, 1048576, 110, 100, 1048576, 111, 100, 1048576, 112, 100, 1048576, 113, 100, 1048576, 115, 100, 1048576, 116, 100, 1048576, 117, 100, 1048576, 118, 100, 1048576, 119, 100, 1048576, 97, 106, 1048576, 98, 106, 1048576, 99, 106, 1048576, 100, 106, 1048576, 101, 106, 1048576, 102, 106, 3, 103, 106, 1048576, 104, 106, 1048576, 105, 106, 1048576, 106, 106, 1048576, 107, 106, 1048576, 108, 106, 3, 109, 106, 1048576, 110, 106, 1048576, 111, 106, 1048576, 112, 106, 1048576, 113, 106, 1048576, 114, 106, 3, 115, 106, 1048576, 116, 106, 1048576, 117, 106, 1048576, 118, 106, 1048576, 119, 106, 1048576, 97, 112, 1048576, 98, 112, 1048576, 99, 112, 1048576, 100, 112, 1048576, 101, 112, 1048576, 102, 112, 3, 103, 112, 1048576, 104, 112, 1048576, 105, 112, 1048576, 106, 112, 1048576, 107, 112, 1048576, 108, 112, 3, 109, 112, 1048576, 110, 112, 1048576, 111, 112, 1048576, 112, 112, 1048576, 113, 112, 1048576, 114, 112, 3, 115, 112, 1048576, 116, 112, 1048576, 117, 112, 1048576, 118, 112, 1048576, 119, 112, 1048576, 97, 118, 1048576, 98, 118, 1048576, 99, 118, 1048576, 100, 118, 1048576, 101, 118, 1048576, 102, 118, 1048581, 103, 118, 1048576, 104, 118, 1048576, 105, 118, 1048576, 106, 118, 1048576, 107, 118, 1048576, 108, 118, 1048581, 109, 118, 1048576, 110, 118, 1048576, 111, 118, 1048576, 112, 118, 1048576, 113, 118, 1048576, 114, 118, 1048581, 115, 118, 1048576, 116, 118, 1048576, 117, 118, 1048576, 118, 118, 1048576, 119, 118, 1048576, 120, 117, 0, 120, 116, 0, 102, 101, 0, 102, 102, 0, 102, 103, 0, 102, 104, 0, 102, 105, 0, 102, 107, 0, 102, 108, 0, 102, 109, 0, 102, 110, 0, 102, 111, 0, 102, 113, 0, 102, 114, 0, 102, 115, 0, 102, 116, 0, 102, 117, 0, 108, 101, 0, 108, 102, 0, 108, 103, 0, 108, 104, 0, 108, 105, 0, 108, 107, 0, 108, 108, 0, 108, 109, 0, 108, 110, 0, 108, 111, 0, 108, 113, 0, 108, 114, 0, 108, 115, 0, 108, 116, 0, 108, 117, 0, 114, 101, 0, 114, 102, 0, 114, 103, 0, 114, 104, 0, 114, 105, 0, 114, 107, 0, 114, 108, 0, 114, 109, 0, 114, 110, 0, 114, 111, 0, 114, 113, 0, 114, 114, 0, 114, 115, 0, 114, 116, 0, 114, 117, 0, 120, 118, 655361, 96, 118, 1048577)
+}
+
+[node name="Buidings" type="Node3D" parent="."]
+
+[node name="sky_30" parent="." instance=ExtResource("8_escjk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 196.99, 1, 193.161)
+visible = false
+
+[connection signal="completed" from="seagull" to="." method="_on_seagull_completed"]
+[connection signal="dead" from="seagull" to="." method="_on_seagull_dead"]
+[connection signal="timeout" from="seagull" to="." method="_on_seagull_timeout"]
+[connection signal="finished" from="BG" to="." method="_on_bg_finished"]

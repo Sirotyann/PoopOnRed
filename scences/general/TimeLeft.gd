@@ -1,6 +1,6 @@
 extends Node2D
 
-var time_left := 1 * 60
+var time_left := 3 * 60
 var warning_time := 20
 var safe_time := 60
 var danger_time := 10

@@ -20,7 +20,6 @@ func _on_body_entered(body):
 		hitted_vehicle = body
 		should_stop.emit()
 
-
 func _on_body_exited(body):
 	if body == hitted_vehicle:
 		hitted_vehicle = null

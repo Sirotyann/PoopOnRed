@@ -54,7 +54,6 @@ func _process(delta):
 		$Camera2.set_current(true)
 	elif Input.is_action_just_released("SwitchCamera"):
 		$Camera1.set_current(true)
-		#print($Camera1.current)	
 
 func _physics_process(delta):
 	var speed := 0.0 if is_hover else SPEED
@@ -115,7 +114,7 @@ func _physics_process(delta):
 		velocity.y -= gravity_speed
 		
 	move_and_slide()
-	#play_wind_audio()
+	play_wind_audio()
 	
 func rotate_body(x, y, z):
 	rotation.x = x
@@ -189,10 +188,8 @@ func shoot():
 func poop_on_vehicle():
 	$CanvasLayer/TimeLeft.increase_time(VEHICLE_TIME_AWARD)
 	$SuccessAudio.play()
-	print('Poop on Car!!')
 
 func poop_on_red_vehicle():
-	print('Poop on RED Car!!')
 	completed.emit()
 
 func refresh_excrete():
@@ -214,11 +211,9 @@ func time_out():
 	timeout.emit()
 
 func danger_warning():
-	print('danger warning')
 	$CanvasLayer/CanvasAnimationPlayer.play("damage") 
 
 func danger_warning_cancel():
-	print('danger_warning_cancel')
 	$CanvasLayer/CanvasAnimationPlayer.stop()
 
 # --- sound ---
@@ -227,7 +222,9 @@ func play_wind_audio():
 		$WindAudio.stop()
 	elif position.y >= WIND_SOUND_Y_MAX:
 		$WindAudio.volume_db = WIND_SOUND_MAX
-		if !$WindAudio.playing: $WindAudio.play()
+		if !$WindAudio.playing: 
+			$WindAudio.play()
 	else:
 		$WindAudio.volume_db = WIND_SOUND_MIN - WIND_SOUND_MIN * (position.y - WIND_SOUND_Y_MIN) / (WIND_SOUND_Y_MAX - WIND_SOUND_Y_MIN)
-		if !$WindAudio.playing: $WindAudio.play()
+		if !$WindAudio.playing: 
+			$WindAudio.play()

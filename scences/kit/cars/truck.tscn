@@ -179,9 +179,10 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_qj3yh")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_usn55"]
-size = Vector3(0.395874, 0.39325, 0.906677)
+size = Vector3(0.395874, 0.397629, 0.906677)
 
 [node name="truck" type="VehicleBody3D" groups=["vehicle"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00475323, 0)
 collision_layer = 4
 collision_mask = 11
 
@@ -214,5 +215,5 @@ mesh = SubResource("ArrayMesh_pvyfn")
 skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000305176, 0.19632, -0.0110779)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000305176, 0.194131, -0.0110779)
 shape = SubResource("BoxShape3D_usn55")
