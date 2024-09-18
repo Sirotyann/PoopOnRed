@@ -1,9 +1,9 @@
+Node3D
 CPUParticles3D
 Camera3D
 LightmapProbe
 Path3D
 GridMap
-Node3D
 CollisionShape3D
 StaticBody3D
 RemoteTransform3D
