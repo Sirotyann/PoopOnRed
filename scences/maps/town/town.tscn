@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scences/maps/town/town.gd" id="1_v46mq"]
 [ext_resource type="MeshLibrary" uid="uid://cbnrxmxka2mw4" path="res://assets/mesh_lib/buildings.tres" id="2_ofniu"]
 [ext_resource type="PackedScene" uid="uid://bq5i6y7jbdojc" path="res://scences/kit/nature/trees_4.tscn" id="3_ck1un"]
-[ext_resource type="MeshLibrary" uid="uid://cd8x6g7cf1lnf" path="res://assets/mesh_lib/road.tres" id="3_q6pqd"]
+[ext_resource type="MeshLibrary" uid="uid://dk5gh0s8yeus2" path="res://assets/mesh_lib/road.tres" id="3_q6pqd"]
 [ext_resource type="PackedScene" uid="uid://cdy0r6nd1gury" path="res://scences/kit/nature/trees_16.tscn" id="6_0lcjl"]
 [ext_resource type="PackedScene" uid="uid://bkytxwf6dr2b1" path="res://scences/kit/buildings/sky_45.tscn" id="6_3kbjv"]
 [ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain.gd" id="7_cwxug"]

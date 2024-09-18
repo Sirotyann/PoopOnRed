@@ -1,7 +1,8 @@
 extends Node3D
 
 const Veichle_Speed := 5.2
-const Veichle_Total_Count := 10
+const Veichle_Total_Count := 80 # total_capacity: 102 
+const Red_Car_count := 1
 
 var PathDispatcher = preload("res://general/path_dispatcher.gd")
 
@@ -42,26 +43,25 @@ var cars_to_add = []
 ]
 
 @onready var veichle_paths = [
-	$Paths/Path01
+	$Paths/Path01, $Paths/Path02, $Paths/Path03, $Paths/Path04, $Paths/Path05, 
+	$Paths/Path06, $Paths/Path07, $Paths/Path08, $Paths/Path09
 ]
 #@onready var veichle_paths = [ $Paths/Path10 ]
 
 func _ready():
-	print("ready")
 	#$Camera3D.set_current(true)
 	
 	#$BG.play()
 	#$BG.volume_db = -10.0
 	
-	#for i in 2:
-		#var red_sedan = Sedan.instantiate()
-		#cars_to_add.push_back(red_sedan)
-		#
+	for i in Red_Car_count:
+		var red_sedan = Sedan.instantiate()
+		cars_to_add.push_back(red_sedan)
+	
 	for n in Veichle_Total_Count:
 		var index = randi_range(0, Veichle_Models.size() - 1)
 		var model = Veichle_Models[index]
 		cars_to_add.push_back(model.instantiate())
-	print(cars_to_add)
 	path_dispatcher = PathDispatcher.new()
 	path_dispatcher.init(veichle_paths, cars_to_add, Veichle_Speed)
 	add_child(path_dispatcher)
