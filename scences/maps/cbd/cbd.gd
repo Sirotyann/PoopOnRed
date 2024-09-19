@@ -33,13 +33,12 @@ var cars_to_add = []
 
 @onready var Veichle_Models = [Delivery, SUV, Texi, Truck, Van, SUVWhite]
 @onready var Fantacy_Food_Models = [Cake, Burger, Pizza]
-@onready var Fantacy_Food_Model_COORDS = [$Container/FoodCoords/Marker01, $Container/FoodCoords/Marker02, $Container/FoodCoords/Marker03]
+@onready var Fantacy_Food_Model_COORDS = [$Container/FoodCoords/Marker10, $Container/FoodCoords/Marker11, $Container/FoodCoords/Marker12]
 @onready var Normal_Food_Models = [Apple, Coissant, Donut, Fires, Hotdog, Taco, Fires, Pizza]
 @onready var Normal_Food_Model_COORDS = [
-	$Container/FoodCoords/Marker04, $Container/FoodCoords/Marker05, $Container/FoodCoords/Marker06,
-	$Container/FoodCoords/Marker07, $Container/FoodCoords/Marker08, $Container/FoodCoords/Marker09,
-	$Container/FoodCoords/Marker10, $Container/FoodCoords/Marker11, $Container/FoodCoords/Marker12,
-	$Container/FoodCoords/Marker13, $Container/FoodCoords/Marker14, $Container/FoodCoords/Marker15
+	$Container/FoodCoords/Marker01, $Container/FoodCoords/Marker02, $Container/FoodCoords/Marker03,
+	$Container/FoodCoords/Marker04, $Container/FoodCoords/Marker05, $Container/FoodCoords/Marker06, 
+	$Container/FoodCoords/Marker07, $Container/FoodCoords/Marker08
 ]
 
 @onready var veichle_paths = [
@@ -51,8 +50,8 @@ var cars_to_add = []
 func _ready():
 	#$Camera3D.set_current(true)
 	
-	#$BG.play()
-	#$BG.volume_db = -10.0
+	$BG.play()
+	$BG.volume_db = -10.0
 	
 	for i in Red_Car_count:
 		var red_sedan = Sedan.instantiate()
@@ -65,42 +64,23 @@ func _ready():
 	path_dispatcher = PathDispatcher.new()
 	path_dispatcher.init(veichle_paths, cars_to_add, Veichle_Speed)
 	add_child(path_dispatcher)
+	init_foods()
 	
-	#var red_sedan = Sedan.instantiate()
+func init_foods():
+	Fantacy_Food_Model_COORDS.shuffle()
+	for i in min(Fantacy_Food_Models.size(), Fantacy_Food_Model_COORDS.size()):
+		var food = Fantacy_Food_Models[i].instantiate()
+		add_child(food)
+		food.position = Fantacy_Food_Model_COORDS[i].global_position
+		
+	Normal_Food_Model_COORDS.shuffle()
+	for i in min(Normal_Food_Models.size(), Normal_Food_Model_COORDS.size()):
+		var food = Normal_Food_Models[i].instantiate()
+		add_child(food)
+		food.position = Normal_Food_Model_COORDS[i].global_position
 
-	#$Paths/Path01/PathFollow3D2.progress = 5
-	#init_foods()
-	
-#func init_foods():
-	#Fantacy_Food_Model_COORDS.shuffle()
-	#for i in Fantacy_Food_Models.size():
-		#var food = Fantacy_Food_Models[i].instantiate()
-		#add_child(food)
-		#food.position = Fantacy_Food_Model_COORDS[i].global_position
-		#
-	#Normal_Food_Model_COORDS.shuffle()
-	#for i in Normal_Food_Models.size():
-		#var food = Normal_Food_Models[i].instantiate()
-		#add_child(food)
-		#food.position = Normal_Food_Model_COORDS[i].global_position
-
-#func _enter_tree():
-	#var truck = Truck.instantiate()
-	#$Paths/Path01/PathFollow3D.add_child(truck)
-	##
-	#var suv = SUV.instantiate()
-	#$Paths/Path01/PathFollow3D2.add_child(suv)
 	
 func _process(delta):
-	car_move(delta)
-	pass
-
-func car_move(delta):
-	#for follow in $Paths/Path01.get_children():
-		#follow.progress += delta * Veichle_Speed
-	#for path in $Paths.get_children():
-		#for follow in path.get_children():
-			#follow.progress += delta * Veichle_Speed
 	pass
 
 func _on_bg_finished():

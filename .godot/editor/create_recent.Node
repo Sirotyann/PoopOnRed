@@ -1,9 +1,11 @@
+HBoxContainer
 Node3D
+Marker3D
+GridMap
 CPUParticles3D
 Camera3D
 LightmapProbe
 Path3D
-GridMap
 CollisionShape3D
 StaticBody3D
 RemoteTransform3D
@@ -11,4 +13,3 @@ Area3D
 PathFollow3D
 HTerrain
 CanvasLayer
-TextureRect

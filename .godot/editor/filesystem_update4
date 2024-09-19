@@ -2,11 +2,13 @@ res://scences/maps/cbd/cbd.tscn
 res://scences/birds/poop.gd
 res://shaders/glow.gdshader
 res://assets/mesh_lib/road.tres
-res://assets/mesh_lib/buildings.tres
 res://assets/mesh_lib/decoration.tres
+res://assets/mesh_lib/buildings.tres
 res://scences/maps/street.gdshader
 res://scences/maps/town/town.gdshader
-res://scences/maps/town/town.tscn
+res://scences/maps/cbd/map_data/height.res
+res://scences/maps/cbd/map_data/data.hterrain
+res://scences/maps/cbd/cbd.gd
+res://scences/birds/seagull_container.tscn
 res://scences/birds/seagull.tscn
-res://scences/kit/road/road.tscn
-res://scences/birds/dove.tscn
+res://scences/birds/seagull.gd

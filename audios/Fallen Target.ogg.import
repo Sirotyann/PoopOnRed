@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://d1a8pbsgnj6g4"
+path="res://.godot/imported/Fallen Target.ogg-f097dcc50f95b9540e089977d678b300.oggvorbisstr"
+
+[deps]
+
+source_file="res://audios/Fallen Target.ogg"
+dest_files=["res://.godot/imported/Fallen Target.ogg-f097dcc50f95b9540e089977d678b300.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

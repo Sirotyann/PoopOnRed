@@ -31,9 +31,9 @@ var is_hover = false
 var is_debug = false
 
 func _ready():
-	$CanvasLayer/TimeLeft.connect("time_out", self.time_out)
-	$CanvasLayer/TimeLeft.connect("danger_warning", self.danger_warning)
-	$CanvasLayer/TimeLeft.connect("danger_warning_cancel", self.danger_warning_cancel)
+	$CanvasLayer/HBoxContainer/TimeLeft.connect("time_out", self.time_out)
+	$CanvasLayer/HBoxContainer/TimeLeft.connect("danger_warning", self.danger_warning)
+	$CanvasLayer/HBoxContainer/TimeLeft.connect("danger_warning_cancel", self.danger_warning_cancel)
 	
 func _process(delta):
 	if Input.is_action_pressed("shoot"):
@@ -117,6 +117,7 @@ func _physics_process(delta):
 	play_wind_audio()
 	
 func rotate_body(x, y, z):
+	print('rotate_body')
 	rotation.x = x
 	rotation.y = y
 	rotation.z = z
@@ -166,11 +167,11 @@ func recover_guesture(delta):
 
 # --- excrete ---
 func shoot():
-	if can_excrete and $CanvasLayer/PoopPanel.count > 0:
+	if can_excrete and $CanvasLayer/HBoxContainer/PoopPanel.count > 0:
 		var poo: RigidBody3D = Poop.instantiate()
 		poo.rotation = self.rotation
 		poo.give_force(self.velocity)
-		$CanvasLayer/PoopPanel.minus(1)
+		$CanvasLayer/HBoxContainer/PoopPanel.minus(1)
 		
 		can_excrete = false
 		poo.connect("collide_with_vehicle", self.poop_on_vehicle)
@@ -186,7 +187,7 @@ func shoot():
 		
 
 func poop_on_vehicle():
-	$CanvasLayer/TimeLeft.increase_time(VEHICLE_TIME_AWARD)
+	$CanvasLayer/HBoxContainer/TimeLeft.increase_time(VEHICLE_TIME_AWARD)
 	$SuccessAudio.play()
 
 func poop_on_red_vehicle():
@@ -197,7 +198,7 @@ func refresh_excrete():
 	
 # --- eat food ---
 func hit_food(food):
-	$CanvasLayer/PoopPanel.add(food.poop_value)
+	$CanvasLayer/HBoxContainer/PoopPanel.add(food.poop_value)
 	food.queue_free()
 
 # --- status --- 
