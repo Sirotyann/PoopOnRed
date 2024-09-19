@@ -12,3 +12,12 @@ res://scences/maps/cbd/cbd.gd
 res://scences/birds/seagull_container.tscn
 res://scences/birds/seagull.tscn
 res://scences/birds/seagull.gd
+res://scences/maps/MapSelection.tscn
+res://scences/maps/town/town.tscn
+res://scences/maps/MapSelection.gd
+res://scences/maps/fog_valley/fog_valley.tscn
+res://main.tscn
+res://scences/general/completed.tscn
+res://scences/general/completed.gd
+res://scences/general/gameover.tscn
+res://scences/general/gameover.gd

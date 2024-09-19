@@ -1,7 +1,7 @@
 [gd_scene load_steps=2 format=3 uid="uid://dajxbnwr06r6q"]
 
-[ext_resource type="PackedScene" uid="uid://cmbya6u4ad56g" path="res://scences/maps/town/town.tscn" id="1_f4vnw"]
+[ext_resource type="PackedScene" uid="uid://bduk111pwxt03" path="res://scences/maps/MapSelection.tscn" id="1_itoma"]
 
 [node name="main" type="Node3D"]
 
-[node name="Town" parent="." instance=ExtResource("1_f4vnw")]
+[node name="MapSelection" parent="." instance=ExtResource("1_itoma")]

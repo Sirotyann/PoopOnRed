@@ -646,7 +646,8 @@ render_layers = 32
 cast_shadow = 1
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, -6.97574e-16, -1.52459e-23, -1.5246e-23, -4.37114e-08, 1, -6.97574e-16, -1, -4.37114e-08, 278.613, 32.3168, 253.018)
+transform = Transform3D(1, -6.97574e-16, -1.52459e-23, -1.5246e-23, -4.37114e-08, 1, -6.97574e-16, -1, -4.37114e-08, 278.613, 40.7612, 253.018)
+visible = false
 fov = 133.623
 
 [node name="BG" type="AudioStreamPlayer" parent="."]

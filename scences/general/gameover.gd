@@ -12,7 +12,7 @@ func _process(delta):
 
 
 func restart():
-	get_tree().change_scene_to_file("res://scences/maps/town/town.tscn")
+	get_tree().change_scene_to_file("res://scences/maps/MapSelection.tscn")
 
 func quit():
 	get_tree().quit()
