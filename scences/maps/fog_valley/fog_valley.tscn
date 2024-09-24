@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://6kxk5itmf6m8"]
+[gd_scene load_steps=36 format=3 uid="uid://6kxk5itmf6m8"]
 
 [ext_resource type="Script" path="res://scences/maps/fog_valley/fog_valley.gd" id="1_wajq7"]
 [ext_resource type="PackedScene" uid="uid://bqvahti2j4sbq" path="res://scences/kit/buildings/sky_30.tscn" id="2_mfjag"]
@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://he65psked2bv" path="res://scences/maps/town/town_slot3_normal_roughness.png" id="19_i2j0m"]
 [ext_resource type="PackedScene" uid="uid://cl280gxenqt7a" path="res://scences/birds/seagull.tscn" id="20_d8aa4"]
 [ext_resource type="AudioStream" uid="uid://d1a8pbsgnj6g4" path="res://audios/Fallen Target.ogg" id="21_08vl6"]
+[ext_resource type="PackedScene" uid="uid://bce7vjfkkau86" path="res://scences/kit/buildings/sky_20.tscn" id="22_031sh"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qvaeu"]
 
@@ -31,6 +32,7 @@ sky_material = SubResource("ProceduralSkyMaterial_qvaeu")
 background_mode = 2
 background_energy_multiplier = 1.01
 sky = SubResource("Sky_oai38")
+fog_enabled = true
 fog_light_color = Color(0.415686, 0.45098, 0.501961, 1)
 fog_light_energy = 0.85
 fog_sun_scatter = 0.22
@@ -139,6 +141,7 @@ environment = SubResource("Environment_yqmpc")
 [node name="Container" type="Node3D" parent="."]
 
 [node name="FoodCoords" type="Node3D" parent="Container"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.371796, 0, 0)
 
 [node name="Marker01" type="Marker3D" parent="Container/FoodCoords"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 212.12, 23.7365, 226.267)
@@ -243,6 +246,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 327.384, 10.0181, 271.479)
 [node name="sky_63" parent="Container/Buidings/Buidings_Moutain" instance=ExtResource("4_p3dt4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 327.384, 10.0181, 278.652)
 
+[node name="sky_building20" parent="Container/Buidings/Buidings_Moutain" instance=ExtResource("22_031sh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 255.206, 11.1259, 315.035)
+
 [node name="center_park" type="Node3D" parent="Container/Buidings/Buidings_Moutain"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 279.504, 9.964, 286.486)
 
@@ -286,8 +292,9 @@ data = {
 [node name="moutain_buildings" type="GridMap" parent="Container/Buidings/Buidings_Moutain"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 9, 2.08165e-12)
 mesh_library = ExtResource("5_xeppr")
+collision_mask = 3
 data = {
-"cells": PackedInt32Array(167, 86, 655377, 165, 86, 655377, 167, 88, 655377, 165, 88, 655377, 163, 86, 655377, 163, 88, 655377, 159, 91, 6, 157, 91, 6, 155, 91, 6, 157, 87, 31, 141, 140, 4, 143, 140, 4, 145, 140, 4, 147, 140, 4, 149, 140, 4, 151, 140, 4, 141, 134, 655366, 143, 134, 655366, 145, 134, 655366, 147, 134, 655366, 149, 134, 655366, 151, 134, 655366, 141, 137, 1441821, 150, 137, 1048605, 124, 165, 2, 125, 165, 2, 126, 165, 2, 127, 165, 2, 128, 165, 2, 129, 165, 2, 129, 163, 655362, 128, 163, 655362, 127, 163, 655362, 126, 163, 655362, 125, 163, 655362, 124, 163, 655362, 132, 165, 3, 134, 165, 3, 136, 165, 3, 132, 163, 655363, 134, 163, 655363, 136, 163, 655363, 140, 165, 655377, 142, 165, 655377, 140, 163, 17, 142, 163, 17, 147, 163, 17, 149, 163, 17, 151, 163, 17, 147, 165, 655377, 149, 165, 655377, 151, 165, 655377, 127, 157, 655391, 147, 155, 655389, 150, 155, 655389, 147, 159, 29, 150, 159, 29, 156, 139, 31, 155, 134, 1441820, 157, 134, 1048604, 168, 120, 1441794, 168, 122, 1441794, 168, 121, 1441794, 168, 123, 1441794, 172, 120, 1048578, 172, 121, 1048578, 172, 122, 1048578, 172, 123, 1048578, 170, 123, 4, 170, 120, 655366, 146, 144, 655362, 147, 144, 655362, 148, 144, 655362, 149, 144, 655362, 150, 144, 655362, 147, 146, 6, 149, 146, 6, 169, 130, 28, 169, 127, 655388, 172, 127, 655388, 172, 130, 28, 172, 140, 17, 172, 138, 17, 172, 136, 17, 172, 134, 17, 170, 140, 17, 170, 138, 17, 170, 136, 17, 170, 134, 17)
+"cells": PackedInt32Array(167, 86, 655377, 165, 86, 655377, 167, 88, 655377, 165, 88, 655377, 163, 86, 655377, 163, 88, 655377, 159, 91, 6, 157, 91, 6, 155, 91, 6, 157, 87, 31, 141, 140, 4, 143, 140, 4, 145, 140, 4, 147, 140, 4, 149, 140, 4, 151, 140, 4, 141, 134, 655366, 143, 134, 655366, 145, 134, 655366, 147, 134, 655366, 149, 134, 655366, 151, 134, 655366, 141, 137, 1441821, 150, 137, 1048605, 124, 165, 2, 125, 165, 2, 126, 165, 2, 127, 165, 2, 128, 165, 2, 129, 165, 2, 129, 163, 655362, 128, 163, 655362, 127, 163, 655362, 126, 163, 655362, 125, 163, 655362, 124, 163, 655362, 132, 165, 3, 134, 165, 3, 136, 165, 3, 132, 163, 655363, 134, 163, 655363, 136, 163, 655363, 140, 165, 655377, 142, 165, 655377, 140, 163, 17, 142, 163, 17, 147, 163, 17, 149, 163, 17, 151, 163, 17, 147, 165, 655377, 149, 165, 655377, 151, 165, 655377, 147, 155, 655389, 150, 155, 655389, 147, 159, 29, 150, 159, 29, 156, 139, 31, 155, 134, 1441820, 157, 134, 1048604, 168, 120, 1441794, 168, 122, 1441794, 168, 121, 1441794, 168, 123, 1441794, 172, 120, 1048578, 172, 121, 1048578, 172, 122, 1048578, 172, 123, 1048578, 170, 123, 4, 170, 120, 655366, 146, 144, 655362, 147, 144, 655362, 148, 144, 655362, 149, 144, 655362, 150, 144, 655362, 147, 146, 6, 149, 146, 6, 169, 130, 28, 169, 127, 655388, 172, 127, 655388, 172, 130, 28, 172, 140, 17, 172, 138, 17, 172, 136, 17, 172, 134, 17, 170, 140, 17, 170, 138, 17, 170, 136, 17, 170, 134, 17)
 }
 metadata/_editor_floor_ = Vector3(0, 0, 0)
 

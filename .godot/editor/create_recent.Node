@@ -1,6 +1,10 @@
-Button
-TextureButton
 HBoxContainer
+CheckBox
+CanvasLayer
+CollisionShape3D
+StaticBody3D
+TextureButton
+Button
 Node3D
 Marker3D
 GridMap
@@ -8,8 +12,3 @@ CPUParticles3D
 Camera3D
 LightmapProbe
 Path3D
-CollisionShape3D
-StaticBody3D
-RemoteTransform3D
-Area3D
-PathFollow3D

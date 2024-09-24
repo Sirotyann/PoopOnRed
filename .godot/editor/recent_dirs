@@ -1,7 +1,8 @@
+res://scences/test
+res://scences/kit/buildings
 res://assets/images
 res://audios
 res://assets/mesh_lib
-res://scences/maps/cbd/map_data
 res://scences/kit/road
 /Users/c_li/Workshop/Game/export
 res://
@@ -9,7 +10,6 @@ res://scences/kit/food
 res://shaders
 res://scences/birds
 res://scences/kit/cars
-res://scences/kit/buildings
 /Users/c_li/Workshop/Game/Drop/addons/zylann.hterrain/tools/brush/shapes
 res://scences/maps/town/map_data
 res://scences/kit/nature

@@ -5,8 +5,8 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$square_town.connect('pressed', switch_to_square_town)
-	$fog_valley.connect('pressed', switch_to_fog_valley)
+	$CanvasLayer/HBoxContainer/square_town.connect('pressed', switch_to_square_town)
+	$CanvasLayer/HBoxContainer/fog_valley.connect('pressed', switch_to_fog_valley)
 	pass # Replace with function body.
 
 

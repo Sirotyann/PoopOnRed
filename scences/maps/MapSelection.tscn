@@ -1,23 +1,29 @@
-[gd_scene load_steps=2 format=3 uid="uid://bduk111pwxt03"]
+[gd_scene load_steps=4 format=3 uid="uid://bduk111pwxt03"]
 
 [ext_resource type="Script" path="res://scences/maps/MapSelection.gd" id="1_c26jd"]
+[ext_resource type="Texture2D" uid="uid://cpoyhnfbjc7q" path="res://assets/images/square_town.png" id="2_v8mh6"]
+[ext_resource type="Texture2D" uid="uid://esv63oihh273" path="res://assets/images/fog_valley.png" id="3_vh4dy"]
 
 [node name="MapSelection" type="Node2D"]
 script = ExtResource("1_c26jd")
 
-[node name="square_town" type="Button" parent="."]
-offset_left = 302.0
-offset_top = 221.0
-offset_right = 408.0
-offset_bottom = 252.0
-scale = Vector2(1.27314, 1.63074)
-text = "Square Town"
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+scale = Vector2(0.5, 0.5)
+transform = Transform2D(0.5, 0, 0, 0.5, 0, 0)
 
-[node name="fog_valley" type="Button" parent="."]
-offset_left = 507.0
-offset_top = 224.0
-offset_right = 613.0
-offset_bottom = 255.0
-scale = Vector2(1.27314, 1.63074)
-text = "Fog Valley
-"
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+offset_left = 1726.0
+offset_top = 766.0
+offset_right = 2330.0
+offset_bottom = 1066.0
+alignment = 1
+
+[node name="square_town" type="TextureButton" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_v8mh6")
+stretch_mode = 0
+
+[node name="fog_valley" type="TextureButton" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("3_vh4dy")
+stretch_mode = 0

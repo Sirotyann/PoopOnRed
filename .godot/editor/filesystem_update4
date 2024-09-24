@@ -21,3 +21,12 @@ res://scences/general/completed.tscn
 res://scences/general/completed.gd
 res://scences/general/gameover.tscn
 res://scences/general/gameover.gd
+res://scences/kit/buildings.tscn
+res://scences/kit/road_staff.tscn
+res://scences/kit/decoration.tscn
+res://scences/kit/buildings/sky_20.tscn
+res://scences/kit/road/base_2.tscn
+res://scences/kit/buildings/sky_30.tscn
+res://scences/kit/buiding2.tscn
+res://scences/general/SwitchScence.tscn
+res://scences/test/cube.tscn
