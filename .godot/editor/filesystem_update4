@@ -30,3 +30,6 @@ res://scences/kit/buildings/sky_30.tscn
 res://scences/kit/buiding2.tscn
 res://scences/general/SwitchScence.tscn
 res://scences/test/cube.tscn
+res://scences/test/seagull_test.tscn
+res://scences/test/random_path.tscn
+res://scences/general/TimeLeft.tscn

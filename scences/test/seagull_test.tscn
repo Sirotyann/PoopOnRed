@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://33tt8t7cvnrh"]
+
+[ext_resource type="PackedScene" uid="uid://2fw7o3bf34vd" path="res://assets/kit/bird/seagull.glb" id="1_rgjh6"]
+
+[node name="seagull" instance=ExtResource("1_rgjh6")]
+
+[node name="Camera3D" type="Camera3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 0.638069, 0.769979, 0, -0.769979, 0.638069, 0.0334526, 1.04828, 1.55867)

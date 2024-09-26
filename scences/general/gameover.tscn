@@ -16,32 +16,32 @@ script = ExtResource("1_mion1")
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_right = 1154.0
 offset_bottom = 649.0
-scale = Vector2(1.67776, 1.67776)
+scale = Vector2(0.990746, 1.01485)
 texture = ExtResource("1_rrsbb")
 expand_mode = 3
 
 [node name="Label" type="Label" parent="."]
-offset_left = 747.0
-offset_top = 378.0
-offset_right = 1292.0
-offset_bottom = 591.0
+offset_left = 376.0
+offset_top = 152.0
+offset_right = 921.0
+offset_bottom = 365.0
 text = "Game Over"
 label_settings = SubResource("LabelSettings_ex2k8")
 
 [node name="RestartButton" type="Button" parent="."]
-offset_left = 1058.0
-offset_top = 666.0
-offset_right = 1175.0
-offset_bottom = 697.0
+offset_left = 662.0
+offset_top = 389.0
+offset_right = 779.0
+offset_bottom = 420.0
 scale = Vector2(2.48, 2.4)
 theme_override_colors/font_color = Color(0.431373, 1, 0.4, 1)
 text = "   Start again   "
 
 [node name="QuitButton" type="Button" parent="."]
-offset_left = 735.0
-offset_top = 665.0
-offset_right = 852.0
-offset_bottom = 696.0
+offset_left = 339.0
+offset_top = 388.0
+offset_right = 456.0
+offset_bottom = 419.0
 scale = Vector2(2.48, 2.4)
 theme_override_colors/font_color = Color(0.607843, 0.717647, 0.992157, 1)
 text = "   Quit   "

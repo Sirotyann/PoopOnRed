@@ -34,6 +34,7 @@ func _ready():
 	$CanvasLayer/HBoxContainer/TimeLeft.connect("time_out", self.time_out)
 	$CanvasLayer/HBoxContainer/TimeLeft.connect("danger_warning", self.danger_warning)
 	$CanvasLayer/HBoxContainer/TimeLeft.connect("danger_warning_cancel", self.danger_warning_cancel)
+	$Sprite/AnimationPlayer.play('fly')
 	
 func _process(delta):
 	if Input.is_action_pressed("shoot"):
@@ -66,15 +67,20 @@ func _physics_process(delta):
 	#else:
 		#speed = 0	
 		
+	#var should_play_fly := false
+	var fly_speed := 1.0
+	
 	if Input.is_action_pressed("left"):
 		turn_left(delta)
+		fly_speed = 1.5
 	elif Input.is_action_pressed("right"):
 		turn_right(delta)
+		fly_speed = 1.5
 	else:
 		recover_guesture(delta)
 		
 	if Input.is_action_pressed("up"):
-		$AnimationPlayer.play('fly')
+		fly_speed = 2.0
 		climb(delta)
 		gravity_speed = gravity_speed / 2
 		if dive_speed_offset > 0:
@@ -87,7 +93,6 @@ func _physics_process(delta):
 		dive(delta)
 		gravity_speed = gravity_speed * 1.2
 		dive_speed_offset = -velocity.y
-		#gravity_speed = gravity_speed
 	else:
 		recover_horizontal(delta)
 		if dive_speed_offset > 0:
@@ -95,6 +100,9 @@ func _physics_process(delta):
 			speed += dive_speed_offset
 		else:
 			dive_speed_offset = 0.0
+	
+	$Sprite/AnimationPlayer.speed_scale = fly_speed
+	
 			
 	var rotations = get_rotation_degrees()
 	var rotation_x = rotations[0]
@@ -117,7 +125,6 @@ func _physics_process(delta):
 	play_wind_audio()
 	
 func rotate_body(x, y, z):
-	print('rotate_body')
 	rotation.x = x
 	rotation.y = y
 	rotation.z = z
@@ -177,7 +184,7 @@ func shoot():
 		poo.connect("collide_with_vehicle", self.poop_on_vehicle)
 		poo.connect("collide_with_white_vehicle", self.poop_on_red_vehicle)
 		get_tree().root.add_child(poo)
-		poo.position = $Armature/Marker3D.global_position
+		poo.position = $Sprite/Marker3D.global_position
 		var timer = Timer.new()
 		timer.one_shot = true
 		timer.wait_time = 1
