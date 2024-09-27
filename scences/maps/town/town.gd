@@ -6,6 +6,7 @@ const Veichle_Total_Count := 100
 const Red_Car_count := 2
 
 var PathDispatcher = preload("res://general/path_dispatcher.gd")
+var Sequence = preload("res://scences/general/sequence.gd")
 
 # Vehicles
 const Delivery = preload("res://scences/kit/cars/delivery.tscn")
@@ -31,6 +32,8 @@ var passed_time := 0
 var timer
 var path_dispatcher
 var cars_to_add = []
+
+@onready var sequence = Sequence.new()
 
 @onready var Veichle_Models = [Delivery, SUV, Texi, Truck, Van, SUVWhite]
 @onready var Fantacy_Food_Models = [Cake, Burger, Pizza]
@@ -70,6 +73,9 @@ func _ready():
 	
 	init_foods()
 	
+	add_child(sequence)
+	sequence.connect_player($Container/seagull)
+	
 func init_foods():
 	Fantacy_Food_Model_COORDS.shuffle()
 	for i in Fantacy_Food_Models.size():
@@ -90,11 +96,11 @@ func _process(delta):
 func _on_bg_finished():
 	$BG.play()
 
-func _on_seagull_completed():
-	get_tree().change_scene_to_file("res://scences/general/completed.tscn")
-
-func _on_seagull_dead():
-	get_tree().change_scene_to_file.bind("res://scences/general/gameover.tscn").call_deferred()
-
-func _on_seagull_timeout():
-	get_tree().change_scene_to_file.bind("res://scences/general/gameover.tscn").call_deferred()
+#func _on_seagull_completed():
+	#get_tree().change_scene_to_file("res://scences/general/completed.tscn")
+#
+#func _on_seagull_dead():
+	#get_tree().change_scene_to_file.bind("res://scences/general/gameover.tscn").call_deferred()
+#
+#func _on_seagull_timeout():
+	#get_tree().change_scene_to_file.bind("res://scences/general/gameover.tscn").call_deferred()

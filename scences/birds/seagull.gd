@@ -34,7 +34,7 @@ func _ready():
 	$CanvasLayer/HBoxContainer/TimeLeft.connect("time_out", self.time_out)
 	$CanvasLayer/HBoxContainer/TimeLeft.connect("danger_warning", self.danger_warning)
 	$CanvasLayer/HBoxContainer/TimeLeft.connect("danger_warning_cancel", self.danger_warning_cancel)
-	$Sprite/AnimationPlayer.play('fly')
+	#$Sprite/AnimationPlayer.play('fly')
 	
 func _process(delta):
 	if Input.is_action_pressed("shoot"):
@@ -60,14 +60,12 @@ func _physics_process(delta):
 	var speed := 0.0 if is_hover else SPEED
 	var gravity_speed = 0.0 if is_hover else (default_gravity_speed / 10)
 	
+	if !$Sprite/AnimationPlayer.is_playing():
+		$Sprite/AnimationPlayer.play('fly')
+	
 	if Input.is_action_just_pressed("hover"):
 		is_hover = !is_hover
-	#if Input.is_action_pressed("speed_up"):
-		#speed = SPEED
-	#else:
-		#speed = 0	
 		
-	#var should_play_fly := false
 	var fly_speed := 1.0
 	
 	if Input.is_action_pressed("left"):
@@ -91,6 +89,7 @@ func _physics_process(delta):
 		
 	elif Input.is_action_pressed("down"):
 		dive(delta)
+		$Sprite/AnimationPlayer.stop()
 		gravity_speed = gravity_speed * 1.2
 		dive_speed_offset = -velocity.y
 	else:
