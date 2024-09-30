@@ -6,6 +6,9 @@ const Red_Car_count := 1
 
 var PathDispatcher = preload("res://general/path_dispatcher.gd")
 
+var Sequence = preload("res://scences/general/sequence.gd")
+@onready var sequence = Sequence.new()
+
 # Vehicles
 const Delivery = preload("res://scences/kit/cars/delivery.tscn")
 const SUVWhite = preload("res://scences/kit/cars/suv_white.tscn")
@@ -66,6 +69,9 @@ func _ready():
 	add_child(path_dispatcher)
 	init_foods()
 	
+	add_child(sequence)
+	sequence.connect_player($seagull)
+	
 func init_foods():
 	Fantacy_Food_Model_COORDS.shuffle()
 	for i in min(Fantacy_Food_Models.size(), Fantacy_Food_Model_COORDS.size()):
@@ -85,19 +91,3 @@ func _process(delta):
 
 func _on_bg_finished():
 	$BG.play()
-
-func _on_seagull_completed():
-	print("Congra")
-	get_tree().change_scene_to_file("res://scences/general/completed.tscn")
-	pass # Replace with function body.
-
-func _on_seagull_dead():
-	print('dead')
-	#get_tree().change_scene_to_file("res://scences/general/gameover.tscn")
-	get_tree().change_scene_to_file.bind("res://scences/general/gameover.tscn").call_deferred()
-	pass # Replace with function body.
-
-func _on_seagull_timeout():
-	print('TIMEOUT')
-	get_tree().change_scene_to_file.bind("res://scences/general/gameover.tscn").call_deferred()
-	pass # Replace with function body.

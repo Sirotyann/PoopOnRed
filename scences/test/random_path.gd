@@ -70,4 +70,3 @@ func _process(delta):
 	#for child in children:
 		#item.remove_child(child)
 #
-

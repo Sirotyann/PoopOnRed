@@ -1,0 +1,119 @@
+[gd_scene load_steps=15 format=3 uid="uid://bdcj6m0apotul"]
+
+[ext_resource type="Texture2D" uid="uid://rc7d6y1d4gix" path="res://assets/images/blood.png" id="1_rxdhh"]
+[ext_resource type="Texture2D" uid="uid://cyhvasqel6w36" path="res://assets/images/poop.png" id="2_w8we3"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f7cp0"]
+size = Vector3(13.7711, 0.0443726, 10.2012)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0kl33"]
+albedo_color = Color(0.14902, 0.14902, 0.14902, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_xn4i7"]
+material = SubResource("StandardMaterial3D_0kl33")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vlswl"]
+particle_flag_align_y = true
+spread = 180.0
+initial_velocity_min = 10.0
+initial_velocity_max = 50.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kp2ra"]
+albedo_color = Color(1, 0.389, 0.06, 1)
+emission_enabled = true
+emission = Color(0.729412, 0.301961, 0, 1)
+emission_energy_multiplier = 7.35
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_1rny6"]
+material = SubResource("StandardMaterial3D_kp2ra")
+top_radius = 0.1
+bottom_radius = 0.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_yej1i"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[sub_resource type="Gradient" id="Gradient_3yr3r"]
+colors = PackedColorArray(0.975664, 5.60723e-06, 2.11775e-06, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_kepak"]
+gradient = SubResource("Gradient_3yr3r")
+
+[sub_resource type="Curve" id="Curve_5nccs"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.0487806), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_0e57y"]
+curve = SubResource("Curve_5nccs")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1xug3"]
+particle_flag_align_y = true
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 267.3
+initial_velocity_max = 279.54
+gravity = Vector3(0, 98, 0)
+scale_min = 0.0
+scale_max = 7.58
+scale_curve = SubResource("CurveTexture_0e57y")
+color = Color(0.827451, 0.0117647, 0.0980392, 1)
+color_ramp = SubResource("GradientTexture1D_kepak")
+
+[node name="Explosion" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.6119, 0.790935, 0, -0.790935, 0.6119, 0, 81.6324, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(25.125, 0, 0, 0, 0.9, 0, 0, 0, 22.7397, 0, 0.295116, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0325623, -0.0194397, -0.046875)
+shape = SubResource("BoxShape3D_f7cp0")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("PlaneMesh_xn4i7")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000785828, 3.94286, 20.3079)
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000785828, 4.57595, 11.7719)
+visible = false
+amount = 24
+speed_scale = 0.36
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_vlswl")
+draw_pass_1 = SubResource("CylinderMesh_1rny6")
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000785828, 4.57595, 11.7719)
+visible = false
+amount = 10
+draw_order = 1
+mesh = SubResource("BoxMesh_yej1i")
+emission_shape = 3
+emission_box_extents = Vector3(2, 2, 2)
+emission_colors = PackedColorArray(0.161074, 0.42874, 0.631077, 1)
+gravity = Vector3(-5, -5, -9.8)
+color = Color(0.801289, 0, 0.00921492, 1)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(584, 313)
+scale = Vector2(6.16, 3.78111)
+emitting = false
+amount = 64
+process_material = SubResource("ParticleProcessMaterial_1xug3")
+texture = ExtResource("1_rxdhh")
+one_shot = true
+explosiveness = 0.8
+
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="."]
+position = Vector2(517, 302)
+scale = Vector2(5.62513, 6.55022)
+emitting = false
+amount = 64
+process_material = SubResource("ParticleProcessMaterial_1xug3")
+texture = ExtResource("2_w8we3")
+one_shot = true
+speed_scale = 3.86
+explosiveness = 0.8

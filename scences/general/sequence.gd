@@ -12,10 +12,10 @@ func game_win(player):
 	tree.change_scene_to_file("res://scences/general/completed.tscn")
 
 func game_dead(player):
-	print(player)
+	player.play_death_particle()
 	var tree = get_tree()
 	tree.paused = true
-	await tree.create_timer(3.0).timeout
+	await tree.create_timer(1.0).timeout
 	tree.change_scene_to_file("res://scences/general/gameover.tscn")
 
 func game_timeout(player):

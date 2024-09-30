@@ -34,7 +34,6 @@ func _ready():
 	$CanvasLayer/HBoxContainer/TimeLeft.connect("time_out", self.time_out)
 	$CanvasLayer/HBoxContainer/TimeLeft.connect("danger_warning", self.danger_warning)
 	$CanvasLayer/HBoxContainer/TimeLeft.connect("danger_warning_cancel", self.danger_warning_cancel)
-	#$Sprite/AnimationPlayer.play('fly')
 	
 func _process(delta):
 	if Input.is_action_pressed("shoot"):
@@ -44,10 +43,12 @@ func _process(delta):
 	for index in get_slide_collision_count():
 		var collision = get_slide_collision(index)
 		var collider = collision.get_collider()
-		if collider.is_in_group('foood'):
+		if collider.is_in_group('food'):
 			hit_food(collider)
 		
-		if collider.is_in_group('moutain') or (collider.get_collision_layer and (collider.get_collision_layer() == 1 or collider.get_collision_layer() == 3)):
+		if collider.get_collision_layer: print(collider.get_collision_layer())
+		
+		if collider.is_in_group('moutain') or collider.is_in_group('vehicle') or (collider.get_collision_layer and collider.get_collision_layer() == 1):
 			dead.emit()
 			
 	# 切换视角
@@ -207,12 +208,13 @@ func hit_food(food):
 	$CanvasLayer/HBoxContainer/PoopPanel.add(food.poop_value)
 	food.queue_free()
 
-# --- status --- 
-#func game_over():
-	#print("Dead!")
-	#get_tree().paused = true
-	#get_tree().quit()
-	#get_tree().change_scene_to_file("res://scences/general/game_end.tscn")
+# --- effects --- 
+func play_win_particle():
+	$Effects/WinParticle.emitting = true
+	
+func play_death_particle():
+	print('play_death_particle')
+	$Effects/DeathParticle.emitting = true
 	
 func time_out(): 
 	timeout.emit()

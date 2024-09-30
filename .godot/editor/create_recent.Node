@@ -1,7 +1,11 @@
-CPUParticles3D
-Marker3D
+ColorRect
+GPUParticles3D
+GPUParticles2D
 Node3D
+CPUParticles3D
 Camera3D
+MeshInstance3D
+Marker3D
 HBoxContainer
 CheckBox
 CanvasLayer
@@ -9,6 +13,3 @@ CollisionShape3D
 StaticBody3D
 TextureButton
 Button
-GridMap
-LightmapProbe
-Path3D

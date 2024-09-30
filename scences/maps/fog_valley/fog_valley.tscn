@@ -495,7 +495,4 @@ transform = Transform3D(0.475891, -0.733444, 0.485373, 0.0185487, 0.560119, 0.82
 visible = false
 fov = 85.484
 
-[connection signal="completed" from="seagull" to="." method="_on_seagull_completed"]
-[connection signal="dead" from="seagull" to="." method="_on_seagull_dead"]
-[connection signal="timeout" from="seagull" to="." method="_on_seagull_timeout"]
 [connection signal="finished" from="BG" to="." method="_on_bg_finished"]
