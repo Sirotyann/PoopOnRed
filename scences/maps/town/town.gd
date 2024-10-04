@@ -11,7 +11,12 @@ var Sequence = preload("res://scences/general/sequence.gd")
 # Vehicles
 const Delivery = preload("res://scences/kit/cars/delivery.tscn")
 const SUVWhite = preload("res://scences/kit/cars/suv_white.tscn")
+const SUVGreen = preload("res://scences/kit/cars/suv-green.tscn")
+const SuvBlack = preload("res://scences/kit/cars/suv-black.tscn")
+const SuvBlue = preload("res://scences/kit/cars/suv-blue.tscn")
 const Sedan = preload("res://scences/kit/cars/sedan-sports.tscn")
+const SedanBlue = preload("res://scences/kit/cars/sedan-blue.tscn")
+const SedanGreen = preload("res://scences/kit/cars/sedan-green.tscn")
 const SUV = preload("res://scences/kit/cars/suv_luxury.tscn")
 const Texi = preload("res://scences/kit/cars/taxi.tscn")
 const Truck = preload("res://scences/kit/cars/truck.tscn")
@@ -35,7 +40,7 @@ var cars_to_add = []
 
 @onready var sequence = Sequence.new()
 
-@onready var Veichle_Models = [Delivery, SUV, Texi, Truck, Van, SUVWhite]
+@onready var Veichle_Models = [Delivery, SUV, Texi, Truck, Van, SUVWhite, SedanBlue, SedanGreen, SUVGreen, SuvBlack, SuvBlue]
 @onready var Fantacy_Food_Models = [Cake, Burger, Pizza]
 @onready var Fantacy_Food_Model_COORDS = [$Container/FoodCoords/Marker01, $Container/FoodCoords/Marker02, $Container/FoodCoords/Marker03]
 @onready var Normal_Food_Models = [Apple, Coissant, Donut, Fires, Hotdog, Taco, Fires, Pizza]

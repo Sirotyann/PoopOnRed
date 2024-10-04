@@ -18,3 +18,11 @@ res://scences/kit/cars/hatchback_sports.tscn
 res://scences/birds/poopPanel.tscn
 res://scences/maps/fog_valley/fog_valley.tscn
 res://scences/maps/fog_valley/fog_valley.gd
+res://scences/birds/poopPanel.gd
+res://scences/kit/cars/sedan-blue.tscn
+res://scences/maps/town/town.gd
+res://scences/kit/cars/sedan-green.tscn
+res://scences/kit/cars/suv-green.tscn
+res://scences/kit/cars/suv-black.tscn
+res://scences/kit/cars/suv-blue.tscn
+res://scences/kit/cars/van.tscn

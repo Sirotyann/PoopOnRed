@@ -301,12 +301,6 @@ volume_db = -80.0
 [node name="SuccessAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_ro0w1")
 
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
 [node name="Sprite" type="Node3D" parent="."]
 transform = Transform3D(1, -4.02216e-24, 0, -4.02216e-24, 1, 0, 0, 0, 1, -1.20057e-09, 4.78986e-18, 0.0137329)
 
@@ -364,7 +358,7 @@ bones/6/parent = 5
 bones/6/rest = Transform3D(0.968326, 0.24944, -0.0111166, -0.24944, 0.964425, -0.0875475, -0.0111167, 0.0875475, 0.996098, -1.16415e-09, 0.0791915, -5.82077e-11)
 bones/6/enabled = true
 bones/6/position = Vector3(-1.16415e-09, 0.0791915, -5.82077e-11)
-bones/6/rotation = Quaternion(0.0441683, 3.90981e-08, -0.125844, 0.991066)
+bones/6/rotation = Quaternion(0.0441683, 3.91238e-08, -0.125844, 0.991066)
 bones/6/scale = Vector3(1, 1, 1)
 bones/7/name = "Shoulder.l"
 bones/7/parent = -1
@@ -385,7 +379,7 @@ bones/9/parent = 8
 bones/9/rest = Transform3D(0.968326, -0.24944, 0.0111166, 0.24944, 0.964425, -0.0875475, 0.0111167, 0.0875475, 0.996098, 1.16415e-09, 0.0791915, -5.82077e-11)
 bones/9/enabled = true
 bones/9/position = Vector3(1.16415e-09, 0.0791915, -5.82077e-11)
-bones/9/rotation = Quaternion(0.0441683, -3.90981e-08, 0.125844, 0.991066)
+bones/9/rotation = Quaternion(0.0441683, -3.91238e-08, 0.125844, 0.991066)
 bones/9/scale = Vector3(1, 1, 1)
 
 [node name="Cylinder" type="MeshInstance3D" parent="Sprite/Armature/Skeleton3D"]

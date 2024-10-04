@@ -16,10 +16,12 @@ func add(num):
 	if count < MAX_COUNT:
 		count = min(3, count + num)
 		refresh_status()
+		$AnimationPlayer.play('glow')
 	
 func minus(num):
 	count = max(0, count - num)
 	refresh_status()
+	$AnimationPlayer.play('glow')
 	
 func refresh_status():
 	for i in poops.size():

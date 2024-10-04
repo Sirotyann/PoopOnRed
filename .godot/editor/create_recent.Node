@@ -1,7 +1,10 @@
+CollisionShape3D
+Node3D
+VehicleBody3D
+AnimationPlayer
+GPUParticles2D
 ColorRect
 GPUParticles3D
-GPUParticles2D
-Node3D
 CPUParticles3D
 Camera3D
 MeshInstance3D
@@ -9,7 +12,3 @@ Marker3D
 HBoxContainer
 CheckBox
 CanvasLayer
-CollisionShape3D
-StaticBody3D
-TextureButton
-Button
