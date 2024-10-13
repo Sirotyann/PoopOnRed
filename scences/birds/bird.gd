@@ -30,8 +30,6 @@ var is_hover = false
 
 var is_debug = false
 
-var should_rotate_camera := true
-
 func _ready():
 	$CanvasLayer/HBoxContainer/TimeLeft.connect("time_out", self.time_out)
 	$CanvasLayer/HBoxContainer/TimeLeft.connect("danger_warning", self.danger_warning)
@@ -58,10 +56,6 @@ func _process(delta):
 		$Camera2.set_current(true)
 	elif Input.is_action_just_released("SwitchCamera"):
 		$Camera1.set_current(true)
-
-	# 是否旋转 Camera, Temproray
-	if Input.is_action_just_pressed("ToggleRotatiobMode"):
-		should_rotate_camera = !should_rotate_camera
 
 func _physics_process(delta):
 	var speed := 0.0 if is_hover else SPEED
@@ -133,63 +127,50 @@ func _physics_process(delta):
 func rotate_body(x, y, z):
 	rotation.x = x
 	rotation.y = y
-	if  should_rotate_camera:
-		rotation.z = z
-	else:
-		$Sprite.rotation.z = z
-	
-func get_the_rotation():
-	var z = rotation.z if should_rotate_camera else $Sprite.rotation.z
-	return Vector3(rotation.x, rotation.y, z)
+	rotation.z = z
 	
 # --- Charactor movemet ---	
 func dive(delta):
-	var the_rotation = get_the_rotation()
-	if the_rotation.x > -1.0:
-		rotate_body(the_rotation.x - delta * DIVE_SPEED, the_rotation.y, the_rotation.z)
+	if rotation.x > -1.0:
+		rotate_body(rotation.x - delta * DIVE_SPEED, rotation.y, rotation.z)
 
 func climb(delta):
-	var the_rotation = get_the_rotation()
-	if the_rotation.x < 0.75:
-		rotate_body(the_rotation.x + delta * CLIMB_SPEED, the_rotation.y, the_rotation.z)
+	if rotation.x < 0.75:
+		rotate_body(rotation.x + delta * CLIMB_SPEED, rotation.y, rotation.z)
 
 func recover_horizontal(delta):
-	var the_rotation = get_the_rotation()
 	var offset = delta * TURN_SPEED
-	if the_rotation.x <= offset and the_rotation.x >= -1 * offset:
-		rotate_body(0, the_rotation.y, the_rotation.z)
-	elif the_rotation.x < 0:
-		rotate_body(the_rotation.x + offset, the_rotation.y, the_rotation.z)
+	if rotation.x <= offset and rotation.x >= -1 * offset:
+		rotate_body(0, rotation.y, rotation.z)
+	elif rotation.x < 0:
+		rotate_body(rotation.x + offset, rotation.y, rotation.z)
 	else:
-		rotate_body(the_rotation.x - offset, the_rotation.y, the_rotation.z)
+		rotate_body(rotation.x - offset, rotation.y, rotation.z)
 
 func turn_left(delta):
-	var the_rotation = get_the_rotation()
-	var _y = the_rotation.y + delta * TURN_SPEED
-	var _z = the_rotation.z + delta * TURN_SPEED
-	if the_rotation.z < 0.75:
-		rotate_body(the_rotation.x, _y, _z)
+	var _y = rotation.y + delta * TURN_SPEED
+	var _z = rotation.z + delta * TURN_SPEED
+	if rotation.z < 0.75:
+		rotate_body(rotation.x, _y, _z)
 	else:
-		rotate_body(the_rotation.x, _y, the_rotation.z)
+		rotate_body(rotation.x, _y, rotation.z)
 
 func turn_right(delta):
-	var the_rotation = get_the_rotation()
-	var _y = the_rotation.y - delta * TURN_SPEED
-	var _z = the_rotation.z - delta * TURN_SPEED
-	if the_rotation.z > -0.75:
-		rotate_body(the_rotation.x, _y, _z)
+	var _y = rotation.y - delta * TURN_SPEED
+	var _z = rotation.z - delta * TURN_SPEED
+	if rotation.z > -0.75:
+		rotate_body(rotation.x, _y, _z)
 	else:
-		rotate_body(the_rotation.x, _y, the_rotation.z)
+		rotate_body(rotation.x, _y, rotation.z)
 		
 func recover_guesture(delta):
 	var offset = delta * TURN_SPEED
-	var the_rotation = get_the_rotation()
-	if the_rotation.z <= offset and the_rotation.z >= -1 * offset:
-		rotate_body(the_rotation.x, the_rotation.y, 0)
-	elif the_rotation.z < 0:
-		rotate_body(the_rotation.x, the_rotation.y, the_rotation.z + offset)
+	if rotation.z <= offset and rotation.z >= -1 * offset:
+		rotate_body(rotation.x, rotation.y, 0)
+	elif rotation.z < 0:
+		rotate_body(rotation.x, rotation.y, rotation.z + offset)
 	else:
-		rotate_body(the_rotation.x, the_rotation.y, the_rotation.z - offset)
+		rotate_body(rotation.x, rotation.y, rotation.z - offset)
 
 # --- excrete ---
 func shoot():

@@ -26,3 +26,7 @@ res://scences/kit/cars/suv-green.tscn
 res://scences/kit/cars/suv-black.tscn
 res://scences/kit/cars/suv-blue.tscn
 res://scences/kit/cars/van.tscn
+res://scences/birds/bird.tscn
+res://scences/birds/bird.gd
+res://scences/kit/cars/suv_white.gd
+res://scences/general/TimeLeft.gd

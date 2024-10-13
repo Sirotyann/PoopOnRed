@@ -1,14 +1,14 @@
-[gd_scene load_steps=25 format=4 uid="uid://cl280gxenqt7a"]
+[gd_scene load_steps=25 format=4 uid="uid://1x4o40rg0kc6"]
 
-[ext_resource type="Script" path="res://scences/birds/seagull.gd" id="1_mdl4l"]
-[ext_resource type="AudioStream" uid="uid://dasq7fksviibh" path="res://audios/howling-wind.ogg" id="2_4nw0m"]
-[ext_resource type="PackedScene" uid="uid://ce1j8vik2cjbf" path="res://scences/birds/poopPanel.tscn" id="2_jelsa"]
-[ext_resource type="PackedScene" uid="uid://bt2uqmihgvcan" path="res://scences/general/TimeLeft.tscn" id="2_jq2j0"]
-[ext_resource type="Texture2D" uid="uid://b71ocjsuq2jul" path="res://assets/images/damage.png" id="4_i4eqc"]
-[ext_resource type="AudioStream" uid="uid://bwhr4bk7a2h2c" path="res://audios/success.mp3" id="5_ro0w1"]
-[ext_resource type="Texture2D" uid="uid://rc7d6y1d4gix" path="res://assets/images/blood.png" id="7_e3cvk"]
+[ext_resource type="Script" path="res://scences/birds/bird.gd" id="1_xvr1t"]
+[ext_resource type="PackedScene" uid="uid://ce1j8vik2cjbf" path="res://scences/birds/poopPanel.tscn" id="2_holv4"]
+[ext_resource type="PackedScene" uid="uid://bt2uqmihgvcan" path="res://scences/general/TimeLeft.tscn" id="3_8h7nl"]
+[ext_resource type="Texture2D" uid="uid://b71ocjsuq2jul" path="res://assets/images/damage.png" id="4_y47ya"]
+[ext_resource type="AudioStream" uid="uid://dasq7fksviibh" path="res://audios/howling-wind.ogg" id="5_qlfy7"]
+[ext_resource type="AudioStream" uid="uid://bwhr4bk7a2h2c" path="res://audios/success.mp3" id="6_h6yoj"]
+[ext_resource type="Texture2D" uid="uid://rc7d6y1d4gix" path="res://assets/images/blood.png" id="7_vphq8"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_48aya"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_kdljd"]
 size = Vector3(0.242115, 0.040611, 0.0378827)
 
 [sub_resource type="Animation" id="Animation_suqx6"]
@@ -73,7 +73,7 @@ cull_mode = 2
 albedo_color = Color(0.385511, 0.395057, 0.409088, 1)
 roughness = 0.5
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_qw72p"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_ia4cf"]
 resource_name = "seagull_Cylinder_003"
 _surfaces = [{
 "aabb": AABB(-0.181443, -0.0206408, -0.11352, 0.362885, 0.0367222, 0.182835),
@@ -150,7 +150,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="Skin" id="Skin_nrxlb"]
+[sub_resource type="Skin" id="Skin_hl7ti"]
 resource_name = "Skin"
 bind_count = 10
 bind/0/name = &"Body"
@@ -222,20 +222,20 @@ _data = {
 "fly": SubResource("Animation_h7m7m")
 }
 
-[sub_resource type="Gradient" id="Gradient_gqmxb"]
+[sub_resource type="Gradient" id="Gradient_20jqd"]
 colors = PackedColorArray(0.975664, 5.60723e-06, 2.11775e-06, 1, 1, 1, 1, 1)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_4gyn0"]
-gradient = SubResource("Gradient_gqmxb")
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_jmtjs"]
+gradient = SubResource("Gradient_20jqd")
 
-[sub_resource type="Curve" id="Curve_ypbt4"]
+[sub_resource type="Curve" id="Curve_mgjkr"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.0487806), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_yr82j"]
-curve = SubResource("Curve_ypbt4")
+[sub_resource type="CurveTexture" id="CurveTexture_7ff3y"]
+curve = SubResource("Curve_mgjkr")
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cq2lj"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ps8qx"]
 particle_flag_align_y = true
 particle_flag_disable_z = true
 spread = 180.0
@@ -244,19 +244,16 @@ initial_velocity_max = 279.54
 gravity = Vector3(0, 98, 0)
 scale_min = 0.0
 scale_max = 7.58
-scale_curve = SubResource("CurveTexture_yr82j")
+scale_curve = SubResource("CurveTexture_7ff3y")
 color = Color(0.827451, 0.0117647, 0.0980392, 1)
-color_ramp = SubResource("GradientTexture1D_4gyn0")
+color_ramp = SubResource("GradientTexture1D_jmtjs")
 
-[node name="seagull2" type="CharacterBody3D"]
-transform = Transform3D(-1, 3.48787e-16, -8.74228e-08, 3.48787e-16, 1, -3.48787e-16, 8.74228e-08, -3.48787e-16, -1, 0, 0, 0)
-collision_layer = 2
-collision_mask = 21
-script = ExtResource("1_mdl4l")
+[node name="Bird" type="Node3D"]
+script = ExtResource("1_xvr1t")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.504503, -2.55124e-21, 6.44352e-16, -4.92675e-23, 0.332457, 2.39102e-23, 0, -2.64698e-23, 0.621118, 0.000379197, 0.000271131, 0.0103606)
-shape = SubResource("BoxShape3D_48aya")
+shape = SubResource("BoxShape3D_kdljd")
 
 [node name="Camera1" type="Camera3D" parent="."]
 transform = Transform3D(0.99991, -2.81573e-08, -0.0134386, 0.00803391, 0.80163, 0.597766, 0.0107728, -0.59782, 0.801558, -0.000304587, 0.0886246, 0.102559)
@@ -280,10 +277,10 @@ offset_bottom = 648.0
 scale = Vector2(1.00421, 1.05221)
 alignment = 1
 
-[node name="PoopPanel" parent="CanvasLayer/HBoxContainer" instance=ExtResource("2_jelsa")]
+[node name="PoopPanel" parent="CanvasLayer/HBoxContainer" instance=ExtResource("2_holv4")]
 position = Vector2(1014, -2)
 
-[node name="TimeLeft" parent="CanvasLayer/HBoxContainer" instance=ExtResource("2_jq2j0")]
+[node name="TimeLeft" parent="CanvasLayer/HBoxContainer" instance=ExtResource("3_8h7nl")]
 position = Vector2(18, 8)
 scale = Vector2(1.08, 1.16)
 
@@ -292,14 +289,14 @@ modulate = Color(1, 1, 1, 0)
 self_modulate = Color(1, 1, 1, 0)
 offset_right = 1156.0
 offset_bottom = 651.0
-texture = ExtResource("4_i4eqc")
+texture = ExtResource("4_y47ya")
 
 [node name="WindAudio" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_4nw0m")
+stream = ExtResource("5_qlfy7")
 volume_db = -80.0
 
 [node name="SuccessAudio" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_ro0w1")
+stream = ExtResource("6_h6yoj")
 
 [node name="Sprite" type="Node3D" parent="."]
 transform = Transform3D(1, -4.02216e-24, 0, -4.02216e-24, 1, 0, 0, 0, 1, -1.20057e-09, 4.78986e-18, 0.0137329)
@@ -383,8 +380,8 @@ bones/9/rotation = Quaternion(0.0441683, -3.91238e-08, 0.125844, 0.991066)
 bones/9/scale = Vector3(1, 1, 1)
 
 [node name="Cylinder" type="MeshInstance3D" parent="Sprite/Armature/Skeleton3D"]
-mesh = SubResource("ArrayMesh_qw72p")
-skin = SubResource("Skin_nrxlb")
+mesh = SubResource("ArrayMesh_ia4cf")
+skin = SubResource("Skin_hl7ti")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
 libraries = {
@@ -399,8 +396,8 @@ position = Vector2(584, 313)
 scale = Vector2(6.16, 3.78111)
 emitting = false
 amount = 64
-process_material = SubResource("ParticleProcessMaterial_cq2lj")
-texture = ExtResource("7_e3cvk")
+process_material = SubResource("ParticleProcessMaterial_ps8qx")
+texture = ExtResource("7_vphq8")
 lifetime = 3.0
 one_shot = true
 explosiveness = 0.8
