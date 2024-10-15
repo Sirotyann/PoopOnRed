@@ -84,6 +84,10 @@ ToggleRotatiobMode={
 ]
 }
 
+[internationalization]
+
+locale/translations=PackedStringArray("res://strings.en.translation", "res://strings.zh.translation")
+
 [layer_names]
 
 3d_physics/layer_2="charactor"

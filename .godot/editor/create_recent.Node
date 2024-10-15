@@ -1,3 +1,8 @@
+TextureRect
+Label
+CenterContainer
+TextureButton
+Button
 CollisionShape3D
 Node3D
 VehicleBody3D
@@ -7,8 +12,3 @@ ColorRect
 GPUParticles3D
 CPUParticles3D
 Camera3D
-MeshInstance3D
-Marker3D
-HBoxContainer
-CheckBox
-CanvasLayer

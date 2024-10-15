@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://b8jbj3f5jek44"]
+
+[ext_resource type="Script" path="res://scences/buttons/feather.gd" id="1_blx3a"]
+[ext_resource type="Texture2D" uid="uid://bjd4jcilrdfmo" path="res://assets/images/buttons/feather_grey.png" id="1_g22v3"]
+[ext_resource type="Texture2D" uid="uid://dga31kvx2s7jg" path="res://assets/images/buttons/feather_white.png" id="2_gj6e6"]
+
+[node name="Feather" type="Node2D"]
+script = ExtResource("1_blx3a")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+offset_right = 235.0
+offset_bottom = 80.0
+texture_normal = ExtResource("1_g22v3")
+texture_hover = ExtResource("2_gj6e6")
+
+[node name="Label" type="Label" parent="TextureButton"]
+layout_mode = 2
+offset_left = 81.0
+offset_top = 25.0
+offset_right = 176.0
+offset_bottom = 48.0
+theme_override_colors/font_color = Color(1, 0.553743, 0.225702, 1)
+theme_override_colors/font_shadow_color = Color(0.467445, 0.258445, 0.17232, 1)

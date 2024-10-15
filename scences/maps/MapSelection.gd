@@ -5,8 +5,9 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$CanvasLayer/HBoxContainer/square_town.connect('pressed', switch_to_square_town)
-	$CanvasLayer/HBoxContainer/fog_valley.connect('pressed', switch_to_fog_valley)
+	TranslationServer.set_locale("zh")
+	$SunnyTown.refresh_text()
+	$FoggyValley.refresh_text()
 	pass # Replace with function body.
 
 
@@ -14,9 +15,12 @@ func _ready():
 func _process(delta):
 	pass
 
+func on_button_down(e):
+	print(e)
 
-func switch_to_square_town():
+
+func switch_to_sunny_town():
 	get_tree().change_scene_to_file("res://scences/maps/town/town.tscn")
 
-func switch_to_fog_valley():
+func switch_to_foggy_valley():
 	get_tree().change_scene_to_file("res://scences/maps/fog_valley/fog_valley.tscn")

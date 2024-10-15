@@ -1,29 +1,26 @@
 [gd_scene load_steps=4 format=3 uid="uid://bduk111pwxt03"]
 
 [ext_resource type="Script" path="res://scences/maps/MapSelection.gd" id="1_c26jd"]
-[ext_resource type="Texture2D" uid="uid://cpoyhnfbjc7q" path="res://assets/images/square_town.png" id="2_v8mh6"]
-[ext_resource type="Texture2D" uid="uid://esv63oihh273" path="res://assets/images/fog_valley.png" id="3_vh4dy"]
+[ext_resource type="Texture2D" uid="uid://c76in3ca5xqgn" path="res://assets/images/background-3.jpg" id="2_5wsiu"]
+[ext_resource type="PackedScene" uid="uid://b8jbj3f5jek44" path="res://scences/buttons/feather.tscn" id="6_me1y8"]
 
 [node name="MapSelection" type="Node2D"]
 script = ExtResource("1_c26jd")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-scale = Vector2(0.5, 0.5)
-transform = Transform2D(0.5, 0, 0, 0.5, 0, 0)
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0.521141, 0.521141, 0.521141, 1)
+offset_right = 1280.0
+offset_bottom = 720.0
+scale = Vector2(0.898873, 0.899219)
+texture = ExtResource("2_5wsiu")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
-offset_left = 842.0
-offset_top = 442.0
-offset_right = 1446.0
-offset_bottom = 742.0
-alignment = 1
+[node name="SunnyTown" parent="." instance=ExtResource("6_me1y8")]
+position = Vector2(461, 233)
+key = "MAP_1"
 
-[node name="square_town" type="TextureButton" parent="CanvasLayer/HBoxContainer"]
-layout_mode = 2
-texture_normal = ExtResource("2_v8mh6")
-stretch_mode = 0
+[node name="FoggyValley" parent="." instance=ExtResource("6_me1y8")]
+position = Vector2(461, 350)
+key = "MAP_2"
 
-[node name="fog_valley" type="TextureButton" parent="CanvasLayer/HBoxContainer"]
-layout_mode = 2
-texture_normal = ExtResource("3_vh4dy")
-stretch_mode = 0
+[connection signal="clicked" from="SunnyTown" to="." method="switch_to_sunny_town"]
+[connection signal="clicked" from="FoggyValley" to="." method="switch_to_foggy_valley"]
