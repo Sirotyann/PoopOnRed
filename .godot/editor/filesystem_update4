@@ -8,3 +8,11 @@ res://strings.zh.translation
 res://default_theme.tres
 res://scences/buttons/feather.tscn
 res://scences/buttons/feather.gd
+res://scences/birds/bird.tscn
+res://scences/birds/seagull.tscn
+res://assets/mesh_lib/buildings.tres
+res://assets/mesh_lib/decoration.tres
+res://assets/mesh_lib/road.tres
+res://scences/birds/seagull.gd
+res://scences/maps/fog_valley/fog_valley.tscn
+res://scences/maps/town/town.tscn

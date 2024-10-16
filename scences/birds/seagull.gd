@@ -199,6 +199,8 @@ func shoot():
 		poo.give_force(self.velocity)
 		$CanvasLayer/HBoxContainer/PoopPanel.minus(1)
 		
+		$PoopAudio.play()
+		
 		can_excrete = false
 		poo.connect("collide_with_vehicle", self.poop_on_vehicle)
 		poo.connect("collide_with_white_vehicle", self.poop_on_red_vehicle)

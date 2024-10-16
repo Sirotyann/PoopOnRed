@@ -1,3 +1,4 @@
+AudioStreamPlayer
 TextureRect
 Label
 CenterContainer
@@ -11,4 +12,3 @@ GPUParticles2D
 ColorRect
 GPUParticles3D
 CPUParticles3D
-Camera3D

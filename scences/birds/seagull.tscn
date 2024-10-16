@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://cl280gxenqt7a"]
+[gd_scene load_steps=26 format=4 uid="uid://cl280gxenqt7a"]
 
 [ext_resource type="Script" path="res://scences/birds/seagull.gd" id="1_mdl4l"]
 [ext_resource type="AudioStream" uid="uid://dasq7fksviibh" path="res://audios/howling-wind.ogg" id="2_4nw0m"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bt2uqmihgvcan" path="res://scences/general/TimeLeft.tscn" id="2_jq2j0"]
 [ext_resource type="Texture2D" uid="uid://b71ocjsuq2jul" path="res://assets/images/damage.png" id="4_i4eqc"]
 [ext_resource type="AudioStream" uid="uid://bwhr4bk7a2h2c" path="res://audios/success.mp3" id="5_ro0w1"]
+[ext_resource type="AudioStream" uid="uid://wel7rw874j5q" path="res://audios/poop.mp3" id="7_3ckal"]
 [ext_resource type="Texture2D" uid="uid://rc7d6y1d4gix" path="res://assets/images/blood.png" id="7_e3cvk"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_48aya"]
@@ -300,6 +301,9 @@ volume_db = -80.0
 
 [node name="SuccessAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_ro0w1")
+
+[node name="PoopAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_3ckal")
 
 [node name="Sprite" type="Node3D" parent="."]
 transform = Transform3D(1, -4.02216e-24, 0, -4.02216e-24, 1, 0, 0, 0, 1, -1.20057e-09, 4.78986e-18, 0.0137329)
