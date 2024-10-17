@@ -1,6 +1,9 @@
-AudioStreamPlayer
-TextureRect
 Label
+TextureRect
+MeshInstance2D
+ColorRect
+Sprite2D
+AudioStreamPlayer
 CenterContainer
 TextureButton
 Button
@@ -9,6 +12,3 @@ Node3D
 VehicleBody3D
 AnimationPlayer
 GPUParticles2D
-ColorRect
-GPUParticles3D
-CPUParticles3D

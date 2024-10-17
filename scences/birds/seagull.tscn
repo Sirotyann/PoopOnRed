@@ -309,7 +309,7 @@ stream = ExtResource("7_3ckal")
 transform = Transform3D(1, -4.02216e-24, 0, -4.02216e-24, 1, 0, 0, 0, 1, -1.20057e-09, 4.78986e-18, 0.0137329)
 
 [node name="Marker3D" type="Marker3D" parent="Sprite"]
-transform = Transform3D(1, -4.02216e-24, 0, -4.02216e-24, 1, 0, 0, 0, 1, -4.84897e-10, 1.93457e-18, 0.00554657)
+transform = Transform3D(1, -4.02216e-24, 0, -4.02216e-24, 1, 0, 0, 0, 1, 1.15055e-09, -0.00249672, -0.0131607)
 
 [node name="Armature" type="Node3D" parent="Sprite"]
 transform = Transform3D(-0.3, 1.04636e-16, -2.62268e-08, 1.04636e-16, 0.3, -1.04636e-16, 2.62268e-08, -1.04636e-16, -0.3, 4.87537e-10, -1.94511e-18, -0.00557677)

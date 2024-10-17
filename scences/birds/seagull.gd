@@ -36,6 +36,7 @@ func _ready():
 	$CanvasLayer/HBoxContainer/TimeLeft.connect("time_out", self.time_out)
 	$CanvasLayer/HBoxContainer/TimeLeft.connect("danger_warning", self.danger_warning)
 	$CanvasLayer/HBoxContainer/TimeLeft.connect("danger_warning_cancel", self.danger_warning_cancel)
+
 	
 func _process(delta):
 	if Input.is_action_pressed("shoot"):
@@ -205,7 +206,7 @@ func shoot():
 		poo.connect("collide_with_vehicle", self.poop_on_vehicle)
 		poo.connect("collide_with_white_vehicle", self.poop_on_red_vehicle)
 		get_tree().root.add_child(poo)
-		poo.position = $Sprite/Marker3D.global_position
+		poo.global_position = $Sprite/Marker3D.global_position
 		var timer = Timer.new()
 		timer.one_shot = true
 		timer.wait_time = 1

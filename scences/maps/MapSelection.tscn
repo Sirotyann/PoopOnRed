@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bduk111pwxt03"]
+[gd_scene load_steps=5 format=3 uid="uid://bduk111pwxt03"]
 
 [ext_resource type="Script" path="res://scences/maps/MapSelection.gd" id="1_c26jd"]
 [ext_resource type="Texture2D" uid="uid://c76in3ca5xqgn" path="res://assets/images/background-3.jpg" id="2_5wsiu"]
+[ext_resource type="PackedScene" uid="uid://iku4abpii6m7" path="res://scences/general/loading.tscn" id="4_dxbd3"]
 [ext_resource type="PackedScene" uid="uid://b8jbj3f5jek44" path="res://scences/buttons/feather.tscn" id="6_me1y8"]
 
 [node name="MapSelection" type="Node2D"]
@@ -21,6 +22,9 @@ key = "MAP_1"
 [node name="FoggyValley" parent="." instance=ExtResource("6_me1y8")]
 position = Vector2(461, 350)
 key = "MAP_2"
+
+[node name="Loading" parent="." instance=ExtResource("4_dxbd3")]
+visible = false
 
 [connection signal="clicked" from="SunnyTown" to="." method="switch_to_sunny_town"]
 [connection signal="clicked" from="FoggyValley" to="." method="switch_to_foggy_valley"]
