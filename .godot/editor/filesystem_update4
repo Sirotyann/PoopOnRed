@@ -11,3 +11,7 @@ res://scences/buttons/feather.tscn
 res://scences/maps/fog_valley/fog_valley.tscn
 res://scences/birds/seagull.tscn
 res://scences/general/loading.gd
+res://scences/general/sequence.gd
+res://scences/general/gameover.tscn
+res://scences/general/gameover.gd
+res://scences/birds/seagull.gd

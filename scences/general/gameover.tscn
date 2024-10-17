@@ -49,4 +49,5 @@ text = "   Quit   "
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [connection signal="pressed" from="RestartButton" to="." method="restart"]
+[connection signal="button_up" from="QuitButton" to="." method="quit"]
 [connection signal="pressed" from="QuitButton" to="." method="quit"]
