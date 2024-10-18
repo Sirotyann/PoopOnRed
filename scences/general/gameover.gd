@@ -16,5 +16,4 @@ func restart():
 	get_tree().change_scene_to_file("res://scences/maps/MapSelection.tscn")
 
 func quit():
-	print('quit')
 	get_tree().quit()

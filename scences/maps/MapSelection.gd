@@ -6,6 +6,7 @@ func _ready():
 	TranslationServer.set_locale("zh")
 	$SunnyTown.refresh_text()
 	$FoggyValley.refresh_text()
+	$Quit.refresh_text()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -24,3 +25,6 @@ func switch_scence(path):
 	var LoadingScene = loading.instantiate()
 	add_child(LoadingScene)
 	LoadingScene.switch_scence(path)
+
+func quit():
+	get_tree().quit()

@@ -57,7 +57,7 @@ var cars_to_add = []
 
 func _ready():
 	#$Camera3D.set_current(true)
-	
+	$WorldEnvironment.environment.fog_enabled = true
 	$BG.play()
 	$BG.volume_db = -10.0
 	

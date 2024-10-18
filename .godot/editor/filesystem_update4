@@ -15,3 +15,9 @@ res://scences/general/sequence.gd
 res://scences/general/gameover.tscn
 res://scences/general/gameover.gd
 res://scences/birds/seagull.gd
+res://scences/maps/town/town.tscn
+res://scences/kit/buildings/sky_30.tscn
+res://scences/maps/fog_valley/fog_valley.gd
+res://main.tscn
+res://strings.en.translation
+res://strings.zh.translation
