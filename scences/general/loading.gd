@@ -10,7 +10,6 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	print(target_scence)
 	if target_scence != null:
 		scene_load_status = ResourceLoader.load_threaded_get_status(target_scence, progress)
 		update_progress(progress[0])
@@ -23,6 +22,5 @@ func update_progress(val):
 	$Percentage.text = "{progress}%".format({"progress": val * 100})
 
 func switch_scence(path):
-	print('switch_scence to ', path)
 	target_scence = path
 	ResourceLoader.load_threaded_request(target_scence)

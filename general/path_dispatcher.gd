@@ -89,6 +89,3 @@ func _process(delta):
 		var path_follows = path.get_children()		
 		for follow in path_follows:
 			follow.progress += delta * speed
-
-
-

@@ -11,6 +11,7 @@ shadow_color = Color(0.333333, 0, 0, 0.478431)
 shadow_offset = Vector2(5, 5)
 
 [node name="Gameover" type="Node2D"]
+scale = Vector2(1.0167, 1.00739)
 script = ExtResource("1_mion1")
 
 [node name="TextureRect" type="TextureRect" parent="."]

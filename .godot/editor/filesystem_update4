@@ -21,3 +21,5 @@ res://scences/maps/fog_valley/fog_valley.gd
 res://main.tscn
 res://strings.en.translation
 res://strings.zh.translation
+res://general/path_dispatcher.gd
+res://general/storage.gd

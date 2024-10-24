@@ -4,7 +4,13 @@ signal completed
 signal dead
 signal timeout
 
+var score := 0
+
 var Poop = preload("res://scences/birds/poop.tscn")
+var StorageCLS = preload("res://general/storage.gd")
+
+@onready var Storage = StorageCLS.new()
+@onready var StatusAnimation = $CanvasLayer/CanvasAnimationPlayer
 
 const VEHICLE_TIME_AWARD := 15.0 # 每次命中普通车的时间奖励
 
@@ -36,8 +42,10 @@ func _ready():
 	$CanvasLayer/HBoxContainer/TimeLeft.connect("time_out", self.time_out)
 	$CanvasLayer/HBoxContainer/TimeLeft.connect("danger_warning", self.danger_warning)
 	$CanvasLayer/HBoxContainer/TimeLeft.connect("danger_warning_cancel", self.danger_warning_cancel)
-
 	
+	var is_first_time = Storage.get_is_first_time()
+	print(is_first_time)
+		
 func _process(delta):
 	if Input.is_action_pressed("shoot"):
 		shoot()
@@ -52,7 +60,7 @@ func _process(delta):
 		if collider.get_collision_layer: print(collider.get_collision_layer())
 		
 		if collider.is_in_group('moutain') or collider.is_in_group('vehicle') or (collider.get_collision_layer and collider.get_collision_layer() == 1):
-			dead.emit()
+			game_over()
 			
 	# 切换视角
 	if Input.is_action_just_pressed("SwitchCamera"):
@@ -231,21 +239,22 @@ func hit_food(food):
 	food.queue_free()
 
 # --- effects --- 
-func play_win_particle():
-	$Effects/WinParticle.emitting = true
-	
 func play_death_particle():
-	print('play_death_particle')
-	$Effects/DeathParticle.emitting = true
+	StatusAnimation.play("death")
 	
 func time_out(): 
+	StatusAnimation.play("death")
 	timeout.emit()
 
+func game_over():
+	StatusAnimation.play("death")
+	dead.emit()
+
 func danger_warning():
-	$CanvasLayer/CanvasAnimationPlayer.play("damage") 
+	StatusAnimation.play("damage") 
 
 func danger_warning_cancel():
-	$CanvasLayer/CanvasAnimationPlayer.stop()
+	StatusAnimation.stop()
 
 # --- sound ---
 func play_wind_audio():

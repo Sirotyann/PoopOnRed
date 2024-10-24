@@ -1,8 +1,9 @@
+AnimationPlayer
+Sprite2D
 Label
 TextureRect
 MeshInstance2D
 ColorRect
-Sprite2D
 AudioStreamPlayer
 CenterContainer
 TextureButton
@@ -10,5 +11,4 @@ Button
 CollisionShape3D
 Node3D
 VehicleBody3D
-AnimationPlayer
 GPUParticles2D
