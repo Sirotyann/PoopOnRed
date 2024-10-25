@@ -15,15 +15,15 @@ scale = Vector2(0.898873, 0.899219)
 texture = ExtResource("2_5wsiu")
 
 [node name="SunnyTown" parent="." instance=ExtResource("6_me1y8")]
-position = Vector2(461, 195)
+position = Vector2(461, 160)
 key = "MAP_1"
 
 [node name="FoggyValley" parent="." instance=ExtResource("6_me1y8")]
-position = Vector2(461, 312)
+position = Vector2(461, 277)
 key = "MAP_2"
 
 [node name="Quit" parent="." instance=ExtResource("6_me1y8")]
-position = Vector2(461, 438)
+position = Vector2(461, 403)
 key = "QUIT"
 
 [connection signal="clicked" from="SunnyTown" to="." method="switch_to_sunny_town"]

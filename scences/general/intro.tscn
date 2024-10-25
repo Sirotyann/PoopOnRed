@@ -1,0 +1,113 @@
+[gd_scene load_steps=5 format=3 uid="uid://bmiaes03nkd56"]
+
+[ext_resource type="Texture2D" uid="uid://w04mbukkbygb" path="res://assets/images/background-1.jpg" id="1_0wakj"]
+[ext_resource type="Script" path="res://scences/general/intro.gd" id="1_f8ca4"]
+[ext_resource type="AudioStream" uid="uid://dcne42gbh8c6" path="res://audios/keyboard-typing.ogg" id="3_cklca"]
+[ext_resource type="PackedScene" uid="uid://b8jbj3f5jek44" path="res://scences/buttons/feather.tscn" id="4_4tt8n"]
+
+[node name="Intro" type="Node2D"]
+script = ExtResource("1_f8ca4")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0.385493, 0.385492, 0.385492, 1)
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.899239, 0.899144)
+texture = ExtResource("1_0wakj")
+
+[node name="Labels" type="Node2D" parent="."]
+position = Vector2(479, 98)
+
+[node name="Label_1" type="Label" parent="Labels"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0.92, 0.797333, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.449263, 0.400475, 0.0709901, 1)
+theme_override_font_sizes/font_size = 20
+text = "1
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label_2" type="Label" parent="Labels"]
+offset_left = 1.0
+offset_top = 28.0
+offset_right = 41.0
+offset_bottom = 51.0
+theme_override_colors/font_color = Color(0.92, 0.797333, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.449263, 0.400475, 0.0709901, 1)
+theme_override_font_sizes/font_size = 20
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label_3" type="Label" parent="Labels"]
+offset_left = 1.0
+offset_top = 56.0
+offset_right = 41.0
+offset_bottom = 79.0
+theme_override_colors/font_color = Color(0.92, 0.797333, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.449263, 0.400475, 0.0709901, 1)
+theme_override_font_sizes/font_size = 20
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label_4" type="Label" parent="Labels"]
+offset_left = 1.0
+offset_top = 84.0
+offset_right = 41.0
+offset_bottom = 107.0
+theme_override_colors/font_color = Color(0.92, 0.797333, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.449263, 0.400475, 0.0709901, 1)
+theme_override_font_sizes/font_size = 20
+text = "4"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label_5" type="Label" parent="Labels"]
+offset_left = 1.0
+offset_top = 113.0
+offset_right = 41.0
+offset_bottom = 136.0
+theme_override_colors/font_color = Color(0.92, 0.797333, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.449263, 0.400475, 0.0709901, 1)
+theme_override_font_sizes/font_size = 20
+text = "5"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label_6" type="Label" parent="Labels"]
+offset_left = 1.0
+offset_top = 195.0
+offset_right = 41.0
+offset_bottom = 218.0
+theme_override_colors/font_color = Color(0.97, 0.354535, 0.1843, 1)
+theme_override_font_sizes/font_size = 20
+text = "6"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label_7" type="Label" parent="Labels"]
+offset_left = 1.0
+offset_top = 228.0
+offset_right = 41.0
+offset_bottom = 251.0
+theme_override_colors/font_color = Color(0.97, 0.354535, 0.1843, 1)
+theme_override_font_sizes/font_size = 20
+text = "7"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+
+[node name="TypingAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_cklca")
+
+[node name="Start" parent="." instance=ExtResource("4_4tt8n")]
+position = Vector2(461, 438)
+key = "START"
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="clicked" from="Start" to="." method="go_to_next"]

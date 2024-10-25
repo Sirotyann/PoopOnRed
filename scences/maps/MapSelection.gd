@@ -6,16 +6,11 @@ var StorageCLS = preload("res://general/storage.gd")
 const loading = preload("res://scences/general/loading.tscn")
 
 func _ready():
-	TranslationServer.set_locale("zh")
+	#TranslationServer.set_locale("zh")
 	$SunnyTown.refresh_text()
 	$FoggyValley.refresh_text()
 	$Quit.refresh_text()
 	
-	#Storage.clear_status()
-	var is_first_time = Storage.get_is_first_time()
-	if is_first_time: Storage.set_is_first_time(false)
-	print(is_first_time)
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass

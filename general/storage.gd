@@ -30,9 +30,30 @@ func set_is_first_time(val):
 func get_is_town_completed():
 	return read_var(is_town_completed)
 
-func town_completed():
-	is_town_completed = true
+func set_is_town_completed(val):
+	is_town_completed = val
 	write_var(is_town_completed)
+
+func get_is_valley_completed():
+	return read_var(is_valley_completed)
+
+func set_is_valley_completed(val):
+	is_valley_completed = val
+	write_var(is_valley_completed)
+	
+func get_has_eaten():
+	return read_var(has_eaten)
+
+func set_has_eaten(val):
+	has_eaten = val
+	write_var(has_eaten)
+
+func get_has_poop_on_car():
+	return read_var(has_poop_on_car)
+
+func set_has_poop_on_car(val):
+	has_poop_on_car = val
+	write_var(has_poop_on_car)
 
 func clear_status():
 	DirAccess.remove_absolute(file_path)
@@ -44,18 +65,3 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
-
-
-#func save_score():
-	#var file = FileAccess.open(data_path, FileAccess.WRITE)
-	#file.store_var(score)
-#
-#func read_score():
-	#if FileAccess.file_exists(data_path):
-		#var file = FileAccess.open(data_path, FileAccess.READ)
-		#var score_pre = file.get_var(score)
-		#print(score_pre)
-		#return score_pre
-	#else:
-		#print('cannot read data')
-		#return 0
