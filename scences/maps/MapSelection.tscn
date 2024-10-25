@@ -25,6 +25,7 @@ key = "MAP_2"
 [node name="Quit" parent="." instance=ExtResource("6_me1y8")]
 position = Vector2(461, 403)
 key = "QUIT"
+color = "red"
 
 [connection signal="clicked" from="SunnyTown" to="." method="switch_to_sunny_town"]
 [connection signal="clicked" from="FoggyValley" to="." method="switch_to_foggy_valley"]

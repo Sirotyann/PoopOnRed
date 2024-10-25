@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://6b3pa448oo8c"]
+[gd_scene load_steps=5 format=3 uid="uid://6b3pa448oo8c"]
 
 [ext_resource type="Script" path="res://scences/general/gameover.gd" id="1_mion1"]
 [ext_resource type="Texture2D" uid="uid://bnus3cnymy7ox" path="res://assets/images/dead_seagull.png" id="1_rrsbb"]
+[ext_resource type="PackedScene" uid="uid://b8jbj3f5jek44" path="res://scences/buttons/feather.tscn" id="3_ahtkc"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ex2k8"]
 font_size = 100
@@ -22,33 +23,24 @@ texture = ExtResource("1_rrsbb")
 expand_mode = 3
 
 [node name="Label" type="Label" parent="."]
-offset_left = 376.0
-offset_top = 152.0
-offset_right = 921.0
-offset_bottom = 365.0
+offset_left = 316.711
+offset_top = 199.526
+offset_right = 861.711
+offset_bottom = 412.526
 text = "Game Over"
 label_settings = SubResource("LabelSettings_ex2k8")
 
-[node name="RestartButton" type="Button" parent="."]
-offset_left = 662.0
-offset_top = 389.0
-offset_right = 779.0
-offset_bottom = 420.0
-scale = Vector2(2.48, 2.4)
-theme_override_colors/font_color = Color(0.431373, 1, 0.4, 1)
-text = "   Start again   "
-
-[node name="QuitButton" type="Button" parent="."]
-offset_left = 339.0
-offset_top = 388.0
-offset_right = 456.0
-offset_bottom = 419.0
-scale = Vector2(2.48, 2.4)
-theme_override_colors/font_color = Color(0.607843, 0.717647, 0.992157, 1)
-text = "   Quit   "
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[connection signal="pressed" from="RestartButton" to="." method="restart"]
-[connection signal="button_up" from="QuitButton" to="." method="quit"]
-[connection signal="pressed" from="QuitButton" to="." method="quit"]
+[node name="Quit" parent="." instance=ExtResource("3_ahtkc")]
+position = Vector2(607.849, 486.405)
+key = "QUIT"
+color = "red"
+
+[node name="Restart" parent="." instance=ExtResource("3_ahtkc")]
+position = Vector2(340.317, 492.361)
+key = "RESTART"
+color = "yellow"
+
+[connection signal="clicked" from="Quit" to="." method="quit"]
+[connection signal="clicked" from="Restart" to="." method="restart"]

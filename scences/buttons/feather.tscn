@@ -19,5 +19,5 @@ offset_left = 81.0
 offset_top = 25.0
 offset_right = 176.0
 offset_bottom = 48.0
-theme_override_colors/font_color = Color(1, 0.553743, 0.225702, 1)
-theme_override_colors/font_shadow_color = Color(0.467445, 0.258445, 0.17232, 1)
+theme_override_colors/font_color = Color(0.769701, 2.64719e-06, 0.474837, 1)
+theme_override_colors/font_shadow_color = Color(0.393066, 0.100684, 0.164575, 1)

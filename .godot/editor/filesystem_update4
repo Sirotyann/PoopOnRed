@@ -8,3 +8,10 @@ res://scences/maps/MapSelection.tscn
 res://scences/buttons/feather.tscn
 res://main.tscn
 res://scences/maps/MapSelection.gd
+res://scences/buttons/feather.gd
+res://scences/general/gameover.tscn
+res://scences/general/gameover.gd
+res://strings.en.translation
+res://strings.zh.translation
+res://scences/general/completed.tscn
+res://scences/general/completed.gd
