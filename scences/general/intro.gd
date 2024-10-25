@@ -21,7 +21,7 @@ var total_chars
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	#Storage.clear_status()
+	Storage.clear_status()
 	TranslationServer.set_locale("zh")
 	var is_first_time = Storage.get_is_first_time()
 	
@@ -57,6 +57,11 @@ func _on_timer_timeout() -> void:
 			labels[index].visible_characters += text_speed
 		else:
 			index += 1
+			$Timer.paused = true
+			$TypingAudio.stop()
+			await get_tree().create_timer(0.5).timeout
+			$Timer.paused = false
+			$TypingAudio.play()
 	else:
 		$Timer.stop()
 		$TypingAudio.stop()
