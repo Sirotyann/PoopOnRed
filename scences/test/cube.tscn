@@ -1,5 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://dl23aftfrt8cc"]
-
-[ext_resource type="PackedScene" uid="uid://wei3ba44jepm" path="res://scences/test/cube.glb" id="1_f14p2"]
-
-[node name="cube" instance=ExtResource("1_f14p2")]

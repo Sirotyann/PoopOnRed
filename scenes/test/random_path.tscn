@@ -1,0 +1,64 @@
+[gd_scene load_steps=9 format=3 uid="uid://cupuqeedo1lqt"]
+
+[ext_resource type="Script" path="res://scenes/test/random_path.gd" id="1_w6wnc"]
+[ext_resource type="PackedScene" uid="uid://bfsdfjk87ep80" path="res://scenes/kit/nature/grass.tscn" id="3_nfgiv"]
+[ext_resource type="PackedScene" uid="uid://33tt8t7cvnrh" path="res://scenes/test/seagull_test.tscn" id="3_x5qvx"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7pkjf"]
+albedo_color = Color(0.411765, 0.611765, 0.678431, 1)
+metallic = 0.59
+metallic_specular = 0.55
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_1ovxn"]
+material = SubResource("StandardMaterial3D_7pkjf")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hipyn"]
+size = Vector3(13.7711, 0.0443726, 10.2012)
+
+[sub_resource type="Curve3D" id="Curve3D_kq85u"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -9.62665, 0, 2.60861, 0, 0, 0, 0, 0, 0, -9.76003, 0, -12.8301, 0, 0, 0, 0, 0, 0, -9.42658, 0, -13.4303, 0, 0, 0, 0, 0, 0, -3.02434, 0, -13.5637, 0, 0, 0, 0, 0, 0, -2.59085, 0, -12.9968, 0, 0, 0, 0, 0, 0, -2.59085, 0, -9.52897, 0, 0, 0, 0, 0, 0, -2.12402, 0, -8.89541, 0, 0, 0, 0, 0, 0, 2.44424, 0, -9.02879, 0, 0, 0, 0, 0, 0, 3.01111, 0, -8.49527, 0, 0, 0, 0, 0, 0, 3.11114, 0, -4.26046, 0, 0, 0, 0, 0, 0, 2.54428, 0, -3.56021, 0, 0, 0, 0, 0, 0, -1.92395, 0, -3.49352, 0, 0, 0, 0, 0, 0, -2.6242, 0, -3.02669, 0, 0, 0, 0, 0, 0, -2.59085, 0, -0.459129, 0, 0, 0, 0, 0, 0, -1.99064, 0, 0.207772, 0, 0, 0, 0, 0, 0, 3.24452, 0, 0.374497, 0, 0, 0, 0, 0, 0, 3.81139, 0, 1.00805, 0, 0, 0, 0, 0, 0, 3.81139, 0, 10.5781, 0, 0, 0, 0, 0, 0, 3.14449, 0, 11.245, 0, 0, 0, 0, 0, 0, -8.09278, 0, 10.478, 0, 0, 0, 0, 0, 0, -8.99309, 0, 9.91117, 0, 0, 0, 0, 0, 0, -9.62665, 0, 2.60861),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 22
+
+[sub_resource type="Curve3D" id="Curve3D_60tmw"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -6.29203, 0, -3.95522, 0, 0, 0, 0, 0, 0, -6.35534, 0, -10.9828, 0, 0, 0, 0, 0, 0, -5.27904, 0, -11.8375, 0, 0, 0, 0, 0, 0, 1.05211, 0, -11.9641, 0, 0, 0, 0, 0, 0, 6.05373, 0, -11.6159, 0, 0, 0, 0, 0, 0, 8.01638, 0, -7.94385, 0, 0, 0, 0, 0, 0, 8.55453, 0, -4.49337, 0, 0, 0, 0, 0, 0, 8.6495, 0, 5.44655, 0, 0, 0, 0, 0, 0, 8.23797, 0, 8.73875, 0, 0, 0, 0, 0, 0, 7.2883, 0, 9.40352, 0, 0, 0, 0, 0, 0, 6.02207, 0, 9.24524, 0, 0, 0, 0, 0, 0, -3.98116, 0, 8.61213, 0, 0, 0, 0, 0, 0, -5.81719, 0, 6.61781, 0, 0, 0, 0, 0, 0, -7.84316, 0, 0.476591, 0, 0, 0, 0, 0, 0, -6.29203, 0, -3.95522),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 15
+
+[node name="RandomPath" type="Node3D"]
+script = ExtResource("1_w6wnc")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.6119, 0.790935, 0, -0.790935, 0.6119, 0, 81.6324, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(25.125, 0, 0, 0, 0.9, 0, 0, 0, 22.7397, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(6.87233, 0, 0, 0, 1, 0, 0, 0, 5.08495, 0.0325623, -0.00299072, -0.046875)
+mesh = SubResource("PlaneMesh_1ovxn")
+skeleton = NodePath("../CollisionShape3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0325623, -0.0194397, -0.046875)
+shape = SubResource("BoxShape3D_hipyn")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, -6.97574e-16, -6.02884e-23, -6.04117e-16, -0.866025, 0.5, -3.48787e-16, -0.5, -0.866025, 1, 0.4942, -3.87866)
+fov = 90.0
+
+[node name="Path3D" type="Path3D" parent="."]
+curve = SubResource("Curve3D_kq85u")
+
+[node name="grass2" parent="." instance=ExtResource("3_nfgiv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 29)
+
+[node name="Path3D2" type="Path3D" parent="."]
+curve = SubResource("Curve3D_60tmw")
+
+[node name="seagull" parent="." instance=ExtResource("3_x5qvx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -3)

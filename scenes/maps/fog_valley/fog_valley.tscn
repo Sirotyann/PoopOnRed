@@ -1,0 +1,503 @@
+[gd_scene load_steps=36 format=3 uid="uid://6kxk5itmf6m8"]
+
+[ext_resource type="Script" path="res://scenes/maps/fog_valley/fog_valley.gd" id="1_wajq7"]
+[ext_resource type="PackedScene" uid="uid://bqvahti2j4sbq" path="res://scenes/kit/buildings/sky_30.tscn" id="2_mfjag"]
+[ext_resource type="PackedScene" uid="uid://bkytxwf6dr2b1" path="res://scenes/kit/buildings/sky_45.tscn" id="3_cyuni"]
+[ext_resource type="PackedScene" uid="uid://dejgjwi0epnnj" path="res://scenes/kit/buildings/sky_60.tscn" id="4_p3dt4"]
+[ext_resource type="MeshLibrary" uid="uid://cbnrxmxka2mw4" path="res://assets/mesh_lib/buildings.tres" id="5_xeppr"]
+[ext_resource type="PackedScene" uid="uid://jkrflm2p7oxq" path="res://scenes/kit/buildings/stadium.tscn" id="6_1yk34"]
+[ext_resource type="PackedScene" uid="uid://cdy0r6nd1gury" path="res://scenes/kit/nature/trees_16.tscn" id="7_22atf"]
+[ext_resource type="MeshLibrary" uid="uid://bl56je43h6t68" path="res://assets/mesh_lib/decoration.tres" id="8_bxgno"]
+[ext_resource type="PackedScene" uid="uid://54cnl08br80a" path="res://scenes/kit/road/road_straight_climb.tscn" id="9_n1tnd"]
+[ext_resource type="MeshLibrary" uid="uid://dk5gh0s8yeus2" path="res://assets/mesh_lib/road.tres" id="10_017yt"]
+[ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain.gd" id="11_24k1r"]
+[ext_resource type="Resource" path="res://scenes/maps/fog_valley/map_data/data.hterrain" id="12_vc0ak"]
+[ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="13_yu0g3"]
+[ext_resource type="Texture2D" uid="uid://8nb3p41nn1u1" path="res://scenes/maps/town/town_slot0_albedo_bump.png" id="14_mq1qn"]
+[ext_resource type="Texture2D" uid="uid://r4p6mkqnppep" path="res://scenes/maps/town/town_slot1_albedo_bump.png" id="15_1pkhb"]
+[ext_resource type="Texture2D" uid="uid://bobbnp3nrg7lp" path="res://scenes/maps/town/town_slot2_albedo_bump.png" id="16_q0sjw"]
+[ext_resource type="Texture2D" uid="uid://dhwsixj5ctps3" path="res://scenes/maps/town/town_slot3_albedo_bump.png" id="17_0bx60"]
+[ext_resource type="Texture2D" uid="uid://byhy0iac748tx" path="res://scenes/maps/town/town_slot2_normal_roughness.png" id="18_iqgh2"]
+[ext_resource type="Texture2D" uid="uid://he65psked2bv" path="res://scenes/maps/town/town_slot3_normal_roughness.png" id="19_i2j0m"]
+[ext_resource type="PackedScene" uid="uid://cl280gxenqt7a" path="res://scenes/birds/seagull.tscn" id="20_d8aa4"]
+[ext_resource type="AudioStream" uid="uid://d1a8pbsgnj6g4" path="res://audios/Fallen Target.ogg" id="21_08vl6"]
+[ext_resource type="PackedScene" uid="uid://bce7vjfkkau86" path="res://scenes/kit/buildings/sky_20.tscn" id="22_031sh"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qvaeu"]
+
+[sub_resource type="Sky" id="Sky_oai38"]
+sky_material = SubResource("ProceduralSkyMaterial_qvaeu")
+
+[sub_resource type="Environment" id="Environment_yqmpc"]
+background_mode = 2
+background_energy_multiplier = 1.01
+sky = SubResource("Sky_oai38")
+fog_light_color = Color(0.415686, 0.45098, 0.501961, 1)
+fog_light_energy = 0.85
+fog_sun_scatter = 0.22
+fog_density = 0.0342
+fog_aerial_perspective = 0.089
+volumetric_fog_density = 1.0
+volumetric_fog_albedo = Color(0.741176, 0.741176, 0.741176, 1)
+volumetric_fog_emission = Color(0.843137, 0.843137, 0.843137, 1)
+volumetric_fog_emission_energy = 423.01
+volumetric_fog_length = 1024.0
+volumetric_fog_detail_spread = 1.8025
+volumetric_fog_ambient_inject = 1.45
+
+[sub_resource type="Curve3D" id="Curve3D_dilqr"]
+bake_interval = 0.01
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 193.285, -2.18, 194.717, 0, 0, 0, 0, 0, 0, 193.285, -2.18, 189.835, 0, 0, 0, 0, 0, 0, 193.621, -2.18, 189.347, 0, 0, 0, 0, 0, 0, 204.085, -2.18, 189.317, 0, 0, 0, 0, 0, 0, 204.726, -2.18, 189.713, 0, 0, 0, 0, 0, 0, 204.696, -2.18, 200.178, 0, 0, 0, 0, 0, 0, 205.672, -2.18, 201.368, 0, 0, 0, 0, 0, 0, 216.015, -2.18, 201.368, 0, 0, 0, 0, 0, 0, 217.204, -2.18, 200.483, 0, 0, 0, 0, 0, 0, 217.296, -2.18, 189.927, 0, 0, 0, 0, 0, 0, 217.601, -2.18, 189.347, 0, 0, 0, 0, 0, 0, 240.025, -2.18, 189.317, 0, 0, 0, 0, 0, 0, 240.697, -2.18, 189.744, 0, 0, 0, 0, 0, 0, 240.727, -2.18, 200.208, 0, 0, 0, 0, 0, 0, 240.239, -2.18, 200.697, 0, 0, 0, 0, 0, 0, 229.774, -2.18, 200.727, 0, 0, 0, 0, 0, 0, 228.706, -2.18, 201.673, 0, 0, 0, 0, 0, 0, 228.676, -2.18, 212.077, 0, 0, 0, 0, 0, 0, 228.31, -2.18, 212.717, 0, 0, 0, 0, 0, 0, 193.895, -2.18, 212.748, 0, 0, 0, 0, 0, 0, 193.285, -2.18, 212.229, 0, 0, 0, 0, 0, 0, 193.285, -2.18, 194.717),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 22
+
+[sub_resource type="Curve3D" id="Curve3D_k7pgf"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 193.368, -1.79, 218.46, 0, 0, 0, 0, 0, 0, 193.33, -1.79, 214.085, 0, 0, 0, 0, 0, 0, 193.787, -1.79, 213.4, 0, 0, 0, 0, 0, 0, 216.08, -1.79, 213.324, 0, 0, 0, 0, 0, 0, 216.765, -1.79, 213.857, 0, 0, 0, 0, 0, 0, 216.765, -1.79, 224.014, 0, 0, 0, 0, 0, 0, 216.194, -1.79, 224.737, 0, 0, 0, 0, 0, 0, 205.809, -1.79, 224.699, 0, 0, 0, 0, 0, 0, 204.705, -1.79, 225.764, 0, 0, 0, 0, 0, 0, 204.667, -1.79, 236.074, 0, 0, 0, 0, 0, 0, 204.097, -1.79, 236.683, 0, 0, 0, 0, 0, 0, 193.959, -1.79, 236.728, 0, 0, 0, 0, 0, 0, 193.233, -1.79, 236.351, 0, 0, 0, 0, 0, 0, 193.367, -1.79, 222.086, 0, 0, 0, 0, 0, 0, 193.368, -1.79, 218.46),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 15
+
+[sub_resource type="Curve3D" id="Curve3D_asuwt"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -0.660446, -1.78998, 0.0237885, 0, 0, 0, 0, 0, 0, -0.618835, -1.78998, 3.5607, 0, 0, 0, 0, 0, 0, 0.692245, -1.78995, 4.71249, 0, 0, 0, 0, 0, 0, 12.4747, -1.78995, 4.70966, 0, 0, 0, 0, 0, 0, 71.6, 7.1, 4.598, 0, 0, 0, 0, 0, 0, 75.7025, 7.10004, 4.60745, 0, 0, 0, 0, 0, 0, 76.3464, 7.10004, 5.06055, 0, 0, 0, 0, 0, 0, 76.3464, 7.10004, 17.8905, 0, 0, 0, 0, 0, 0, 77.2643, 7.10004, 18.759, 0, 0, 0, 0, 0, 0, 89.8827, 7.10004, 18.73, 0, 0, 0, 0, 0, 0, 90.898, 7.10004, 17.5697, 0, 0, 0, 0, 0, 0, 91.014, 7.10004, 5.32838, 0, 0, 0, 0, 0, 0, 89.9407, 7.10004, 4.05205, 0, 0, 0, 0, 0, 0, 71.6507, 7.10004, 3.98796, 0, 0, 0, 0, 0, 0, 12.476, -1.7, 4.055, 0, 0, 0, 0, 0, 0, 12.0436, -1.70001, 3.67378, 0, 0, 0, 0, 0, 0, 11.9607, -1.70001, -18.5876, 0, 0, 0, 0, 0, 0, 10.8094, -1.70001, -19.9133, 0, 0, 0, 0, 0, 0, 0.48233, -1.70001, -20.018, 0, 0, 0, 0, 0, 0, -0.634109, -1.70001, -19.0411, 0, 0, 0, 0, 0, 0, -0.613693, -1.70001, -3.60428, 0, 0, 0, 0, 0, 0, -0.66, -1.7, 0.024),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 22
+
+[sub_resource type="Curve3D" id="Curve3D_o6kg1"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 253.31, -1.79, 306.648, 0, 0, 0, 0, 0, 0, 246.441, -1.79, 306.682, 0, 0, 0, 0, 0, 0, 245.747, -1.79, 306.821, 0, 0, 0, 0, 0, 0, 245.678, -1.79, 334.888, 0, 0, 0, 0, 0, 0, 245.955, -1.79, 335.235, 0, 0, 0, 0, 0, 0, 261.324, -1.79, 335.27, 0, 0, 0, 0, 0, 0, 262.296, -1.79, 334.402, 0, 0, 0, 0, 0, 0, 262.296, -1.79, 308.036, 0, 0, 0, 0, 0, 0, 262.504, -1.79, 307.376, 0, 0, 0, 0, 0, 0, 288.801, -1.79, 307.238, 0, 0, 0, 0, 0, 0, 289.495, -1.79, 307.411, 0, 0, 0, 0, 0, 0, 289.773, -1.79, 320.143, 0, 0, 0, 0, 0, 0, 289.773, -1.79, 320.594, 0, 0, 0, 0, 0, 0, 288.35, -1.79, 320.768, 0, 0, 0, 0, 0, 0, 287.899, -1.79, 321.219, 0, 0, 0, 0, 0, 0, 287.761, -1.79, 322.225, 0, 0, 0, 0, 0, 0, 287.31, -1.79, 322.711, 0, 0, 0, 0, 0, 0, 277.04, -1.79, 322.676, 0, 0, 0, 0, 0, 0, 275.618, -1.79, 323.613, 0, 0, 0, 0, 0, 0, 275.618, -1.79, 334.09, 0, 0, 0, 0, 0, 0, 276.832, -1.79, 335.235, 0, 0, 0, 0, 0, 0, 289.432, -1.79, 335.311, 0, 0, 0, 0, 0, 0, 290.26, -1.79, 334.424, 0, 0, 0, 0, 0, 0, 290.289, -1.79, 325.736, 0, 0, 0, 0, 0, 0, 290.496, -1.79, 325.323, 0, 0, 0, 0, 0, 0, 291.796, -1.79, 325.175, 0, 0, 0, 0, 0, 0, 292.269, -1.79, 324.732, 0, 0, 0, 0, 0, 0, 292.388, -1.79, 323.579, 0, 0, 0, 0, 0, 0, 293.042, -1.79, 323.333, 0, 0, 0, 0, 0, 0, 305.128, -1.79, 323.245, 0, 0, 0, 0, 0, 0, 306.222, -1.79, 322.21, 0, 0, 0, 0, 0, 0, 306.251, -1.79, 307.819, 0, 0, 0, 0, 0, 0, 305.128, -1.79, 306.814, 0, 0, 0, 0, 0, 0, 263.393, -1.79, 306.72, 0, 0, 0, 0, 0, 0, 253.31, -1.79, 306.648),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 35
+
+[sub_resource type="Curve3D" id="Curve3D_fiexw"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 290.977, -1.79, 264.652, 0, 0, 0, 0, 0, 0, 278.27, -1.79, 264.664, 0, 0, 0, 0, 0, 0, 277.758, -1.79, 264.903, 0, 0, 0, 0, 0, 0, 277.621, -1.79, 284.166, 0, 0, 0, 0, 0, 0, 278.577, -1.79, 285.259, 0, 0, 0, 0, 0, 0, 288.96, -1.79, 285.327, 0, 0, 0, 0, 0, 0, 289.609, -1.79, 285.464, 0, 0, 0, 0, 0, 0, 289.76, -1.79, 294.712, 0, 0, 0, 0, 0, 0, 290.569, -1.79, 295.285, 0, 0, 0, 0, 0, 0, 305.163, -1.79, 295.319, 0, 0, 0, 0, 0, 0, 306.309, -1.79, 294.342, 0, 0, 0, 0, 0, 0, 306.309, -1.79, 286.016, 0, 0, 0, 0, 0, 0, 306.309, -1.79, 265.961, 0, 0, 0, 0, 0, 0, 305.062, -1.79, 264.714, 0, 0, 0, 0, 0, 0, 293.568, -1.79, 264.68, 0, 0, 0, 0, 0, 0, 290.977, -1.79, 264.652),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 16
+
+[sub_resource type="Curve3D" id="Curve3D_i8f0l"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 288.968, -1.79, 265.313, 0, 0, 0, 0, 0, 0, 305.229, -1.79, 265.339, 0, 0, 0, 0, 0, 0, 305.701, -1.79, 265.889, 0, 0, 0, 0, 0, 0, 305.727, -1.79, 284.167, 0, 0, 0, 0, 0, 0, 305.255, -1.79, 284.69, 0, 0, 0, 0, 0, 0, 278.939, -1.79, 284.717, 0, 0, 0, 0, 0, 0, 278.337, -1.79, 284.298, 0, 0, 0, 0, 0, 0, 278.311, -1.79, 266.203, 0, 0, 0, 0, 0, 0, 278.494, -1.79, 265.47, 0, 0, 0, 0, 0, 0, 285.119, -1.79, 265.287, 0, 0, 0, 0, 0, 0, 288.968, -1.79, 265.313),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 11
+
+[sub_resource type="Curve3D" id="Curve3D_hrufx"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 320.309, -1.79, 259.595, 0, 0, 0, 0, 0, 0, 320.27, -1.79, 251.824, 0, 0, 0, 0, 0, 0, 320.785, -1.79, 251.348, 0, 0, 0, 0, 0, 0, 333.076, -1.79, 251.308, 0, 0, 0, 0, 0, 0, 334.186, -1.79, 250.396, 0, 0, 0, 0, 0, 0, 334.345, -1.79, 237.986, 0, 0, 0, 0, 0, 0, 334.86, -1.79, 237.352, 0, 0, 0, 0, 0, 0, 347.35, -1.79, 237.352, 0, 0, 0, 0, 0, 0, 347.667, -1.79, 237.907, 0, 0, 0, 0, 0, 0, 347.707, -1.79, 250.396, 0, 0, 0, 0, 0, 0, 346.676, -1.79, 250.753, 0, 0, 0, 0, 0, 0, 335.059, -1.79, 250.753, 0, 0, 0, 0, 0, 0, 333.79, -1.79, 251.744, 0, 0, 0, 0, 0, 0, 333.75, -1.79, 264.273, 0, 0, 0, 0, 0, 0, 334.821, -1.79, 265.265, 0, 0, 0, 0, 0, 0, 347.112, -1.79, 265.304, 0, 0, 0, 0, 0, 0, 347.667, -1.79, 265.74, 0, 0, 0, 0, 0, 0, 347.707, -1.79, 284.296, 0, 0, 0, 0, 0, 0, 347.151, -1.79, 284.692, 0, 0, 0, 0, 0, 0, 334.821, -1.79, 284.732, 0, 0, 0, 0, 0, 0, 321.023, -1.79, 284.653, 0, 0, 0, 0, 0, 0, 320.389, -1.79, 284.336, 0, 0, 0, 0, 0, 0, 320.309, -1.79, 266.295, 0, 0, 0, 0, 0, 0, 320.309, -1.79, 259.595),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 24
+
+[sub_resource type="Curve3D" id="Curve3D_gyh1x"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 327.295, -1.79, 222.682, 0, 0, 0, 0, 0, 0, 307.015, -1.79, 222.645, 0, 0, 0, 0, 0, 0, 306.316, -1.79, 222.388, 0, 0, 0, 0, 0, 0, 306.353, -1.79, 213.481, 0, 0, 0, 0, 0, 0, 307.015, -1.79, 213.334, 0, 0, 0, 0, 0, 0, 319.124, -1.79, 213.407, 0, 0, 0, 0, 0, 0, 320.265, -1.79, 212.855, 0, 0, 0, 0, 0, 0, 320.337, -1.79, 187.634, 0, 0, 0, 0, 0, 0, 319.859, -1.79, 186.787, 0, 0, 0, 0, 0, 0, 306.867, -1.79, 186.64, 0, 0, 0, 0, 0, 0, 306.278, -1.79, 186.235, 0, 0, 0, 0, 0, 0, 306.351, -1.79, 167.722, 0, 0, 0, 0, 0, 0, 306.793, -1.79, 167.317, 0, 0, 0, 0, 0, 0, 337.157, -1.79, 167.317, 0, 0, 0, 0, 0, 0, 337.635, -1.79, 167.612, 0, 0, 0, 0, 0, 0, 337.672, -1.79, 176.629, 0, 0, 0, 0, 0, 0, 338.077, -1.79, 177.255, 0, 0, 0, 0, 0, 0, 347.389, -1.79, 177.328, 0, 0, 0, 0, 0, 0, 347.72, -1.79, 177.733, 0, 0, 0, 0, 0, 0, 347.687, -1.79, 221.949, 0, 0, 0, 0, 0, 0, 347.245, -1.79, 222.648, 0, 0, 0, 0, 0, 0, 328.548, -1.79, 222.685, 0, 0, 0, 0, 0, 0, 327.295, -1.79, 222.682),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 23
+
+[sub_resource type="Curve3D" id="Curve3D_20f2v"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 324.673, -1.79, 223.345, 0, 0, 0, 0, 0, 0, 347.15, -1.79, 223.308, 0, 0, 0, 0, 0, 0, 348.263, -1.79, 222.566, 0, 0, 0, 0, 0, 0, 348.317, -1.79, 177.492, 0, 0, 0, 0, 0, 0, 347.872, -1.79, 176.787, 0, 0, 0, 0, 0, 0, 338.784, -1.79, 176.639, 0, 0, 0, 0, 0, 0, 338.191, -1.79, 176.157, 0, 0, 0, 0, 0, 0, 338.265, -1.79, 167.552, 0, 0, 0, 0, 0, 0, 337.708, -1.79, 166.81, 0, 0, 0, 0, 0, 0, 306.587, -1.79, 166.707, 0, 0, 0, 0, 0, 0, 305.883, -1.79, 167.078, 0, 0, 0, 0, 0, 0, 305.697, -1.79, 186.477, 0, 0, 0, 0, 0, 0, 306.365, -1.79, 187.367, 0, 0, 0, 0, 0, 0, 319.25, -1.79, 187.37, 0, 0, 0, 0, 0, 0, 319.695, -1.79, 188.038, 0, 0, 0, 0, 0, 0, 319.732, -1.79, 212.221, 0, 0, 0, 0, 0, 0, 319.287, -1.79, 212.703, 0, 0, 0, 0, 0, 0, 306.486, -1.79, 212.678, 0, 0, 0, 0, 0, 0, 305.855, -1.79, 213.011, 0, 0, 0, 0, 0, 0, 305.596, -1.79, 213.902, 0, 0, 0, 0, 0, 0, 305.707, -1.79, 222.581, 0, 0, 0, 0, 0, 0, 306.152, -1.79, 223.249, 0, 0, 0, 0, 0, 0, 318.763, -1.79, 223.323, 0, 0, 0, 0, 0, 0, 324.673, -1.79, 223.345),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 24
+
+[sub_resource type="Resource" id="Resource_mqdb0"]
+script = ExtResource("13_yu0g3")
+mode = 0
+textures = [[ExtResource("14_mq1qn"), ExtResource("15_1pkhb"), ExtResource("16_q0sjw"), ExtResource("17_0bx60")], [null, null, ExtResource("18_iqgh2"), ExtResource("19_i2j0m")]]
+
+[node name="CBD" type="Node3D"]
+script = ExtResource("1_wajq7")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.753563, 0.657375, 0, -0.657375, -0.753563, -16.5939, 29.8719, -15.9283)
+light_color = Color(1, 1, 0.945098, 1)
+light_energy = 0.468
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 2.16
+shadow_enabled = true
+shadow_bias = 0.0
+shadow_normal_bias = 0.282
+shadow_opacity = 0.32
+shadow_blur = 10.0
+directional_shadow_mode = 0
+directional_shadow_split_1 = 0.17
+directional_shadow_split_2 = 0.153
+directional_shadow_fade_start = 0.368
+directional_shadow_max_distance = 91.5
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_yqmpc")
+
+[node name="Container" type="Node3D" parent="."]
+
+[node name="FoodCoords" type="Node3D" parent="Container"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.371796, 0, 0)
+
+[node name="Marker01" type="Marker3D" parent="Container/FoodCoords"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 212.12, 23.7365, 226.267)
+
+[node name="Marker02" type="Marker3D" parent="Container/FoodCoords"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 199.184, 4.7177, 208.09)
+
+[node name="Marker03" type="Marker3D" parent="Container/FoodCoords"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 220.543, 20.4418, 208.09)
+
+[node name="Marker04" type="Marker3D" parent="Container/FoodCoords"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 307.691, 31.4245, 177.71)
+
+[node name="Marker05" type="Marker3D" parent="Container/FoodCoords"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 345.334, 28.4926, 202.817)
+
+[node name="Marker06" type="Marker3D" parent="Container/FoodCoords"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 297.615, 15.5301, 316.041)
+
+[node name="Marker08" type="Marker3D" parent="Container/FoodCoords"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 251.839, 15.5301, 331.037)
+
+[node name="Marker07" type="Marker3D" parent="Container/FoodCoords"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 197.453, 8.36171, 215.001)
+
+[node name="Marker10" type="Marker3D" parent="Container/FoodCoords"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 270.38, 15.9412, 289.967)
+
+[node name="Marker11" type="Marker3D" parent="Container/FoodCoords"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 326.633, 44.2846, 274.928)
+
+[node name="Marker12" type="Marker3D" parent="Container/FoodCoords"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 234.085, 7.91314, 196.399)
+
+[node name="Buidings" type="Node3D" parent="Container"]
+
+[node name="Buildings_Valley" type="Node3D" parent="Container/Buidings"]
+
+[node name="sky_30" parent="Container/Buidings/Buildings_Valley" instance=ExtResource("2_mfjag")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 223.074, 1, 219.664)
+
+[node name="sky_31" parent="Container/Buidings/Buildings_Valley" instance=ExtResource("2_mfjag")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 222.717, 0.999999, 207.397)
+
+[node name="sky_45" parent="Container/Buidings/Buildings_Valley" instance=ExtResource("3_cyuni")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 211.771, 1, 219.519)
+
+[node name="sky_32" parent="Container/Buidings/Buildings_Valley" instance=ExtResource("2_mfjag")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 223.113, 1.07942, 231.897)
+
+[node name="sky_46" parent="Container/Buidings/Buildings_Valley" instance=ExtResource("3_cyuni")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 210.958, 1, 232.16)
+
+[node name="sky_60" parent="Container/Buidings/Buildings_Valley" instance=ExtResource("4_p3dt4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 235.514, 1, 232.429)
+
+[node name="GridMap" type="GridMap" parent="Container/Buidings/Buildings_Valley"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 198.783, 0.12, 195.531)
+mesh_library = ExtResource("5_xeppr")
+data = {
+"cells": PackedInt32Array(65534, 1, 1441797, 65534, 65535, 1441797, 1, 65535, 1048581, 1, 1, 1048581, 4, 65535, 1441794, 4, 1, 1441794, 7, 1, 1048578, 7, 65535, 1048578, 10, 65535, 655363, 12, 65535, 655363, 10, 1, 3, 12, 1, 3, 7, 5, 1048582, 7, 7, 1048582, 4, 5, 1441797, 4, 7, 1441797, 65534, 7, 1441794, 65534, 5, 1441794, 1, 5, 1048578, 1, 7, 1048578, 65534, 6, 1441794, 1, 6, 1048578, 17, 1, 27, 17, 65535, 655387, 65534, 18, 1441822, 0, 18, 1048606, 65534, 12, 1441821, 1, 10, 1048605, 1, 12, 1048582, 65534, 10, 1441798, 17, 6, 28, 19, 6, 28, 17, 4, 655388, 19, 4, 655388, 17, 11, 655388, 19, 11, 655388, 17, 13, 28, 19, 13, 28)
+}
+
+[node name="Buidings_Moutain" type="Node3D" parent="Container/Buidings"]
+
+[node name="sky_30" parent="Container/Buidings/Buidings_Moutain" instance=ExtResource("2_mfjag")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 313.123, 9.9637, 244.122)
+
+[node name="sky_35" parent="Container/Buidings/Buidings_Moutain" instance=ExtResource("2_mfjag")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 341.134, 9.9637, 229.966)
+
+[node name="sky_60" parent="Container/Buidings/Buidings_Moutain" instance=ExtResource("4_p3dt4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 291.936, 9.89678, 274.95)
+
+[node name="sky_61" parent="Container/Buidings/Buidings_Moutain" instance=ExtResource("4_p3dt4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 313.037, 10.0181, 258.287)
+
+[node name="sky_45" parent="Container/Buidings/Buidings_Moutain" instance=ExtResource("3_cyuni")]
+transform = Transform3D(1.48005, 0, 0, 0, 1, 0, 0, 0, 1.49455, 283.442, 9.9645, 313.955)
+
+[node name="stadium" parent="Container/Buidings/Buidings_Moutain" instance=ExtResource("6_1yk34")]
+transform = Transform3D(-4.37114e-08, 3.48787e-16, 1, 3.48787e-16, 1, -3.48787e-16, -1, 3.48787e-16, -4.37114e-08, 298.58, 9.96416, 301.195)
+
+[node name="sky_31" parent="Container/Buidings/Buidings_Moutain" instance=ExtResource("2_mfjag")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 273.977, 9.96504, 302.69)
+
+[node name="sky_32" parent="Container/Buidings/Buidings_Moutain" instance=ExtResource("2_mfjag")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 267.016, 9.96504, 302.69)
+
+[node name="sky_33" parent="Container/Buidings/Buidings_Moutain" instance=ExtResource("2_mfjag")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 273.977, 9.96504, 289.796)
+
+[node name="sky_36" parent="Container/Buidings/Buidings_Moutain" instance=ExtResource("2_mfjag")]
+transform = Transform3D(2.39428, 0, 0, 0, 1, 0, 0, 0, 2.45862, 314.24, 9.96504, 174.719)
+
+[node name="sky_37" parent="Container/Buidings/Buidings_Moutain" instance=ExtResource("2_mfjag")]
+transform = Transform3D(2.39428, 0, 0, 0, 1, 0, 0, 0, 2.45862, 313.255, 9.96504, 277.486)
+
+[node name="sky_34" parent="Container/Buidings/Buidings_Moutain" instance=ExtResource("2_mfjag")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 267.016, 9.96504, 289.796)
+
+[node name="sky_46" parent="Container/Buidings/Buidings_Moutain" instance=ExtResource("3_cyuni")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 327.155, 10.0182, 258.165)
+
+[node name="sky_62" parent="Container/Buidings/Buidings_Moutain" instance=ExtResource("4_p3dt4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 327.384, 10.0181, 271.479)
+
+[node name="sky_63" parent="Container/Buidings/Buidings_Moutain" instance=ExtResource("4_p3dt4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 327.384, 10.0181, 278.652)
+
+[node name="sky_building20" parent="Container/Buidings/Buidings_Moutain" instance=ExtResource("22_031sh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 255.206, 11.1259, 315.035)
+
+[node name="center_park" type="Node3D" parent="Container/Buidings/Buidings_Moutain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 279.504, 9.964, 286.486)
+
+[node name="Trees16" parent="Container/Buidings/Buidings_Moutain/center_park" instance=ExtResource("7_22atf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Trees17" parent="Container/Buidings/Buidings_Moutain/center_park" instance=ExtResource("7_22atf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.02063, 0, 0)
+
+[node name="Trees18" parent="Container/Buidings/Buidings_Moutain/center_park" instance=ExtResource("7_22atf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.01135)
+
+[node name="Trees19" parent="Container/Buidings/Buidings_Moutain/center_park" instance=ExtResource("7_22atf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.02063, 0, 4.01135)
+
+[node name="Trees20" parent="Container/Buidings/Buidings_Moutain/center_park" instance=ExtResource("7_22atf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.99908)
+
+[node name="Trees21" parent="Container/Buidings/Buidings_Moutain/center_park" instance=ExtResource("7_22atf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.02063, 0, 7.99908)
+
+[node name="Trees22" parent="Container/Buidings/Buidings_Moutain/center_park" instance=ExtResource("7_22atf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12.0104)
+
+[node name="Trees23" parent="Container/Buidings/Buidings_Moutain/center_park" instance=ExtResource("7_22atf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.02063, 0, 12.0104)
+
+[node name="Trees24" parent="Container/Buidings/Buidings_Moutain/center_park" instance=ExtResource("7_22atf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 16.0213)
+
+[node name="Trees25" parent="Container/Buidings/Buidings_Moutain/center_park" instance=ExtResource("7_22atf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.02063, 0, 16.0213)
+
+[node name="moutain_pines" type="GridMap" parent="Container/Buidings/Buidings_Moutain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 9, 2.08165e-12)
+mesh_library = ExtResource("8_bxgno")
+data = {
+"cells": PackedInt32Array(167, 84, 655362, 166, 84, 655362, 165, 84, 655362, 164, 84, 655362, 163, 84, 655362, 162, 84, 655362, 161, 84, 655362, 161, 85, 655362, 161, 86, 655362, 161, 87, 655362, 161, 88, 655362, 161, 89, 655362, 161, 90, 655362, 166, 90, 655362, 165, 90, 655362, 164, 90, 655362, 163, 90, 655362, 162, 90, 655362, 153, 119, 1048578, 153, 120, 1048578, 153, 121, 1048578, 153, 122, 1048578, 153, 123, 1048578, 153, 124, 1048578, 154, 124, 1048578, 155, 124, 1048578, 156, 124, 1048578, 157, 124, 1048578, 158, 124, 1048578, 158, 123, 1048578, 158, 122, 1048578, 158, 121, 1048578, 154, 119, 1048578, 155, 119, 1048578, 156, 119, 1048578, 157, 119, 1048578, 158, 119, 1048578, 158, 120, 1048578, 153, 126, 1048578, 154, 126, 1048578, 155, 126, 1048578, 156, 126, 1048578, 157, 126, 1048578, 158, 126, 1048578, 158, 127, 1048578, 158, 128, 1048578, 158, 129, 1048578, 158, 130, 1048578, 158, 131, 1048578, 153, 127, 1048578, 153, 128, 1048578, 153, 129, 1048578, 153, 130, 1048578, 153, 131, 1048578, 154, 131, 1048578, 155, 131, 1048578, 156, 131, 1048578, 157, 131, 1048578, 123, 154, 655362, 123, 155, 655362, 123, 156, 655362, 123, 157, 655362, 123, 158, 655362, 123, 159, 655362, 123, 160, 655362, 131, 154, 2, 132, 154, 2, 133, 154, 2, 134, 155, 2, 135, 155, 2, 136, 155, 2, 134, 154, 2, 135, 154, 2, 136, 154, 2, 137, 154, 2, 137, 155, 2, 137, 156, 2, 133, 155, 2, 131, 155, 2, 132, 155, 2, 131, 156, 2, 132, 156, 2, 133, 156, 2, 134, 156, 2, 135, 156, 2, 136, 156, 2, 131, 157, 2, 132, 157, 2, 133, 157, 2, 134, 157, 2, 135, 157, 2, 136, 157, 2, 131, 158, 2, 132, 158, 2, 133, 158, 2, 134, 158, 2, 135, 158, 2, 136, 158, 2, 137, 158, 2, 137, 157, 2, 131, 159, 2, 132, 159, 2, 133, 159, 2, 134, 159, 2, 135, 159, 2, 136, 159, 2, 137, 159, 2, 131, 160, 2, 132, 160, 2, 133, 160, 2, 134, 160, 2, 135, 160, 2, 136, 160, 2, 137, 160, 2, 138, 160, 2, 139, 160, 2, 140, 160, 2, 141, 160, 2, 142, 160, 2, 131, 147, 2, 131, 148, 2, 132, 148, 2, 133, 148, 2, 134, 148, 2, 135, 148, 2, 136, 148, 2, 137, 148, 2, 137, 147, 2, 136, 147, 2, 135, 147, 2, 134, 147, 2, 133, 147, 2, 132, 147, 2, 167, 112, 1048578, 168, 112, 1048578, 169, 112, 1048578, 170, 112, 1048578, 171, 112, 1048578, 172, 112, 1048578, 172, 113, 1048578, 172, 114, 1048578, 172, 115, 1048578, 172, 116, 1048578, 167, 113, 1048578, 167, 114, 1048578, 167, 115, 1048578, 167, 116, 1048578, 167, 117, 1048578, 168, 117, 1048578, 169, 117, 1048578, 170, 117, 1048578, 171, 117, 1048578, 172, 117, 1048578, 145, 143, 2, 146, 143, 2, 147, 143, 2, 148, 143, 2, 149, 143, 2, 150, 143, 2, 151, 143, 2, 151, 144, 2, 151, 145, 2, 151, 146, 2, 167, 141, 2, 167, 140, 2, 167, 139, 2, 167, 138, 2, 167, 137, 2, 167, 136, 2, 167, 135, 2, 167, 134, 2, 167, 133, 2, 168, 133, 2, 168, 134, 2, 168, 135, 2, 168, 136, 2, 168, 141, 2, 168, 140, 2, 168, 139, 2, 168, 138, 2, 168, 137, 2, 160, 126, 2, 160, 127, 2, 160, 128, 2, 160, 129, 2, 160, 130, 2, 160, 131, 2, 161, 131, 2, 162, 131, 2, 163, 131, 2, 164, 131, 2, 165, 131, 2, 165, 130, 2, 165, 129, 2, 165, 128, 2, 165, 127, 2, 165, 126, 2, 164, 126, 2, 163, 126, 2, 162, 126, 2, 161, 126, 2, 160, 133, 2, 161, 133, 2, 162, 133, 2, 163, 133, 2, 164, 133, 2, 165, 133, 2, 160, 141, 2, 161, 141, 2, 162, 141, 2, 163, 141, 2, 164, 141, 2, 165, 141, 2)
+}
+
+[node name="moutain_buildings" type="GridMap" parent="Container/Buidings/Buidings_Moutain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 9, 2.08165e-12)
+mesh_library = ExtResource("5_xeppr")
+collision_mask = 3
+data = {
+"cells": PackedInt32Array(167, 86, 655377, 165, 86, 655377, 167, 88, 655377, 165, 88, 655377, 163, 86, 655377, 163, 88, 655377, 159, 91, 6, 157, 91, 6, 155, 91, 6, 141, 140, 4, 143, 140, 4, 145, 140, 4, 147, 140, 4, 149, 140, 4, 151, 140, 4, 141, 134, 655366, 143, 134, 655366, 145, 134, 655366, 147, 134, 655366, 149, 134, 655366, 151, 134, 655366, 141, 137, 1441821, 150, 137, 1048605, 124, 165, 2, 125, 165, 2, 126, 165, 2, 127, 165, 2, 128, 165, 2, 129, 165, 2, 129, 163, 655362, 128, 163, 655362, 127, 163, 655362, 126, 163, 655362, 125, 163, 655362, 124, 163, 655362, 132, 165, 3, 134, 165, 3, 136, 165, 3, 132, 163, 655363, 134, 163, 655363, 136, 163, 655363, 140, 165, 655377, 142, 165, 655377, 140, 163, 17, 142, 163, 17, 147, 163, 17, 149, 163, 17, 151, 163, 17, 147, 165, 655377, 149, 165, 655377, 151, 165, 655377, 147, 155, 655389, 150, 155, 655389, 147, 159, 29, 150, 159, 29, 155, 134, 1441820, 157, 134, 1048604, 168, 120, 1441794, 168, 122, 1441794, 168, 121, 1441794, 168, 123, 1441794, 172, 120, 1048578, 172, 121, 1048578, 172, 122, 1048578, 172, 123, 1048578, 170, 123, 4, 170, 120, 655366, 146, 144, 655362, 147, 144, 655362, 148, 144, 655362, 149, 144, 655362, 150, 144, 655362, 147, 146, 6, 149, 146, 6, 169, 130, 28, 169, 127, 655388, 172, 127, 655388, 172, 130, 28, 172, 140, 17, 172, 138, 17, 172, 136, 17, 172, 134, 17, 170, 140, 17, 170, 138, 17, 170, 136, 17, 170, 134, 17)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="moutain_decorations" type="GridMap" parent="Container/Buidings/Buidings_Moutain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 9, 2.08165e-12)
+mesh_library = ExtResource("8_bxgno")
+data = {
+"cells": PackedInt32Array(153, 119, 1048577, 154, 119, 1048577, 155, 119, 1048577, 156, 119, 1048577, 157, 119, 1048577, 158, 119, 1048577, 153, 120, 1048577, 153, 121, 1048577, 153, 122, 1048577, 153, 123, 1048577, 153, 124, 1048577, 154, 124, 1048577, 155, 124, 1048577, 156, 124, 1048577, 157, 124, 1048577, 158, 124, 1048577, 158, 123, 1048577, 158, 122, 1048577, 158, 121, 1048577, 158, 120, 1048577, 153, 126, 1048577, 153, 127, 1048577, 153, 128, 1048577, 153, 129, 1048577, 153, 130, 1048577, 153, 131, 1048577, 154, 131, 1048577, 155, 131, 1048577, 156, 131, 1048577, 157, 131, 1048577, 158, 131, 1048577, 154, 126, 1048577, 155, 126, 1048577, 156, 126, 1048577, 157, 126, 1048577, 158, 126, 1048577, 158, 127, 1048577, 158, 128, 1048577, 158, 129, 1048577, 158, 130, 1048577, 138, 162, 655361, 139, 162, 655361, 140, 162, 655361, 141, 162, 655361, 142, 162, 655361, 142, 163, 655361, 143, 163, 655361, 141, 163, 655361, 140, 163, 655361, 139, 163, 655361, 138, 163, 655361, 138, 164, 655361, 138, 165, 655361, 138, 166, 655361, 139, 166, 655361, 140, 166, 655361, 141, 166, 655361, 142, 166, 655361, 143, 166, 655361, 143, 165, 655361, 143, 164, 655361, 142, 164, 655361, 141, 164, 655361, 140, 164, 655361, 139, 164, 655361, 139, 165, 655361, 140, 165, 655361, 141, 165, 655361, 142, 165, 655361, 146, 162, 655361, 146, 163, 655361, 145, 163, 655361, 145, 164, 655361, 145, 165, 655361, 145, 166, 655361, 146, 166, 655361, 147, 166, 655361, 148, 166, 655361, 149, 166, 655361, 150, 166, 655361, 151, 166, 655361, 151, 165, 655361, 151, 164, 655361, 151, 163, 655361, 151, 162, 655361, 150, 162, 655361, 149, 162, 655361, 148, 162, 655361, 147, 162, 655361, 147, 163, 655361, 148, 163, 655361, 149, 163, 655361, 150, 163, 655361, 150, 164, 655361, 150, 165, 655361, 149, 165, 655361, 148, 165, 655361, 147, 165, 655361, 146, 165, 655361, 146, 164, 655361, 147, 164, 655361, 148, 164, 655361, 149, 164, 655361, 123, 154, 655361, 123, 155, 655361, 123, 156, 655361, 123, 157, 655361, 123, 158, 655361, 123, 159, 655361, 123, 160, 655361, 131, 154, 1, 132, 154, 1, 133, 154, 1, 134, 154, 1, 135, 154, 1, 136, 154, 1, 137, 154, 1, 137, 155, 1, 136, 155, 1, 135, 155, 1, 134, 155, 1, 133, 155, 1, 132, 155, 1, 131, 155, 1, 131, 156, 1, 132, 156, 1, 133, 156, 1, 134, 156, 1, 135, 156, 1, 136, 156, 1, 137, 156, 1, 139, 156, 1, 140, 156, 1, 141, 156, 1, 142, 156, 1, 142, 157, 1, 141, 157, 1, 140, 157, 1, 139, 157, 1, 137, 157, 1, 136, 157, 1, 135, 157, 1, 134, 157, 1, 133, 157, 1, 132, 157, 1, 131, 157, 1, 131, 158, 1, 132, 158, 1, 133, 158, 1, 134, 158, 1, 135, 158, 1, 136, 158, 1, 137, 158, 1, 142, 160, 1, 141, 160, 1, 140, 160, 1, 136, 159, 1, 135, 159, 1, 134, 159, 1, 133, 159, 1, 132, 159, 1, 131, 159, 1, 131, 160, 1, 132, 160, 1, 133, 160, 1, 134, 160, 1, 135, 160, 1, 136, 160, 1, 137, 160, 1, 138, 160, 1, 139, 160, 1, 137, 159, 1, 131, 147, 1, 131, 148, 1, 132, 148, 1, 133, 148, 1, 134, 148, 1, 135, 148, 1, 136, 148, 1, 137, 148, 1, 137, 147, 1, 136, 147, 1, 135, 147, 1, 134, 147, 1, 133, 147, 1, 132, 147, 1, 143, 143, 1, 143, 144, 1, 143, 145, 1, 143, 146, 1, 143, 147, 1, 143, 148, 1, 143, 149, 1, 143, 150, 1, 143, 151, 1, 143, 152, 1, 167, 112, 1048577, 168, 112, 1048577, 169, 112, 1048577, 170, 112, 1048577, 171, 112, 1048577, 172, 112, 1048577, 172, 113, 1048577, 172, 114, 1048577, 172, 115, 1048577, 172, 116, 1048577, 172, 117, 1048577, 171, 117, 1048577, 170, 117, 1048577, 169, 117, 1048577, 168, 117, 1048577, 167, 117, 1048577, 167, 116, 1048577, 167, 115, 1048577, 167, 114, 1048577, 167, 113, 1048577, 145, 143, 1, 146, 143, 1, 147, 143, 1, 148, 143, 1, 149, 143, 1, 150, 143, 1, 151, 143, 1, 151, 144, 1, 151, 145, 1, 151, 146, 1, 167, 141, 1, 167, 140, 1, 167, 139, 1, 167, 138, 1, 167, 137, 1, 167, 136, 1, 167, 135, 1, 167, 134, 1, 167, 133, 1, 168, 133, 1, 169, 133, 1, 170, 133, 1, 171, 133, 1, 172, 133, 1, 172, 134, 1, 172, 135, 1, 172, 136, 1, 172, 137, 1, 172, 138, 1, 172, 139, 1, 172, 140, 1, 172, 141, 1, 171, 141, 1, 170, 141, 1, 169, 141, 1, 168, 141, 1, 168, 140, 1, 168, 139, 1, 168, 138, 1, 169, 137, 1, 169, 136, 1, 169, 135, 1, 169, 134, 1, 168, 134, 1, 168, 135, 1, 168, 136, 1, 168, 137, 1, 169, 140, 1, 170, 140, 1, 170, 139, 1, 170, 138, 1, 171, 138, 1, 171, 137, 1, 171, 136, 1, 171, 135, 1, 171, 134, 1, 170, 134, 1, 169, 139, 1, 169, 138, 1, 170, 137, 1, 170, 136, 1, 170, 135, 1, 171, 140, 1, 171, 139, 1, 160, 126, 1, 160, 127, 1, 160, 128, 1, 160, 129, 1, 160, 130, 1, 160, 131, 1, 161, 131, 1, 162, 131, 1, 163, 131, 1, 164, 131, 1, 165, 131, 1, 165, 130, 1, 165, 129, 1, 165, 128, 1, 165, 127, 1, 165, 126, 1, 164, 126, 1, 163, 126, 1, 162, 126, 1, 161, 126, 1, 160, 141, 1, 161, 141, 1, 162, 141, 1, 163, 141, 1, 164, 141, 1, 165, 141, 1, 160, 133, 1, 161, 133, 1, 162, 133, 1, 163, 133, 1, 164, 133, 1, 165, 133, 1)
+}
+
+[node name="Road" type="Node3D" parent="Container"]
+
+[node name="road_straight2" parent="Container/Road" instance=ExtResource("9_n1tnd")]
+transform = Transform3D(-0.000157042, 0, 1, 0, 1, 0, -1, 0, -0.000157042, 242.974, 1.21413, 236.977)
+
+[node name="road_straight3" parent="Container/Road" instance=ExtResource("9_n1tnd")]
+transform = Transform3D(-0.000157042, 0, 1, 0, 1, 0, -1, 0, -0.000157042, 244.927, 1.51085, 237.002)
+
+[node name="road_straight4" parent="Container/Road" instance=ExtResource("9_n1tnd")]
+transform = Transform3D(-0.000157042, 0, 1, 0, 1, 0, -1, 0, -0.000157042, 246.9, 1.79869, 236.99)
+
+[node name="road_straight5" parent="Container/Road" instance=ExtResource("9_n1tnd")]
+transform = Transform3D(-0.000157042, 0, 1, 0, 1, 0, -1, 0, -0.000157042, 248.867, 2.09074, 236.976)
+
+[node name="road_straight6" parent="Container/Road" instance=ExtResource("9_n1tnd")]
+transform = Transform3D(-0.000157042, 0, 1, 0, 1, 0, -1, 0, -0.000157042, 250.833, 2.38502, 237.001)
+
+[node name="road_straight7" parent="Container/Road" instance=ExtResource("9_n1tnd")]
+transform = Transform3D(-0.000157042, 0, 1, 0, 1, 0, -1, 0, -0.000157042, 252.819, 2.67343, 236.989)
+
+[node name="road_straight8" parent="Container/Road" instance=ExtResource("9_n1tnd")]
+transform = Transform3D(-0.000157042, 0, 1, 0, 1, 0, -1, 0, -0.000157042, 254.8, 2.97046, 236.988)
+
+[node name="road_straight9" parent="Container/Road" instance=ExtResource("9_n1tnd")]
+transform = Transform3D(-0.000157042, 0, 1, 0, 1, 0, -1, 0, -0.000157042, 256.769, 3.26025, 236.988)
+
+[node name="road_straight10" parent="Container/Road" instance=ExtResource("9_n1tnd")]
+transform = Transform3D(-0.000157042, 0, 1, 0, 1, 0, -1, 0, -0.000157042, 258.744, 3.55511, 236.988)
+
+[node name="road_straight11" parent="Container/Road" instance=ExtResource("9_n1tnd")]
+transform = Transform3D(-0.000157042, 0, 1, 0, 1, 0, -1, 0, -0.000157042, 260.717, 3.85193, 236.987)
+
+[node name="road_straight12" parent="Container/Road" instance=ExtResource("9_n1tnd")]
+transform = Transform3D(-0.000157042, 0, 1, 0, 1, 0, -1, 0, -0.000157042, 262.688, 4.14936, 236.987)
+
+[node name="road_straight13" parent="Container/Road" instance=ExtResource("9_n1tnd")]
+transform = Transform3D(-0.000157042, 0, 1, 0, 1, 0, -1, 0, -0.000157042, 264.636, 4.44352, 236.987)
+
+[node name="road_straight14" parent="Container/Road" instance=ExtResource("9_n1tnd")]
+transform = Transform3D(-0.000157042, 0, 1, 0, 1, 0, -1, 0, -0.000157042, 266.606, 4.74075, 236.986)
+
+[node name="road_straight15" parent="Container/Road" instance=ExtResource("9_n1tnd")]
+transform = Transform3D(-0.000157042, 0, 1, 0, 1, 0, -1, 0, -0.000157042, 268.583, 5.03885, 236.986)
+
+[node name="road_straight16" parent="Container/Road" instance=ExtResource("9_n1tnd")]
+transform = Transform3D(-0.000157042, 0, 1, 0, 1, 0, -1, 0, -0.000157042, 270.525, 5.3293, 236.986)
+
+[node name="road_straight17" parent="Container/Road" instance=ExtResource("9_n1tnd")]
+transform = Transform3D(-0.000157042, 0, 1, 0, 1, 0, -1, 0, -0.000157042, 272.475, 5.62237, 236.986)
+
+[node name="road_straight18" parent="Container/Road" instance=ExtResource("9_n1tnd")]
+transform = Transform3D(-0.000157042, 0, 1, 0, 1, 0, -1, 0, -0.000157042, 274.446, 5.91866, 236.985)
+
+[node name="road_straight19" parent="Container/Road" instance=ExtResource("9_n1tnd")]
+transform = Transform3D(-0.000157042, 0, 1, 0, 1, 0, -1, 0, -0.000157042, 276.424, 6.2157, 236.985)
+
+[node name="road_straight20" parent="Container/Road" instance=ExtResource("9_n1tnd")]
+transform = Transform3D(-0.000157042, 0, 1, 0, 1, 0, -1, 0, -0.000157042, 278.399, 6.51335, 236.985)
+
+[node name="road_straight21" parent="Container/Road" instance=ExtResource("9_n1tnd")]
+transform = Transform3D(-0.000157042, 0, 1, 0, 1, 0, -1, 0, -0.000157042, 280.376, 6.81188, 236.984)
+
+[node name="road_straight22" parent="Container/Road" instance=ExtResource("9_n1tnd")]
+transform = Transform3D(-0.000157042, 0, 1, 0, 1, 0, -1, 0, -0.000157042, 282.339, 7.11056, 236.984)
+
+[node name="road_straight23" parent="Container/Road" instance=ExtResource("9_n1tnd")]
+transform = Transform3D(-0.000157042, 0, 1, 0, 1, 0, -1, 0, -0.000157042, 284.285, 7.40402, 236.984)
+
+[node name="road_straight24" parent="Container/Road" instance=ExtResource("9_n1tnd")]
+transform = Transform3D(-0.000157042, 0, 1, 0, 1, 0, -1, 0, -0.000157042, 286.258, 7.70087, 236.983)
+
+[node name="road_straight25" parent="Container/Road" instance=ExtResource("9_n1tnd")]
+transform = Transform3D(-0.000157042, 0, 1, 0, 1, 0, -1, 0, -0.000157042, 288.222, 7.99695, 236.983)
+
+[node name="road_straight26" parent="Container/Road" instance=ExtResource("9_n1tnd")]
+transform = Transform3D(-0.000157042, 0, 1, 0, 1, 0, -1, 0, -0.000157042, 290.178, 8.29229, 236.983)
+
+[node name="road_straight27" parent="Container/Road" instance=ExtResource("9_n1tnd")]
+transform = Transform3D(-0.000157042, 0, 1, 0, 1, 0, -1, 0, -0.000157042, 292.147, 8.58919, 236.982)
+
+[node name="road_straight28" parent="Container/Road" instance=ExtResource("9_n1tnd")]
+transform = Transform3D(-0.000157042, 0, 1, 0, 1, 0, -1, 0, -0.000157042, 294.118, 8.88775, 236.982)
+
+[node name="road_straight29" parent="Container/Road" instance=ExtResource("9_n1tnd")]
+transform = Transform3D(-0.000157042, 0, 1, 0, 1, 0, -1, 0, -0.000157042, 296.089, 9.18654, 236.982)
+
+[node name="road_straight30" parent="Container/Road" instance=ExtResource("9_n1tnd")]
+transform = Transform3D(-0.000157042, 0, 1, 0, 1, 0, -1, 0, -0.000157042, 298.057, 9.48356, 236.981)
+
+[node name="road_straight31" parent="Container/Road" instance=ExtResource("9_n1tnd")]
+transform = Transform3D(-0.000157042, 0, 1, 0, 1, 0, -1, 0, -0.000157042, 300.014, 9.77324, 236.981)
+
+[node name="Road_Valley" type="GridMap" parent="Container"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0245972, 0.0737963, 0)
+mesh_library = ExtResource("10_017yt")
+collision_mask = 6
+data = {
+"cells": PackedInt32Array(96, 95, 655360, 96, 96, 655360, 96, 97, 655360, 96, 98, 655360, 96, 99, 655360, 96, 100, 5, 96, 101, 655360, 96, 102, 655360, 96, 103, 655360, 96, 104, 655360, 96, 105, 655360, 96, 106, 5, 96, 107, 655360, 96, 108, 655360, 96, 109, 655360, 96, 110, 655360, 96, 111, 655360, 96, 112, 5, 96, 113, 655360, 96, 114, 655360, 96, 115, 655360, 96, 116, 655360, 96, 117, 655360, 97, 94, 1048576, 98, 94, 1048576, 99, 94, 1048576, 100, 94, 1048576, 101, 94, 1048576, 102, 94, 1441797, 103, 94, 1048576, 104, 94, 1048576, 105, 94, 1048576, 106, 94, 1048576, 107, 94, 1048576, 108, 94, 1441797, 109, 94, 1048576, 110, 94, 1048576, 111, 94, 1048576, 112, 94, 1048576, 113, 94, 1048576, 114, 94, 1441797, 115, 94, 1048576, 116, 94, 1048576, 117, 94, 1048576, 118, 94, 1441792, 96, 94, 1, 119, 94, 1441792, 102, 95, 655360, 102, 96, 655360, 102, 97, 655360, 102, 98, 655360, 102, 99, 655360, 102, 100, 3, 108, 95, 655360, 108, 96, 655360, 108, 97, 655360, 108, 98, 655360, 108, 99, 655360, 108, 100, 3, 114, 95, 655360, 114, 96, 655360, 114, 97, 655360, 114, 98, 655360, 114, 99, 655360, 114, 100, 3, 120, 95, 655360, 120, 94, 1441793, 120, 96, 655360, 120, 97, 655360, 120, 98, 655360, 120, 99, 655360, 120, 100, 655365, 120, 101, 655360, 120, 102, 655360, 120, 103, 655360, 120, 104, 655360, 120, 105, 655360, 120, 106, 655365, 120, 107, 655360, 120, 108, 655360, 120, 109, 655360, 120, 110, 655360, 120, 111, 655360, 120, 112, 655365, 120, 113, 655360, 120, 114, 655360, 120, 115, 655360, 97, 100, 1048576, 98, 100, 1048576, 99, 100, 1048576, 100, 100, 1048576, 101, 100, 1048576, 103, 100, 1048576, 104, 100, 1048576, 105, 100, 1048576, 106, 100, 1048576, 107, 100, 1048576, 109, 100, 1048576, 110, 100, 1048576, 111, 100, 1048576, 112, 100, 1048576, 113, 100, 1048576, 115, 100, 1048576, 116, 100, 1048576, 117, 100, 1048576, 118, 100, 1048576, 119, 100, 1048576, 97, 106, 1048576, 98, 106, 1048576, 99, 106, 1048576, 100, 106, 1048576, 101, 106, 1048576, 102, 106, 3, 103, 106, 1048576, 104, 106, 1048576, 105, 106, 1048576, 106, 106, 1048576, 107, 106, 1048576, 108, 106, 3, 109, 106, 1048576, 110, 106, 1048576, 111, 106, 1048576, 112, 106, 1048576, 113, 106, 1048576, 114, 106, 3, 115, 106, 1048576, 116, 106, 1048576, 117, 106, 1048576, 118, 106, 1048576, 119, 106, 1048576, 97, 112, 1048576, 98, 112, 1048576, 99, 112, 1048576, 100, 112, 1048576, 101, 112, 1048576, 102, 112, 3, 103, 112, 1048576, 104, 112, 1048576, 105, 112, 1048576, 106, 112, 1048576, 107, 112, 1048576, 108, 112, 3, 109, 112, 1048576, 110, 112, 1048576, 111, 112, 1048576, 112, 112, 1048576, 113, 112, 1048576, 114, 112, 3, 115, 112, 1048576, 116, 112, 1048576, 117, 112, 1048576, 118, 112, 1048576, 119, 112, 1048576, 97, 118, 1048576, 98, 118, 1048576, 99, 118, 1048576, 100, 118, 1048576, 101, 118, 1048576, 102, 118, 1048581, 103, 118, 1048576, 104, 118, 1048576, 105, 118, 1048576, 106, 118, 1048576, 107, 118, 1048576, 108, 118, 1048581, 109, 118, 1048576, 110, 118, 1048576, 111, 118, 1048576, 112, 118, 1048576, 113, 118, 1048576, 114, 118, 1048581, 115, 118, 1048576, 116, 118, 1048576, 117, 118, 1048576, 118, 118, 1048576, 119, 118, 1048576, 120, 117, 0, 120, 116, 0, 102, 101, 0, 102, 102, 0, 102, 103, 0, 102, 104, 0, 102, 105, 0, 102, 107, 0, 102, 108, 0, 102, 109, 0, 102, 110, 0, 102, 111, 0, 102, 113, 0, 102, 114, 0, 102, 115, 0, 102, 116, 0, 102, 117, 0, 108, 101, 0, 108, 102, 0, 108, 103, 0, 108, 104, 0, 108, 105, 0, 108, 107, 0, 108, 108, 0, 108, 109, 0, 108, 110, 0, 108, 111, 0, 108, 113, 0, 108, 114, 0, 108, 115, 0, 108, 116, 0, 108, 117, 0, 114, 101, 0, 114, 102, 0, 114, 103, 0, 114, 104, 0, 114, 105, 0, 114, 107, 0, 114, 108, 0, 114, 109, 0, 114, 110, 0, 114, 111, 0, 114, 113, 0, 114, 114, 0, 114, 115, 0, 114, 116, 0, 114, 117, 0, 120, 118, 1048581, 96, 118, 1048577, 107, 114, 6, 107, 115, 6, 107, 116, 6, 107, 117, 6, 106, 117, 6, 105, 117, 6, 104, 117, 6, 103, 117, 6, 103, 116, 6, 103, 115, 6, 103, 114, 6, 104, 114, 6, 105, 114, 6, 106, 114, 6, 106, 115, 6, 106, 116, 6, 105, 116, 6, 105, 115, 6, 97, 114, 6, 97, 115, 6, 97, 116, 6, 97, 117, 6, 98, 117, 6, 99, 117, 6, 100, 117, 6, 101, 117, 6, 101, 116, 6, 101, 115, 6, 101, 114, 6, 98, 114, 6, 98, 115, 6, 98, 116, 6, 99, 116, 6, 100, 116, 6, 100, 115, 6, 100, 114, 6, 99, 114, 6, 99, 115, 6, 97, 107, 6, 98, 107, 6, 99, 107, 6, 100, 107, 6, 101, 107, 6, 101, 108, 6, 101, 109, 6, 101, 110, 6, 101, 111, 6, 100, 111, 6, 99, 111, 6, 98, 111, 6, 97, 111, 6, 97, 110, 6, 97, 109, 6, 97, 108, 6, 98, 108, 6, 98, 109, 6, 98, 110, 6, 99, 108, 6, 99, 109, 6, 99, 110, 6, 100, 109, 6, 100, 108, 6, 100, 110, 6, 103, 111, 6, 104, 111, 6, 105, 111, 6, 106, 111, 6, 107, 111, 6, 107, 110, 6, 107, 109, 6, 107, 108, 6, 107, 107, 6, 106, 107, 6, 105, 107, 6, 104, 107, 6, 103, 107, 6, 103, 108, 6, 103, 109, 6, 103, 110, 6, 104, 110, 6, 105, 110, 6, 106, 110, 6, 106, 108, 6, 105, 108, 6, 104, 108, 6, 104, 109, 6, 113, 114, 6, 113, 115, 6, 113, 116, 6, 112, 116, 6, 112, 115, 6, 112, 114, 6, 111, 114, 6, 110, 114, 6, 109, 114, 6, 109, 115, 6, 109, 116, 6, 111, 116, 6, 111, 115, 6, 110, 115, 6, 110, 116, 6, 119, 114, 6, 119, 115, 6, 119, 116, 6, 119, 117, 6, 118, 117, 6, 117, 117, 6, 116, 117, 6, 116, 116, 6, 116, 115, 6, 116, 114, 6, 117, 114, 6, 118, 114, 6, 118, 115, 6, 118, 116, 6, 119, 107, 6, 119, 108, 6, 119, 109, 6, 119, 110, 6, 119, 111, 6, 118, 111, 6, 117, 111, 6, 116, 111, 6, 115, 111, 6, 115, 110, 6, 115, 109, 6, 115, 108, 6, 115, 107, 6, 116, 107, 6, 117, 107, 6, 118, 107, 6, 118, 108, 6, 118, 109, 6, 118, 110, 6, 117, 110, 6, 116, 110, 6, 116, 109, 6, 116, 108, 6, 117, 108, 6, 117, 109, 6, 115, 105, 6, 115, 104, 6, 115, 103, 6, 115, 102, 6, 115, 101, 6, 116, 101, 6, 117, 101, 6, 118, 101, 6, 119, 101, 6, 119, 102, 6, 119, 103, 6, 119, 104, 6, 119, 105, 6, 118, 105, 6, 117, 105, 6, 116, 105, 6, 116, 104, 6, 116, 103, 6, 116, 102, 6, 117, 102, 6, 117, 103, 6, 117, 104, 6, 118, 104, 6, 118, 103, 6, 118, 102, 6, 109, 107, 6, 110, 107, 6, 111, 107, 6, 112, 107, 6, 113, 107, 6, 113, 108, 6, 113, 109, 6, 113, 110, 6, 113, 111, 6, 112, 111, 6, 111, 111, 6, 110, 111, 6, 110, 110, 6, 109, 110, 6, 109, 109, 6, 109, 108, 6, 109, 111, 6, 110, 109, 6, 110, 108, 6, 111, 108, 6, 112, 108, 6, 112, 109, 6, 112, 110, 6, 109, 105, 6, 110, 105, 6, 111, 105, 6, 112, 105, 6, 113, 105, 6, 113, 104, 6, 113, 103, 6, 113, 102, 6, 113, 101, 6, 112, 101, 6, 111, 101, 6, 110, 101, 6, 109, 101, 6, 109, 102, 6, 109, 103, 6, 109, 104, 6, 110, 104, 6, 111, 104, 6, 112, 104, 6, 112, 102, 6, 111, 102, 6, 110, 102, 6, 110, 103, 6, 111, 103, 6, 112, 103, 6, 116, 96, 6, 115, 96, 6, 115, 97, 6, 115, 98, 6, 115, 99, 6, 116, 99, 6, 117, 99, 6, 117, 98, 6, 118, 98, 6, 118, 97, 6, 118, 96, 6, 117, 96, 6, 116, 97, 6, 116, 98, 6, 118, 99, 6, 117, 97, 6, 112, 97, 6, 111, 97, 6, 110, 97, 6, 109, 97, 6, 109, 98, 6, 109, 99, 6, 110, 99, 6, 111, 99, 6, 112, 99, 6, 112, 98, 6, 111, 98, 6, 110, 98, 6, 112, 96, 6, 111, 96, 6, 110, 96, 6, 109, 96, 6, 107, 96, 6, 107, 97, 6, 107, 98, 6, 107, 99, 6, 106, 99, 6, 106, 98, 6, 105, 98, 6, 105, 99, 6, 104, 99, 6, 103, 99, 6, 103, 98, 6, 103, 97, 6, 103, 96, 6, 106, 96, 6, 106, 97, 6, 105, 97, 6, 104, 98, 6, 104, 97, 6, 105, 96, 6, 104, 96, 6, 97, 96, 6, 97, 97, 6, 97, 98, 6, 97, 99, 6, 98, 99, 6, 100, 99, 6, 101, 99, 6, 101, 98, 6, 101, 97, 6, 101, 96, 6, 100, 96, 6, 98, 96, 6, 98, 97, 6, 98, 98, 6, 100, 98, 6, 100, 97, 6, 97, 102, 6, 97, 103, 6, 97, 104, 6, 97, 105, 6, 98, 105, 6, 100, 105, 6, 100, 104, 6, 100, 103, 6, 100, 102, 6, 101, 102, 6, 98, 102, 6, 98, 103, 6, 103, 102, 6, 103, 103, 6, 103, 104, 6, 103, 105, 6, 104, 105, 6, 105, 105, 6, 106, 105, 6, 107, 105, 6, 107, 104, 6, 107, 103, 6, 107, 102, 6, 106, 102, 6, 105, 102, 6, 104, 102, 6, 104, 103, 6, 104, 104, 6, 105, 104, 6, 106, 104, 6, 106, 103, 6, 105, 103, 6, 101, 103, 6, 101, 104, 6, 101, 105, 6, 98, 104, 6, 115, 116, 6, 115, 117, 6, 115, 115, 6, 115, 114, 6, 109, 117, 6, 110, 117, 6, 111, 117, 6, 112, 117, 6, 113, 117, 6, 111, 110, 6, 157, 126, 1048582)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="Road_Moutain" type="GridMap" parent="Container"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 8.92, 2.08165e-12)
+mesh_library = ExtResource("10_017yt")
+data = {
+"cells": PackedInt32Array(150, 118, 1048576, 152, 118, 1441797, 151, 118, 1048576, 152, 119, 0, 152, 120, 0, 152, 121, 0, 152, 122, 0, 152, 123, 0, 152, 124, 0, 152, 125, 5, 152, 126, 0, 152, 127, 0, 152, 128, 0, 152, 129, 0, 152, 130, 0, 152, 131, 0, 152, 132, 1441795, 152, 111, 1048578, 152, 110, 0, 152, 109, 0, 152, 108, 0, 152, 107, 0, 152, 106, 2, 152, 93, 1048578, 152, 92, 0, 152, 91, 0, 152, 90, 0, 152, 89, 0, 152, 88, 0, 152, 87, 0, 152, 86, 0, 152, 85, 0, 152, 84, 0, 152, 83, 2, 153, 83, 1441792, 154, 83, 1441792, 155, 83, 1441792, 156, 83, 1441792, 157, 83, 1441792, 158, 83, 1441792, 159, 83, 1441792, 160, 83, 1441792, 161, 83, 1441792, 162, 83, 1441792, 163, 83, 1441792, 164, 83, 1441792, 165, 83, 1441792, 166, 83, 1441792, 167, 83, 1441792, 168, 83, 1441794, 168, 84, 655360, 168, 85, 655360, 168, 86, 655360, 168, 87, 655360, 168, 88, 1048578, 169, 88, 1048576, 170, 88, 1048576, 171, 88, 1048576, 172, 88, 1048576, 173, 88, 1441794, 173, 89, 655360, 173, 90, 655360, 173, 91, 655360, 173, 92, 655360, 173, 93, 655360, 173, 94, 655360, 173, 95, 655360, 173, 96, 655360, 173, 97, 655360, 173, 98, 655360, 173, 99, 655360, 173, 100, 655360, 173, 101, 655360, 173, 102, 655360, 173, 103, 655360, 173, 104, 655360, 173, 105, 655360, 173, 106, 655360, 173, 107, 655360, 173, 108, 655360, 173, 109, 655360, 173, 110, 655360, 173, 111, 655365, 173, 112, 655360, 173, 113, 655360, 173, 114, 655360, 173, 115, 655360, 173, 116, 655360, 173, 117, 655360, 173, 118, 655365, 173, 119, 655360, 173, 120, 655360, 173, 121, 655360, 173, 122, 655360, 173, 123, 655360, 173, 124, 655360, 173, 125, 655360, 173, 126, 655360, 173, 127, 655360, 173, 128, 655360, 173, 129, 655360, 173, 130, 655360, 173, 131, 655360, 173, 132, 655365, 173, 133, 655360, 173, 134, 655360, 173, 135, 655360, 173, 136, 655360, 173, 137, 655360, 173, 138, 655360, 173, 139, 655360, 173, 140, 655360, 173, 141, 655360, 173, 142, 655362, 172, 142, 1048576, 171, 142, 1048576, 170, 142, 1048576, 169, 142, 1048576, 168, 142, 1048576, 167, 142, 1048576, 166, 142, 1048581, 165, 142, 1048576, 164, 142, 1048576, 163, 142, 1048576, 162, 142, 1048576, 161, 142, 1048576, 160, 142, 1048576, 159, 142, 1048581, 158, 142, 1048576, 157, 142, 1048576, 156, 142, 1048576, 155, 142, 1048576, 154, 142, 1048576, 153, 142, 1048576, 152, 142, 1441795, 152, 133, 0, 152, 134, 0, 152, 135, 0, 152, 136, 0, 152, 137, 0, 152, 138, 0, 152, 139, 0, 152, 140, 0, 152, 141, 0, 152, 143, 655360, 152, 144, 655360, 152, 145, 655360, 152, 146, 655360, 152, 147, 655365, 152, 148, 655360, 152, 149, 655360, 152, 150, 655360, 152, 151, 655360, 152, 152, 655360, 152, 153, 655365, 152, 154, 655360, 152, 155, 655360, 152, 156, 655360, 152, 157, 655360, 152, 158, 655360, 152, 159, 655360, 152, 160, 655360, 152, 161, 655365, 151, 161, 1048576, 150, 161, 1048576, 149, 161, 1048576, 148, 161, 1048576, 147, 161, 1048576, 146, 161, 1048576, 145, 161, 5, 144, 161, 1048582, 143, 161, 655365, 142, 161, 1048576, 141, 161, 1048576, 140, 161, 1048576, 139, 161, 1048576, 138, 161, 1048576, 137, 161, 1441797, 136, 161, 1048576, 135, 161, 1048576, 134, 161, 1048576, 133, 161, 1048576, 132, 161, 1048576, 131, 161, 1048576, 130, 161, 3, 130, 160, 0, 130, 159, 0, 130, 158, 0, 130, 157, 0, 130, 156, 0, 130, 155, 0, 130, 154, 0, 130, 153, 3, 130, 152, 0, 130, 151, 0, 130, 150, 0, 130, 149, 0, 130, 148, 0, 130, 147, 0, 130, 146, 0, 130, 145, 0, 130, 144, 0, 130, 143, 0, 130, 142, 1, 131, 142, 1048576, 132, 142, 1048576, 133, 142, 1048576, 134, 142, 1048576, 135, 142, 1048576, 136, 142, 1048576, 137, 142, 1048576, 138, 142, 1441795, 138, 141, 0, 138, 140, 0, 138, 139, 0, 138, 138, 0, 138, 137, 0, 138, 136, 0, 138, 135, 0, 138, 134, 0, 138, 133, 0, 138, 132, 1, 139, 132, 1441792, 140, 132, 1441792, 141, 132, 1441792, 142, 132, 1441792, 143, 132, 1441792, 144, 132, 1441792, 145, 132, 1441792, 146, 132, 1441792, 147, 132, 1441792, 148, 132, 1441792, 149, 132, 1441792, 150, 132, 1441792, 151, 132, 1441792, 129, 153, 1441792, 128, 153, 1441792, 127, 153, 1441792, 126, 153, 1441792, 125, 153, 1441792, 124, 153, 1441792, 123, 153, 1441792, 122, 153, 1, 122, 154, 655360, 122, 155, 655360, 122, 156, 655360, 122, 157, 655360, 122, 158, 655360, 122, 159, 655360, 122, 160, 655360, 122, 161, 5, 123, 161, 1048576, 124, 161, 1048576, 125, 161, 1048576, 126, 161, 1048576, 127, 161, 1048576, 128, 161, 1048576, 129, 161, 1048576, 122, 162, 0, 122, 163, 0, 122, 164, 0, 122, 165, 0, 122, 166, 0, 123, 167, 1441792, 124, 167, 1441792, 125, 167, 1441792, 126, 167, 1441792, 127, 167, 1441792, 128, 167, 1441792, 129, 167, 1441792, 130, 167, 1048581, 131, 167, 1441792, 132, 167, 1441792, 133, 167, 1441792, 122, 167, 1048577, 134, 167, 1441792, 135, 167, 1441792, 136, 167, 1441792, 137, 167, 1048581, 138, 167, 1441792, 139, 167, 1441792, 140, 167, 1441792, 141, 167, 1441792, 142, 167, 1441792, 143, 167, 1441792, 144, 167, 1048581, 145, 167, 1441792, 146, 167, 1441792, 147, 167, 1441792, 148, 167, 1441792, 149, 167, 1441792, 150, 167, 1441792, 151, 167, 1441792, 152, 167, 655361, 152, 166, 655360, 152, 165, 655360, 152, 164, 655360, 152, 163, 655360, 152, 162, 655360, 130, 162, 655360, 130, 163, 655360, 130, 164, 655360, 130, 165, 655360, 130, 166, 655360, 137, 162, 655360, 137, 163, 655360, 137, 164, 655360, 137, 165, 655360, 137, 166, 655360, 144, 166, 655360, 144, 165, 655360, 144, 164, 655360, 144, 163, 655360, 144, 162, 1441797, 138, 143, 655360, 138, 144, 655360, 138, 145, 655360, 138, 146, 655360, 138, 147, 655360, 138, 148, 655360, 138, 149, 655360, 138, 150, 655360, 138, 151, 655360, 138, 152, 655360, 138, 153, 1048581, 131, 153, 1048576, 132, 153, 1048576, 133, 153, 1048576, 134, 153, 1048576, 135, 153, 1048576, 136, 153, 1048576, 137, 153, 1048576, 139, 153, 1048576, 140, 153, 1048576, 141, 153, 1048576, 142, 153, 1048576, 143, 153, 1048576, 144, 153, 3, 145, 153, 1048576, 146, 153, 1048576, 147, 153, 1048576, 148, 153, 1048576, 149, 153, 1048576, 150, 153, 1048576, 151, 153, 1048576, 144, 154, 0, 144, 155, 0, 144, 156, 0, 144, 157, 0, 144, 158, 0, 144, 159, 0, 144, 160, 1048581, 139, 142, 1441792, 140, 142, 1441792, 145, 142, 1441792, 141, 142, 1441792, 142, 142, 1441792, 143, 142, 1441792, 144, 142, 1441797, 146, 142, 1441792, 147, 142, 1441792, 148, 142, 1441792, 149, 142, 1441792, 150, 142, 1441792, 151, 142, 1441792, 144, 143, 655360, 144, 144, 655360, 144, 145, 655360, 144, 146, 655360, 144, 147, 5, 144, 148, 655360, 144, 149, 655360, 144, 150, 655360, 144, 151, 655360, 144, 152, 655360, 145, 147, 1048576, 146, 147, 1048576, 147, 147, 1048576, 148, 147, 1048576, 149, 147, 1048576, 150, 147, 1048576, 151, 147, 1048576, 153, 132, 1048576, 154, 132, 1048576, 155, 132, 1048576, 156, 132, 1048576, 157, 132, 1048576, 158, 132, 1048576, 159, 132, 655363, 160, 132, 1048576, 161, 132, 1048576, 162, 132, 1048576, 163, 132, 1048576, 164, 132, 1048576, 165, 132, 1048576, 166, 132, 655363, 167, 132, 1048576, 168, 132, 1048576, 169, 132, 1048576, 170, 132, 1048576, 171, 132, 1048576, 172, 132, 1048576, 159, 133, 0, 159, 134, 0, 159, 135, 0, 159, 136, 0, 159, 137, 0, 159, 138, 0, 159, 139, 0, 159, 140, 0, 159, 141, 0, 166, 133, 0, 166, 134, 0, 166, 135, 0, 166, 136, 0, 166, 137, 0, 166, 138, 0, 166, 139, 0, 166, 140, 0, 166, 141, 0, 153, 118, 1441792, 154, 118, 1441792, 155, 118, 1441792, 156, 118, 1441792, 157, 118, 1441792, 159, 118, 1441793, 158, 118, 1441792, 166, 118, 5, 167, 118, 1441792, 168, 118, 1441792, 169, 118, 1441792, 170, 118, 1441792, 171, 118, 1441792, 172, 118, 1441792, 153, 125, 1441792, 154, 125, 1441792, 155, 125, 1441792, 156, 125, 1441792, 157, 125, 1441792, 158, 125, 1441792, 159, 125, 655363, 160, 125, 1441792, 161, 125, 1441792, 162, 125, 1441792, 163, 125, 1441792, 164, 125, 1441792, 165, 125, 1441792, 166, 125, 655363, 167, 125, 1441792, 168, 125, 1441792, 169, 125, 1441792, 170, 125, 1441792, 171, 125, 1441792, 172, 125, 1441792, 159, 119, 655360, 159, 120, 655360, 159, 121, 655360, 159, 122, 655360, 159, 123, 655360, 159, 124, 655360, 159, 126, 655360, 159, 127, 655360, 159, 128, 655360, 159, 129, 655360, 159, 130, 655360, 159, 131, 655360, 166, 131, 655360, 166, 130, 655360, 166, 129, 655360, 166, 128, 655360, 166, 127, 655360, 166, 126, 655360, 166, 124, 655360, 166, 123, 655360, 166, 122, 655360, 166, 121, 655360, 166, 120, 655360, 166, 119, 655360, 153, 106, 1441792, 154, 106, 1441792, 155, 106, 1441792, 156, 106, 1048576, 157, 106, 1048576, 158, 106, 1048576, 159, 106, 655362, 159, 105, 655360, 159, 104, 655360, 159, 103, 655360, 159, 102, 655360, 159, 101, 655360, 159, 100, 655360, 159, 99, 655360, 159, 98, 655360, 159, 97, 655360, 159, 96, 655360, 159, 95, 655360, 159, 94, 655360, 159, 93, 1441794, 158, 93, 1441792, 157, 93, 1441792, 156, 93, 1441792, 155, 93, 1441792, 154, 93, 1441792, 153, 93, 1441792, 143, 162, 1048578, 145, 162, 655362, 145, 160, 1441794, 143, 160, 2, 166, 117, 655360, 166, 116, 655360, 166, 115, 655360, 166, 114, 655360, 166, 113, 655360, 166, 112, 655360, 166, 111, 1441797, 165, 111, 1048576, 164, 111, 1048576, 163, 111, 1048576, 162, 111, 1048576, 161, 111, 1048576, 160, 111, 1048576, 159, 111, 1048576, 158, 111, 1048576, 157, 111, 1048576, 156, 111, 1048576, 155, 111, 1048576, 154, 111, 1048576, 153, 111, 1048576, 167, 111, 1441792, 168, 111, 1441792, 169, 111, 1441792, 170, 111, 1441792, 171, 111, 1441792, 172, 111, 1441792, 153, 84, 6, 154, 84, 6, 155, 84, 6, 156, 84, 6, 157, 84, 6, 158, 84, 6, 159, 84, 6, 159, 85, 6, 159, 86, 6, 159, 87, 6, 159, 88, 6, 159, 89, 6, 159, 90, 6, 159, 91, 6, 159, 92, 6, 158, 92, 6, 157, 92, 6, 156, 92, 6, 155, 92, 6, 154, 92, 6, 153, 92, 6, 153, 91, 6, 153, 90, 6, 153, 89, 6, 153, 88, 6, 153, 87, 6, 153, 86, 6, 153, 85, 6, 154, 85, 6, 155, 85, 6, 156, 85, 6, 157, 85, 6, 158, 85, 6, 158, 86, 6, 158, 87, 6, 158, 88, 6, 158, 89, 6, 158, 90, 6, 158, 91, 6, 157, 91, 6, 156, 91, 6, 155, 91, 6, 154, 91, 6, 154, 90, 6, 154, 89, 6, 154, 88, 6, 154, 87, 6, 154, 86, 6, 155, 86, 6, 156, 86, 6, 157, 86, 6, 157, 87, 6, 157, 88, 6, 157, 89, 6, 156, 89, 6, 156, 90, 6, 155, 90, 6, 155, 89, 6, 155, 88, 6, 155, 87, 6, 156, 87, 6, 156, 88, 6, 157, 90, 6, 139, 133, 6, 139, 134, 6, 139, 135, 6, 139, 136, 6, 139, 137, 6, 139, 138, 6, 140, 138, 6, 140, 139, 6, 140, 140, 6, 139, 139, 6, 139, 140, 6, 139, 141, 6, 140, 141, 6, 141, 141, 6, 142, 141, 6, 143, 141, 6, 144, 141, 6, 145, 141, 6, 146, 141, 6, 147, 141, 6, 148, 141, 6, 149, 141, 6, 150, 141, 6, 151, 141, 6, 151, 140, 6, 151, 139, 6, 151, 138, 6, 151, 137, 6, 151, 136, 6, 151, 135, 6, 151, 134, 6, 151, 133, 6, 140, 133, 6, 141, 133, 6, 142, 133, 6, 143, 133, 6, 144, 133, 6, 145, 133, 6, 146, 133, 6, 147, 133, 6, 148, 133, 6, 149, 133, 6, 150, 133, 6, 150, 134, 6, 150, 135, 6, 150, 136, 6, 150, 137, 6, 150, 138, 6, 150, 139, 6, 150, 140, 6, 149, 140, 6, 148, 140, 6, 147, 140, 6, 146, 140, 6, 145, 140, 6, 144, 140, 6, 143, 140, 6, 142, 140, 6, 141, 140, 6, 141, 139, 6, 141, 138, 6, 141, 137, 6, 141, 136, 6, 140, 135, 6, 140, 134, 6, 140, 136, 6, 140, 137, 6, 141, 135, 6, 141, 134, 6, 142, 134, 6, 143, 134, 6, 144, 134, 6, 145, 134, 6, 146, 134, 6, 147, 134, 6, 148, 134, 6, 149, 134, 6, 149, 135, 6, 149, 136, 6, 149, 137, 6, 149, 138, 6, 149, 139, 6, 148, 139, 6, 148, 138, 6, 148, 137, 6, 148, 136, 6, 148, 135, 6, 147, 135, 6, 147, 136, 6, 147, 137, 6, 147, 138, 6, 147, 139, 6, 146, 139, 6, 146, 138, 6, 146, 137, 6, 146, 136, 6, 146, 135, 6, 145, 135, 6, 144, 135, 6, 143, 136, 6, 142, 136, 6, 142, 135, 6, 142, 139, 6, 143, 139, 6, 144, 139, 6, 145, 139, 6, 145, 138, 6, 145, 137, 6, 144, 137, 6, 144, 136, 6, 143, 137, 6, 142, 137, 6, 142, 138, 6, 143, 138, 6, 144, 138, 6, 143, 135, 6, 145, 136, 6, 158, 119, 1048582, 157, 119, 1048582, 156, 119, 1048582, 155, 119, 1048582, 153, 119, 1048582, 154, 119, 1048582, 158, 120, 1048582, 158, 121, 1048582, 158, 122, 1048582, 158, 123, 1048582, 158, 124, 1048582, 157, 124, 1048582, 157, 123, 1048582, 157, 122, 1048582, 157, 121, 1048582, 157, 120, 1048582, 153, 120, 1048582, 153, 121, 1048582, 153, 122, 1048582, 153, 123, 1048582, 153, 124, 1048582, 154, 123, 1048582, 154, 124, 1048582, 155, 124, 1048582, 155, 123, 1048582, 156, 123, 1048582, 156, 124, 1048582, 156, 121, 1048582, 155, 122, 1048582, 154, 122, 1048582, 154, 120, 1048582, 154, 121, 1048582, 155, 121, 1048582, 156, 122, 1048582, 155, 120, 1048582, 156, 120, 1048582, 153, 126, 1048582, 153, 127, 1048582, 153, 128, 1048582, 153, 129, 1048582, 153, 130, 1048582, 153, 131, 1048582, 154, 131, 1048582, 155, 131, 1048582, 156, 131, 1048582, 157, 131, 1048582, 158, 131, 1048582, 158, 130, 1048582, 158, 129, 1048582, 158, 128, 1048582, 158, 127, 1048582, 158, 126, 1048582, 154, 126, 1048582, 155, 126, 1048582, 156, 126, 1048582, 157, 126, 1048582, 157, 127, 1048582, 157, 128, 1048582, 157, 129, 1048582, 157, 130, 1048582, 156, 130, 1048582, 155, 130, 1048582, 154, 130, 1048582, 154, 129, 1048582, 154, 128, 1048582, 154, 127, 1048582, 155, 127, 1048582, 156, 127, 1048582, 156, 128, 1048582, 155, 129, 1048582, 155, 128, 1048582, 156, 129, 1048582, 123, 162, 655366, 124, 162, 655366, 125, 162, 655366, 126, 162, 655366, 127, 162, 655366, 128, 162, 655366, 129, 162, 655366, 129, 163, 655366, 129, 164, 655366, 129, 165, 655366, 129, 166, 655366, 128, 166, 655366, 127, 166, 655366, 126, 166, 655366, 125, 166, 655366, 124, 166, 655366, 123, 166, 655366, 123, 165, 655366, 123, 164, 655366, 123, 163, 655366, 124, 163, 655366, 124, 164, 655366, 125, 164, 655366, 126, 164, 655366, 127, 164, 655366, 128, 164, 655366, 128, 163, 655366, 127, 163, 655366, 126, 163, 655366, 125, 163, 655366, 125, 165, 655366, 124, 165, 655366, 126, 165, 655366, 127, 165, 655366, 128, 165, 655366, 131, 162, 655366, 131, 163, 655366, 131, 164, 655366, 131, 165, 655366, 131, 166, 655366, 132, 166, 655366, 133, 166, 655366, 134, 166, 655366, 135, 166, 655366, 136, 166, 655366, 136, 165, 655366, 136, 164, 655366, 136, 163, 655366, 136, 162, 655366, 135, 162, 655366, 134, 162, 655366, 133, 162, 655366, 132, 162, 655366, 132, 163, 655366, 132, 164, 655366, 132, 165, 655366, 133, 165, 655366, 134, 165, 655366, 135, 165, 655366, 135, 164, 655366, 135, 163, 655366, 134, 163, 655366, 133, 163, 655366, 133, 164, 655366, 134, 164, 655366, 123, 154, 655366, 123, 155, 655366, 123, 156, 655366, 123, 157, 655366, 123, 158, 655366, 123, 159, 655366, 123, 160, 655366, 124, 160, 655366, 125, 160, 655366, 126, 160, 655366, 127, 160, 655366, 128, 160, 655366, 129, 160, 655366, 129, 159, 655366, 129, 158, 655366, 129, 157, 655366, 129, 156, 655366, 129, 155, 655366, 128, 155, 655366, 128, 154, 655366, 129, 154, 655366, 127, 154, 655366, 126, 154, 655366, 125, 154, 655366, 124, 154, 655366, 124, 155, 655366, 124, 156, 655366, 125, 155, 655366, 126, 155, 655366, 127, 155, 655366, 127, 156, 655366, 128, 156, 655366, 128, 157, 655366, 128, 158, 655366, 128, 159, 655366, 127, 159, 655366, 126, 159, 655366, 125, 159, 655366, 124, 158, 655366, 124, 157, 655366, 124, 159, 655366, 125, 158, 655366, 125, 157, 655366, 125, 156, 655366, 126, 156, 655366, 126, 157, 655366, 126, 158, 655366, 127, 158, 655366, 127, 157, 655366, 145, 154, 655366, 145, 155, 655366, 145, 156, 655366, 145, 157, 655366, 145, 158, 655366, 145, 159, 655366, 146, 159, 655366, 146, 160, 655366, 147, 160, 655366, 148, 160, 655366, 149, 160, 655366, 150, 160, 655366, 150, 159, 655366, 151, 159, 655366, 151, 160, 655366, 151, 158, 655366, 151, 157, 655366, 151, 156, 655366, 151, 155, 655366, 151, 154, 655366, 146, 154, 655366, 147, 154, 655366, 148, 154, 655366, 149, 154, 655366, 150, 154, 655366, 150, 157, 655366, 150, 158, 655366, 149, 158, 655366, 148, 159, 655366, 147, 159, 655366, 147, 158, 655366, 146, 158, 655366, 148, 158, 655366, 149, 159, 655366, 150, 156, 655366, 150, 155, 655366, 149, 155, 655366, 148, 155, 655366, 147, 155, 655366, 146, 155, 655366, 146, 156, 655366, 146, 157, 655366, 147, 157, 655366, 148, 157, 655366, 148, 156, 655366, 149, 156, 655366, 149, 157, 655366, 147, 156, 655366, 145, 148, 655366, 145, 149, 655366, 145, 150, 655366, 146, 150, 655366, 145, 151, 655366, 146, 151, 655366, 146, 152, 655366, 145, 152, 655366, 147, 151, 655366, 148, 151, 655366, 149, 151, 655366, 150, 151, 655366, 147, 152, 655366, 148, 152, 655366, 151, 151, 655366, 149, 152, 655366, 150, 152, 655366, 151, 152, 655366, 151, 150, 655366, 151, 149, 655366, 151, 148, 655366, 146, 149, 655366, 147, 149, 655366, 148, 149, 655366, 149, 149, 655366, 150, 149, 655366, 146, 148, 655366, 147, 148, 655366, 148, 148, 655366, 149, 148, 655366, 150, 148, 655366, 138, 154, 6, 139, 154, 6, 140, 154, 6, 141, 154, 6, 142, 154, 6, 143, 154, 6, 143, 155, 6, 142, 155, 6, 141, 155, 6, 140, 155, 6, 139, 155, 6, 138, 155, 6, 138, 156, 6, 139, 156, 6, 140, 156, 6, 141, 156, 6, 142, 156, 6, 143, 156, 6, 143, 157, 6, 142, 157, 6, 141, 157, 6, 140, 157, 6, 139, 157, 6, 138, 157, 6, 138, 158, 6, 139, 158, 6, 140, 158, 6, 141, 158, 6, 142, 158, 6, 143, 158, 6, 143, 159, 6, 142, 159, 6, 141, 159, 6, 140, 159, 6, 139, 159, 6, 138, 159, 6, 137, 159, 6, 131, 143, 6, 131, 144, 6, 131, 145, 6, 131, 146, 6, 132, 146, 6, 133, 146, 6, 134, 146, 6, 135, 146, 6, 136, 146, 6, 137, 146, 6, 137, 145, 6, 137, 144, 6, 137, 143, 6, 136, 143, 6, 135, 143, 6, 134, 143, 6, 133, 143, 6, 132, 143, 6, 132, 144, 6, 133, 144, 6, 134, 144, 6, 135, 144, 6, 136, 144, 6, 132, 145, 6, 133, 145, 6, 134, 145, 6, 135, 145, 6, 136, 145, 6, 131, 150, 6, 132, 150, 6, 133, 150, 6, 134, 150, 6, 135, 150, 6, 136, 150, 6, 137, 150, 6, 137, 149, 6, 136, 149, 6, 135, 149, 6, 134, 149, 6, 133, 149, 6, 132, 149, 6, 131, 149, 6, 131, 151, 6, 131, 152, 6, 132, 152, 6, 133, 152, 6, 134, 152, 6, 135, 152, 6, 136, 152, 6, 137, 152, 6, 137, 151, 6, 136, 151, 6, 135, 151, 6, 134, 151, 6, 133, 151, 6, 145, 143, 6, 145, 144, 6, 145, 145, 6, 145, 146, 6, 146, 146, 6, 147, 146, 6, 148, 146, 6, 149, 146, 6, 150, 146, 6, 151, 146, 6, 151, 145, 6, 151, 144, 6, 151, 143, 6, 150, 143, 6, 149, 143, 6, 148, 143, 6, 147, 143, 6, 146, 143, 6, 146, 144, 6, 146, 145, 6, 147, 145, 6, 148, 145, 6, 149, 145, 6, 150, 145, 6, 150, 144, 6, 149, 144, 6, 148, 144, 6, 147, 144, 6, 153, 133, 6, 153, 134, 6, 153, 135, 6, 153, 136, 6, 153, 137, 6, 153, 138, 6, 153, 139, 6, 153, 140, 6, 153, 141, 6, 154, 141, 6, 155, 141, 6, 156, 141, 6, 157, 141, 6, 158, 141, 6, 158, 140, 6, 158, 139, 6, 158, 138, 6, 158, 137, 6, 158, 136, 6, 158, 135, 6, 158, 134, 6, 158, 133, 6, 157, 133, 6, 156, 133, 6, 155, 133, 6, 154, 133, 6, 154, 134, 6, 154, 135, 6, 154, 136, 6, 154, 137, 6, 154, 138, 6, 154, 139, 6, 154, 140, 6, 155, 134, 6, 155, 135, 6, 155, 136, 6, 155, 137, 6, 155, 138, 6, 155, 139, 6, 155, 140, 6, 156, 134, 6, 156, 135, 6, 156, 136, 6, 156, 137, 6, 156, 138, 6, 156, 139, 6, 156, 140, 6, 157, 134, 6, 157, 135, 6, 157, 136, 6, 157, 137, 6, 157, 138, 6, 157, 139, 6, 157, 140, 6, 168, 113, 1048582, 168, 114, 1048582, 168, 115, 1048582, 168, 116, 1048582, 169, 116, 1048582, 170, 116, 1048582, 171, 116, 1048582, 171, 115, 1048582, 171, 114, 1048582, 171, 113, 1048582, 169, 113, 1048582, 170, 113, 1048582, 170, 114, 1048582, 170, 115, 1048582, 169, 114, 1048582, 169, 115, 1048582, 167, 119, 1048582, 167, 120, 1048582, 167, 121, 1048582, 167, 122, 1048582, 167, 123, 1048582, 167, 124, 1048582, 168, 124, 1048582, 169, 124, 1048582, 170, 124, 1048582, 171, 124, 1048582, 172, 124, 1048582, 172, 123, 1048582, 172, 122, 1048582, 171, 122, 1048582, 171, 121, 1048582, 171, 120, 1048582, 172, 120, 1048582, 172, 121, 1048582, 172, 119, 1048582, 171, 119, 1048582, 170, 119, 1048582, 169, 119, 1048582, 168, 119, 1048582, 168, 120, 1048582, 168, 121, 1048582, 168, 122, 1048582, 168, 123, 1048582, 169, 123, 1048582, 170, 123, 1048582, 171, 123, 1048582, 170, 121, 1048582, 170, 120, 1048582, 169, 120, 1048582, 169, 121, 1048582, 169, 122, 1048582, 170, 122, 1048582, 167, 131, 6, 168, 131, 6, 169, 131, 6, 170, 131, 6, 171, 131, 6, 172, 131, 6, 172, 130, 6, 172, 129, 6, 172, 128, 6, 172, 127, 6, 172, 126, 6, 171, 126, 6, 170, 126, 6, 169, 126, 6, 168, 126, 6, 167, 126, 6, 167, 127, 6, 167, 128, 6, 167, 129, 6, 167, 130, 6, 168, 130, 6, 169, 130, 6, 170, 130, 6, 171, 130, 6, 171, 129, 6, 171, 128, 6, 171, 127, 6, 169, 127, 6, 168, 127, 6, 168, 128, 6, 168, 129, 6, 169, 129, 6, 170, 129, 6, 170, 128, 6, 170, 127, 6, 169, 128, 6, 161, 130, 6, 162, 130, 6, 163, 130, 6, 164, 130, 6, 164, 129, 6, 164, 128, 6, 164, 127, 6, 163, 127, 6, 162, 127, 6, 161, 127, 6, 161, 128, 6, 161, 129, 6, 162, 129, 6, 163, 129, 6, 163, 128, 6, 162, 128, 6, 160, 134, 6, 161, 134, 6, 162, 134, 6, 163, 134, 6, 164, 134, 6, 165, 134, 6, 165, 135, 6, 165, 136, 6, 165, 137, 6, 165, 138, 6, 165, 139, 6, 165, 140, 6, 164, 140, 6, 163, 140, 6, 162, 140, 6, 161, 140, 6, 160, 140, 6, 160, 139, 6, 160, 138, 6, 160, 137, 6, 160, 136, 6, 160, 135, 6, 161, 135, 6, 161, 136, 6, 161, 137, 6, 161, 138, 6, 161, 139, 6, 162, 139, 6, 162, 138, 6, 163, 138, 6, 164, 138, 6, 164, 137, 6, 164, 136, 6, 163, 136, 6, 162, 137, 6, 163, 137, 6, 162, 136, 6, 162, 135, 6)
+}
+
+[node name="nature" type="Node3D" parent="Container"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0245972, 0.0737963, 0)
+
+[node name="Decorations" type="GridMap" parent="Container/nature"]
+mesh_library = ExtResource("8_bxgno")
+data = {
+"cells": PackedInt32Array(97, 101, 1, 98, 101, 1, 99, 101, 1, 100, 101, 1, 101, 101, 1, 103, 101, 1, 104, 101, 1, 105, 101, 1, 106, 101, 1, 107, 101, 1, 97, 95, 1, 98, 95, 1, 99, 95, 1, 100, 95, 1, 101, 95, 1, 103, 95, 1, 104, 95, 1, 105, 95, 1, 106, 95, 1, 107, 95, 1, 109, 95, 1, 110, 95, 1, 111, 95, 1, 112, 95, 1, 113, 95, 1, 113, 96, 1, 113, 97, 1, 113, 98, 1, 113, 99, 1, 119, 95, 1, 115, 95, 1, 116, 95, 1, 117, 95, 1, 118, 95, 1, 119, 96, 1, 119, 97, 1, 119, 98, 1, 119, 99, 1, 99, 96, 1, 99, 97, 1, 99, 98, 1, 99, 99, 1, 99, 102, 1, 99, 103, 1, 99, 104, 1, 99, 105, 1, 97, 113, 1, 98, 113, 1, 99, 113, 1, 100, 113, 1, 101, 113, 1, 103, 113, 1, 104, 113, 1, 105, 113, 1, 106, 113, 1, 107, 113, 1, 109, 113, 1, 110, 113, 1, 111, 113, 1, 112, 113, 1, 113, 113, 1, 115, 113, 1, 116, 113, 1, 117, 113, 1, 118, 113, 1, 119, 113, 1)
+}
+
+[node name="PinesMap" type="GridMap" parent="Container/nature"]
+mesh_library = ExtResource("8_bxgno")
+data = {
+"cells": PackedInt32Array(119, 95, 2, 119, 99, 2, 119, 98, 2, 119, 97, 2, 119, 96, 2, 117, 95, 2, 116, 95, 2, 115, 95, 2, 118, 95, 2, 113, 99, 2, 113, 98, 2, 113, 97, 2, 113, 96, 2, 113, 95, 2, 112, 95, 2, 111, 95, 2, 110, 95, 2, 109, 95, 2, 107, 95, 2, 106, 95, 2, 105, 95, 2, 104, 95, 2, 103, 95, 2, 101, 95, 2, 100, 95, 2, 99, 95, 2, 98, 95, 2, 97, 95, 2, 107, 101, 2, 106, 101, 2, 105, 101, 2, 104, 101, 2, 103, 101, 2, 101, 101, 2, 100, 101, 2, 99, 101, 2, 98, 101, 2, 97, 101, 2, 99, 96, 2, 99, 97, 2, 99, 98, 2, 99, 99, 2, 99, 102, 2, 99, 103, 2, 99, 104, 2, 99, 105, 2, 97, 113, 2, 98, 113, 2, 99, 113, 2, 100, 113, 2, 101, 113, 2, 103, 113, 2, 104, 113, 2, 105, 113, 2, 106, 113, 2, 107, 113, 2, 109, 113, 2, 110, 113, 2, 111, 113, 2, 112, 113, 2, 113, 113, 2, 115, 113, 2, 116, 113, 2, 117, 113, 2, 118, 113, 2, 119, 113, 2)
+}
+
+[node name="Paths" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 1.79, 2.08165e-12)
+top_level = true
+
+[node name="Path01" type="Path3D" parent="Paths"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 1.5, 2.08165e-12)
+curve = SubResource("Curve3D_dilqr")
+
+[node name="Path02" type="Path3D" parent="Paths"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 1.15, 2.08165e-12)
+curve = SubResource("Curve3D_k7pgf")
+
+[node name="Path03" type="Path3D" parent="Paths"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 229.349, 1, 232.673)
+curve = SubResource("Curve3D_asuwt")
+
+[node name="Path04" type="Path3D" parent="Paths"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 10, 2.08165e-12)
+curve = SubResource("Curve3D_o6kg1")
+
+[node name="Path05" type="Path3D" parent="Paths"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 10, 2.08165e-12)
+curve = SubResource("Curve3D_fiexw")
+
+[node name="Path06" type="Path3D" parent="Paths"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 10, 2.08165e-12)
+curve = SubResource("Curve3D_i8f0l")
+
+[node name="Path07" type="Path3D" parent="Paths"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 10, 2.08165e-12)
+curve = SubResource("Curve3D_hrufx")
+
+[node name="Path08" type="Path3D" parent="Paths"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 10, 2.08165e-12)
+curve = SubResource("Curve3D_gyh1x")
+
+[node name="Path09" type="Path3D" parent="Paths"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 10, 2.08165e-12)
+curve = SubResource("Curve3D_20f2v")
+
+[node name="HTerrain" type="Node3D" parent="." groups=["moutain"]]
+transform = Transform3D(1, 0, 0, 0, 1.8, 0, 0, 0, 1, 2.08165e-12, 1, 2.08165e-12)
+script = ExtResource("11_24k1r")
+_terrain_data = ExtResource("12_vc0ak")
+chunk_size = 32
+collision_enabled = true
+collision_layer = 1
+collision_mask = 7
+shader_type = "LowPoly"
+custom_shader = null
+custom_globalmap_shader = null
+texture_set = SubResource("Resource_mqdb0")
+render_layers = 1
+cast_shadow = 1
+
+[node name="seagull" parent="." instance=ExtResource("20_d8aa4")]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 247.053, 18.1572, 339.409)
+collision_mask = 53
+
+[node name="BG" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("21_08vl6")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.475891, -0.733444, 0.485373, 0.0185487, 0.560119, 0.828205, -0.879309, -0.385132, 0.28016, 339.665, 94.1722, 277.692)
+visible = false
+fov = 85.484
+
+[connection signal="finished" from="BG" to="." method="_on_bg_finished"]

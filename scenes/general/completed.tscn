@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://bsht3xn3g0pcn"]
+
+[ext_resource type="Script" path="res://scenes/general/completed.gd" id="1_8sle1"]
+[ext_resource type="Texture2D" uid="uid://criwtq6413vwe" path="res://assets/images/seagull_car.jpg" id="1_43yar"]
+[ext_resource type="PackedScene" uid="uid://b8jbj3f5jek44" path="res://scenes/buttons/feather.tscn" id="3_olvvk"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_puwhc"]
+font_size = 100
+font_color = Color(0.537255, 1, 0.509804, 1)
+outline_size = 12
+outline_color = Color(0.690196, 0.352941, 0.141176, 1)
+shadow_color = Color(0.333333, 0.376471, 0.505882, 1)
+
+[node name="Complete" type="Node2D"]
+scale = Vector2(0.997651, 0.99385)
+script = ExtResource("1_8sle1")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.844043, 0.846372)
+texture = ExtResource("1_43yar")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 297.0
+offset_top = 373.0
+offset_right = 1097.0
+offset_bottom = 510.0
+text = "Congratulations!"
+label_settings = SubResource("LabelSettings_puwhc")
+
+[node name="Quit" parent="." instance=ExtResource("3_olvvk")]
+position = Vector2(787.851, 552.397)
+key = "QUIT"
+color = "red"
+
+[node name="Restart" parent="." instance=ExtResource("3_olvvk")]
+position = Vector2(535.257, 562.459)
+key = "RESTART"
+color = "yellow"
+
+[connection signal="clicked" from="Quit" to="." method="quit"]
+[connection signal="clicked" from="Restart" to="." method="restart"]

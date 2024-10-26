@@ -1,0 +1,53 @@
+[gd_scene load_steps=7 format=3 uid="uid://bfnwd2c4i0qy8"]
+
+[ext_resource type="Script" path="res://scenes/test/test_car_collision.gd" id="1_1jerh"]
+[ext_resource type="PackedScene" uid="uid://44c10cj7kn6o" path="res://scenes/kit/cars/suv_white.tscn" id="1_cwc2o"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g1na6"]
+albedo_color = Color(0.690196, 0.690196, 0.690196, 1)
+metallic = 0.59
+metallic_specular = 0.55
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_djh16"]
+material = SubResource("StandardMaterial3D_g1na6")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dyqje"]
+size = Vector3(13.7711, 0.0443726, 10.2012)
+
+[sub_resource type="Curve3D" id="Curve3D_dho4k"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -4.23363, 0, -2.71777, 0, 0, 0, 0, 0, 0, 4.35541, 0, -2.88692, 0, 0, 0, 0, 0, 0, 4.7125, 0, 3.37161, 0, 0, 0, 0, 0, 0, -3.93292, 0, 3.46558, 0, 0, 0, 0, 0, 0, -4.23363, 0, -2.71777),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
+}
+point_count = 5
+
+[node name="test_car_collision" type="Node3D"]
+script = ExtResource("1_1jerh")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.6119, 0.790935, 0, -0.790935, 0.6119, 0, 2.63237, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(6.87233, 0, 0, 0, 1, 0, 0, 0, 5.08495, 0.0325623, -0.00299072, -0.046875)
+visible = false
+mesh = SubResource("PlaneMesh_djh16")
+skeleton = NodePath("../CollisionShape3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0325623, -0.0194397, -0.046875)
+shape = SubResource("BoxShape3D_dyqje")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.25779, 0.966201, 0, -0.966201, 0.25779, 0, 5.49425, 2.12134)
+fov = 90.0
+
+[node name="Path3D" type="Path3D" parent="."]
+curve = SubResource("Curve3D_dho4k")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(0.0196899, 0, -0.999803, 0, 1, 0, 0.999803, 0, 0.0196899, -3.73928, 0, -2.72751)
+progress = 0.489984
+
+[node name="suv" parent="Path3D/PathFollow3D" instance=ExtResource("1_cwc2o")]

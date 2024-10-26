@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 signal point_increase
 
-var Guano = preload("res://scences/birds/guano.tscn")
+var Guano = preload("res://scenes/birds/guano.tscn")
 
 var point = 0
 
