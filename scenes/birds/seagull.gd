@@ -107,7 +107,7 @@ func _physics_process(delta):
 		dive(delta)
 		$Sprite/AnimationPlayer.stop()
 		gravity_speed = gravity_speed * 1.2
-		dive_speed_offset = -velocity.y
+		dive_speed_offset = -velocity.y * 1.2
 	else:
 		recover_horizontal(delta)
 		if dive_speed_offset > 0:
@@ -123,7 +123,7 @@ func _physics_process(delta):
 	var rotation_x = rotations[0]
 	var rotation_y = rotations[1]
 	var rotation_z = rotations[2]
-	print(speed)
+	
 	velocity.z = -cos(deg_to_rad(rotation_y)) * speed
 	velocity.x = -sin(deg_to_rad(rotation_y)) * speed
 	
