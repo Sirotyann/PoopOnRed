@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bsht3xn3g0pcn"]
 
 [ext_resource type="Script" path="res://scenes/general/completed.gd" id="1_8sle1"]
-[ext_resource type="Texture2D" uid="uid://criwtq6413vwe" path="res://assets/images/seagull_car.jpg" id="1_43yar"]
+[ext_resource type="Texture2D" uid="uid://bwxmljeho0jpi" path="res://assets/images/seagull_red_car_1.jpg" id="2_ys227"]
 [ext_resource type="PackedScene" uid="uid://b8jbj3f5jek44" path="res://scenes/buttons/feather.tscn" id="3_olvvk"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_puwhc"]
@@ -19,9 +19,10 @@ script = ExtResource("1_8sle1")
 offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(0.844043, 0.846372)
-texture = ExtResource("1_43yar")
+texture = ExtResource("2_ys227")
 
 [node name="Label" type="Label" parent="."]
+visible = false
 offset_left = 297.0
 offset_top = 373.0
 offset_right = 1097.0
@@ -35,7 +36,7 @@ key = "QUIT"
 color = "red"
 
 [node name="Restart" parent="." instance=ExtResource("3_olvvk")]
-position = Vector2(535.257, 562.459)
+position = Vector2(535.257, 553.403)
 key = "RESTART"
 color = "yellow"
 

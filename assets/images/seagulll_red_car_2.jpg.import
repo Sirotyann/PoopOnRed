@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cg7yyn4hn40y4"
-path="res://.godot/imported/dead_segull.jpg-0ec54125093ee0ef8a47f6bff7c10cb5.ctex"
+uid="uid://c6iqsnjfbpkps"
+path="res://.godot/imported/seagulll_red_car_2.jpg-187ffd86e2ab551c7b77624efb4a02c5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/dead_segull.jpg"
-dest_files=["res://.godot/imported/dead_segull.jpg-0ec54125093ee0ef8a47f6bff7c10cb5.ctex"]
+source_file="res://assets/images/seagulll_red_car_2.jpg"
+dest_files=["res://.godot/imported/seagulll_red_car_2.jpg-187ffd86e2ab551c7b77624efb4a02c5.ctex"]
 
 [params]
 

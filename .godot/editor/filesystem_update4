@@ -20,3 +20,6 @@ res://scenes/general/intro.gd
 res://scenes/birds/seagull.tscn
 res://scenes/birds/seagull.gd
 res://scenes/maps/MapSelection.gd
+res://scenes/general/gameover.tscn
+res://scenes/general/gameover.gd
+res://scenes/general/completed.tscn
