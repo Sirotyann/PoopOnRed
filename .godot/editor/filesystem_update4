@@ -23,3 +23,4 @@ res://scenes/maps/MapSelection.gd
 res://scenes/general/gameover.tscn
 res://scenes/general/gameover.gd
 res://scenes/general/completed.tscn
+res://scenes/maps/MapSelection.tscn

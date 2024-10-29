@@ -15,13 +15,12 @@ func _ready():
 func _process(delta):
 	pass
 
-func on_button_down(e):
-	print(e)
-
 func switch_to_sunny_town():
+	$AudioStreamPlayer.stop()
 	switch_scence("res://scenes/maps/town/town.tscn")
 
 func switch_to_foggy_valley():
+	$AudioStreamPlayer.stop()
 	switch_scence("res://scenes/maps/fog_valley/fog_valley.tscn")
 
 func switch_scence(path):

@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bduk111pwxt03"]
+[gd_scene load_steps=5 format=3 uid="uid://bduk111pwxt03"]
 
 [ext_resource type="Script" path="res://scenes/maps/MapSelection.gd" id="1_c26jd"]
 [ext_resource type="Texture2D" uid="uid://c76in3ca5xqgn" path="res://assets/images/background-3.jpg" id="2_5wsiu"]
+[ext_resource type="AudioStream" uid="uid://bo146jsxvubgd" path="res://audios/map-selection.ogg" id="4_qag5y"]
 [ext_resource type="PackedScene" uid="uid://b8jbj3f5jek44" path="res://scenes/buttons/feather.tscn" id="6_me1y8"]
 
 [node name="MapSelection" type="Node2D"]
@@ -26,6 +27,11 @@ key = "MAP_2"
 position = Vector2(461, 403)
 key = "QUIT"
 color = "red"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_qag5y")
+volume_db = -20.0
+autoplay = true
 
 [connection signal="clicked" from="SunnyTown" to="." method="switch_to_sunny_town"]
 [connection signal="clicked" from="FoggyValley" to="." method="switch_to_foggy_valley"]

@@ -57,8 +57,6 @@ func _process(delta):
 		if collider.is_in_group('food'):
 			hit_food(collider)
 		
-		if collider.get_collision_layer: print(collider.get_collision_layer())
-		
 		if collider.is_in_group('moutain') or collider.is_in_group('vehicle') or (collider.get_collision_layer and collider.get_collision_layer() == 1):
 			game_over()
 			
