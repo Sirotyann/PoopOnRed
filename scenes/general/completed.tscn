@@ -1,34 +1,22 @@
 [gd_scene load_steps=5 format=3 uid="uid://bsht3xn3g0pcn"]
 
 [ext_resource type="Script" path="res://scenes/general/completed.gd" id="1_8sle1"]
+[ext_resource type="AudioStream" uid="uid://epycmxiesweh" path="res://audios/success.ogg" id="2_t5wty"]
 [ext_resource type="Texture2D" uid="uid://bwxmljeho0jpi" path="res://assets/images/seagull_red_car_1.jpg" id="2_ys227"]
 [ext_resource type="PackedScene" uid="uid://b8jbj3f5jek44" path="res://scenes/buttons/feather.tscn" id="3_olvvk"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_puwhc"]
-font_size = 100
-font_color = Color(0.537255, 1, 0.509804, 1)
-outline_size = 12
-outline_color = Color(0.690196, 0.352941, 0.141176, 1)
-shadow_color = Color(0.333333, 0.376471, 0.505882, 1)
 
 [node name="Complete" type="Node2D"]
 scale = Vector2(0.997651, 0.99385)
 script = ExtResource("1_8sle1")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_t5wty")
+
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_right = 40.0
 offset_bottom = 40.0
-scale = Vector2(0.844043, 0.846372)
+scale = Vector2(0.863348, 0.865731)
 texture = ExtResource("2_ys227")
-
-[node name="Label" type="Label" parent="."]
-visible = false
-offset_left = 297.0
-offset_top = 373.0
-offset_right = 1097.0
-offset_bottom = 510.0
-text = "Congratulations!"
-label_settings = SubResource("LabelSettings_puwhc")
 
 [node name="Quit" parent="." instance=ExtResource("3_olvvk")]
 position = Vector2(787.851, 552.397)

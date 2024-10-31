@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://6b3pa448oo8c"]
+[gd_scene load_steps=5 format=3 uid="uid://6b3pa448oo8c"]
 
 [ext_resource type="Script" path="res://scenes/general/gameover.gd" id="1_mion1"]
 [ext_resource type="Texture2D" uid="uid://b0073h4eha52a" path="res://assets/images/seagulll_crying.jpg" id="2_s65cr"]
 [ext_resource type="PackedScene" uid="uid://b8jbj3f5jek44" path="res://scenes/buttons/feather.tscn" id="3_ahtkc"]
+[ext_resource type="AudioStream" uid="uid://coju84xy20rkj" path="res://audios/Bittersweet-Farewell.ogg" id="4_50vyj"]
 
 [node name="Gameover" type="Node2D"]
 scale = Vector2(1.0167, 1.00739)
@@ -26,6 +27,9 @@ color = "red"
 position = Vector2(338.35, 222.357)
 key = "RESTART"
 color = "yellow"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_50vyj")
 
 [connection signal="clicked" from="Quit" to="." method="quit"]
 [connection signal="clicked" from="Restart" to="." method="restart"]
