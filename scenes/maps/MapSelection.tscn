@@ -15,16 +15,20 @@ offset_bottom = 720.0
 scale = Vector2(0.898873, 0.899219)
 texture = ExtResource("2_5wsiu")
 
+[node name="Practice" parent="." instance=ExtResource("6_me1y8")]
+position = Vector2(461, 164)
+key = "MAP_0"
+
 [node name="SunnyTown" parent="." instance=ExtResource("6_me1y8")]
-position = Vector2(461, 160)
+position = Vector2(461, 277)
 key = "MAP_1"
 
 [node name="FoggyValley" parent="." instance=ExtResource("6_me1y8")]
-position = Vector2(461, 277)
+position = Vector2(461, 394)
 key = "MAP_2"
 
 [node name="Quit" parent="." instance=ExtResource("6_me1y8")]
-position = Vector2(461, 403)
+position = Vector2(820, 520)
 key = "QUIT"
 color = "red"
 
@@ -33,6 +37,7 @@ stream = ExtResource("4_qag5y")
 volume_db = -20.0
 autoplay = true
 
+[connection signal="clicked" from="Practice" to="." method="switch_to_practice"]
 [connection signal="clicked" from="SunnyTown" to="." method="switch_to_sunny_town"]
 [connection signal="clicked" from="FoggyValley" to="." method="switch_to_foggy_valley"]
 [connection signal="clicked" from="Quit" to="." method="quit"]

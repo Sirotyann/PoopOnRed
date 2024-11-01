@@ -116,7 +116,6 @@ func _physics_process(delta):
 	
 	$Sprite/AnimationPlayer.speed_scale = fly_speed
 	
-			
 	var rotations = get_rotation_degrees()
 	var rotation_x = rotations[0]
 	var rotation_y = rotations[1]

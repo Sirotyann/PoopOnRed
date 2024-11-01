@@ -1,0 +1,160 @@
+[gd_scene load_steps=25 format=3 uid="uid://c551u45p4dyfa"]
+
+[ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain.gd" id="1_dgl4j"]
+[ext_resource type="Script" path="res://scenes/maps/practice/practice.gd" id="1_ipoer"]
+[ext_resource type="MeshLibrary" uid="uid://dk5gh0s8yeus2" path="res://assets/mesh_lib/road.tres" id="1_rwbsj"]
+[ext_resource type="Resource" path="res://scenes/maps/practice/map_data/data.hterrain" id="2_hyd8s"]
+[ext_resource type="PackedScene" uid="uid://cl280gxenqt7a" path="res://scenes/birds/seagull.tscn" id="2_qaxfr"]
+[ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="3_7rmls"]
+[ext_resource type="PackedScene" uid="uid://btwwxc3dlfe06" path="res://scenes/kit/food/apple.tscn" id="3_yhkqm"]
+[ext_resource type="MeshLibrary" uid="uid://cbnrxmxka2mw4" path="res://assets/mesh_lib/buildings.tres" id="4_i8dp8"]
+[ext_resource type="PackedScene" uid="uid://3g2ob3xoqeme" path="res://scenes/kit/food/burger.tscn" id="4_r4mvc"]
+[ext_resource type="PackedScene" uid="uid://b4rk7ordk504p" path="res://scenes/kit/food/cake.tscn" id="5_3x3kc"]
+[ext_resource type="PackedScene" uid="uid://d0uk04n8owk5e" path="res://scenes/kit/food/croissant.tscn" id="6_ftq4s"]
+[ext_resource type="PackedScene" uid="uid://bnuu85k6ju73p" path="res://scenes/kit/food/donut.tscn" id="7_hfo5c"]
+[ext_resource type="PackedScene" uid="uid://do18j1arfb5hn" path="res://scenes/kit/food/fries.tscn" id="8_5u2ey"]
+[ext_resource type="MeshLibrary" uid="uid://bl56je43h6t68" path="res://assets/mesh_lib/decoration.tres" id="8_81n5u"]
+[ext_resource type="PackedScene" uid="uid://bylm2jmfl8iuf" path="res://scenes/kit/food/hot_dog.tscn" id="9_x5hg6"]
+[ext_resource type="PackedScene" uid="uid://d4hussr0h0u8s" path="res://scenes/kit/food/pizza.tscn" id="10_fyxbm"]
+[ext_resource type="PackedScene" uid="uid://c5l03qjar3qv4" path="res://scenes/kit/food/taco.tscn" id="11_5of7u"]
+[ext_resource type="AudioStream" uid="uid://i6drhgb6ixf0" path="res://audios/First Flight.ogg" id="18_tynic"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_l1hgt"]
+sky_top_color = Color(0.101961, 0.45098, 0.807843, 1)
+sky_horizon_color = Color(0.937255, 0.941176, 0.909804, 1)
+ground_bottom_color = Color(0.180392, 0.290196, 0.196078, 1)
+
+[sub_resource type="Sky" id="Sky_oai38"]
+sky_material = SubResource("ProceduralSkyMaterial_l1hgt")
+
+[sub_resource type="Environment" id="Environment_o6qyp"]
+background_mode = 2
+background_energy_multiplier = 1.01
+sky = SubResource("Sky_oai38")
+
+[sub_resource type="Resource" id="Resource_8cjsq"]
+script = ExtResource("3_7rmls")
+mode = 0
+textures = [[], []]
+
+[sub_resource type="Curve3D" id="Curve3D_yq25c"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 245.458, 0, 261.361, 0, 0, 0, 0, 0, 0, 316.865, 0, 261.357, 0, 0, 0, 0, 0, 0, 317.309, 0, 261.135, 0, 0, 0, 0, 0, 0, 317.338, 0, 229.22, 0, 0, 0, 0, 0, 0, 317.015, 0, 228.735, 0, 0, 0, 0, 0, 0, 245.138, 0, 228.699, 0, 0, 0, 0, 0, 0, 244.694, 0, 228.941, 0, 0, 0, 0, 0, 0, 244.647, 0, 260.901, 0, 0, 0, 0, 0, 0, 244.834, 0, 261.251, 0, 0, 0, 0, 0, 0, 245.458, 0, 261.361),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 10
+
+[sub_resource type="Curve3D" id="Curve3D_2snol"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 314.153, -2.05, 229.347, 0, 0, 0, 0, 0, 0, 316.45, -2.05, 229.388, 0, 0, 0, 0, 0, 0, 316.697, -2.05, 229.819, 0, 0, 0, 0, 0, 0, 316.732, -2.05, 260.071, 0, 0, 0, 0, 0, 0, 316.527, -2.05, 260.686, 0, 0, 0, 0, 0, 0, 246.031, -2.05, 260.752, 0, 0, 0, 0, 0, 0, 245.457, -2.05, 260.711, 0, 0, 0, 0, 0, 0, 245.313, -2.05, 260.321, 0, 0, 0, 0, 0, 0, 245.311, -2.05, 230.06, 0, 0, 0, 0, 0, 0, 245.393, -2.05, 229.486, 0, 0, 0, 0, 0, 0, 245.742, -2.05, 229.363, 0, 0, 0, 0, 0, 0, 311.577, -2.05, 229.326, 0, 0, 0, 0, 0, 0, 314.153, -2.05, 229.347),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 13
+
+[node name="Practice" type="Node3D"]
+script = ExtResource("1_ipoer")
+
+[node name="seagull" parent="." instance=ExtResource("2_qaxfr")]
+transform = Transform3D(-1, 3.48787e-16, -8.74228e-08, 3.48787e-16, 1, -3.48787e-16, 8.74228e-08, -3.48787e-16, -1, 260.019, 11.1527, 244.182)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.753563, 0.657375, 0, -0.657375, -0.753563, -16.5939, 29.8719, -15.9283)
+light_energy = 0.696
+light_indirect_energy = 1.08
+light_volumetric_fog_energy = 1.358
+shadow_enabled = true
+shadow_opacity = 0.52
+shadow_blur = 2.194
+directional_shadow_split_1 = 0.17
+directional_shadow_split_2 = 0.153
+directional_shadow_fade_start = 0.822
+directional_shadow_max_distance = 100.5
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_o6qyp")
+
+[node name="Food" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="apple" parent="Food" instance=ExtResource("3_yhkqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 239.416, 19, 254.41)
+
+[node name="burger" parent="Food" instance=ExtResource("4_r4mvc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 264.688, 10.9126, 252.059)
+
+[node name="cake" parent="Food" instance=ExtResource("5_3x3kc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 273.55, 6.37262, 260.862)
+
+[node name="croissant" parent="Food" instance=ExtResource("6_ftq4s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 283.294, 4.46918, 236.137)
+
+[node name="donut" parent="Food" instance=ExtResource("7_hfo5c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 305.176, 4.54232, 250.497)
+
+[node name="fries" parent="Food" instance=ExtResource("8_5u2ey")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 252.708, 9.72904, 237.946)
+
+[node name="hot-dog" parent="Food" instance=ExtResource("9_x5hg6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 298.937, 15.1162, 245.699)
+
+[node name="pizza" parent="Food" instance=ExtResource("10_fyxbm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 296.312, 3.39292, 223.158)
+
+[node name="taco" parent="Food" instance=ExtResource("11_5of7u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 320.816, 26.7673, 259.032)
+
+[node name="GridMap" type="GridMap" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh_library = ExtResource("1_rwbsj")
+data = {
+"cells": PackedInt32Array(122, 115, 0, 122, 116, 0, 122, 117, 0, 122, 118, 0, 122, 119, 0, 122, 120, 0, 122, 121, 0, 122, 122, 0, 122, 123, 0, 122, 124, 0, 122, 125, 0, 122, 126, 0, 122, 127, 0, 122, 128, 0, 122, 129, 0, 122, 114, 1, 123, 114, 1441792, 124, 114, 1441792, 125, 114, 1441792, 126, 114, 1441792, 127, 114, 1441792, 128, 114, 1441792, 129, 114, 1441792, 130, 114, 1441792, 131, 114, 1441792, 132, 114, 1441792, 133, 114, 1441792, 134, 114, 1441792, 135, 114, 1441792, -393081, 114, 1441792, -393079, 112, 1441792, 136, 114, 1441792, 137, 114, 1441792, 138, 114, 1441792, 139, 114, 1441792, 140, 114, 1441792, 141, 114, 1441792, 142, 114, 1441792, 143, 114, 1441792, 144, 114, 1441792, 145, 114, 1441792, 146, 114, 1441792, 147, 114, 1441792, 148, 114, 1441792, 149, 114, 1441792, 150, 114, 1441792, 151, 114, 1441792, 152, 114, 1441792, 153, 114, 1441792, 154, 114, 1441792, 155, 114, 1441792, 156, 114, 1441792, 157, 114, 1441792, 158, 115, 655360, 158, 116, 655360, 158, 117, 655360, 158, 118, 655360, 158, 119, 655360, 158, 120, 655360, 158, 121, 655360, 158, 122, 655360, 158, 123, 655360, 158, 124, 655360, 158, 125, 655360, 158, 126, 655360, 158, 127, 655360, 158, 128, 655360, 158, 129, 655360, 123, 130, 1441792, 124, 130, 1441792, 125, 130, 1441792, 126, 130, 1441792, 127, 130, 1441792, 128, 130, 1441792, 129, 130, 1441792, 130, 130, 1441792, 131, 130, 1441792, 132, 130, 1441792, 133, 130, 1441792, 134, 130, 1441792, 135, 130, 1441792, 136, 130, 1441792, 137, 130, 1441792, 138, 130, 1441792, 139, 130, 1441792, 140, 130, 1441792, 141, 130, 1441792, 142, 130, 1441792, 143, 130, 1441792, 144, 130, 1441792, 145, 130, 1441792, 146, 130, 1441792, 147, 130, 1441792, 148, 130, 1441792, 149, 130, 1441792, 150, 130, 1441792, 151, 130, 1441792, 152, 130, 1441792, 153, 130, 1441792, 154, 130, 1441792, 155, 130, 1441792, 156, 130, 1441792, 157, 130, 1441792, 122, 130, 1048577, 158, 114, 1441793, 158, 130, 655361)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="Buildings" type="GridMap" parent="."]
+transform = Transform3D(-1, 3.48787e-16, -8.74228e-08, 3.48787e-16, 1, -3.48787e-16, 8.74228e-08, -3.48787e-16, -1, 0, 1, 0)
+mesh_library = ExtResource("4_i8dp8")
+data = {
+"cells": PackedInt32Array(65389, 65407, 655377, 65387, 65407, 655377, 65385, 65407, 655377, 65383, 65407, 655377, 65381, 65407, 655377, 65391, 65407, 655377, 65393, 65407, 655377, 65395, 65407, 655377, 65397, 65407, 655377, 65399, 65407, 655377, 65401, 65407, 655377, 65403, 65407, 655377, 65405, 65407, 655377, 65407, 65407, 655377, 65409, 65407, 655377, 65411, 65407, 655377, 65411, 65419, 655377, 65409, 65419, 655377, 65407, 65419, 655377, 65405, 65419, 655377, 65403, 65419, 655377, 65401, 65419, 655377, 65399, 65419, 655377, 65397, 65419, 655377, 65395, 65419, 655377, 65393, 65419, 655377, 65391, 65419, 655377, 65389, 65419, 655377, 65387, 65419, 655377, 65385, 65419, 655377, 65383, 65419, 655377, 65381, 65419, 655377, 65380, 65416, 1441798, 65380, 65414, 1441798, 65380, 65412, 1441798, 65380, 65410, 1441798, 65411, 65416, 1048580, 65411, 65410, 1048580, 65411, 65412, 1048580, 65411, 65414, 1048580)
+}
+
+[node name="HTerrain" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+script = ExtResource("1_dgl4j")
+_terrain_data = ExtResource("2_hyd8s")
+chunk_size = 32
+collision_enabled = true
+collision_layer = 32
+collision_mask = 2
+shader_type = "Classic4Lite"
+custom_shader = null
+custom_globalmap_shader = null
+texture_set = SubResource("Resource_8cjsq")
+render_layers = 1
+cast_shadow = 1
+shader_params/u_ground_uv_scale = 20
+shader_params/u_depth_blending = true
+shader_params/u_triplanar = null
+shader_params/u_tile_reduction = null
+
+[node name="GridMap2" type="GridMap" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh_library = ExtResource("8_81n5u")
+data = {
+"cells": PackedInt32Array(152, 119, 1048578, 152, 120, 1048578, 152, 121, 1048578, 152, 122, 1048578, 152, 123, 1048578, 152, 124, 1048578, 152, 125, 1048578, 151, 125, 1048578, 150, 125, 1048578, 149, 125, 1048578, 148, 125, 1048578, 147, 125, 1048578, 146, 125, 1048578, 151, 119, 1048578, 150, 119, 1048578, 149, 119, 1048578, 148, 119, 1048578, 147, 119, 1048578, 146, 119, 1048578, 145, 119, 1048578, 144, 119, 1048578, 143, 119, 1048578, 142, 119, 1048578, 141, 119, 1048578, 140, 119, 1048578, 139, 119, 1048578, 138, 119, 1048578, 137, 119, 1048578, 136, 119, 1048578, 135, 119, 1048578, 134, 119, 1048578, 133, 119, 1048578, 132, 119, 1048578, 131, 119, 1048578, 130, 119, 1048578, 129, 119, 1048578, 128, 119, 1048578, 127, 119, 1048578, 127, 120, 1048578, 127, 121, 1048578, 127, 122, 1048578, 127, 123, 1048578, 127, 124, 1048578, 127, 125, 1048578, 128, 125, 1048578, 129, 125, 1048578, 130, 125, 1048578, 131, 125, 1048578, 132, 125, 1048578, 133, 125, 1048578, 134, 125, 1048578, 135, 125, 1048578, 136, 125, 1048578, 137, 125, 1048578, 138, 125, 1048578, 139, 125, 1048578, 140, 125, 1048578, 141, 125, 1048578, 142, 125, 1048578, 143, 125, 1048578, 144, 125, 1048578, 145, 125, 1048578, 151, 120, 1048578, 151, 121, 1048578, 151, 122, 1048578, 151, 123, 1048578, 151, 124, 1048578, 150, 124, 1048578, 149, 124, 1048578, 148, 124, 1048578, 147, 124, 1048578, 146, 124, 1048578, 145, 124, 1048578, 144, 124, 1048578, 143, 124, 1048578, 142, 124, 1048578, 132, 124, 1048578, 130, 124, 1048578, 129, 124, 1048578, 131, 124, 1048578, 133, 124, 1048578, 134, 124, 1048578, 135, 124, 1048578, 136, 124, 1048578, 139, 124, 1048578, 140, 124, 1048578, 141, 124, 1048578, 138, 124, 1048578, 137, 124, 1048578, 128, 124, 1048578, 129, 123, 1048578, 129, 122, 1048578, 129, 121, 1048578, 129, 120, 1048578, 128, 120, 1048578, 128, 121, 1048578, 128, 122, 1048578, 128, 123, 1048578, 130, 120, 1048578, 131, 120, 1048578, 132, 120, 1048578, 133, 120, 1048578, 134, 120, 1048578, 135, 120, 1048578, 136, 120, 1048578, 137, 120, 1048578, 148, 120, 1048578, 149, 120, 1048578, 150, 120, 1048578, 147, 120, 1048578, 145, 120, 1048578, 144, 120, 1048578, 143, 120, 1048578, 142, 120, 1048578, 141, 120, 1048578, 140, 120, 1048578, 139, 120, 1048578, 138, 120, 1048578, 137, 121, 1048578, 137, 122, 1048578, 138, 122, 1048578, 139, 122, 1048578, 140, 122, 1048578, 142, 122, 1048578, 143, 121, 1048578, 144, 121, 1048578, 145, 121, 1048578, 146, 121, 1048578, 147, 121, 1048578, 148, 121, 1048578, 149, 121, 1048578, 150, 121, 1048578, 146, 120, 1048578, 150, 122, 1048578, 149, 122, 1048578, 148, 122, 1048578, 147, 122, 1048578, 146, 122, 1048578, 145, 122, 1048578, 144, 122, 1048578, 143, 122, 1048578, 146, 123, 1048578, 147, 123, 1048578, 148, 123, 1048578, 149, 123, 1048578, 150, 123, 1048578, 145, 123, 1048578, 144, 123, 1048578, 143, 123, 1048578, 142, 123, 1048578, 141, 123, 1048578, 140, 123, 1048578, 139, 123, 1048578, 138, 123, 1048578, 137, 123, 1048578, 136, 123, 1048578, 135, 123, 1048578, 134, 123, 1048578, 133, 123, 1048578, 132, 123, 1048578, 131, 123, 1048578, 131, 121, 1048578, 131, 122, 1048578, 130, 121, 1048578, 130, 122, 1048578, 130, 123, 1048578, 132, 121, 1048578, 132, 122, 1048578, 133, 122, 1048578, 134, 122, 1048578, 135, 122, 1048578, 136, 122, 1048578, 136, 121, 1048578, 135, 121, 1048578, 134, 121, 1048578, 133, 121, 1048578, 138, 121, 1048578, 139, 121, 1048578, 140, 121, 1048578, 141, 121, 1048578, 142, 121, 1048578, 141, 122, 1048578, 126, 119, 1048578, 126, 120, 1048578, 126, 121, 1048578, 126, 122, 1048578, 126, 123, 1048578, 126, 124, 1048578, 126, 125, 1048578)
+}
+
+[node name="Paths" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.05, 0)
+
+[node name="Path01" type="Path3D" parent="Paths"]
+curve = SubResource("Curve3D_yq25c")
+
+[node name="Path02" type="Path3D" parent="Paths"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.05, 0)
+curve = SubResource("Curve3D_2snol")
+
+[node name="BG" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_tynic")
+
+[connection signal="finished" from="BG" to="." method="_on_bg_finished"]

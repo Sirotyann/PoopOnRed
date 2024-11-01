@@ -8,7 +8,7 @@ func connect_player(player):
 func game_win(player):
 	var tree = get_tree()
 	tree.paused = true
-	await tree.create_timer(3.0).timeout
+	await tree.create_timer(1.5).timeout
 	tree.change_scene_to_file("res://scenes/general/completed.tscn")
 	tree.paused = false
 

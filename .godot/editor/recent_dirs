@@ -1,9 +1,10 @@
-res://assets/images/bird
 res://audios
+res://assets/mesh_lib
+res://scenes/maps/practice/map_data
+res://assets/images/bird
 res://assets/images
 res://
 res://assets/images/buttons
-res://assets/mesh_lib
 /Users/c_li/Workshop/Game/export
 res://shaders
 /Users/c_li/Workshop/Game/Drop/addons/zylann.hterrain/tools/brush/shapes
