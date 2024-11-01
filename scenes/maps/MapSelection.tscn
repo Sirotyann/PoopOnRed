@@ -22,10 +22,12 @@ key = "MAP_0"
 [node name="SunnyTown" parent="." instance=ExtResource("6_me1y8")]
 position = Vector2(461, 277)
 key = "MAP_1"
+disabled = true
 
 [node name="FoggyValley" parent="." instance=ExtResource("6_me1y8")]
 position = Vector2(461, 394)
 key = "MAP_2"
+disabled = true
 
 [node name="Quit" parent="." instance=ExtResource("6_me1y8")]
 position = Vector2(820, 520)

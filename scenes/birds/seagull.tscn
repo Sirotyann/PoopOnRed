@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://cl280gxenqt7a"]
+[gd_scene load_steps=25 format=4 uid="uid://cl280gxenqt7a"]
 
 [ext_resource type="Script" path="res://scenes/birds/seagull.gd" id="1_mdl4l"]
 [ext_resource type="AudioStream" uid="uid://dasq7fksviibh" path="res://audios/howling-wind.ogg" id="2_4nw0m"]
@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://bwhr4bk7a2h2c" path="res://audios/success.mp3" id="5_ro0w1"]
 [ext_resource type="AudioStream" uid="uid://wel7rw874j5q" path="res://audios/poop.mp3" id="7_3ckal"]
 [ext_resource type="AudioStream" uid="uid://bvnmdhqeoc741" path="res://audios/complete.mp3" id="7_myo24"]
+[ext_resource type="AudioStream" uid="uid://cqciy540dhhp0" path="res://audios/bird_hurt.ogg" id="10_jbhf7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_48aya"]
 size = Vector3(0.242115, 0.040611, 0.0378827)
@@ -325,6 +326,9 @@ stream = ExtResource("5_ro0w1")
 
 [node name="PoopAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_3ckal")
+
+[node name="DeathAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_jbhf7")
 
 [node name="Sprite" type="Node3D" parent="."]
 transform = Transform3D(1, -4.02216e-24, 0, -4.02216e-24, 1, 0, 0, 0, 1, -1.20057e-09, 4.78986e-18, 0.0137329)

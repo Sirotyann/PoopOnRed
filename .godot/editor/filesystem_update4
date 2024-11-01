@@ -16,3 +16,5 @@ res://scenes/maps/fog_valley/fog_valley.tscn
 res://scenes/birds/seagull.tscn
 res://scenes/birds/seagull.gd
 res://scenes/general/sequence.gd
+res://scenes/buttons/feather.tscn
+res://scenes/buttons/feather.gd

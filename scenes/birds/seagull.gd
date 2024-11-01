@@ -240,10 +240,12 @@ func play_death_particle():
 	StatusAnimation.play("death")
 	
 func time_out(): 
+	$DeathAudio.play()
 	StatusAnimation.play("death")
 	timeout.emit()
 
 func game_over():
+	$DeathAudio.play()
 	StatusAnimation.play("death")
 	dead.emit()
 

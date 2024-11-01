@@ -3,6 +3,7 @@ extends Node2D
 signal clicked
 
 @export var key := ''
+@export var disabled:bool = false
 
 @export var color := 'white'
 
@@ -25,10 +26,17 @@ var textures = {
 		"font_color": "#c40079",
 		"font_shadow": "#641a2a",
 	},
+	"disabled": {
+		"light": "res://assets/images/buttons/feather_dark_grey.png",
+		"dark":  "res://assets/images/buttons/feather_dark_grey.png",
+		"font_color": "#857a67",
+		"font_shadow": "#716857",
+	}
 }
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if disabled: color = "disabled"
 	$TextureButton.connect("button_down", self._on_button_down)
 	$TextureButton.connect("button_up", self._on_button_up)
 	$TextureButton/Label.text = tr(key)
@@ -52,10 +60,12 @@ func refresh_text():
 	$TextureButton/Label.text = tr(key)
 
 func _on_button_down() -> void:
-	$TextureButton.position.y += 3
-	$TextureButton.position.x += 3
+	if !disabled:
+		$TextureButton.position.y += 3
+		$TextureButton.position.x += 3
 
 func _on_button_up() -> void:
-	$TextureButton.position.y -= 3
-	$TextureButton.position.x -= 3
-	clicked.emit()
+	if !disabled:
+		$TextureButton.position.y -= 3
+		$TextureButton.position.x -= 3
+		clicked.emit()
