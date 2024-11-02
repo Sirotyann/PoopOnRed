@@ -10,7 +10,6 @@ var bird_init_x := 50.0
 func _ready() -> void:
 	$AnimatedSprite2D.play("fly")
 	var size = get_viewport_rect().size
-	print(size)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

@@ -1,7 +1,6 @@
 extends Node2D
 
-var StorageCLS = preload("res://general/storage.gd")
-@onready var Storage = StorageCLS.new()
+var Storage = preload("res://general/storage.gd")
 
 var index = 0
 
@@ -23,12 +22,14 @@ var total_chars
 func _ready() -> void:
 	#Storage.clear_status()
 	TranslationServer.set_locale("zh")
-	var is_first_time = Storage.get_is_first_time()
+	var is_first_time = Storage.instance.get_is_first_time()
+	
+	print('[Intro] is_first_time:', is_first_time)
 	
 	if !is_first_time: 
 		go_to_next()
 	else:
-		Storage.set_is_first_time(false)
+		Storage.instance.set_is_first_time(false)
 		$Start.visible = false
 		Label1.text = tr("INTRO_1")
 		Label2.text = tr("INTRO_2")
@@ -68,8 +69,6 @@ func _on_timer_timeout() -> void:
 		$Start.visible = true
 		
 func go_to_next() -> void:
-	print('goto MapSelection')
 	var LoadingScene = loading.instantiate()
 	add_child(LoadingScene)
 	LoadingScene.switch_scence("res://scenes/maps/MapSelection.tscn")
-	#get_tree().change_scene_to_file("res://scenes/maps/MapSelection.tscn")

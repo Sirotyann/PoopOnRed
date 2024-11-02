@@ -1,5 +1,7 @@
 extends Node3D
 
+var Storage = preload("res://general/storage.gd")
+
 const Veichle_Speed := 5.0
 const Veichle_Total_Count := 20
 
@@ -54,6 +56,8 @@ func _ready() -> void:
 	
 	add_child(sequence)
 	sequence.connect_player($seagull)
+	
+	Storage.instance.set_is_practice_completed(true)
 
 func _on_bg_finished():
 	$BG.play()

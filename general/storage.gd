@@ -1,66 +1,100 @@
 extends Node
+class_name Storage
 
-var file_path := "user://user_status"
+var file_path_status := "user://status.dat"
 
-var is_first_time := true
-var is_town_completed := false
-var is_valley_completed := false
-var has_eaten := false
-var has_poop_on_car := false
-	
-func read_var(variabel):
-	if FileAccess.file_exists(file_path):
-		var file = FileAccess.open(file_path, FileAccess.READ)
-		return file.get_var(variabel)
-	else:
-		return variabel
+var Empty_Status = {
+	"is_first_time": true,
+	"is_practice_completed": false,
+	"is_town_completed": false,
+	"is_valley_completed": false,
+	"has_eaten": false,
+	"has_poop_on_car": false	
+}
 
-func write_var(variable):
-	var file = FileAccess.open(file_path, FileAccess.WRITE)
-	file.store_var(variable)
-	
-func get_is_first_time():
-	is_first_time = read_var(is_first_time)
-	return is_first_time
+static var instance := Storage.new()
 
-func set_is_first_time(val):
-	is_first_time = val
-	write_var(is_first_time)
+var user_status:
+	set(val):
+		user_status = val
 
-func get_is_town_completed():
-	return read_var(is_town_completed)
+func read_status():
+	var _status = Empty_Status
+	if FileAccess.file_exists(file_path_status):
+		var file = FileAccess.open(file_path_status, FileAccess.READ)
+		var json_string = file.get_as_text()
+		var json = JSON.new()
+		var error = json.parse(json_string)
+		if error == OK:
+			var data_received = json.data
+			_status = data_received
+		else:
+			print("JSON Parse Error: ", json.get_error_message(), " in ", json_string, " at line ", json.get_error_line())
+	user_status = _status
 
-func set_is_town_completed(val):
-	is_town_completed = val
-	write_var(is_town_completed)
+func save_status(status):
+	user_status = status
+	var json_string = JSON.stringify(status)
+	var file = FileAccess.open(file_path_status, FileAccess.WRITE)
+	file.store_string(json_string)
 
-func get_is_valley_completed():
-	return read_var(is_valley_completed)
-
-func set_is_valley_completed(val):
-	is_valley_completed = val
-	write_var(is_valley_completed)
-	
-func get_has_eaten():
-	return read_var(has_eaten)
-
-func set_has_eaten(val):
-	has_eaten = val
-	write_var(has_eaten)
-
-func get_has_poop_on_car():
-	return read_var(has_poop_on_car)
-
-func set_has_poop_on_car(val):
-	has_poop_on_car = val
-	write_var(has_poop_on_car)
-
-func clear_status():
-	DirAccess.remove_absolute(file_path)
+func get_status():
+	return user_status
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	read_status()
+
+func get_is_first_time():
+	if(user_status == null): read_status()
+	return user_status.is_first_time
+
+func set_is_first_time(val):
+	user_status.is_first_time = val
+	save_status(user_status)
+
+func get_is_town_completed():
+	if(user_status == null): read_status()
+	return user_status.is_town_completed
+
+func set_is_town_completed(val):
+	user_status.is_town_completed = val
+	save_status(user_status)
+
+func get_is_valley_completed():
+	if(user_status == null): read_status()
+	return user_status.is_valley_completed
+
+func set_is_valley_completed(val):
+	user_status.is_valley_completed = val
+	save_status(user_status)
+	
+func get_is_practice_completed():
+	if(user_status == null): read_status()
+	return user_status.is_practice_completed
+
+func set_is_practice_completed(val):
+	user_status.is_practice_completed = val
+	save_status(user_status)
+
+func get_has_eaten():
+	if(user_status == null): read_status()
+	return user_status.has_eaten
+
+func set_has_eaten(val):
+	user_status.has_eaten = val
+	save_status(user_status)
+
+func get_has_poop_on_car():
+	if(user_status == null): read_status()
+	return user_status.has_poop_on_car
+
+func set_has_poop_on_car(val):
+	user_status.has_poop_on_car = val
+	save_status(user_status)
+
+func clear_status():
+	DirAccess.remove_absolute(file_path_status)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

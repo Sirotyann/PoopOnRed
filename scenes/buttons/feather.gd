@@ -3,9 +3,13 @@ extends Node2D
 signal clicked
 
 @export var key := ''
-@export var disabled:bool = false
+@export var disabled:bool :
+	set(value):
+		disabled = value
 
 @export var color := 'white'
+
+var is_disabled:bool
 
 var textures = {
 	"white": {
@@ -36,21 +40,23 @@ var textures = {
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	if disabled: color = "disabled"
 	$TextureButton.connect("button_down", self._on_button_down)
 	$TextureButton.connect("button_up", self._on_button_up)
-	$TextureButton/Label.text = tr(key)
+	refresh_text()
+	refresh_style()
 	
-	var light_image = Image.load_from_file(textures[color].light)
+func refresh_style():
+	var _color = "disabled" if disabled else color
+	var light_image = Image.load_from_file(textures[_color].light)
 	var light_texture = ImageTexture.create_from_image(light_image)
-	var dark_image = Image.load_from_file(textures[color].dark)
+	var dark_image = Image.load_from_file(textures[_color].dark)
 	var dark_texture = ImageTexture.create_from_image(dark_image)
 	
 	$TextureButton.texture_normal = dark_texture
 	$TextureButton.texture_hover = light_texture
 	
-	$TextureButton/Label.add_theme_color_override("font_color", textures[color].font_color);
-	$TextureButton/Label.add_theme_color_override("font_shadow_color", textures[color].font_shadow);
+	$TextureButton/Label.add_theme_color_override("font_color", textures[_color].font_color);
+	$TextureButton/Label.add_theme_color_override("font_shadow_color", textures[_color].font_shadow);
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

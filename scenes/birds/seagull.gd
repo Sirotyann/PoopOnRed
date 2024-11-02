@@ -7,9 +7,8 @@ signal timeout
 var score := 0
 
 var Poop = preload("res://scenes/birds/poop.tscn")
-var StorageCLS = preload("res://general/storage.gd")
+var Storage = preload("res://general/storage.gd")
 
-@onready var Storage = StorageCLS.new()
 @onready var StatusAnimation = $CanvasLayer/CanvasAnimationPlayer
 
 const VEHICLE_TIME_AWARD := 15.0 # 每次命中普通车的时间奖励
@@ -42,10 +41,7 @@ func _ready():
 	$CanvasLayer/HBoxContainer/TimeLeft.connect("time_out", self.time_out)
 	$CanvasLayer/HBoxContainer/TimeLeft.connect("danger_warning", self.danger_warning)
 	$CanvasLayer/HBoxContainer/TimeLeft.connect("danger_warning_cancel", self.danger_warning_cancel)
-	
-	var is_first_time = Storage.get_is_first_time()
-	print(is_first_time)
-		
+
 func _process(delta):
 	if Input.is_action_pressed("shoot"):
 		shoot()
@@ -225,6 +221,7 @@ func poop_on_vehicle():
 	$SuccessAudio.play()
 
 func poop_on_red_vehicle():
+	$PreSuccessAudio.play()
 	completed.emit()
 
 func refresh_excrete():

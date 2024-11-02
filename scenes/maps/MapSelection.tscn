@@ -37,7 +37,6 @@ color = "red"
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_qag5y")
 volume_db = -20.0
-autoplay = true
 
 [connection signal="clicked" from="Practice" to="." method="switch_to_practice"]
 [connection signal="clicked" from="SunnyTown" to="." method="switch_to_sunny_town"]

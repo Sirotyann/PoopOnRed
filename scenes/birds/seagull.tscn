@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://cl280gxenqt7a"]
+[gd_scene load_steps=26 format=4 uid="uid://cl280gxenqt7a"]
 
 [ext_resource type="Script" path="res://scenes/birds/seagull.gd" id="1_mdl4l"]
 [ext_resource type="AudioStream" uid="uid://dasq7fksviibh" path="res://audios/howling-wind.ogg" id="2_4nw0m"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://b71ocjsuq2jul" path="res://assets/images/damage.png" id="4_i4eqc"]
 [ext_resource type="Texture2D" uid="uid://gwc23e7rpuwa" path="res://assets/images/black.jpg" id="5_65d1a"]
 [ext_resource type="AudioStream" uid="uid://bwhr4bk7a2h2c" path="res://audios/success.mp3" id="5_ro0w1"]
+[ext_resource type="AudioStream" uid="uid://chs8n7gmcyyt3" path="res://audios/success_short.ogg" id="6_6vrnk"]
 [ext_resource type="AudioStream" uid="uid://wel7rw874j5q" path="res://audios/poop.mp3" id="7_3ckal"]
 [ext_resource type="AudioStream" uid="uid://bvnmdhqeoc741" path="res://audios/complete.mp3" id="7_myo24"]
 [ext_resource type="AudioStream" uid="uid://cqciy540dhhp0" path="res://audios/bird_hurt.ogg" id="10_jbhf7"]
@@ -313,6 +314,10 @@ modulate = Color(1, 1, 1, 0)
 position = Vector2(599, 325)
 scale = Vector2(125.633, 81.1361)
 texture = ExtResource("5_65d1a")
+
+[node name="PreSuccessAudio" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("6_6vrnk")
 
 [node name="WindAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_4nw0m")

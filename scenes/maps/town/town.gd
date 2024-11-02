@@ -33,6 +33,8 @@ const Hotdog = preload("res://scenes/kit/food/hot_dog.tscn")
 const Pizza = preload("res://scenes/kit/food/pizza.tscn")
 const Taco = preload("res://scenes/kit/food/taco.tscn")
 
+var Storage = preload("res://general/storage.gd")
+
 var passed_time := 0
 var timer
 var path_dispatcher
@@ -80,6 +82,7 @@ func _ready():
 	
 	add_child(sequence)
 	sequence.connect_player($Container/seagull)
+	sequence.connect("completed", self._on_completed)
 	
 func init_foods():
 	Fantacy_Food_Model_COORDS.shuffle()
@@ -95,17 +98,10 @@ func init_foods():
 		food.position = Normal_Food_Model_COORDS[i].global_position
 	
 func _process(delta):
-	#$Paths/Path12/PathFollow3D.progress += 0.2
 	pass
 
 func _on_bg_finished():
 	$BG.play()
 
-#func _on_seagull_completed():
-	#get_tree().change_scene_to_file("res://scenes/general/completed.tscn")
-#
-#func _on_seagull_dead():
-	#get_tree().change_scene_to_file.bind("res://scenes/general/gameover.tscn").call_deferred()
-#
-#func _on_seagull_timeout():
-	#get_tree().change_scene_to_file.bind("res://scenes/general/gameover.tscn").call_deferred()
+func _on_completed():
+	Storage.instance.set_is_town_completed(true)

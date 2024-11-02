@@ -56,6 +56,7 @@ script = ExtResource("1_ipoer")
 
 [node name="seagull" parent="." instance=ExtResource("2_qaxfr")]
 transform = Transform3D(-1, 3.48787e-16, -8.74228e-08, 3.48787e-16, 1, -3.48787e-16, 8.74228e-08, -3.48787e-16, -1, 260.019, 11.1527, 244.182)
+collision_mask = 53
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.753563, 0.657375, 0, -0.657375, -0.753563, -16.5939, 29.8719, -15.9283)
@@ -118,7 +119,7 @@ data = {
 "cells": PackedInt32Array(65389, 65407, 655377, 65387, 65407, 655377, 65385, 65407, 655377, 65383, 65407, 655377, 65381, 65407, 655377, 65391, 65407, 655377, 65393, 65407, 655377, 65395, 65407, 655377, 65397, 65407, 655377, 65399, 65407, 655377, 65401, 65407, 655377, 65403, 65407, 655377, 65405, 65407, 655377, 65407, 65407, 655377, 65409, 65407, 655377, 65411, 65407, 655377, 65411, 65419, 655377, 65409, 65419, 655377, 65407, 65419, 655377, 65405, 65419, 655377, 65403, 65419, 655377, 65401, 65419, 655377, 65399, 65419, 655377, 65397, 65419, 655377, 65395, 65419, 655377, 65393, 65419, 655377, 65391, 65419, 655377, 65389, 65419, 655377, 65387, 65419, 655377, 65385, 65419, 655377, 65383, 65419, 655377, 65381, 65419, 655377, 65380, 65416, 1441798, 65380, 65414, 1441798, 65380, 65412, 1441798, 65380, 65410, 1441798, 65411, 65416, 1048580, 65411, 65410, 1048580, 65411, 65412, 1048580, 65411, 65414, 1048580)
 }
 
-[node name="HTerrain" type="Node3D" parent="."]
+[node name="HTerrain" type="Node3D" parent="." groups=["moutain"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 script = ExtResource("1_dgl4j")
 _terrain_data = ExtResource("2_hyd8s")
@@ -130,7 +131,7 @@ shader_type = "Classic4Lite"
 custom_shader = null
 custom_globalmap_shader = null
 texture_set = SubResource("Resource_8cjsq")
-render_layers = 1
+render_layers = 2
 cast_shadow = 1
 shader_params/u_ground_uv_scale = 20
 shader_params/u_depth_blending = true
