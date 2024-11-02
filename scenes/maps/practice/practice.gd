@@ -2,10 +2,10 @@ extends Node3D
 
 var Storage = preload("res://general/storage.gd")
 
-const Veichle_Speed := 5.0
+const Veichle_Speed := 4.8
 const Veichle_Total_Count := 20
 
-const Red_Car_count := 1
+const Red_Car_count := 3
 
 
 var PathDispatcher = preload("res://general/path_dispatcher.gd")

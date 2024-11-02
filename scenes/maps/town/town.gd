@@ -57,11 +57,8 @@ var cars_to_add = []
 	$Paths/Path00, $Paths/Path10, $Paths/Path11, $Paths/Path12, $Paths/Path13, $Paths/Path14, $Paths/Path15, $Paths/Path16,
 	$Paths/Path17, $Paths/Path18, $Paths/Path19
 ]
-#@onready var veichle_paths = [ $Paths/Path15 ]
 
-func _ready():
-	#$Camera3D.set_current(true)
-	
+func _ready():	
 	$BG.play()
 	$BG.volume_db = -10.0
 	

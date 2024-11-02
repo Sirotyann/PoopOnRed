@@ -24,8 +24,6 @@ func _ready() -> void:
 	TranslationServer.set_locale("zh")
 	var is_first_time = Storage.instance.get_is_first_time()
 	
-	print('[Intro] is_first_time:', is_first_time)
-	
 	if !is_first_time: 
 		go_to_next()
 	else:

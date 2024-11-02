@@ -16,12 +16,10 @@ func _ready():
 	#Storage.clear_status()
 	
 	if Storage.instance.get_is_practice_completed():
-		print('practice complete')
 		$SunnyTown.disabled = false
 		$SunnyTown.refresh_style()
 		
 	if Storage.instance.get_is_town_completed():
-		print('town complete')
 		$FoggyValley.disabled = false
 		$FoggyValley.refresh_style()
 	
