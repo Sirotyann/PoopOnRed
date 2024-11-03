@@ -22,7 +22,7 @@ func _process(delta: float) -> void:
 			self.queue_free()
 
 func update_progress(val):
-	$Percentage.text = "{progress}%".format({"progress": val * 100})
+	#$Percentage.text = "{progress}%".format({"progress": val * 100})
 	var size = get_viewport_rect().size
 	var x = bird_init_x + (size[0] - 2*bird_init_x) * val
 	$AnimatedSprite2D.position.x = x

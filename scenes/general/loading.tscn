@@ -36,31 +36,6 @@ offset_right = 1156.0
 offset_bottom = 647.0
 texture = SubResource("GradientTexture2D_3blae")
 
-[node name="Percentage" type="Label" parent="."]
-offset_left = 561.0
-offset_top = 559.0
-offset_right = 602.0
-offset_bottom = 582.0
-
-[node name="Label" type="Label" parent="."]
-visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 537.0
-offset_top = 289.0
-offset_right = 612.0
-offset_bottom = 312.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
-text = "Loading...
-"
-metadata/_edit_use_anchors_ = true
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(50, 313)
 scale = Vector2(0.457447, 0.457447)
