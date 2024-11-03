@@ -74,6 +74,7 @@ func get_is_practice_completed():
 	return user_status.is_practice_completed
 
 func set_is_practice_completed(val):
+	if(user_status == null): read_status()
 	user_status.is_practice_completed = val
 	save_status(user_status)
 
