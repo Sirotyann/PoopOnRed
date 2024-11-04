@@ -3,6 +3,7 @@ extends CharacterBody3D
 signal completed
 signal dead
 signal timeout
+signal guide_over
 
 var score := 0
 
@@ -37,10 +38,18 @@ var is_debug = false
 
 var should_rotate_camera := true
 
+var should_show_guide := false
+
 func _ready():
 	$CanvasLayer/HBoxContainer/TimeLeft.connect("time_out", self.time_out)
 	$CanvasLayer/HBoxContainer/TimeLeft.connect("danger_warning", self.danger_warning)
 	$CanvasLayer/HBoxContainer/TimeLeft.connect("danger_warning_cancel", self.danger_warning_cancel)
+
+	if Storage.instance.get_is_practice_completed():
+		$Guide.visible = false
+	else:
+		can_excrete = false
+		show_guide()
 
 func _process(delta):
 	if Input.is_action_pressed("shoot"):
@@ -214,7 +223,6 @@ func shoot():
 		timer.timeout.connect(refresh_excrete)
 		add_child(timer)
 		timer.start();
-		
 
 func poop_on_vehicle():
 	$CanvasLayer/HBoxContainer/TimeLeft.increase_time(VEHICLE_TIME_AWARD)
@@ -264,3 +272,18 @@ func play_wind_audio():
 		$WindAudio.volume_db = WIND_SOUND_MIN - WIND_SOUND_MIN * (position.y - WIND_SOUND_Y_MIN) / (WIND_SOUND_Y_MAX - WIND_SOUND_Y_MIN)
 		if !$WindAudio.playing: 
 			$WindAudio.play()
+
+# --- guide ---
+func show_guide():
+	should_show_guide = true
+	get_tree().paused = true
+	$Guide.visible = true
+	$Guide.connect("over", self.remove_guide)
+	
+func remove_guide():
+	Storage.instance.set_is_practice_completed(true)
+	guide_over.emit()
+	should_show_guide = false
+	get_tree().paused = false
+	$Guide.queue_free()
+	can_excrete = true

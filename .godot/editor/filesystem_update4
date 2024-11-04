@@ -5,3 +5,14 @@ res://scenes/maps/town/town.gdshader
 res://shaders/glow.gdshader
 res://scenes/general/loading.tscn
 res://scenes/general/loading.gd
+res://scenes/general/guide.tscn
+res://scenes/general/guide.gd
+res://scenes/maps/practice/practice.tscn
+res://assets/mesh_lib/road.tres
+res://assets/mesh_lib/buildings.tres
+res://assets/mesh_lib/decoration.tres
+res://scenes/birds/seagull.gd
+res://scenes/maps/MapSelection.gd
+res://general/storage.gd
+res://scenes/maps/practice/practice.gd
+res://scenes/birds/guide.gd

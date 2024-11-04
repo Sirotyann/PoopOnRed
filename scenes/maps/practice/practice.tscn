@@ -158,4 +158,4 @@ curve = SubResource("Curve3D_2snol")
 [node name="BG" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("18_tynic")
 
-[connection signal="finished" from="BG" to="." method="_on_bg_finished"]
+[connection signal="finished" from="BG" to="." method="play_bg_audio"]

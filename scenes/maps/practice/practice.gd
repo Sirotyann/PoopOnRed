@@ -7,7 +7,6 @@ const Veichle_Total_Count := 20
 
 const Red_Car_count := 3
 
-
 var PathDispatcher = preload("res://general/path_dispatcher.gd")
 var Sequence = preload("res://scenes/general/sequence.gd")
 
@@ -39,7 +38,11 @@ const Van = preload("res://scenes/kit/cars/van.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$BG.play()
+	print("Is first time: {t}".format({"t": Storage.instance.get_is_first_time()}))
+	if Storage.instance.get_is_practice_completed():
+		play_bg_audio()
+	else:
+		$seagull.connect("guide_over", play_bg_audio)
 	
 	for i in Red_Car_count:
 		var red_sedan = Sedan.instantiate()
@@ -57,9 +60,9 @@ func _ready() -> void:
 	add_child(sequence)
 	sequence.connect_player($seagull)
 	
-	Storage.instance.set_is_practice_completed(true)
+	#Storage.instance.set_is_practice_completed(true)
 
-func _on_bg_finished():
+func play_bg_audio():
 	$BG.play()
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.

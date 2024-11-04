@@ -1,3 +1,10 @@
+Label
+Control
+TextureRect
+Button
+CanvasLayer
+Node2D
+ColorRect
 AudioStreamPlayer
 Path3D
 Node3D
@@ -5,10 +12,3 @@ GridMap
 HTerrain
 AnimatedSprite2D
 AnimationTree
-Button
-Timer
-Node2D
-Label
-TextureRect
-AnimationPlayer
-Sprite2D

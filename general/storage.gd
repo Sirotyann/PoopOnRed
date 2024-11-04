@@ -95,7 +95,9 @@ func set_has_poop_on_car(val):
 	save_status(user_status)
 
 func clear_status():
-	DirAccess.remove_absolute(file_path_status)
+	#DirAccess.remove_absolute(file_path_status)
+	print("Clear status")
+	save_status(Empty_Status)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

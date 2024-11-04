@@ -5,7 +5,9 @@ var Storage = preload("res://general/storage.gd")
 const loading = preload("res://scenes/general/loading.tscn")
 
 func _ready():
-	#TranslationServer.set_locale("zh")
+	#Storage.instance.clear_status()
+	TranslationServer.set_locale("zh")
+	
 	play_bg_audio()
 	$AudioStreamPlayer.connect('finished', self.play_bg_audio)
 	
@@ -13,8 +15,6 @@ func _ready():
 	$FoggyValley.refresh_text()
 	$Quit.refresh_text()
 
-	#Storage.clear_status()
-	
 	if Storage.instance.get_is_practice_completed():
 		$SunnyTown.disabled = false
 		$SunnyTown.refresh_style()
