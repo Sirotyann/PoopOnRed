@@ -16,3 +16,4 @@ res://scenes/maps/MapSelection.gd
 res://general/storage.gd
 res://scenes/maps/practice/practice.gd
 res://scenes/birds/guide.gd
+res://scenes/maps/dessert/desert.tscn

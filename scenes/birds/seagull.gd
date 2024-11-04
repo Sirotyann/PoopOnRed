@@ -41,15 +41,15 @@ var should_rotate_camera := true
 var should_show_guide := false
 
 func _ready():
-	$CanvasLayer/HBoxContainer/TimeLeft.connect("time_out", self.time_out)
-	$CanvasLayer/HBoxContainer/TimeLeft.connect("danger_warning", self.danger_warning)
-	$CanvasLayer/HBoxContainer/TimeLeft.connect("danger_warning_cancel", self.danger_warning_cancel)
-
 	if Storage.instance.get_is_practice_completed():
-		$Guide.visible = false
+		$Guide.queue_free()
 	else:
 		can_excrete = false
 		show_guide()
+		
+	$CanvasLayer/HBoxContainer/TimeLeft.connect("time_out", self.time_out)
+	$CanvasLayer/HBoxContainer/TimeLeft.connect("danger_warning", self.danger_warning)
+	$CanvasLayer/HBoxContainer/TimeLeft.connect("danger_warning_cancel", self.danger_warning_cancel)
 
 func _process(delta):
 	if Input.is_action_pressed("shoot"):

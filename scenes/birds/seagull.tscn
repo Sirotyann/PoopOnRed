@@ -430,6 +430,7 @@ libraries = {
 
 [node name="Guide" type="CanvasLayer" parent="."]
 process_mode = 3
+visible = false
 script = ExtResource("12_35cao")
 
 [node name="ColorRect" type="ColorRect" parent="Guide"]
@@ -447,6 +448,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="TextureRect" type="TextureRect" parent="Guide/TimeIntro"]
+layout_mode = 0
 offset_left = 21.0
 offset_top = 57.0
 offset_right = 402.0
@@ -455,6 +457,7 @@ scale = Vector2(1.34792, 1.41467)
 texture = ExtResource("13_1vuam")
 
 [node name="Label" type="Label" parent="Guide/TimeIntro"]
+layout_mode = 0
 offset_left = 77.0
 offset_top = 196.0
 offset_right = 502.0
@@ -471,6 +474,7 @@ offset_right = 617.0
 offset_bottom = 57.0
 
 [node name="TextureRect" type="TextureRect" parent="Guide/PoopIntro"]
+layout_mode = 0
 offset_left = 21.0
 offset_top = 57.0
 offset_right = 402.0
@@ -479,6 +483,7 @@ scale = Vector2(1.34792, 1.41467)
 texture = ExtResource("14_l5cha")
 
 [node name="Label" type="Label" parent="Guide/PoopIntro"]
+layout_mode = 0
 offset_left = 77.0
 offset_top = 196.0
 offset_right = 502.0

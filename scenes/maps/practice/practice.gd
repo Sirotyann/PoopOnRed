@@ -2,7 +2,7 @@ extends Node3D
 
 var Storage = preload("res://general/storage.gd")
 
-const Veichle_Speed := 4.8
+const Veichle_Speed := 6.8
 const Veichle_Total_Count := 20
 
 const Red_Car_count := 3
@@ -38,7 +38,7 @@ const Van = preload("res://scenes/kit/cars/van.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print("Is first time: {t}".format({"t": Storage.instance.get_is_first_time()}))
+	print("get_is_practice_completed: {t}".format({"t": Storage.instance.get_is_practice_completed()}))
 	if Storage.instance.get_is_practice_completed():
 		play_bg_audio()
 	else:
