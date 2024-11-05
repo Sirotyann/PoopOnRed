@@ -7,10 +7,6 @@ class_name Food extends Area3D
 func _ready():
 	self.connect('body_entered', _on_body_entered)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 func _on_body_entered(body):
 	if body.has_method("hit_food"):
 		body.hit_food(self)

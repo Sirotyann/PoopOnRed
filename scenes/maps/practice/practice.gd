@@ -1,8 +1,6 @@
 extends Node3D
 
-var Storage = preload("res://general/storage.gd")
-
-const Veichle_Speed := 6.8
+const Veichle_Speed := 5.0
 const Veichle_Total_Count := 20
 
 const Red_Car_count := 3
@@ -59,12 +57,6 @@ func _ready() -> void:
 	
 	add_child(sequence)
 	sequence.connect_player($seagull)
-	
-	#Storage.instance.set_is_practice_completed(true)
 
 func play_bg_audio():
 	$BG.play()
-	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass

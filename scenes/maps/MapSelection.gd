@@ -1,6 +1,6 @@
 extends Node2D
 
-var Storage = preload("res://general/storage.gd")
+#var Storage = preload("res://general/storage.gd")
 
 const loading = preload("res://scenes/general/loading.tscn")
 
@@ -22,10 +22,6 @@ func _ready():
 	if Storage.instance.get_is_town_completed():
 		$FoggyValley.disabled = false
 		$FoggyValley.refresh_style()
-	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
 
 func switch_to_practice():
 	$AudioStreamPlayer.stop()

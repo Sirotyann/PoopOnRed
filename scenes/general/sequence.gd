@@ -3,11 +3,11 @@ extends Node
 signal completed
 
 func connect_player(player):
-	player.connect('completed', self.game_win.bind(player))
+	player.connect('completed', self.game_win)
 	player.connect('dead', self.game_dead.bind(player))
-	player.connect('timeout', self.game_dead.bind(player))
+	player.connect('timeout', self.game_dead)
 
-func game_win(player):
+func game_win():
 	var tree = get_tree()
 	tree.paused = true
 	completed.emit()
@@ -23,18 +23,9 @@ func game_dead(player):
 	tree.change_scene_to_file("res://scenes/general/gameover.tscn")
 	tree.paused = false
 
-func game_timeout(player):
+func game_timeout():
 	var tree = get_tree()
 	tree.paused = true
 	await tree.create_timer(3.0).timeout
 	tree.change_scene_to_file("res://scenes/general/gameover.tscn")
 	tree.paused = false
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass

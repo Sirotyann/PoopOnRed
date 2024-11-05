@@ -20,10 +20,6 @@ func _ready():
 	display_time()
 	$Label.set("theme_override_colors/font_color", safe_color)
 	$Timer.start()
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
 	
 func num_to_string(num):
 	if num < 10:
@@ -31,11 +27,11 @@ func num_to_string(num):
 	return '%s' % num
 
 func display_time():
-	var min = floor(time_left / 60)
+	var minute = floor(time_left / 60.0)
 	var sec = time_left % 60
-	$Label.text = '{min}:{sec}'.format({'min': num_to_string(min), 'sec': num_to_string(sec)})
+	$Label.text = '{min}:{sec}'.format({'min': num_to_string(minute), 'sec': num_to_string(sec)})
 	$Label.set("theme_override_colors/font_color", safe_color)
-
+	
 func _on_timer_timeout():
 	if time_left > 0:
 		time_left -= 1

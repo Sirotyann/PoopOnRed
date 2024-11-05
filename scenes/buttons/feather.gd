@@ -47,20 +47,16 @@ func _ready() -> void:
 	
 func refresh_style():
 	var _color = "disabled" if disabled else color
-	var light_image = Image.load_from_file(textures[_color].light)
-	var light_texture = ImageTexture.create_from_image(light_image)
-	var dark_image = Image.load_from_file(textures[_color].dark)
-	var dark_texture = ImageTexture.create_from_image(dark_image)
+	#var light_image = load(textures[_color].light) #Image.load_from_file(textures[_color].light)
+	var light_texture = load(textures[_color].light) #ImageTexture.create_from_image(light_image)
+	#var dark_image = load(textures[_color].dark) #Image.load_from_file(textures[_color].dark)
+	var dark_texture = load(textures[_color].dark) #ImageTexture.create_from_image(dark_image)
 	
 	$TextureButton.texture_normal = dark_texture
 	$TextureButton.texture_hover = light_texture
 	
 	$TextureButton/Label.add_theme_color_override("font_color", textures[_color].font_color);
 	$TextureButton/Label.add_theme_color_override("font_shadow_color", textures[_color].font_shadow);
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 
 func refresh_text():
 	$TextureButton/Label.text = tr(key)

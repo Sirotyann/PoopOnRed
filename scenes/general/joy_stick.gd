@@ -19,11 +19,10 @@ func _input(event):
 			set_process(false)
 			knob.position = stick_center
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	knob.global_position = get_global_mouse_position()
 	knob.position = stick_center + (knob.position - stick_center).limit_length(max_distance)
 
 func get_joystick_dir() -> Vector2:
 	var dir = knob.position - stick_center
-	print(dir, dir.normalized())
 	return dir.normalized()

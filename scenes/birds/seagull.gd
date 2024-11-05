@@ -6,7 +6,6 @@ signal timeout
 signal guide_over
 
 var Poop = preload("res://scenes/birds/poop.tscn")
-var Storage = preload("res://general/storage.gd")
 
 var Settings = preload("res://settings.gd")
 
@@ -20,7 +19,7 @@ const WIND_SOUND_Y_MAX := 25.0 # play sound while reach hight
 const WIND_SOUND_MIN := -80.0
 const WIND_SOUND_MAX := 0.0 
 
-const SPEED := 4.5
+const SPEED := 4.6
 const TURN_SPEED := 1.25
 const CLIMB_SPEED := 0.3
 const DIVE_SPEED := 1.25
@@ -51,7 +50,7 @@ func _ready():
 	$CanvasLayer/HBoxContainer/TimeLeft.connect("danger_warning", self.danger_warning)
 	$CanvasLayer/HBoxContainer/TimeLeft.connect("danger_warning_cancel", self.danger_warning_cancel)
 
-func _process(delta):
+func _process(_delta):
 	if Settings.mode == "MOBILE":
 		$Control/TouchControls.visible = true
 	else:
@@ -154,7 +153,6 @@ func _physics_process(delta):
 	var rotations = get_rotation_degrees()
 	var rotation_x = rotations[0]
 	var rotation_y = rotations[1]
-	var rotation_z = rotations[2]
 	
 	velocity.z = -cos(deg_to_rad(rotation_y)) * speed
 	velocity.x = -sin(deg_to_rad(rotation_y)) * speed

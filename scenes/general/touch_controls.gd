@@ -6,21 +6,25 @@ const Accuracy := 0.2
 
 func get_direction() -> Vector2:
 	var direction = $JoyStick.get_joystick_dir()
-	var result = Vector2(0,0)
+	var horizontal = 0 
+	var vertical = 0
 	if direction[0] < -Accuracy:
-		result[0] = -1
+		horizontal = -1
 	elif direction[0] > Accuracy:
-		result[0] = 1
+		horizontal = 1
 	
 	if direction[1] < -Accuracy:
-		result[1] = -1
-	elif direction[0] > Accuracy:
-		result[1] = 1	
+		vertical = -1
+	elif direction[1] > Accuracy:
+		vertical = 1
 		
-	return result
+	return Vector2(horizontal, vertical)
 
 func _on_shoot_pressed() -> void:
 	pooping = true
 
 func _on_shoot_released() -> void:
 	pooping = false
+
+#func _process(_delta: float) -> void:
+	#print(get_direction())

@@ -8,10 +8,6 @@ var poops = []
 func _ready():
 	poops = [$poop0, $poop1, $poop2]
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 func add(num):
 	if count < MAX_COUNT:
 		count = min(3, count + num)
