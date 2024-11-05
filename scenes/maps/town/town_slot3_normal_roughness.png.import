@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://he65psked2bv"
 path.s3tc="res://.godot/imported/town_slot3_normal_roughness.png-74ceebe8cf6a3faa1b3aa1b9cff2a693.s3tc.ctex"
+path.etc2="res://.godot/imported/town_slot3_normal_roughness.png-74ceebe8cf6a3faa1b3aa1b9cff2a693.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://scenes/maps/town/town_slot3_normal_roughness.png"
-dest_files=["res://.godot/imported/town_slot3_normal_roughness.png-74ceebe8cf6a3faa1b3aa1b9cff2a693.s3tc.ctex"]
+dest_files=["res://.godot/imported/town_slot3_normal_roughness.png-74ceebe8cf6a3faa1b3aa1b9cff2a693.s3tc.ctex", "res://.godot/imported/town_slot3_normal_roughness.png-74ceebe8cf6a3faa1b3aa1b9cff2a693.etc2.ctex"]
 
 [params]
 

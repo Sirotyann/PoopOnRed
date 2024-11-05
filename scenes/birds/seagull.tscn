@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://cl280gxenqt7a"]
+[gd_scene load_steps=30 format=4 uid="uid://cl280gxenqt7a"]
 
 [ext_resource type="Script" path="res://scenes/birds/seagull.gd" id="1_mdl4l"]
 [ext_resource type="AudioStream" uid="uid://dasq7fksviibh" path="res://audios/howling-wind.ogg" id="2_4nw0m"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" path="res://scenes/birds/guide.gd" id="12_35cao"]
 [ext_resource type="Texture2D" uid="uid://bhb2n1caww4lo" path="res://assets/images/bubble.png" id="13_1vuam"]
 [ext_resource type="Texture2D" uid="uid://b38uij6hpfe0b" path="res://assets/images/bubble_flipped.png" id="14_l5cha"]
+[ext_resource type="PackedScene" uid="uid://1emjb3rwrrvq" path="res://scenes/general/touch_controls.tscn" id="15_f1yf2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_48aya"]
 size = Vector3(0.242115, 0.040611, 0.0378827)
@@ -490,3 +491,12 @@ offset_right = 502.0
 offset_bottom = 231.0
 theme_override_font_sizes/font_size = 25
 text = "Eat food to produce poops!"
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TouchControls" parent="Control" instance=ExtResource("15_f1yf2")]
+visible = false

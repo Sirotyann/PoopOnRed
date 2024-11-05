@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dhwsixj5ctps3"
 path.s3tc="res://.godot/imported/town_slot3_albedo_bump.png-0684d88ef8d52dd4aad057ea7c66d7f8.s3tc.ctex"
+path.etc2="res://.godot/imported/town_slot3_albedo_bump.png-0684d88ef8d52dd4aad057ea7c66d7f8.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://scenes/maps/practice/town_slot3_albedo_bump.png"
-dest_files=["res://.godot/imported/town_slot3_albedo_bump.png-0684d88ef8d52dd4aad057ea7c66d7f8.s3tc.ctex"]
+dest_files=["res://.godot/imported/town_slot3_albedo_bump.png-0684d88ef8d52dd4aad057ea7c66d7f8.s3tc.ctex", "res://.godot/imported/town_slot3_albedo_bump.png-0684d88ef8d52dd4aad057ea7c66d7f8.etc2.ctex"]
 
 [params]
 

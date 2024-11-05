@@ -5,10 +5,10 @@ signal dead
 signal timeout
 signal guide_over
 
-var score := 0
-
 var Poop = preload("res://scenes/birds/poop.tscn")
 var Storage = preload("res://general/storage.gd")
+
+var Settings = preload("res://settings.gd")
 
 @onready var StatusAnimation = $CanvasLayer/CanvasAnimationPlayer
 
@@ -52,7 +52,12 @@ func _ready():
 	$CanvasLayer/HBoxContainer/TimeLeft.connect("danger_warning_cancel", self.danger_warning_cancel)
 
 func _process(delta):
-	if Input.is_action_pressed("shoot"):
+	if Settings.mode == "MOBILE":
+		$Control/TouchControls.visible = true
+	else:
+		$Control/TouchControls.visible = false
+		
+	if is_shoot():
 		shoot()
 	
 	# 是不是撞了
@@ -75,6 +80,29 @@ func _process(delta):
 	if Input.is_action_just_pressed("ToggleRotatiobMode"):
 		should_rotate_camera = !should_rotate_camera
 
+func is_shoot() -> bool:
+	if Settings.mode == "MOBILE":
+		return $Control/TouchControls.pooping
+	else:
+		return Input.is_action_pressed("shoot")
+
+func get_input_direction() -> Vector2:
+	if Settings.mode == "MOBILE":
+		return $Control/TouchControls.get_direction()
+	else:
+		var result := Vector2(0, 0)
+		if Input.is_action_pressed("left"):
+			result[0] = -1
+		elif Input.is_action_pressed("right"):
+			result[0] = 1
+		
+		if Input.is_action_pressed("up"):
+			result[1] = -1
+		elif Input.is_action_pressed("down"):
+			result[1] = 1
+		return result
+			
+
 func _physics_process(delta):
 	var speed := 0.0 if is_hover else SPEED
 	var gravity_speed = 0.0 if is_hover else (default_gravity_speed / 10)
@@ -87,16 +115,18 @@ func _physics_process(delta):
 		
 	var fly_speed := 1.0
 	
-	if Input.is_action_pressed("left"):
+	var direction = get_input_direction()
+	
+	if direction[0] == -1:
 		turn_left(delta)
 		fly_speed = 1.5
-	elif Input.is_action_pressed("right"):
+	elif direction[0] == 1:
 		turn_right(delta)
 		fly_speed = 1.5
 	else:
 		recover_guesture(delta)
 		
-	if Input.is_action_pressed("up"):
+	if direction[1] == -1:
 		fly_speed = 2.0
 		climb(delta)
 		gravity_speed = gravity_speed / 2
@@ -106,7 +136,7 @@ func _physics_process(delta):
 		else:
 			dive_speed_offset = 0.0
 		
-	elif Input.is_action_pressed("down"):
+	elif direction[1] == 1:
 		dive(delta)
 		$Sprite/AnimationPlayer.stop()
 		gravity_speed = gravity_speed * 1.2

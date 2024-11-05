@@ -1,5 +1,6 @@
+res://scenes/general
+/Users/c_li/Workshop/Game/export
 res://assets/texture/Rock031_2K-JPG
-res://scenes/maps/dessert/map_data
 res://assets/images
 res://audios
 res://assets/mesh_lib
@@ -7,7 +8,6 @@ res://scenes/maps/practice/map_data
 res://assets/images/bird
 res://
 res://assets/images/buttons
-/Users/c_li/Workshop/Game/export
 res://shaders
 /Users/c_li/Workshop/Game/Drop/addons/zylann.hterrain/tools/brush/shapes
 res://t_data

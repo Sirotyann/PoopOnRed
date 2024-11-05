@@ -17,3 +17,9 @@ res://general/storage.gd
 res://scenes/maps/practice/practice.gd
 res://scenes/birds/guide.gd
 res://scenes/maps/dessert/desert.tscn
+res://scenes/general/Settings.tscn
+res://scenes/general/settings.tscn
+res://scenes/general/touch_controls.tscn
+res://scenes/general/touch_controls.gd
+res://scenes/general/joy_stick.gd
+res://settings.gd
