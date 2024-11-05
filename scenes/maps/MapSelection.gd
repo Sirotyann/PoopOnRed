@@ -6,9 +6,6 @@ const loading = preload("res://scenes/general/loading.tscn")
 func _ready():
 	if Settings.device == "iPhone":
 		$Quit.visible = false
-		
-	#Storage.instance.clear_status()
-	TranslationServer.set_locale("zh")
 	
 	play_bg_audio()
 	$AudioStreamPlayer.connect('finished', self.play_bg_audio)
