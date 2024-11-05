@@ -19,12 +19,12 @@ expand_mode = 3
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Quit" parent="." instance=ExtResource("3_ahtkc")]
-position = Vector2(605.882, 216.401)
+position = Vector2(847.841, 433.794)
 key = "QUIT"
 color = "red"
 
 [node name="Restart" parent="." instance=ExtResource("3_ahtkc")]
-position = Vector2(338.35, 222.357)
+position = Vector2(851.775, 538.024)
 key = "RESTART"
 color = "yellow"
 

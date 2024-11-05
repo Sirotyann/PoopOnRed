@@ -33,8 +33,6 @@ const Hotdog = preload("res://scenes/kit/food/hot_dog.tscn")
 const Pizza = preload("res://scenes/kit/food/pizza.tscn")
 const Taco = preload("res://scenes/kit/food/taco.tscn")
 
-var Storage = preload("res://general/storage.gd")
-
 var passed_time := 0
 var timer
 var path_dispatcher

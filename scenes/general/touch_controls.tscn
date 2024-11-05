@@ -16,8 +16,8 @@ script = ExtResource("1_70tl0")
 metadata/_edit_horizontal_guides_ = [459.0]
 
 [node name="JoyStick" type="TouchScreenButton" parent="."]
-position = Vector2(25, 448)
-scale = Vector2(0.5, 0.5)
+position = Vector2(3, 362)
+scale = Vector2(0.8, 0.8)
 texture_normal = ExtResource("2_i4yjr")
 texture_pressed = ExtResource("3_8v77m")
 shape = SubResource("CircleShape2D_ok8tf")

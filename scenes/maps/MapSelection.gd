@@ -1,10 +1,12 @@
 extends Node2D
 
-#var Storage = preload("res://general/storage.gd")
-
+var Settings = preload("res://settings.gd")
 const loading = preload("res://scenes/general/loading.tscn")
 
 func _ready():
+	if Settings.device == "iPhone":
+		$Quit.visible = false
+		
 	#Storage.instance.clear_status()
 	TranslationServer.set_locale("zh")
 	

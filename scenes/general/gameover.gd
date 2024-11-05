@@ -1,8 +1,12 @@
 extends Node2D
 
+var Settings = preload("res://settings.gd")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if Settings.device == "iPhone":
+		$Quit.visible = false
+		
 	play_audio()
 	$AudioStreamPlayer.connect("finished", self.play_audio)
 

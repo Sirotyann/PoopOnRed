@@ -23,3 +23,7 @@ res://scenes/general/gameover.gd
 res://scenes/general/touch_controls.gd
 res://scenes/general/gameover.tscn
 res://settings.gd
+res://scenes/maps/town/town.gd
+res://scenes/maps/MapSelection.tscn
+res://scenes/general/completed.tscn
+res://scenes/general/completed.gd

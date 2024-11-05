@@ -19,12 +19,12 @@ scale = Vector2(0.863348, 0.865731)
 texture = ExtResource("2_ys227")
 
 [node name="Quit" parent="." instance=ExtResource("3_olvvk")]
-position = Vector2(787.851, 552.397)
+position = Vector2(524.231, 556.422)
 key = "QUIT"
 color = "red"
 
 [node name="Restart" parent="." instance=ExtResource("3_olvvk")]
-position = Vector2(535.257, 553.403)
+position = Vector2(787.851, 550.385)
 key = "RESTART"
 color = "yellow"
 

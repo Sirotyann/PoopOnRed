@@ -2,7 +2,7 @@ extends CanvasLayer
 
 @export var pooping := false
 
-const Accuracy := 0.2
+const Accuracy := 0.3
 
 func get_direction() -> Vector2:
 	var direction = $JoyStick.get_joystick_dir()
