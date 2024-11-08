@@ -265,6 +265,7 @@ func refresh_excrete():
 	
 # --- eat food ---
 func hit_food(food):
+	$SuccessAudio.play()
 	$CanvasLayer/HBoxContainer/PoopPanel.add(food.poop_value)
 	food.queue_free()
 

@@ -21,3 +21,4 @@ res://scenes/kit/cars/suv-green.tscn
 res://general/path_dispatcher.gd
 res://scenes/maps/three_villages/three_villages.gd
 res://scenes/maps/town/town.tscn
+res://scenes/kit/cars/delivery.tscn
