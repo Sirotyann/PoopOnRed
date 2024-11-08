@@ -1,0 +1,153 @@
+[gd_scene load_steps=38 format=3 uid="uid://djhh5nauhhs5k"]
+
+[ext_resource type="ArrayMesh" uid="uid://dj06gsbwxgwew" path="res://assets/kit/forest/OBJ/Low_Poly_Forest_treeTall01.obj" id="1_b4v1u"]
+[ext_resource type="Texture2D" uid="uid://b1c65jl100tef" path="res://assets/kit/forest/tex/treeTall.png" id="2_66tas"]
+[ext_resource type="ArrayMesh" uid="uid://bgpokjw70e2xm" path="res://assets/kit/forest/OBJ/Low_Poly_Forest_treeTall02.obj" id="3_lri2u"]
+[ext_resource type="ArrayMesh" uid="uid://cxj10ipc4444a" path="res://assets/kit/forest/OBJ/Low_Poly_Forest_treeTall04.obj" id="4_1hue8"]
+[ext_resource type="ArrayMesh" uid="uid://da4ggntbq2dkj" path="res://assets/kit/forest/OBJ/Low_Poly_Forest_treeTall03.obj" id="5_im23y"]
+[ext_resource type="ArrayMesh" uid="uid://cqafpck31lrbk" path="res://assets/kit/forest/OBJ/Low_Poly_Forest_treeRoundTop01.obj" id="6_np32t"]
+[ext_resource type="Texture2D" uid="uid://bge203adc5y0e" path="res://assets/kit/forest/tex/treeRoundTop.png" id="7_remfk"]
+[ext_resource type="ArrayMesh" uid="uid://cmm8fpsnjiajy" path="res://assets/kit/forest/OBJ/Low_Poly_Forest_treeRoundTop02.obj" id="8_6l2or"]
+[ext_resource type="ArrayMesh" uid="uid://0eucowwi3d56" path="res://assets/kit/forest/OBJ/Low_Poly_Forest_treeRoundTop03.obj" id="9_jexoj"]
+[ext_resource type="ArrayMesh" uid="uid://celg1tofhhwlu" path="res://assets/kit/forest/OBJ/Low_Poly_Forest_treeBlob01.obj" id="10_lf3rh"]
+[ext_resource type="Texture2D" uid="uid://f0whp4hvmeb" path="res://assets/kit/forest/tex/treeBlob.png" id="11_lnaiv"]
+[ext_resource type="ArrayMesh" uid="uid://dskmwcafi3420" path="res://assets/kit/forest/OBJ/Low_Poly_Forest_treeBlob02.obj" id="12_xmf8l"]
+[ext_resource type="ArrayMesh" uid="uid://doe1g0qsaxnvd" path="res://assets/kit/forest/OBJ/Low_Poly_Forest_treeBlob03.obj" id="13_u8n5x"]
+[ext_resource type="ArrayMesh" uid="uid://cgb3ealvogvr5" path="res://assets/kit/forest/OBJ/Low_Poly_Forest_tree01.obj" id="14_nnjwm"]
+[ext_resource type="Texture2D" uid="uid://bexcvkihpnydo" path="res://assets/kit/forest/tex/treeRound.png" id="15_jonfu"]
+[ext_resource type="ArrayMesh" uid="uid://iv7o8nmsohx8" path="res://assets/kit/forest/OBJ/Low_Poly_Forest_tree02.obj" id="16_yptjg"]
+[ext_resource type="ArrayMesh" uid="uid://kie0k7w5wx3q" path="res://assets/kit/forest/OBJ/Low_Poly_Forest_tree03.obj" id="17_v11au"]
+[ext_resource type="ArrayMesh" uid="uid://cvw36o3uppg86" path="res://assets/kit/forest/OBJ/Low_Poly_Forest_fence01.obj" id="18_0uc5n"]
+[ext_resource type="Texture2D" uid="uid://cm2sev1x7gwkj" path="res://assets/kit/forest/tex/fence01.png" id="19_8maqv"]
+[ext_resource type="ArrayMesh" uid="uid://6qxpnee5vwyl" path="res://assets/kit/forest/OBJ/Low_Poly_Forest_fence02.obj" id="20_lkw3i"]
+[ext_resource type="ArrayMesh" uid="uid://dqtc2crqdd8ke" path="res://assets/kit/forest/OBJ/Low_Poly_Forest_fence03.obj" id="21_o7x2i"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sivna"]
+albedo_texture = ExtResource("2_66tas")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1v2ri"]
+albedo_texture = ExtResource("2_66tas")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jkkma"]
+albedo_texture = ExtResource("2_66tas")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bc67c"]
+albedo_texture = ExtResource("2_66tas")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gtlun"]
+albedo_texture = ExtResource("7_remfk")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aur68"]
+albedo_texture = ExtResource("7_remfk")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0k0nu"]
+albedo_texture = ExtResource("7_remfk")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j67pa"]
+albedo_texture = ExtResource("11_lnaiv")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_15l0p"]
+albedo_texture = ExtResource("11_lnaiv")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2570u"]
+albedo_texture = ExtResource("11_lnaiv")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a5ok2"]
+albedo_texture = ExtResource("15_jonfu")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g0n87"]
+albedo_texture = ExtResource("15_jonfu")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jsb35"]
+albedo_texture = ExtResource("15_jonfu")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mqd8v"]
+albedo_texture = ExtResource("19_8maqv")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1r2kf"]
+albedo_texture = ExtResource("19_8maqv")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o0aha"]
+albedo_texture = ExtResource("19_8maqv")
+
+[node name="Tree" type="Node3D"]
+
+[node name="LowPolyForestTreeTall01" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.005, 0, 0, 0, 0.005, 0, 0, 0, 0.005, 0, 0, 0)
+mesh = ExtResource("1_b4v1u")
+surface_material_override/0 = SubResource("StandardMaterial3D_sivna")
+
+[node name="LowPolyForestTreeTall02" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.005, 0, 0, 0, 0.005, 0, 0, 0, 0.005, 0, 0, 0)
+mesh = ExtResource("3_lri2u")
+surface_material_override/0 = SubResource("StandardMaterial3D_1v2ri")
+
+[node name="LowPolyForestTreeTall03" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.005, 0, 0, 0, 0.005, 0, 0, 0, 0.005, 0, 0, 0)
+mesh = ExtResource("5_im23y")
+surface_material_override/0 = SubResource("StandardMaterial3D_jkkma")
+
+[node name="LowPolyForestTreeTall04" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.005, 0, 0, 0, 0.005, 0, 0, 0, 0.005, 0, 0, 0)
+mesh = ExtResource("4_1hue8")
+surface_material_override/0 = SubResource("StandardMaterial3D_bc67c")
+
+[node name="LowPolyForestTreeRoundTop01" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.005, 0, 0, 0, 0.005, 0, 0, 0, 0.005, 0, 0, 0)
+mesh = ExtResource("6_np32t")
+surface_material_override/0 = SubResource("StandardMaterial3D_gtlun")
+
+[node name="LowPolyForestTreeRoundTop02" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.005, 0, 0, 0, 0.005, 0, 0, 0, 0.005, 0, 0, 0)
+mesh = ExtResource("8_6l2or")
+surface_material_override/0 = SubResource("StandardMaterial3D_aur68")
+
+[node name="LowPolyForestTreeRoundTop03" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.005, 0, 0, 0, 0.005, 0, 0, 0, 0.005, 0, 0, 0)
+mesh = ExtResource("9_jexoj")
+surface_material_override/0 = SubResource("StandardMaterial3D_0k0nu")
+
+[node name="LowPolyForestTreeBlob01" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.005, 0, 0, 0, 0.005, 0, 0, 0, 0.005, 0, 0, 0)
+mesh = ExtResource("10_lf3rh")
+surface_material_override/0 = SubResource("StandardMaterial3D_j67pa")
+
+[node name="LowPolyForestTreeBlob02" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.005, 0, 0, 0, 0.005, 0, 0, 0, 0.005, 0, 0, 0)
+mesh = ExtResource("12_xmf8l")
+surface_material_override/0 = SubResource("StandardMaterial3D_15l0p")
+
+[node name="LowPolyForestTreeBlob03" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.005, 0, 0, 0, 0.005, 0, 0, 0, 0.005, 0, 0, 0)
+mesh = ExtResource("13_u8n5x")
+surface_material_override/0 = SubResource("StandardMaterial3D_2570u")
+
+[node name="LowPolyForestTree01" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.005, 0, 0, 0, 0.005, 0, 0, 0, 0.005, 0, 0, 0)
+mesh = ExtResource("14_nnjwm")
+surface_material_override/0 = SubResource("StandardMaterial3D_a5ok2")
+
+[node name="LowPolyForestTree02" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.005, 0, 0, 0, 0.005, 0, 0, 0, 0.005, 0, 0, 0)
+mesh = ExtResource("16_yptjg")
+surface_material_override/0 = SubResource("StandardMaterial3D_g0n87")
+
+[node name="LowPolyForestTree03" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.005, 0, 0, 0, 0.005, 0, 0, 0, 0.005, 0, 0, 0)
+mesh = ExtResource("17_v11au")
+surface_material_override/0 = SubResource("StandardMaterial3D_jsb35")
+
+[node name="LowPolyForestFence01" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.005, 0, 0, 0, 0.005, 0, 0, 0, 0.005, 0, 0, 0)
+mesh = ExtResource("18_0uc5n")
+surface_material_override/0 = SubResource("StandardMaterial3D_mqd8v")
+
+[node name="LowPolyForestFence02" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.005, 0, 0, 0, 0.005, 0, 0, 0, 0.005, 0, 0, 0)
+mesh = ExtResource("20_lkw3i")
+surface_material_override/0 = SubResource("StandardMaterial3D_1r2kf")
+
+[node name="LowPolyForestFence03" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.005, 0, 0, 0, 0.005, 0, 0, 0, 0.005, 0, 0, 0)
+mesh = ExtResource("21_o7x2i")
+surface_material_override/0 = SubResource("StandardMaterial3D_o0aha")

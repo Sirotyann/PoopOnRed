@@ -24,13 +24,13 @@ sky_top_color = Color(0.101961, 0.45098, 0.807843, 1)
 sky_horizon_color = Color(0.937255, 0.941176, 0.909804, 1)
 ground_bottom_color = Color(0.180392, 0.290196, 0.196078, 1)
 
-[sub_resource type="Sky" id="Sky_oai38"]
+[sub_resource type="Sky" id="Sky_hsolj"]
 sky_material = SubResource("ProceduralSkyMaterial_l1hgt")
 
 [sub_resource type="Environment" id="Environment_o6qyp"]
 background_mode = 2
 background_energy_multiplier = 1.01
-sky = SubResource("Sky_oai38")
+sky = SubResource("Sky_hsolj")
 
 [sub_resource type="Resource" id="Resource_8cjsq"]
 script = ExtResource("3_7rmls")
@@ -127,16 +127,12 @@ chunk_size = 32
 collision_enabled = true
 collision_layer = 32
 collision_mask = 2
-shader_type = "Classic4Lite"
+shader_type = "LowPoly"
 custom_shader = null
 custom_globalmap_shader = null
 texture_set = SubResource("Resource_8cjsq")
 render_layers = 2
 cast_shadow = 1
-shader_params/u_ground_uv_scale = 20
-shader_params/u_depth_blending = true
-shader_params/u_triplanar = null
-shader_params/u_tile_reduction = null
 
 [node name="GridMap2" type="GridMap" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
