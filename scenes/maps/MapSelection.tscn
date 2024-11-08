@@ -16,17 +16,22 @@ scale = Vector2(0.898873, 0.899219)
 texture = ExtResource("2_5wsiu")
 
 [node name="Practice" parent="." instance=ExtResource("6_me1y8")]
-position = Vector2(461, 164)
+position = Vector2(461, 88)
 key = "MAP_0"
 
 [node name="SunnyTown" parent="." instance=ExtResource("6_me1y8")]
-position = Vector2(461, 277)
+position = Vector2(461, 201)
 key = "MAP_1"
 disabled = true
 
 [node name="FoggyValley" parent="." instance=ExtResource("6_me1y8")]
-position = Vector2(461, 394)
+position = Vector2(461, 318)
 key = "MAP_2"
+disabled = true
+
+[node name="ThreeVillages" parent="." instance=ExtResource("6_me1y8")]
+position = Vector2(461, 436)
+key = "MAP_3"
 disabled = true
 
 [node name="Quit" parent="." instance=ExtResource("6_me1y8")]
@@ -41,4 +46,5 @@ volume_db = -20.0
 [connection signal="clicked" from="Practice" to="." method="switch_to_practice"]
 [connection signal="clicked" from="SunnyTown" to="." method="switch_to_sunny_town"]
 [connection signal="clicked" from="FoggyValley" to="." method="switch_to_foggy_valley"]
+[connection signal="clicked" from="ThreeVillages" to="." method="switch_to_three_villages"]
 [connection signal="clicked" from="Quit" to="." method="quit"]
