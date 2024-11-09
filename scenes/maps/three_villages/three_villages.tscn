@@ -76,13 +76,13 @@ script = ExtResource("1_6mrgi")
 _terrain_data = ExtResource("2_ikjkx")
 chunk_size = 32
 collision_enabled = true
-collision_layer = 1
-collision_mask = 1
+collision_layer = 32
+collision_mask = 2
 shader_type = "LowPoly"
 custom_shader = null
 custom_globalmap_shader = null
 texture_set = SubResource("Resource_w7x1a")
-render_layers = 1
+render_layers = 32
 cast_shadow = 1
 
 [node name="Container" type="Node3D" parent="."]
