@@ -71,7 +71,7 @@ directional_shadow_max_distance = 100.5
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_fn3wy")
 
-[node name="HTerrain" type="Node3D" parent="."]
+[node name="HTerrain" type="Node3D" parent="." groups=["moutain"]]
 script = ExtResource("1_6mrgi")
 _terrain_data = ExtResource("2_ikjkx")
 chunk_size = 32

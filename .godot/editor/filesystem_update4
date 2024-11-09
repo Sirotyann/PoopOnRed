@@ -1,9 +1,10 @@
-res://scenes/maps/three_villages/three_villages.tscn
+res://scenes/maps/MapSelection.tscn
 res://shaders/glow.gdshader
-res://scenes/maps/town/town.gdshader
-res://assets/texture/water.tres
-res://shaders/ocean.gdshader
 res://assets/mesh_lib/road.tres
+res://shaders/ocean.gdshader
 res://assets/mesh_lib/buildings.tres
 res://assets/mesh_lib/decoration.tres
 res://assets/mesh_lib/tree.tres
+res://scenes/maps/town/town.gdshader
+res://assets/texture/water.tres
+res://scenes/maps/three_villages/three_villages.tscn
