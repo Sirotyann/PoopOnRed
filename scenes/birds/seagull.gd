@@ -19,7 +19,7 @@ const WIND_SOUND_Y_MAX := 25.0 # play sound while reach hight
 const WIND_SOUND_MIN := -80.0
 const WIND_SOUND_MAX := 0.0 
 
-const SPEED := 4.6
+var SPEED := 4.6
 const TURN_SPEED := 1.25
 const CLIMB_SPEED := 0.3
 const DIVE_SPEED := 1.25
@@ -265,6 +265,7 @@ func refresh_excrete():
 	
 # --- eat food ---
 func hit_food(food):
+	$SuccessAudio.play()
 	$CanvasLayer/HBoxContainer/PoopPanel.add(food.poop_value)
 	food.queue_free()
 

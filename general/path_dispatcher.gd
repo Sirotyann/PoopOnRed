@@ -40,7 +40,7 @@ func init(_paths, _items, _speed):
 		paths_car_volumn.push_back(round(capacity * items.size() / paths_total_capacity))
 	
 	#print("paths_car_volumn", paths_car_volumn)
-	#print("paths_capacity", paths_capacity)
+	print("paths_capacity", paths_capacity)
 	
 	var index := 0
 	var path_car := 0

@@ -12,6 +12,7 @@ func _ready():
 	
 	$SunnyTown.refresh_text()
 	$FoggyValley.refresh_text()
+	$ThreeVillages.refresh_text()
 	$Quit.refresh_text()
 
 	if Storage.instance.get_is_practice_completed():
@@ -21,6 +22,8 @@ func _ready():
 	if Storage.instance.get_is_town_completed():
 		$FoggyValley.disabled = false
 		$FoggyValley.refresh_style()
+		$ThreeVillages.disabled = false
+		$ThreeVillages.refresh_style()
 
 func switch_to_practice():
 	$AudioStreamPlayer.stop()
@@ -33,6 +36,10 @@ func switch_to_sunny_town():
 func switch_to_foggy_valley():
 	$AudioStreamPlayer.stop()
 	switch_scence("res://scenes/maps/fog_valley/fog_valley.tscn")
+
+func switch_to_three_villages():
+	$AudioStreamPlayer.stop()
+	switch_scence("res://scenes/maps/three_villages/three_villages.tscn")
 
 func switch_scence(path):
 	var LoadingScene = loading.instantiate()
