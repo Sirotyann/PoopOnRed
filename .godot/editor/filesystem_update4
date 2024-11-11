@@ -8,3 +8,9 @@ res://assets/mesh_lib/tree.tres
 res://scenes/maps/town/town.gdshader
 res://assets/texture/water.tres
 res://scenes/maps/three_villages/three_villages.tscn
+res://scenes/maps/oasis/oasis.tscn
+res://scenes/maps/oasis/map_data/height.res
+res://scenes/maps/oasis/map_data/data.hterrain
+res://scenes/maps/fog_valley/fog_valley.tscn
+res://settings.gd
+res://scenes/maps/oasis/oasis.gd

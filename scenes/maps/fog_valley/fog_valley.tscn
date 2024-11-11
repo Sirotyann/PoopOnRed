@@ -25,13 +25,13 @@
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qvaeu"]
 
-[sub_resource type="Sky" id="Sky_oai38"]
+[sub_resource type="Sky" id="Sky_dl1c6"]
 sky_material = SubResource("ProceduralSkyMaterial_qvaeu")
 
 [sub_resource type="Environment" id="Environment_yqmpc"]
 background_mode = 2
 background_energy_multiplier = 1.01
-sky = SubResource("Sky_oai38")
+sky = SubResource("Sky_dl1c6")
 fog_light_color = Color(0.415686, 0.45098, 0.501961, 1)
 fog_light_energy = 0.85
 fog_sun_scatter = 0.22

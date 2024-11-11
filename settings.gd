@@ -1,4 +1,4 @@
 extends Node
 
-const mode := "MOBILE" # MOBILE / PC
-const device := "iPhone" # iPhone / PC
+const mode := "PC" # MOBILE / PC
+const device := "PC" # iPhone / PC
