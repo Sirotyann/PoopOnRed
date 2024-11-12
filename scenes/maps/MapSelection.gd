@@ -13,6 +13,7 @@ func _ready():
 	$SunnyTown.refresh_text()
 	$FoggyValley.refresh_text()
 	$ThreeVillages.refresh_text()
+	$Oasis.refresh_text()
 	$Quit.refresh_text()
 
 	if Storage.instance.get_is_practice_completed():
@@ -24,6 +25,8 @@ func _ready():
 		$FoggyValley.refresh_style()
 		$ThreeVillages.disabled = false
 		$ThreeVillages.refresh_style()
+		$Oasis.disabled = false
+		$Oasis.refresh_style()
 
 func switch_to_practice():
 	$AudioStreamPlayer.stop()
@@ -40,6 +43,10 @@ func switch_to_foggy_valley():
 func switch_to_three_villages():
 	$AudioStreamPlayer.stop()
 	switch_scence("res://scenes/maps/three_villages/three_villages.tscn")
+
+func switch_to_oasis():
+	$AudioStreamPlayer.stop()
+	switch_scence("res://scenes/maps/oasis/oasis.tscn")
 
 func switch_scence(path):
 	var LoadingScene = loading.instantiate()

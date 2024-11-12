@@ -49,10 +49,7 @@ var cars_to_add = []
 	$Container/FoodCoords/Marker07, $Container/FoodCoords/Marker08
 ]
 
-@onready var veichle_paths = [
-	$Paths/Path01, $Paths/Path02
-]
-
+@onready var veichle_paths = [ $Paths/Path01, $Paths/Path02 ]
 
 func _ready():
 	$WorldEnvironment.environment.fog_enabled = true
@@ -75,6 +72,11 @@ func _ready():
 	add_child(sequence)
 	sequence.connect_player($seagull)
 	
+	$RandomWind.start()
+	#RandomWind.instance.start()
+	#RandomWind.instance.connect('wind_change', self.apply_wind)
+	#add_child(RandomWind.instance)
+	
 func init_foods():
 	Fantacy_Food_Model_COORDS.shuffle()
 	for i in min(Fantacy_Food_Models.size(), Fantacy_Food_Model_COORDS.size()):
@@ -94,3 +96,21 @@ func _process(delta):
 
 func _on_bg_finished():
 	$BG.play()
+
+func apply_wind():
+	print('！！！！！！ Apply Wind')
+	var wind = $RandomWind.get_wind()
+	print(wind)
+	if(wind == Vector3(0.0,0.0,0.0)):
+		print("### No wind")
+		$WindAudio.stop()
+	else:
+		$WindAudio.play()
+	$seagull.wind_offset = wind
+
+func _on_area_3d_2_body_entered(body: Node3D) -> void:
+	#print("<<<<<< --- On Body Entered!")
+	#print(body)
+	#print(body.is_class("seagull"))
+	#print("--- On Body Entered! >>>>>")
+	pass # Replace with function body.

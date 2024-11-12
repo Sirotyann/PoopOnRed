@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://ck5qnqdulsgjv"]
+[gd_scene load_steps=24 format=3 uid="uid://ck5qnqdulsgjv"]
 
 [ext_resource type="Script" path="res://scenes/maps/oasis/oasis.gd" id="1_0ifjt"]
 [ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain.gd" id="1_iitp7"]
@@ -15,6 +15,8 @@
 [ext_resource type="PackedScene" uid="uid://bkytxwf6dr2b1" path="res://scenes/kit/buildings/sky_45.tscn" id="12_xyvi7"]
 [ext_resource type="PackedScene" uid="uid://jkrflm2p7oxq" path="res://scenes/kit/buildings/stadium.tscn" id="13_l58en"]
 [ext_resource type="AudioStream" uid="uid://bna4bjw8ch5b3" path="res://audios/Chasing the Horizon.ogg" id="15_15ifh"]
+[ext_resource type="Script" path="res://scenes/general/random_wind.gd" id="17_evraa"]
+[ext_resource type="AudioStream" uid="uid://dasq7fksviibh" path="res://audios/howling-wind.ogg" id="18_ua1ep"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_pv0cv"]
 
@@ -91,11 +93,12 @@ shader_type = "LowPoly"
 custom_shader = null
 custom_globalmap_shader = null
 texture_set = SubResource("Resource_l85hj")
-render_layers = 1
+render_layers = 32
 cast_shadow = 1
 
 [node name="seagull" parent="." instance=ExtResource("4_mfkdk")]
 transform = Transform3D(-0.0844952, 0, -0.996424, 0, 1, 0, 0.996424, 0, -0.0844952, 170.806, 19.1043, 284.871)
+collision_mask = 53
 
 [node name="Container" type="Node3D" parent="."]
 
@@ -107,6 +110,7 @@ data = {
 }
 
 [node name="Buidings" type="GridMap" parent="Container"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 mesh_library = ExtResource("6_etcev")
 data = {
 "cells": PackedInt32Array(99, 140, 3, 101, 140, 3, 103, 140, 3, 105, 140, 3, 97, 140, 3, 97, 137, 655363, 99, 137, 655363, 101, 137, 655363, 103, 137, 655363, 105, 137, 655363, 117, 133, 6, 115, 133, 6, 113, 133, 6, 117, 130, 655364, 115, 130, 655364, 113, 130, 655364, 165, 160, 1441798, 165, 162, 1441798, 165, 164, 1441798, 169, 164, 1048582, 169, 162, 1048582, 169, 160, 1048582, 169, 158, 1048582, 169, 156, 1048582, 169, 154, 1048582, 169, 152, 1048582, 173, 152, 1441797, 173, 154, 1441797, 173, 156, 1441797, 176, 156, 1441797, 176, 154, 1441797, 176, 152, 1441797, 179, 143, 1048593, 179, 141, 1048593, 179, 139, 1048593, 179, 137, 1048593, 179, 135, 1048593)
@@ -148,10 +152,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 200.042, 1.2, 263.819)
 transform = Transform3D(0.8121, 0, 0, 0, 1, 0, 0, 0, 0.715094, 247.831, 1.2, 278.306)
 
 [node name="sky_60" parent="Container/SkyBUildings" instance=ExtResource("9_d38y4")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 216.516, 1.71488, 277.257)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 216.516, 0, 277.257)
 
 [node name="sky_61" parent="Container/SkyBUildings" instance=ExtResource("9_d38y4")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 234.58, 1.2, 277.883)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 234.58, 0, 277.883)
 
 [node name="sky_45" parent="Container/SkyBUildings" instance=ExtResource("12_xyvi7")]
 transform = Transform3D(2.01424, 0, 0, 0, 1.25078, 0, 0, 0, 1.81233, 216.085, -1.51567, 263.534)
@@ -205,7 +209,14 @@ curve = SubResource("Curve3D_8un73")
 [node name="Path02" type="Path3D" parent="Paths"]
 curve = SubResource("Curve3D_hiyyx")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="BG" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_15ifh")
 
-[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_bg_finished"]
+[node name="RandomWind" type="Node3D" parent="."]
+script = ExtResource("17_evraa")
+
+[node name="WindAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_ua1ep")
+
+[connection signal="finished" from="BG" to="." method="_on_bg_finished"]
+[connection signal="wind_change" from="RandomWind" to="." method="apply_wind"]

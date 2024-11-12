@@ -14,3 +14,12 @@ res://scenes/maps/oasis/map_data/data.hterrain
 res://scenes/maps/fog_valley/fog_valley.tscn
 res://settings.gd
 res://scenes/maps/oasis/oasis.gd
+res://scenes/birds/seagull.tscn
+res://strings.en.translation
+res://strings.zh.translation
+res://scenes/maps/MapSelection.gd
+res://scenes/birds/seagull.gd
+res://scenes/general/wind_area.tscn
+res://scenes/general/wind_area.gd
+res://scenes/general/random_wind.gd
+res://scenes/maps/town/town.tscn
