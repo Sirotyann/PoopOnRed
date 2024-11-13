@@ -1,7 +1,6 @@
 extends Node3D
 
-
-const Veichle_Speed := 5.2
+const Veichle_Speed := 6.6
 const Veichle_Total_Count := 80 # total_capacity: 102 
 const Red_Car_count := 1
 
@@ -56,6 +55,8 @@ func _ready():
 	$BG.play()
 	$BG.volume_db = -10.0
 	
+	$seagull.SPEED = 5.6
+	
 	for i in Red_Car_count:
 		var red_sedan = Sedan.instantiate()
 		cars_to_add.push_back(red_sedan)
@@ -90,10 +91,6 @@ func init_foods():
 		add_child(food)
 		food.position = Normal_Food_Model_COORDS[i].global_position
 
-	
-func _process(delta):
-	pass
-
 func _on_bg_finished():
 	$BG.play()
 
@@ -107,10 +104,3 @@ func apply_wind():
 	else:
 		$WindAudio.play()
 	$seagull.wind_offset = wind
-
-func _on_area_3d_2_body_entered(body: Node3D) -> void:
-	#print("<<<<<< --- On Body Entered!")
-	#print(body)
-	#print(body.is_class("seagull"))
-	#print("--- On Body Entered! >>>>>")
-	pass # Replace with function body.

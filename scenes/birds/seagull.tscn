@@ -500,5 +500,3 @@ offset_bottom = 40.0
 
 [node name="TouchControls" parent="Control" instance=ExtResource("15_f1yf2")]
 visible = false
-
-[node name="GPUParticles3D" type="GPUParticles3D" parent="."]

@@ -1,6 +1,6 @@
 extends Node3D
 
-const Veichle_Speed := 5.2
+const Veichle_Speed := 5.5
 const Veichle_Total_Count := 80 # total_capacity: 102 
 const Red_Car_count := 1
 

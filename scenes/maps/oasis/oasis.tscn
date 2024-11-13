@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://ck5qnqdulsgjv"]
+[gd_scene load_steps=32 format=3 uid="uid://ck5qnqdulsgjv"]
 
 [ext_resource type="Script" path="res://scenes/maps/oasis/oasis.gd" id="1_0ifjt"]
 [ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain.gd" id="1_iitp7"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://jkrflm2p7oxq" path="res://scenes/kit/buildings/stadium.tscn" id="13_l58en"]
 [ext_resource type="AudioStream" uid="uid://bna4bjw8ch5b3" path="res://audios/Chasing the Horizon.ogg" id="15_15ifh"]
 [ext_resource type="Script" path="res://scenes/general/random_wind.gd" id="17_evraa"]
+[ext_resource type="Texture2D" uid="uid://cw7iim743wdvu" path="res://assets/texture/fog.png" id="18_3bagp"]
 [ext_resource type="AudioStream" uid="uid://dasq7fksviibh" path="res://audios/howling-wind.ogg" id="18_ua1ep"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_pv0cv"]
@@ -30,7 +31,7 @@ sky = SubResource("Sky_oai38")
 fog_light_color = Color(0.544457, 0.386795, 0.230892, 1)
 fog_light_energy = 0.85
 fog_sun_scatter = 0.22
-fog_density = 0.05
+fog_density = 0.035
 fog_aerial_perspective = 0.089
 volumetric_fog_density = 0.5875
 volumetric_fog_albedo = Color(0.951595, 0.705035, 0.484936, 1)
@@ -59,13 +60,53 @@ _data = {
 }
 point_count = 155
 
+[sub_resource type="Curve" id="Curve_672xo"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5, 1), 0.0, 0.112549, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+metadata/_snap_enabled = true
+
+[sub_resource type="CurveTexture" id="CurveTexture_ml8g2"]
+curve = SubResource("Curve_672xo")
+
+[sub_resource type="Curve" id="Curve_memf7"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.957627, 146.434), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_ti5sh"]
+curve = SubResource("Curve_memf7")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_o1cmy"]
+emission_shape = 2
+emission_sphere_radius = 3.0
+gravity = Vector3(0, -0.1, 0)
+alpha_curve = SubResource("CurveTexture_ml8g2")
+anim_speed_curve = SubResource("CurveTexture_ti5sh")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y0mq5"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 0.807843, 0.556863, 0.4)
+albedo_texture = ExtResource("18_3bagp")
+roughness = 0.0
+emission_energy_multiplier = 5.06
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+grow_amount = 1.905
+
+[sub_resource type="QuadMesh" id="QuadMesh_xwiiw"]
+lightmap_size_hint = Vector2i(102, 102)
+material = SubResource("StandardMaterial3D_y0mq5")
+size = Vector2(35, 35)
+
 [node name="Oasis" type="Node3D"]
 script = ExtResource("1_0ifjt")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.753563, 0.657375, 0, -0.657375, -0.753563, -16.5939, 29.8719, -15.9283)
-light_color = Color(1, 1, 0.945098, 1)
-light_energy = 0.468
+light_color = Color(0.988872, 0.950627, 0, 1)
+light_energy = 0.18
 light_indirect_energy = 0.0
 light_volumetric_fog_energy = 2.16
 shadow_enabled = true
@@ -212,11 +253,21 @@ curve = SubResource("Curve3D_hiyyx")
 [node name="BG" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_15ifh")
 
+[node name="WindAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_ua1ep")
+
 [node name="RandomWind" type="Node3D" parent="."]
 script = ExtResource("17_evraa")
 
-[node name="WindAudio" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("18_ua1ep")
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(34.3605, 0, 0, 0, 4.67921, 0, 0, 0, 29.9067, 296.308, 18.5548, 262.731)
+amount = 50
+speed_scale = 0.24
+explosiveness = 1.0
+interpolate = false
+visibility_aabb = AABB(-4, -4, -4, 80, 8, 8)
+process_material = SubResource("ParticleProcessMaterial_o1cmy")
+draw_pass_1 = SubResource("QuadMesh_xwiiw")
 
 [connection signal="finished" from="BG" to="." method="_on_bg_finished"]
 [connection signal="wind_change" from="RandomWind" to="." method="apply_wind"]

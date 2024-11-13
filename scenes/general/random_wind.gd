@@ -11,11 +11,11 @@ var rng = RandomNumberGenerator.new()
 const min_time := 3.0
 const max_time := 8.0
 
-const min_vx := 1.0
-const max_vx := 2.3
+const min_vx := 0.5
+const max_vx := 2.0
 
-const min_vz := 1.0
-const max_vz := 2.3
+const min_vz := 0.5
+const max_vz := 2.0
 
 signal wind_change
 

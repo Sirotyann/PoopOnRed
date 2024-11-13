@@ -144,7 +144,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_snowv")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_w3evo"]
-size = Vector3(1.13452, 10.1945, 1.32129)
+size = Vector3(1.13452, 10.1729, 1.29456)
 
 [node name="sky_building20" type="StaticBody3D"]
 
@@ -164,5 +164,5 @@ mesh = SubResource("ArrayMesh_2ipau")
 skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(8.27489, 0, 0, 0, 1.68938, 0, 0, 0, 6.28686, 0.0212125, 7.44254, 0.0276278)
+transform = Transform3D(8.27489, 0, 0, 0, 1.68938, 0, 0, 0, 6.28686, 0.0212125, 7.42432, 0.0049891)
 shape = SubResource("BoxShape3D_w3evo")
