@@ -39,6 +39,9 @@ var should_rotate_camera := true
 
 var should_show_guide := false
 
+# wind
+var wind_offset := Vector3(0, 0, 0)
+
 func _ready():
 	if Storage.instance.get_is_practice_completed():
 		$Guide.queue_free()
@@ -100,7 +103,6 @@ func get_input_direction() -> Vector2:
 		elif Input.is_action_pressed("down"):
 			result[1] = 1
 		return result
-			
 
 func _physics_process(delta):
 	var speed := 0.0 if is_hover else SPEED
@@ -154,14 +156,16 @@ func _physics_process(delta):
 	var rotation_x = rotations[0]
 	var rotation_y = rotations[1]
 	
-	velocity.z = -cos(deg_to_rad(rotation_y)) * speed
-	velocity.x = -sin(deg_to_rad(rotation_y)) * speed
+	#print("Wind offset: {x} {y} {z}".format({"x": wind_offset.x, "y": wind_offset.y, "z": wind_offset.z}))
+	
+	velocity.z = -cos(deg_to_rad(rotation_y)) * speed + wind_offset.z
+	velocity.x = -sin(deg_to_rad(rotation_y)) * speed + wind_offset.x
 	
 	if position.y < MAX_FLY_HEIGHT:
-		velocity.y = sin(deg_to_rad(rotation_x)) * speed
+		velocity.y = sin(deg_to_rad(rotation_x)) * speed + wind_offset.y
 	else:
-		velocity.y = 0.0
-
+		velocity.y = wind_offset.y
+	#print(velocity)
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity_speed
@@ -268,6 +272,14 @@ func hit_food(food):
 	$SuccessAudio.play()
 	$CanvasLayer/HBoxContainer/PoopPanel.add(food.poop_value)
 	food.queue_free()
+	
+# --- wind
+func set_wind(offset):
+	print('--- set wind', offset)
+	self.wind_offset = offset
+
+func reset_wind():
+	self.wind_offset = Vector3(0, 0, 0)
 
 # --- effects --- 
 func play_death_particle():

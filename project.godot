@@ -13,7 +13,10 @@ config_version=5
 config/name="PoopOnRed"
 run/main_scene="res://main.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
-config/icon="res://icon.svg"
+boot_splash/bg_color=Color(0.122993, 0.197108, 0.249311, 1)
+boot_splash/image="res://assets/images/bird/bird-1.png"
+boot_splash/fullsize=false
+config/icon="res://icon.png"
 
 [display]
 

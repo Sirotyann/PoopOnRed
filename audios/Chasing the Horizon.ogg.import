@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bna4bjw8ch5b3"
+path="res://.godot/imported/Chasing the Horizon.ogg-1096be1cbbf829700eb618b0336ef45e.oggvorbisstr"
+
+[deps]
+
+source_file="res://audios/Chasing the Horizon.ogg"
+dest_files=["res://.godot/imported/Chasing the Horizon.ogg-1096be1cbbf829700eb618b0336ef45e.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

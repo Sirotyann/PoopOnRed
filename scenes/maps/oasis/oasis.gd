@@ -1,6 +1,6 @@
 extends Node3D
 
-const Veichle_Speed := 5.5
+const Veichle_Speed := 6.6
 const Veichle_Total_Count := 80 # total_capacity: 102 
 const Red_Car_count := 1
 
@@ -41,25 +41,21 @@ var cars_to_add = []
 
 @onready var Veichle_Models = [Delivery, SUV, Texi, Truck, Van, SUVWhite, SedanBlue, SedanGreen, SUVGreen, SuvBlack, SuvBlue]
 @onready var Fantacy_Food_Models = [Cake, Burger, Pizza]
-@onready var Fantacy_Food_Model_COORDS = [$Container/FoodCoords/Marker10, $Container/FoodCoords/Marker11, $Container/FoodCoords/Marker12]
+@onready var Fantacy_Food_Model_COORDS = [$Container/FoodCoords/Marker01, $Container/FoodCoords/Marker02, $Container/FoodCoords/Marker03]
 @onready var Normal_Food_Models = [Apple, Coissant, Donut, Fires, Hotdog, Taco, Fires, Pizza]
 @onready var Normal_Food_Model_COORDS = [
-	$Container/FoodCoords/Marker01, $Container/FoodCoords/Marker02, $Container/FoodCoords/Marker03,
 	$Container/FoodCoords/Marker04, $Container/FoodCoords/Marker05, $Container/FoodCoords/Marker06, 
 	$Container/FoodCoords/Marker07, $Container/FoodCoords/Marker08
 ]
 
-@onready var veichle_paths = [
-	$Paths/Path01, $Paths/Path02, $Paths/Path03, $Paths/Path04, $Paths/Path05, 
-	$Paths/Path06, $Paths/Path07, $Paths/Path08, $Paths/Path09
-]
-#@onready var veichle_paths = [ $Paths/Path10 ]
+@onready var veichle_paths = [ $Paths/Path01, $Paths/Path02 ]
 
 func _ready():
-	#$Camera3D.set_current(true)
 	$WorldEnvironment.environment.fog_enabled = true
 	$BG.play()
 	$BG.volume_db = -10.0
+	
+	$seagull.SPEED = 5.6
 	
 	for i in Red_Car_count:
 		var red_sedan = Sedan.instantiate()
@@ -77,6 +73,11 @@ func _ready():
 	add_child(sequence)
 	sequence.connect_player($seagull)
 	
+	$RandomWind.start()
+	#RandomWind.instance.start()
+	#RandomWind.instance.connect('wind_change', self.apply_wind)
+	#add_child(RandomWind.instance)
+	
 func init_foods():
 	Fantacy_Food_Model_COORDS.shuffle()
 	for i in min(Fantacy_Food_Models.size(), Fantacy_Food_Model_COORDS.size()):
@@ -90,9 +91,16 @@ func init_foods():
 		add_child(food)
 		food.position = Normal_Food_Model_COORDS[i].global_position
 
-	
-func _process(delta):
-	pass
-
 func _on_bg_finished():
 	$BG.play()
+
+func apply_wind():
+	print('！！！！！！ Apply Wind')
+	var wind = $RandomWind.get_wind()
+	print(wind)
+	if(wind == Vector3(0.0,0.0,0.0)):
+		print("### No wind")
+		$WindAudio.stop()
+	else:
+		$WindAudio.play()
+	$seagull.wind_offset = wind

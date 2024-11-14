@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://rc7d6y1d4gix"
-path.s3tc="res://.godot/imported/blood.png-6f1e0600abc2a58757d6da5f1c7fe18e.s3tc.ctex"
-path.etc2="res://.godot/imported/blood.png-6f1e0600abc2a58757d6da5f1c7fe18e.etc2.ctex"
+uid="uid://cw7iim743wdvu"
+path.s3tc="res://.godot/imported/fog.png-d52fe3da1d8b84d9ea7e4de7adc96b13.s3tc.ctex"
+path.etc2="res://.godot/imported/fog.png-d52fe3da1d8b84d9ea7e4de7adc96b13.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/images/blood.png"
-dest_files=["res://.godot/imported/blood.png-6f1e0600abc2a58757d6da5f1c7fe18e.s3tc.ctex", "res://.godot/imported/blood.png-6f1e0600abc2a58757d6da5f1c7fe18e.etc2.ctex"]
+source_file="res://assets/texture/fog.png"
+dest_files=["res://.godot/imported/fog.png-d52fe3da1d8b84d9ea7e4de7adc96b13.s3tc.ctex", "res://.godot/imported/fog.png-d52fe3da1d8b84d9ea7e4de7adc96b13.etc2.ctex"]
 
 [params]
 
