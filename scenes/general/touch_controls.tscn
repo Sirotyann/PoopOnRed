@@ -15,23 +15,46 @@ radius = 150.0
 script = ExtResource("1_70tl0")
 metadata/_edit_horizontal_guides_ = [459.0]
 
-[node name="JoyStick" type="TouchScreenButton" parent="."]
-position = Vector2(3, 362)
-scale = Vector2(0.8, 0.8)
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 80.0
+offset_top = -366.0
+offset_right = 120.0
+offset_bottom = -326.0
+grow_vertical = 0
+scale = Vector2(7, 6.68)
+
+[node name="JoyStick" type="TouchScreenButton" parent="HBoxContainer"]
+scale = Vector2(0.114286, 0.119761)
 texture_normal = ExtResource("2_i4yjr")
 texture_pressed = ExtResource("3_8v77m")
 shape = SubResource("CircleShape2D_ok8tf")
 script = ExtResource("3_lxvwr")
 
-[node name="Knob" type="Sprite2D" parent="JoyStick"]
+[node name="Knob" type="Sprite2D" parent="HBoxContainer/JoyStick"]
 position = Vector2(178, 178)
 texture = ExtResource("4_3bn7u")
 
-[node name="Shoot" type="TouchScreenButton" parent="."]
-position = Vector2(957, 460)
-scale = Vector2(0.5, 0.5)
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -250.0
+offset_top = -262.0
+offset_right = -250.0
+offset_bottom = -262.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(4.91113, 4.91113)
+
+[node name="Shoot" type="TouchScreenButton" parent="HBoxContainer2"]
+scale = Vector2(0.10181, 0.10181)
 texture_normal = ExtResource("5_swfoq")
 texture_pressed = ExtResource("6_ernig")
 
-[connection signal="pressed" from="Shoot" to="." method="_on_shoot_pressed"]
-[connection signal="released" from="Shoot" to="." method="_on_shoot_released"]
+[connection signal="pressed" from="HBoxContainer2/Shoot" to="." method="_on_shoot_pressed"]
+[connection signal="released" from="HBoxContainer2/Shoot" to="." method="_on_shoot_released"]

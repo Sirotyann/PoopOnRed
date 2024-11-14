@@ -9,24 +9,48 @@
 scale = Vector2(0.997651, 0.99385)
 script = ExtResource("1_8sle1")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_t5wty")
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="TextureRect" type="TextureRect" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
-scale = Vector2(0.863348, 0.865731)
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 texture = ExtResource("2_ys227")
 
-[node name="Quit" parent="." instance=ExtResource("3_olvvk")]
-position = Vector2(524.231, 556.422)
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -278.0
+offset_right = 20.0
+offset_bottom = -238.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(18.16, 4.68)
+
+[node name="Quit" parent="CanvasLayer/HBoxContainer2" instance=ExtResource("3_olvvk")]
+position = Vector2(-2.64317, 33.1196)
+scale = Vector2(0.0549367, 0.212361)
 key = "QUIT"
 color = "red"
 
-[node name="Restart" parent="." instance=ExtResource("3_olvvk")]
-position = Vector2(787.851, 550.385)
+[node name="Restart" parent="CanvasLayer/HBoxContainer2" instance=ExtResource("3_olvvk")]
+position = Vector2(11.8393, 31.8376)
+scale = Vector2(0.0549367, 0.212361)
 key = "RESTART"
 color = "yellow"
 
-[connection signal="clicked" from="Quit" to="." method="quit"]
-[connection signal="clicked" from="Restart" to="." method="restart"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_t5wty")
+
+[connection signal="clicked" from="CanvasLayer/HBoxContainer2/Quit" to="." method="quit"]
+[connection signal="clicked" from="CanvasLayer/HBoxContainer2/Restart" to="." method="restart"]

@@ -270,4 +270,5 @@ process_material = SubResource("ParticleProcessMaterial_o1cmy")
 draw_pass_1 = SubResource("QuadMesh_xwiiw")
 
 [connection signal="finished" from="BG" to="." method="_on_bg_finished"]
+[connection signal="finished" from="WindAudio" to="." method="play_wind"]
 [connection signal="wind_change" from="RandomWind" to="." method="apply_wind"]

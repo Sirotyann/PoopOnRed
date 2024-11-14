@@ -3,30 +3,36 @@ extends Node2D
 var Settings = preload("res://settings.gd")
 const loading = preload("res://scenes/general/loading.tscn")
 
+@onready var SunnyTown = $CanvasLayer/SunnyTown
+@onready var FoggyValley = $CanvasLayer/FoggyValley
+@onready var ThreeVillages = $CanvasLayer/ThreeVillages
+@onready var Oasis = $CanvasLayer/Oasis
+@onready var Quit = $CanvasLayer/Quit
+
 func _ready():
 	if Settings.device == "iPhone":
-		$Quit.visible = false
+		Quit.visible = false
 	
 	play_bg_audio()
 	$AudioStreamPlayer.connect('finished', self.play_bg_audio)
 	
-	$SunnyTown.refresh_text()
-	$FoggyValley.refresh_text()
-	$ThreeVillages.refresh_text()
-	$Oasis.refresh_text()
-	$Quit.refresh_text()
+	SunnyTown.refresh_text()
+	FoggyValley.refresh_text()
+	ThreeVillages.refresh_text()
+	Oasis.refresh_text()
+	Quit.refresh_text()
 
 	if Storage.instance.get_is_practice_completed():
-		$SunnyTown.disabled = false
-		$SunnyTown.refresh_style()
+		SunnyTown.disabled = false
+		SunnyTown.refresh_style()
 		
 	if Storage.instance.get_is_town_completed():
-		$FoggyValley.disabled = false
-		$FoggyValley.refresh_style()
-		$ThreeVillages.disabled = false
-		$ThreeVillages.refresh_style()
-		$Oasis.disabled = false
-		$Oasis.refresh_style()
+		FoggyValley.disabled = false
+		FoggyValley.refresh_style()
+		ThreeVillages.disabled = false
+		ThreeVillages.refresh_style()
+		Oasis.disabled = false
+		Oasis.refresh_style()
 
 func switch_to_practice():
 	$AudioStreamPlayer.stop()

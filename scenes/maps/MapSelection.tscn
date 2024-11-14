@@ -8,39 +8,47 @@
 [node name="MapSelection" type="Node2D"]
 script = ExtResource("1_c26jd")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HBoxContainer"]
 modulate = Color(0.521141, 0.521141, 0.521141, 1)
-offset_right = 1280.0
-offset_bottom = 720.0
-scale = Vector2(0.898873, 0.899219)
+layout_mode = 2
+size_flags_horizontal = 3
 texture = ExtResource("2_5wsiu")
 
-[node name="Practice" parent="." instance=ExtResource("6_me1y8")]
-position = Vector2(297, 47)
+[node name="Practice" parent="CanvasLayer" instance=ExtResource("6_me1y8")]
+position = Vector2(683, 279)
 key = "MAP_0"
 
-[node name="SunnyTown" parent="." instance=ExtResource("6_me1y8")]
-position = Vector2(297, 160)
+[node name="SunnyTown" parent="CanvasLayer" instance=ExtResource("6_me1y8")]
+position = Vector2(683, 392)
 key = "MAP_1"
 disabled = true
 
-[node name="FoggyValley" parent="." instance=ExtResource("6_me1y8")]
-position = Vector2(297, 277)
+[node name="FoggyValley" parent="CanvasLayer" instance=ExtResource("6_me1y8")]
+position = Vector2(683, 509)
 key = "MAP_2"
 disabled = true
 
-[node name="ThreeVillages" parent="." instance=ExtResource("6_me1y8")]
-position = Vector2(297, 395)
+[node name="ThreeVillages" parent="CanvasLayer" instance=ExtResource("6_me1y8")]
+position = Vector2(683, 627)
 key = "MAP_3"
 disabled = true
 
-[node name="Oasis" parent="." instance=ExtResource("6_me1y8")]
-position = Vector2(297, 516)
+[node name="Oasis" parent="CanvasLayer" instance=ExtResource("6_me1y8")]
+position = Vector2(683, 748)
 key = "MAP_4"
 disabled = true
 
-[node name="Quit" parent="." instance=ExtResource("6_me1y8")]
-position = Vector2(820, 520)
+[node name="Quit" parent="CanvasLayer" instance=ExtResource("6_me1y8")]
+position = Vector2(1594, 894)
 key = "QUIT"
 color = "red"
 
@@ -48,9 +56,9 @@ color = "red"
 stream = ExtResource("4_qag5y")
 volume_db = -20.0
 
-[connection signal="clicked" from="Practice" to="." method="switch_to_practice"]
-[connection signal="clicked" from="SunnyTown" to="." method="switch_to_sunny_town"]
-[connection signal="clicked" from="FoggyValley" to="." method="switch_to_foggy_valley"]
-[connection signal="clicked" from="ThreeVillages" to="." method="switch_to_three_villages"]
-[connection signal="clicked" from="Oasis" to="." method="switch_to_oasis"]
-[connection signal="clicked" from="Quit" to="." method="quit"]
+[connection signal="clicked" from="CanvasLayer/Practice" to="." method="switch_to_practice"]
+[connection signal="clicked" from="CanvasLayer/SunnyTown" to="." method="switch_to_sunny_town"]
+[connection signal="clicked" from="CanvasLayer/FoggyValley" to="." method="switch_to_foggy_valley"]
+[connection signal="clicked" from="CanvasLayer/ThreeVillages" to="." method="switch_to_three_villages"]
+[connection signal="clicked" from="CanvasLayer/Oasis" to="." method="switch_to_oasis"]
+[connection signal="clicked" from="CanvasLayer/Quit" to="." method="quit"]

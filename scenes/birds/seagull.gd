@@ -42,6 +42,8 @@ var should_show_guide := false
 # wind
 var wind_offset := Vector3(0, 0, 0)
 
+@onready var TouchControls = $Control/TouchControls
+
 func _ready():
 	if Storage.instance.get_is_practice_completed():
 		$Guide.queue_free()
@@ -55,9 +57,9 @@ func _ready():
 
 func _process(_delta):
 	if Settings.mode == "MOBILE":
-		$Control/TouchControls.visible = true
+		TouchControls.visible = true
 	else:
-		$Control/TouchControls.visible = false
+		TouchControls.visible = false
 		
 	if is_shoot():
 		shoot()
@@ -84,13 +86,13 @@ func _process(_delta):
 
 func is_shoot() -> bool:
 	if Settings.mode == "MOBILE":
-		return $Control/TouchControls.pooping
+		return TouchControls.pooping
 	else:
 		return Input.is_action_pressed("shoot")
 
 func get_input_direction() -> Vector2:
 	if Settings.mode == "MOBILE":
-		return $Control/TouchControls.get_direction()
+		return TouchControls.get_direction()
 	else:
 		var result := Vector2(0, 0)
 		if Input.is_action_pressed("left"):
@@ -281,10 +283,7 @@ func set_wind(offset):
 func reset_wind():
 	self.wind_offset = Vector3(0, 0, 0)
 
-# --- effects --- 
-func play_death_particle():
-	StatusAnimation.play("death")
-	
+# --- effects --- 	
 func time_out(): 
 	$DeathAudio.play()
 	StatusAnimation.play("death")

@@ -11,10 +11,10 @@ var rng = RandomNumberGenerator.new()
 const min_time := 3.0
 const max_time := 8.0
 
-const min_vx := 0.5
+const min_vx := 0.1
 const max_vx := 2.0
 
-const min_vz := 0.5
+const min_vz := 0.1
 const max_vz := 2.0
 
 signal wind_change
@@ -31,7 +31,7 @@ func start():
 		timer.start()
 
 func on_timeout():
-	if(rng.randf_range(0.0, 1.0) > 0.80):
+	if(rng.randf_range(0.0, 1.0) > 0.9):
 		current_wind = Vector3(0.0, 0.0, 0.0)
 	else:
 		var vx = get_random_velocity(min_vx, max_vx)

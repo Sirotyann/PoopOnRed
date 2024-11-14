@@ -6,13 +6,15 @@ var index = 0
 
 const loading = preload("res://scenes/general/loading.tscn")
 
-@onready var Label1 = $Labels/Label_1
-@onready var Label2 = $Labels/Label_2
-@onready var Label3 = $Labels/Label_3
-@onready var Label4 = $Labels/Label_4
-@onready var Label5 = $Labels/Label_5
-@onready var Label6 = $Labels/Label_6
-@onready var Label7 = $Labels/Label_7
+@onready var Label1 = $CanvasLayer/Labels/Label_1
+@onready var Label2 = $CanvasLayer/Labels/Label_2
+@onready var Label3 = $CanvasLayer/Labels/Label_3
+@onready var Label4 = $CanvasLayer/Labels/Label_4
+@onready var Label5 = $CanvasLayer/Labels/Label_5
+#@onready var Label6 = $CanvasLayer/Labels/Label_6
+#@onready var Label7 = $CanvasLayer/Labels/Label_7
+
+@onready var StartButton = $CanvasLayer/HBoxContainer2/Start
 
 var text_speed = 1
 var labels
@@ -23,21 +25,22 @@ func _ready() -> void:
 	#Storage.clear_status()
 	TranslationServer.set_locale("zh")
 	var is_first_time = Storage.instance.get_is_first_time()
+	#is_first_time = true
 	
 	if !is_first_time: 
 		go_to_next()
 	else:
 		Storage.instance.set_is_first_time(false)
-		$Start.visible = false
+		#$Start.visible = false
 		Label1.text = tr("INTRO_1")
 		Label2.text = tr("INTRO_2")
 		Label3.text = tr("INTRO_3")
 		Label4.text = tr("INTRO_4")
 		Label5.text = tr("INTRO_5")
-		Label6.text = tr("INTRO_6")
-		Label7.text = tr("INTRO_7")
-		labels = [Label1, Label2, Label3, Label4, Label5, Label6, Label7]
-		total_chars = [Label1.text.length(), Label2.text.length(), Label3.text.length(), Label4.text.length(), Label5.text.length(), Label6.text.length(), Label7.text.length()]
+		#Label6.text = tr("INTRO_6")
+		#Label7.text = tr("INTRO_7")
+		labels = [Label1, Label2, Label3, Label4, Label5]
+		total_chars = [Label1.text.length(), Label2.text.length(), Label3.text.length(), Label4.text.length(), Label5.text.length()]
 		
 		for lbl in labels:
 			lbl.visible_characters = 0
@@ -45,7 +48,6 @@ func _ready() -> void:
 		$Timer.start()
 		$TypingAudio.play()
 	
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	pass
@@ -64,7 +66,7 @@ func _on_timer_timeout() -> void:
 	else:
 		$Timer.stop()
 		$TypingAudio.stop()
-		$Start.visible = true
+		StartButton.visible = true
 		
 func go_to_next() -> void:
 	var LoadingScene = loading.instantiate()
