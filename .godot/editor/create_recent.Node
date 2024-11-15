@@ -1,7 +1,7 @@
+TextureRect
 HBoxContainer
 CanvasLayer
 VBoxContainer
-TextureRect
 AspectRatioContainer
 Control
 GPUParticles3D

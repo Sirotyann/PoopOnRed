@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ci6077c5qs72s"
-path="res://.godot/imported/feather_red.png-d5d046d8b0977548980e0f5710448b5a.ctex"
+uid="uid://b2lx0n5mj6gc5"
+path="res://.godot/imported/feather_yellow_grey.png-b72aa32cf68694dfc58bc04adc98dee1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/buttons/feather_red.png"
-dest_files=["res://.godot/imported/feather_red.png-d5d046d8b0977548980e0f5710448b5a.ctex"]
+source_file="res://assets/images/buttons/feather_yellow_grey.png"
+dest_files=["res://.godot/imported/feather_yellow_grey.png-b72aa32cf68694dfc58bc04adc98dee1.ctex"]
 
 [params]
 

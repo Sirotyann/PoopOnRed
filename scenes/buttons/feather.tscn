@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://b8jbj3f5jek44"]
+[gd_scene load_steps=6 format=3 uid="uid://b8jbj3f5jek44"]
 
 [ext_resource type="Script" path="res://scenes/buttons/feather.gd" id="1_blx3a"]
-[ext_resource type="Texture2D" uid="uid://bjd4jcilrdfmo" path="res://assets/images/buttons/feather_grey.png" id="1_g22v3"]
-[ext_resource type="Texture2D" uid="uid://dga31kvx2s7jg" path="res://assets/images/buttons/feather_white.png" id="2_gj6e6"]
+[ext_resource type="Texture2D" uid="uid://dyecvj1lkqn7r" path="res://assets/images/buttons/feather_grey.png" id="1_g22v3"]
+[ext_resource type="Texture2D" uid="uid://cg5832hhg1j3b" path="res://assets/images/buttons/feather_white.png" id="2_gj6e6"]
+[ext_resource type="FontFile" uid="uid://ctno0lg21fevr" path="res://assets/font/Atma-Bold.ttf" id="4_1goi0"]
+[ext_resource type="Texture2D" uid="uid://dyahp3sx61kni" path="res://assets/images/buttons/stop.png" id="5_yuclx"]
 
 [node name="Feather" type="Node2D"]
 script = ExtResource("1_blx3a")
@@ -15,9 +17,19 @@ texture_hover = ExtResource("2_gj6e6")
 
 [node name="Label" type="Label" parent="TextureButton"]
 layout_mode = 2
-offset_left = 81.0
-offset_top = 25.0
-offset_right = 176.0
-offset_bottom = 48.0
-theme_override_colors/font_color = Color(0.769701, 2.64719e-06, 0.474837, 1)
-theme_override_colors/font_shadow_color = Color(0.393066, 0.100684, 0.164575, 1)
+offset_left = 125.0
+offset_top = 49.0
+offset_right = 220.0
+offset_bottom = 111.0
+theme_override_fonts/font = ExtResource("4_1goi0")
+theme_override_font_sizes/font_size = 35
+
+[node name="stop" type="TextureRect" parent="."]
+visible = false
+self_modulate = Color(1, 1, 1, 0.74902)
+offset_left = 75.0
+offset_top = -36.0
+offset_right = 383.0
+offset_bottom = 272.0
+scale = Vector2(0.449217, 0.449217)
+texture = ExtResource("5_yuclx")

@@ -16,7 +16,7 @@ func game_win():
 	tree.paused = false
 
 func game_dead(player):
-	player.play_death_particle()
+	player.play_death_animation()
 	var tree = get_tree()
 	tree.paused = true
 	await tree.create_timer(3.0).timeout

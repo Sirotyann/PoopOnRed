@@ -14,25 +14,25 @@ var is_disabled:bool
 var textures = {
 	"white": {
 		"light": "res://assets/images/buttons/feather_white.png",
-		"dark":  "res://assets/images/buttons/feather_grey.png",
+		"dark":  "res://assets/images/buttons/feather_light_grey.png",
 		"font_color": "#ff8d3a",
 		"font_shadow": "#77422c",
 	},
 	"red": {
-		"light": "res://assets/images/buttons/feather_red.png",
-		"dark": "res://assets/images/buttons/feather_red_dark.png",
+		"light": "res://assets/images/buttons/feather_yellow.png",
+		"dark": "res://assets/images/buttons/feather_yellow_grey.png",
 		"font_color": "#ffffff",
 		"font_shadow": "#666666",
 	},
 	"yellow": {
 		"light": "res://assets/images/buttons/feather_yellow.png",
-		"dark": "res://assets/images/buttons/feather_yellow_dark.png",
+		"dark": "res://assets/images/buttons/feather_yellow_grey.png",
 		"font_color": "#c40079",
 		"font_shadow": "#641a2a",
 	},
 	"disabled": {
-		"light": "res://assets/images/buttons/feather_dark_grey.png",
-		"dark":  "res://assets/images/buttons/feather_dark_grey.png",
+		"light": "res://assets/images/buttons/feather_grey.png",
+		"dark":  "res://assets/images/buttons/feather_grey.png",
 		"font_color": "#857a67",
 		"font_shadow": "#716857",
 	}
@@ -56,7 +56,10 @@ func refresh_style():
 	$TextureButton.texture_hover = light_texture
 	
 	$TextureButton/Label.add_theme_color_override("font_color", textures[_color].font_color);
-	$TextureButton/Label.add_theme_color_override("font_shadow_color", textures[_color].font_shadow);
+	#$TextureButton/Label.add_theme_color_override("font_shadow_color", textures[_color].font_shadow);
+	
+	if disabled: 
+		$stop.visible = true
 
 func refresh_text():
 	$TextureButton/Label.text = tr(key)

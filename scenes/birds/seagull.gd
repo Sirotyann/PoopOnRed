@@ -283,7 +283,10 @@ func set_wind(offset):
 func reset_wind():
 	self.wind_offset = Vector3(0, 0, 0)
 
-# --- effects --- 	
+# --- effects --- 
+func play_death_animation():
+	StatusAnimation.play("death")
+
 func time_out(): 
 	$DeathAudio.play()
 	StatusAnimation.play("death")

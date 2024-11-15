@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://bksik68bcfdjs"
-path="res://.godot/imported/EduAUVICWANTDots-VariableFont_wght.ttf-9f631b70b38830266f04a0331060c414.fontdata"
+uid="uid://ctno0lg21fevr"
+path="res://.godot/imported/Atma-Bold.ttf-ff9e4d67e9119905f1962c34808d032b.fontdata"
 
 [deps]
 
-source_file="res://assets/font/Edu_AU_VIC_WA_NT_Dots/EduAUVICWANTDots-VariableFont_wght.ttf"
-dest_files=["res://.godot/imported/EduAUVICWANTDots-VariableFont_wght.ttf-9f631b70b38830266f04a0331060c414.fontdata"]
+source_file="res://assets/font/Atma-Bold.ttf"
+dest_files=["res://.godot/imported/Atma-Bold.ttf-ff9e4d67e9119905f1962c34808d032b.fontdata"]
 
 [params]
 
