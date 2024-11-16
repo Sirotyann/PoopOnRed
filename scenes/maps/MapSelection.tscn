@@ -32,33 +32,17 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(940, 520)]
 }
-
-[sub_resource type="Animation" id="Animation_n0ipw"]
-resource_name = "show_maps"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/Maps:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/MapsBG:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(960, -530), Vector2(960, 19)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CanvasLayer/MainMenu:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(940, 520), Vector2(940, 650)]
+"values": [Vector2(0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_ccjdc"]
@@ -74,7 +58,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(960, 60), Vector2(960, -512)]
+"values": [Vector2(0, 0), Vector2(0, -550)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -87,6 +71,58 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(940, 650), Vector2(940, 520)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/MapsBG:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -550)]
+}
+
+[sub_resource type="Animation" id="Animation_n0ipw"]
+resource_name = "show_maps"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Maps:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -550), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/MainMenu:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(940, 520), Vector2(940, 650)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/MapsBG:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -550), Vector2(0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_57xjl"]
@@ -115,15 +151,9 @@ size_flags_horizontal = 3
 texture = ExtResource("2_5wsiu")
 
 [node name="MainMenu" type="VBoxContainer" parent="CanvasLayer"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = 1920.0
+offset_right = 1920.0
+offset_bottom = 1080.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -136,49 +166,67 @@ position = Vector2(-171, -161)
 key = "Button_Practice"
 color = "blue"
 
+[node name="MapsBG" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = -550.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MapsBG"]
+modulate = Color(1, 1, 1, 0.470588)
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("4_qmvxr")
+expand_mode = 1
+
 [node name="Maps" type="HBoxContainer" parent="CanvasLayer"]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_top = -530.0
-offset_bottom = -530.0
+offset_left = -960.0
+offset_top = -550.0
+offset_right = -960.0
+offset_bottom = -450.0
 grow_horizontal = 2
+scale = Vector2(1, 5.52)
+size_flags_horizontal = 4
 
 [node name="Firstshot" parent="CanvasLayer/Maps" instance=ExtResource("6_me1y8")]
-position = Vector2(-480, 288)
+position = Vector2(520, 57.6087)
+scale = Vector2(1, 0.181159)
 key = "MAP_0"
 color = "cyan"
 
 [node name="SunnyTown" parent="CanvasLayer/Maps" instance=ExtResource("6_me1y8")]
-position = Vector2(101, 276)
+position = Vector2(1101, 55.4348)
+scale = Vector2(1, 0.181159)
 key = "MAP_1"
 disabled = true
 color = "red"
 
 [node name="FoggyValley" parent="CanvasLayer/Maps" instance=ExtResource("6_me1y8")]
-position = Vector2(-827, 84)
+position = Vector2(173, 20.6522)
+scale = Vector2(1, 0.181159)
 key = "MAP_2"
 disabled = true
 color = "purple"
 
 [node name="ThreeVillages" parent="CanvasLayer/Maps" instance=ExtResource("6_me1y8")]
-position = Vector2(-212, 77)
+position = Vector2(788, 19.3841)
+scale = Vector2(1, 0.181159)
 key = "MAP_3"
 disabled = true
 color = "green"
 
 [node name="Oasis" parent="CanvasLayer/Maps" instance=ExtResource("6_me1y8")]
-position = Vector2(388, 76)
+position = Vector2(1388, 19.2029)
+scale = Vector2(1, 0.181159)
 key = "MAP_4"
 disabled = true
 color = "yellow"
-
-[node name="black" type="Sprite2D" parent="CanvasLayer/Maps"]
-process_mode = 3
-modulate = Color(1, 1, 1, 0.12549)
-position = Vector2(4, 188)
-scale = Vector2(222.681, 65.8071)
-texture = ExtResource("4_qmvxr")
 
 [node name="Quit" parent="CanvasLayer" instance=ExtResource("6_me1y8")]
 position = Vector2(1400, 866)

@@ -26,3 +26,5 @@ res://scenes/maps/oasis/oasis.gd
 res://scenes/general/intro.gd
 res://strings.en.translation
 res://strings.zh.translation
+res://scenes/general/gameover.tscn
+res://scenes/general/gameover.gd

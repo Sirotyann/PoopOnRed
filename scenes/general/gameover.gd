@@ -11,6 +11,8 @@ func _ready():
 		
 	play_audio()
 	$AudioStreamPlayer.connect("finished", self.play_audio)
+	
+	$CanvasLayer/UdioContainer/Udio.text = tr('UDIO')
 
 func play_audio():
 	$AudioStreamPlayer.play()

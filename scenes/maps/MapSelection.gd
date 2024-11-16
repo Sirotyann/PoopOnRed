@@ -25,6 +25,8 @@ func _ready():
 	play_bg_audio()
 	$AudioStreamPlayer.connect('finished', self.play_bg_audio)
 	
+	$CanvasLayer/MapsBG.position.y = -550
+	
 	Firstshot.refresh_text()
 	SunnyTown.refresh_text()
 	FoggyValley.refresh_text()
