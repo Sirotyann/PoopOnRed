@@ -32,3 +32,10 @@ res://scenes/general/touch_controls.tscn
 res://scenes/general/joy_stick.gd
 res://scenes/general/TimeLeft.tscn
 res://scenes/general/TimeLeft.gd
+res://scenes/maps/oasis/oasis.tscn
+res://assets/mesh_lib/tree.tres
+res://scenes/maps/three_villages/three_villages.tscn
+res://scenes/general/random_wind.gd
+res://settings.gd
+res://scenes/maps/oasis/map_data/height.res
+res://scenes/maps/oasis/map_data/data.hterrain
