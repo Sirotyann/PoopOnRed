@@ -40,16 +40,16 @@ grow_vertical = 0
 scale = Vector2(13.2, 7)
 
 [node name="Restart" parent="CanvasLayer/VBoxContainer" instance=ExtResource("3_ahtkc")]
-position = Vector2(3.48485, 14.5715)
+position = Vector2(3.48485, 14.5714)
 scale = Vector2(0.0770227, 0.143913)
 key = "RESTART"
-color = "yellow"
+color = "green"
 
 [node name="Quit" parent="CanvasLayer/VBoxContainer" instance=ExtResource("3_ahtkc")]
 position = Vector2(3.48485, -13.1429)
 scale = Vector2(0.0770227, 0.143913)
 key = "QUIT"
-color = "red"
+color = "blue"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_50vyj")

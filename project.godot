@@ -104,6 +104,9 @@ pointing/emulate_touch_from_mouse=true
 
 [internationalization]
 
+locale/translation_remaps={
+"res://assets/font/Atma-Bold.ttf": PackedStringArray("res://assets/font/ZCOOLKuaiLe-Regular.ttf:zh")
+}
 locale/translations=PackedStringArray("res://strings.en.translation", "res://strings.zh.translation")
 
 [layer_names]

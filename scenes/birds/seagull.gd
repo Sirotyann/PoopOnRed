@@ -39,16 +39,25 @@ var should_rotate_camera := true
 
 var should_show_guide := false
 
+var is_dead := false # 为了让事件只发一次出去
+
 # wind
 var wind_offset := Vector3(0, 0, 0)
 
 @onready var TouchControls = $Control/TouchControls
 
 func _ready():
-	if Storage.instance.get_is_practice_completed():
+	if General.is_dev:
+		$DevLayer/WinButton.visible = true
+	else:
+		$DevLayer/WinButton.visible = false
+		
+	if Storage.instance.get_var("is_firstshot_completed"):
 		$Guide.queue_free()
 	else:
 		can_excrete = false
+	
+	if !Storage.instance.get_var("is_guide_played"):
 		show_guide()
 		
 	$CanvasLayer/HBoxContainer/TimeLeft.connect("time_out", self.time_out)
@@ -238,11 +247,11 @@ func recover_guesture(delta):
 
 # --- excrete ---
 func shoot():
-	if can_excrete and $CanvasLayer/HBoxContainer/PoopPanel.count > 0:
+	if can_excrete and $CanvasLayer/PoopPanelContainer/PoopPanel.count > 0:
 		var poo: RigidBody3D = Poop.instantiate()
 		poo.rotation = self.rotation
 		poo.give_force(self.velocity)
-		$CanvasLayer/HBoxContainer/PoopPanel.minus(1)
+		$CanvasLayer/PoopPanelContainer/PoopPanel.minus(1)
 		
 		$PoopAudio.play()
 		
@@ -272,7 +281,7 @@ func refresh_excrete():
 # --- eat food ---
 func hit_food(food):
 	$SuccessAudio.play()
-	$CanvasLayer/HBoxContainer/PoopPanel.add(food.poop_value)
+	$CanvasLayer/PoopPanelContainer/PoopPanel.add(food.poop_value)
 	food.queue_free()
 	
 # --- wind
@@ -287,15 +296,19 @@ func reset_wind():
 func play_death_animation():
 	StatusAnimation.play("death")
 
-func time_out(): 
-	$DeathAudio.play()
-	StatusAnimation.play("death")
-	timeout.emit()
+func time_out():
+	if !is_dead:
+		is_dead = true
+		$DeathAudio.play()
+		StatusAnimation.play("death")
+		timeout.emit()
 
 func game_over():
-	$DeathAudio.play()
-	StatusAnimation.play("death")
-	dead.emit()
+	if !is_dead:
+		is_dead = true
+		$DeathAudio.play()
+		StatusAnimation.play("death")
+		dead.emit()
 
 func danger_warning():
 	StatusAnimation.play("damage") 
@@ -324,9 +337,14 @@ func show_guide():
 	$Guide.connect("over", self.remove_guide)
 	
 func remove_guide():
-	Storage.instance.set_is_practice_completed(true)
+	Storage.instance.set_var("is_guide_played", true)
 	guide_over.emit()
 	should_show_guide = false
 	get_tree().paused = false
 	$Guide.queue_free()
 	can_excrete = true
+
+# --- dev ---
+func dev_win():
+	print('dev win')
+	poop_on_red_vehicle()

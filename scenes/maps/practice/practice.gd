@@ -35,9 +35,8 @@ const Van = preload("res://scenes/kit/cars/van.tscn")
 @onready var veichle_paths = [ $Paths/Path01, $Paths/Path02 ]
 
 # Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	print("get_is_practice_completed: {t}".format({"t": Storage.instance.get_is_practice_completed()}))
-	if Storage.instance.get_is_practice_completed():
+func _ready() -> void:		
+	if Storage.instance.get_var("is_guide_played"):
 		play_bg_audio()
 	else:
 		$seagull.connect("guide_over", play_bg_audio)
@@ -57,6 +56,14 @@ func _ready() -> void:
 	
 	add_child(sequence)
 	sequence.connect_player($seagull)
+	sequence.connect("completed", self._on_completed)
+	sequence.connect("dead", self._on_dead)
 
 func play_bg_audio():
 	$BG.play()
+
+func _on_completed():
+	Storage.instance.set_var("is_firstshot_completed", true)
+
+func _on_dead():
+	Storage.instance.firstshot_played()

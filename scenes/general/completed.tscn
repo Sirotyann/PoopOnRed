@@ -41,13 +41,13 @@ scale = Vector2(18.16, 4.68)
 position = Vector2(-7.81938, 15.3846)
 scale = Vector2(0.0549367, 0.212361)
 key = "QUIT"
-color = "red"
+color = "blue"
 
 [node name="Restart" parent="CanvasLayer/HBoxContainer2" instance=ExtResource("3_olvvk")]
 position = Vector2(23.5132, 16.2393)
 scale = Vector2(0.0549367, 0.212361)
 key = "RESTART"
-color = "yellow"
+color = "green"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_t5wty")

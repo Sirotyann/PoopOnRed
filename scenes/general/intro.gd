@@ -22,10 +22,19 @@ var total_chars
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	var locale = OS.get_locale().to_lower()
+	if locale.contains("zh"):
+		TranslationServer.set_locale("zh")
+	else:
+		TranslationServer.set_locale("en")
+	
+	#Storage.instance.clear_status()
+	#TranslationServer.set_locale("zh")
+	
 	#Storage.clear_status()
-	TranslationServer.set_locale("zh")
+	#TranslationServer.set_locale("zh")
 	var is_first_time = Storage.instance.get_is_first_time()
-	#is_first_time = true
+	print('is_first_time : ', is_first_time)
 	
 	if !is_first_time: 
 		go_to_next()
@@ -47,6 +56,8 @@ func _ready() -> void:
 		
 		$Timer.start()
 		$TypingAudio.play()
+		
+		StartButton.refresh_text()
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:

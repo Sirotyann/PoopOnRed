@@ -57,6 +57,9 @@ func _ready():
 	$BG.play()
 	$BG.volume_db = -10.0
 	
+	if General.mode == 'play':
+		Storage.instance.set_var("playing_map", "oasis")
+		
 	play_wind()
 	$WindAudio.volume_db = wind_volumn
 	
@@ -77,6 +80,8 @@ func _ready():
 	
 	add_child(sequence)
 	sequence.connect_player($seagull)
+	sequence.connect("completed", self._on_completed)
+	sequence.connect("dead", self._on_dead)
 	
 	$RandomWind.start()
 	#RandomWind.instance.start()
@@ -113,3 +118,9 @@ func apply_wind():
 	var tween = get_tree().create_tween()
 	tween.tween_property($WindAudio, "volume_db", volumn, 1)
 	$seagull.wind_offset = wind
+
+func _on_completed():
+	Storage.instance.set_var("is_oasis_completed", true)
+
+func _on_dead():
+	Storage.instance.oasis_played()

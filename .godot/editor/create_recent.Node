@@ -1,7 +1,10 @@
-TextureRect
-HBoxContainer
 CanvasLayer
+Button
+HBoxContainer
+AnimationPlayer
 VBoxContainer
+Node2D
+TextureRect
 AspectRatioContainer
 Control
 GPUParticles3D
@@ -9,6 +12,3 @@ CPUParticles2D
 GPUParticles2D
 RandomWind
 Timer
-CollisionShape3D
-Area3D
-Node3D

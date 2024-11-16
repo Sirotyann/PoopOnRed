@@ -1,6 +1,8 @@
 extends Node
+class_name Sequence
 
 signal completed
+signal dead
 
 func connect_player(player):
 	player.connect('completed', self.game_win)
@@ -10,14 +12,27 @@ func connect_player(player):
 func game_win():
 	var tree = get_tree()
 	tree.paused = true
-	completed.emit()
+	completed.emit()	
 	await tree.create_timer(4.0).timeout
-	tree.change_scene_to_file("res://scenes/general/completed.tscn")
+	if General.mode == 'practice':
+		tree.change_scene_to_file("res://scenes/general/completed.tscn")
+	else:
+		var scene = Storage.instance.get_var("playing_map")
+		Storage.instance.complete_scene(scene)
+		if General.is_last_map(scene):
+			Storage.instance.complete_game()
+			tree.change_scene_to_file("res://scenes/general/completed.tscn")
+			print("COMPLETE!!")
+		else:
+			var next = General.get_next_map(scene)
+			var path = General.MapScenePath[next]
+			tree.change_scene_to_file(path)
 	tree.paused = false
 
 func game_dead(player):
 	player.play_death_animation()
 	var tree = get_tree()
+	dead.emit()
 	tree.paused = true
 	await tree.create_timer(3.0).timeout
 	tree.change_scene_to_file("res://scenes/general/gameover.tscn")
@@ -26,6 +41,7 @@ func game_dead(player):
 func game_timeout():
 	var tree = get_tree()
 	tree.paused = true
+	dead.emit()
 	await tree.create_timer(3.0).timeout
 	tree.change_scene_to_file("res://scenes/general/gameover.tscn")
 	tree.paused = false

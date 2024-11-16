@@ -3,36 +3,79 @@ extends Node2D
 var Settings = preload("res://settings.gd")
 const loading = preload("res://scenes/general/loading.tscn")
 
-@onready var SunnyTown = $CanvasLayer/SunnyTown
-@onready var FoggyValley = $CanvasLayer/FoggyValley
-@onready var ThreeVillages = $CanvasLayer/ThreeVillages
-@onready var Oasis = $CanvasLayer/Oasis
+@onready var Practice = $CanvasLayer/MainMenu/Practice
+@onready var Firstshot = $CanvasLayer/Maps/Firstshot
+@onready var SunnyTown = $CanvasLayer/Maps/SunnyTown
+@onready var FoggyValley = $CanvasLayer/Maps/FoggyValley
+@onready var ThreeVillages = $CanvasLayer/Maps/ThreeVillages
+@onready var Oasis = $CanvasLayer/Maps/Oasis
 @onready var Quit = $CanvasLayer/Quit
 
+const EnoughPracticeCount := 2
+
 func _ready():
+	#Storage.instance.clear_status()
+	Storage.instance.print_status()
+	
 	if Settings.device == "iPhone":
 		Quit.visible = false
 	
 	play_bg_audio()
 	$AudioStreamPlayer.connect('finished', self.play_bg_audio)
 	
+	Firstshot.refresh_text()
 	SunnyTown.refresh_text()
 	FoggyValley.refresh_text()
 	ThreeVillages.refresh_text()
 	Oasis.refresh_text()
 	Quit.refresh_text()
 
-	if Storage.instance.get_is_practice_completed():
+	if Storage.instance.get_var("is_firstshot_completed"):
+		Firstshot.rainbow = true
 		SunnyTown.disabled = false
-		SunnyTown.refresh_style()
-		
-	if Storage.instance.get_is_town_completed():
+	elif Storage.instance.get_var("firstshot_played") >= EnoughPracticeCount:
+		SunnyTown.disabled = false
+	
+	if Storage.instance.get_var("is_town_completed"):
 		FoggyValley.disabled = false
-		FoggyValley.refresh_style()
+		SunnyTown.rainbow = true
+	elif Storage.instance.get_var("town_played") >= EnoughPracticeCount:
+		FoggyValley.disabled = false
+
+	if Storage.instance.get_var("is_valley_completed"):
 		ThreeVillages.disabled = false
-		ThreeVillages.refresh_style()
+		FoggyValley.rainbow = true
+	elif Storage.instance.get_var("valley_played") >= EnoughPracticeCount:
+		ThreeVillages.disabled = false
+	
+	if Storage.instance.get_var("is_village_completed"):
 		Oasis.disabled = false
-		Oasis.refresh_style()
+		ThreeVillages.rainbow = true
+	elif Storage.instance.get_var("village_played") >= EnoughPracticeCount:
+		Oasis.disabled = false
+	
+	if Storage.instance.get_var("is_oasis_completed"):
+		Oasis.rainbow = true
+	
+	Firstshot.refresh_style()
+	SunnyTown.refresh_style()
+	FoggyValley.refresh_style()
+	ThreeVillages.refresh_style()
+	Oasis.refresh_style()
+	
+	#Oasis.disabled = true
+	#Oasis.refresh_style()
+
+func show_practice_maps():
+	$AnimationPlayer.play("show_maps")
+
+func start_game():
+	$AudioStreamPlayer.stop()
+	General.mode = 'play'
+	var current_map = Storage.instance.get_var("playing_map")
+	var path = General.MapScenePath[current_map]
+	print(path)
+	switch_scence(path)
 
 func switch_to_practice():
 	$AudioStreamPlayer.stop()

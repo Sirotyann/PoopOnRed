@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://b8jbj3f5jek44"]
 
 [ext_resource type="Script" path="res://scenes/buttons/feather.gd" id="1_blx3a"]
-[ext_resource type="Texture2D" uid="uid://dyecvj1lkqn7r" path="res://assets/images/buttons/feather_grey.png" id="1_g22v3"]
-[ext_resource type="Texture2D" uid="uid://cg5832hhg1j3b" path="res://assets/images/buttons/feather_white.png" id="2_gj6e6"]
+[ext_resource type="Texture2D" uid="uid://dnjo4xjky5v4b" path="res://assets/images/buttons/feather_light_grey.png" id="2_is1j3"]
 [ext_resource type="FontFile" uid="uid://ctno0lg21fevr" path="res://assets/font/Atma-Bold.ttf" id="4_1goi0"]
+[ext_resource type="Texture2D" uid="uid://bw8ghikomqnd" path="res://assets/images/buttons/Rainbow.png" id="5_uejll"]
 [ext_resource type="Texture2D" uid="uid://dyahp3sx61kni" path="res://assets/images/buttons/stop.png" id="5_yuclx"]
 
 [node name="Feather" type="Node2D"]
@@ -12,24 +12,34 @@ script = ExtResource("1_blx3a")
 [node name="TextureButton" type="TextureButton" parent="."]
 offset_right = 235.0
 offset_bottom = 80.0
-texture_normal = ExtResource("1_g22v3")
-texture_hover = ExtResource("2_gj6e6")
+texture_normal = ExtResource("2_is1j3")
 
 [node name="Label" type="Label" parent="TextureButton"]
 layout_mode = 2
-offset_left = 125.0
-offset_top = 49.0
-offset_right = 220.0
-offset_bottom = 111.0
+offset_left = 133.0
+offset_top = 56.0
+offset_right = 228.0
+offset_bottom = 118.0
+theme_override_colors/font_color = Color(1, 0.87451, 0.498039, 1)
 theme_override_fonts/font = ExtResource("4_1goi0")
 theme_override_font_sizes/font_size = 35
+text = "test"
 
 [node name="stop" type="TextureRect" parent="."]
-visible = false
 self_modulate = Color(1, 1, 1, 0.74902)
-offset_left = 75.0
-offset_top = -36.0
-offset_right = 383.0
-offset_bottom = 272.0
+offset_left = 185.0
+offset_top = 8.0
+offset_right = 493.0
+offset_bottom = 316.0
 scale = Vector2(0.449217, 0.449217)
 texture = ExtResource("5_yuclx")
+
+[node name="rainbow" type="TextureRect" parent="."]
+self_modulate = Color(1, 1, 1, 0.74902)
+offset_left = 349.0
+offset_top = 13.0
+offset_right = 1156.0
+offset_bottom = 413.0
+rotation = 0.331988
+scale = Vector2(0.177686, 0.106091)
+texture = ExtResource("5_uejll")
