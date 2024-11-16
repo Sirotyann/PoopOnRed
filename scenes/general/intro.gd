@@ -23,6 +23,8 @@ var total_chars
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var locale = OS.get_locale().to_lower()
+	
+	TranslationServer.set_locale("en")
 	if locale.contains("zh"):
 		TranslationServer.set_locale("zh")
 	else:
@@ -34,11 +36,11 @@ func _ready() -> void:
 	#Storage.clear_status()
 	#TranslationServer.set_locale("zh")
 	var is_first_time = Storage.instance.get_is_first_time()
-	print('is_first_time : ', is_first_time)
 	
 	if !is_first_time: 
 		go_to_next()
 	else:
+		$HidePreTimer.start()
 		Storage.instance.set_is_first_time(false)
 		#$Start.visible = false
 		Label1.text = tr("INTRO_1")
@@ -53,11 +55,13 @@ func _ready() -> void:
 		
 		for lbl in labels:
 			lbl.visible_characters = 0
-		
-		$Timer.start()
-		$TypingAudio.play()
-		
+			
 		StartButton.refresh_text()
+
+func start_typing_info():
+	$PreLayer.queue_free()
+	$Timer.start()
+	$TypingAudio.play()
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -83,3 +87,9 @@ func go_to_next() -> void:
 	var LoadingScene = loading.instantiate()
 	add_child(LoadingScene)
 	LoadingScene.switch_scence("res://scenes/maps/MapSelection.tscn")
+
+func hide_pre():
+	var tween = get_tree().create_tween()
+	tween.tween_property($PreLayer/LabelContainer, 'modulate:a', 0.0, 1)
+	tween.tween_property($PreLayer/BGContainer, 'modulate:a', 0.0, 0.3)
+	tween.tween_callback(start_typing_info)

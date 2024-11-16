@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bmiaes03nkd56"]
+[gd_scene load_steps=7 format=3 uid="uid://bmiaes03nkd56"]
 
 [ext_resource type="Texture2D" uid="uid://w04mbukkbygb" path="res://assets/images/background-1.jpg" id="1_0wakj"]
 [ext_resource type="Script" path="res://scenes/general/intro.gd" id="1_f8ca4"]
 [ext_resource type="FontFile" uid="uid://ctno0lg21fevr" path="res://assets/font/Atma-Bold.ttf" id="3_1ksoa"]
 [ext_resource type="AudioStream" uid="uid://dcne42gbh8c6" path="res://audios/keyboard-typing.ogg" id="3_cklca"]
 [ext_resource type="PackedScene" uid="uid://b8jbj3f5jek44" path="res://scenes/buttons/feather.tscn" id="4_4tt8n"]
+[ext_resource type="Texture2D" uid="uid://gwc23e7rpuwa" path="res://assets/images/black.jpg" id="6_rheaq"]
 
 [node name="Intro" type="Node2D"]
 script = ExtResource("1_f8ca4")
@@ -143,5 +144,42 @@ wait_time = 0.08
 [node name="TypingAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_cklca")
 
+[node name="HidePreTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="PreLayer" type="CanvasLayer" parent="."]
+
+[node name="BGContainer" type="HBoxContainer" parent="PreLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="PreLayer/BGContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("6_rheaq")
+
+[node name="LabelContainer" type="HBoxContainer" parent="PreLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -639.0
+offset_top = -45.0
+offset_right = 639.0
+offset_bottom = 45.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="PreLayer/LabelContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_1ksoa")
+theme_override_font_sizes/font_size = 55
+text = "Did you know that birds love to poop on RED cars?"
+
 [connection signal="clicked" from="CanvasLayer/HBoxContainer2/Start" to="." method="go_to_next"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="HidePreTimer" to="." method="hide_pre"]

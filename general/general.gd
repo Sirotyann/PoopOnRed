@@ -2,7 +2,7 @@ extends Node
 
 class_name General
 
-static var is_dev := true
+static var is_dev := false # true
 
 static var mode := "practice" #  play 挑战模式 还是 练习模式 practice
 

@@ -23,3 +23,6 @@ res://scenes/maps/town/town.gd
 res://scenes/maps/three_villages/three_villages.gd
 res://scenes/maps/fog_valley/fog_valley.gd
 res://scenes/maps/oasis/oasis.gd
+res://scenes/general/intro.gd
+res://strings.en.translation
+res://strings.zh.translation

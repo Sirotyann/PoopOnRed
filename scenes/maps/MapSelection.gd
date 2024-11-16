@@ -13,6 +13,8 @@ const loading = preload("res://scenes/general/loading.tscn")
 
 const EnoughPracticeCount := 2
 
+var is_maps_manu_shown := false
+
 func _ready():
 	#Storage.instance.clear_status()
 	Storage.instance.print_status()
@@ -66,8 +68,13 @@ func _ready():
 	#Oasis.disabled = true
 	#Oasis.refresh_style()
 
-func show_practice_maps():
-	$AnimationPlayer.play("show_maps")
+func toggle_practice_maps():
+	if is_maps_manu_shown:
+		$AnimationPlayer.play("hide_maps")
+		is_maps_manu_shown = false
+	else:
+		$AnimationPlayer.play("show_maps")
+		is_maps_manu_shown = true
 
 func start_game():
 	$AudioStreamPlayer.stop()

@@ -122,8 +122,8 @@ func _physics_process(delta):
 	if !$Sprite/AnimationPlayer.is_playing():
 		$Sprite/AnimationPlayer.play('fly')
 	
-	if Input.is_action_just_pressed("hover"):
-		is_hover = !is_hover
+	#if Input.is_action_just_pressed("hover"):
+		#is_hover = !is_hover
 		
 	var fly_speed := 1.0
 	

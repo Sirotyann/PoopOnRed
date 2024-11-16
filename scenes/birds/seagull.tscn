@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://cl280gxenqt7a"]
+[gd_scene load_steps=31 format=4 uid="uid://cl280gxenqt7a"]
 
 [ext_resource type="Script" path="res://scenes/birds/seagull.gd" id="1_mdl4l"]
 [ext_resource type="AudioStream" uid="uid://dasq7fksviibh" path="res://audios/howling-wind.ogg" id="2_4nw0m"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" path="res://scenes/birds/guide.gd" id="12_35cao"]
 [ext_resource type="Texture2D" uid="uid://bhb2n1caww4lo" path="res://assets/images/bubble.png" id="13_1vuam"]
 [ext_resource type="Texture2D" uid="uid://b38uij6hpfe0b" path="res://assets/images/bubble_flipped.png" id="14_l5cha"]
+[ext_resource type="FontFile" uid="uid://ctno0lg21fevr" path="res://assets/font/Atma-Bold.ttf" id="14_tfqki"]
 [ext_resource type="PackedScene" uid="uid://1emjb3rwrrvq" path="res://scenes/general/touch_controls.tscn" id="15_f1yf2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_48aya"]
@@ -460,7 +461,6 @@ libraries = {
 
 [node name="Guide" type="CanvasLayer" parent="."]
 process_mode = 3
-visible = false
 script = ExtResource("12_35cao")
 
 [node name="ColorRect" type="ColorRect" parent="Guide"]
@@ -496,6 +496,7 @@ offset_left = 26.0
 offset_top = 85.0
 offset_right = 351.0
 offset_bottom = 120.0
+theme_override_fonts/font = ExtResource("14_tfqki")
 theme_override_font_sizes/font_size = 25
 text = "Eat food to produce poops!"
 
@@ -521,6 +522,7 @@ offset_left = 77.0
 offset_top = 196.0
 offset_right = 502.0
 offset_bottom = 231.0
+theme_override_fonts/font = ExtResource("14_tfqki")
 theme_override_font_sizes/font_size = 25
 text = "Pooping on a car will increase time!"
 
