@@ -7,7 +7,7 @@ signal dead
 func connect_player(player):
 	player.connect('completed', self.game_win)
 	player.connect('dead', self.game_dead.bind(player))
-	player.connect('timeout', self.game_dead)
+	player.connect('timeout', self.game_dead.bind(player))
 
 func game_win():
 	var tree = get_tree()

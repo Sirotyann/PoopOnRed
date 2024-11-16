@@ -1,3 +1,4 @@
+TextureRect
 VBoxContainer
 AnimationPlayer
 AnimationTree
@@ -5,7 +6,6 @@ HBoxContainer
 Label
 Control
 Node2D
-TextureRect
 Timer
 Sprite2D
 CanvasLayer

@@ -51,14 +51,12 @@ func _ready():
 		$DevLayer/WinButton.visible = true
 	else:
 		$DevLayer/WinButton.visible = false
-		
-	if Storage.instance.get_var("is_firstshot_completed"):
-		$Guide.queue_free()
-	else:
-		can_excrete = false
 	
 	if !Storage.instance.get_var("is_guide_played"):
 		show_guide()
+		can_excrete = false
+	else:
+		$Guide.visible = false
 		
 	$CanvasLayer/HBoxContainer/TimeLeft.connect("time_out", self.time_out)
 	$CanvasLayer/HBoxContainer/TimeLeft.connect("danger_warning", self.danger_warning)
@@ -346,5 +344,4 @@ func remove_guide():
 
 # --- dev ---
 func dev_win():
-	print('dev win')
 	poop_on_red_vehicle()

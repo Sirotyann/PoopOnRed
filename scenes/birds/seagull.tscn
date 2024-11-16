@@ -25,7 +25,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("HBoxContainer3/black:modulate")
+tracks/0/path = NodePath("HBoxContainer3/death_bg:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -71,7 +71,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("HBoxContainer3/black:modulate")
+tracks/0/path = NodePath("HBoxContainer3/death_bg:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -341,11 +341,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="black" type="Sprite2D" parent="CanvasLayer/HBoxContainer3"]
-process_mode = 3
+[node name="death_bg" type="TextureRect" parent="CanvasLayer/HBoxContainer3"]
 modulate = Color(1, 1, 1, 0)
-position = Vector2(958, 541)
-scale = Vector2(204.111, 126.629)
+layout_mode = 2
+size_flags_horizontal = 3
 texture = ExtResource("5_65d1a")
 
 [node name="PreSuccessAudio" type="AudioStreamPlayer" parent="."]
@@ -461,6 +460,7 @@ libraries = {
 
 [node name="Guide" type="CanvasLayer" parent="."]
 process_mode = 3
+visible = false
 script = ExtResource("12_35cao")
 
 [node name="ColorRect" type="ColorRect" parent="Guide"]

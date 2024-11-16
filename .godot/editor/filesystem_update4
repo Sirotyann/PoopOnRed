@@ -28,3 +28,7 @@ res://strings.en.translation
 res://strings.zh.translation
 res://scenes/general/gameover.tscn
 res://scenes/general/gameover.gd
+res://scenes/general/touch_controls.tscn
+res://scenes/general/joy_stick.gd
+res://scenes/general/TimeLeft.tscn
+res://scenes/general/TimeLeft.gd

@@ -4,10 +4,7 @@ const Veichle_Speed := 5.0
 const Veichle_Total_Count := 20
 
 const Red_Car_count := 3
-
 var PathDispatcher = preload("res://general/path_dispatcher.gd")
-var Sequence = preload("res://scenes/general/sequence.gd")
-
 
 var passed_time := 0
 var timer
