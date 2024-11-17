@@ -14,6 +14,8 @@ func game_win():
 	tree.paused = true
 	completed.emit()	
 	await tree.create_timer(4.0).timeout
+	
+	print('General.mode : ', General.mode)
 	if General.mode == 'practice':
 		tree.change_scene_to_file("res://scenes/general/completed.tscn")
 	else:
@@ -22,7 +24,6 @@ func game_win():
 		if General.is_last_map(scene):
 			Storage.instance.complete_game()
 			tree.change_scene_to_file("res://scenes/general/completed.tscn")
-			print("COMPLETE!!")
 		else:
 			var next = General.get_next_map(scene)
 			var path = General.MapScenePath[next]
@@ -30,6 +31,7 @@ func game_win():
 	tree.paused = false
 
 func game_dead(player):
+	print('General.mode : ', General.mode)
 	player.play_death_animation()
 	var tree = get_tree()
 	dead.emit()

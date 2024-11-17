@@ -11,8 +11,6 @@ const loading = preload("res://scenes/general/loading.tscn")
 @onready var Oasis = $CanvasLayer/Maps/Oasis
 @onready var Quit = $CanvasLayer/Quit
 
-const EnoughPracticeCount := 2
-
 var is_maps_manu_shown := false
 
 func _ready():
@@ -37,25 +35,25 @@ func _ready():
 	if Storage.instance.get_var("is_firstshot_completed"):
 		Firstshot.rainbow = true
 		SunnyTown.disabled = false
-	elif Storage.instance.get_var("firstshot_played") >= EnoughPracticeCount:
+	elif Storage.instance.get_var("firstshot_played") >= Settings.EnoughPracticeCount:
 		SunnyTown.disabled = false
 	
 	if Storage.instance.get_var("is_town_completed"):
 		FoggyValley.disabled = false
 		SunnyTown.rainbow = true
-	elif Storage.instance.get_var("town_played") >= EnoughPracticeCount:
+	elif Storage.instance.get_var("town_played") >= Settings.EnoughPracticeCount:
 		FoggyValley.disabled = false
 
 	if Storage.instance.get_var("is_valley_completed"):
 		ThreeVillages.disabled = false
 		FoggyValley.rainbow = true
-	elif Storage.instance.get_var("valley_played") >= EnoughPracticeCount:
+	elif Storage.instance.get_var("valley_played") >= Settings.EnoughPracticeCount:
 		ThreeVillages.disabled = false
 	
 	if Storage.instance.get_var("is_village_completed"):
 		Oasis.disabled = false
 		ThreeVillages.rainbow = true
-	elif Storage.instance.get_var("village_played") >= EnoughPracticeCount:
+	elif Storage.instance.get_var("village_played") >= Settings.EnoughPracticeCount:
 		Oasis.disabled = false
 	
 	if Storage.instance.get_var("is_oasis_completed"):
@@ -83,26 +81,30 @@ func start_game():
 	General.mode = 'play'
 	var current_map = Storage.instance.get_var("playing_map")
 	var path = General.MapScenePath[current_map]
-	print(path)
 	switch_scence(path)
 
 func switch_to_practice():
+	General.mode = 'practice'
 	$AudioStreamPlayer.stop()
 	switch_scence("res://scenes/maps/practice/practice.tscn")	
 	
 func switch_to_sunny_town():
+	General.mode = 'practice'
 	$AudioStreamPlayer.stop()
 	switch_scence("res://scenes/maps/town/town.tscn")
 
 func switch_to_foggy_valley():
+	General.mode = 'practice'
 	$AudioStreamPlayer.stop()
 	switch_scence("res://scenes/maps/fog_valley/fog_valley.tscn")
 
 func switch_to_three_villages():
+	General.mode = 'practice'
 	$AudioStreamPlayer.stop()
 	switch_scence("res://scenes/maps/three_villages/three_villages.tscn")
 
 func switch_to_oasis():
+	General.mode = 'practice'
 	$AudioStreamPlayer.stop()
 	switch_scence("res://scenes/maps/oasis/oasis.tscn")
 

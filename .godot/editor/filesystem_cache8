@@ -1,14 +1,15 @@
 fc8a56933c4b1c8d796fdb8f7a9f9475
-::res://::1731793222
+::res://::1731793356
 export_presets.cfg::TextFile::-1::1731554980::0::1::::<><>::
 icon.png::CompressedTexture2D::3149040405480342681::1731784470::1731784483::1::::<><>::
 icon.svg::CompressedTexture2D::3528857807065527355::1730850914::1730851161::1::::<><>::
 icon_120.png::CompressedTexture2D::9025426314588998014::1731793222::1731793236::1::::<><>::
 icon_152.png::CompressedTexture2D::2320857577626822960::1731793202::1731793236::1::::<><>::
 icon_167.png::CompressedTexture2D::1925872514898632255::1731793174::1731793236::1::::<><>::
+icon_180.png::CompressedTexture2D::7969968150698357542::1731793357::1731793363::1::::<><>::
 main.tscn::PackedScene::7179240445089673498::1731731271::0::1::::<><>::uid://bmiaes03nkd56::::res://scenes/general/intro.tscn
 README.md::TextFile::-1::1730850914::0::1::::<><>::
-settings.gd::GDScript::-1::1731791854::0::1::::<>Node<>::
+settings.gd::GDScript::-1::1731793261::0::1::::<>Node<>::
 strings.csv::Translation::1610876536153554692::1731771183::1731771186::1::::<><>::
 strings.en.translation::OptimizedTranslation::8663122708144113689::1731771186::0::1::::<><>::
 strings.zh.translation::OptimizedTranslation::5318723712629393309::1731771186::0::1::::<><>::
@@ -1738,9 +1739,9 @@ data.hterrain::Resource::-1::1730850914::0::1::::<><>::
 height.res::Image::306702339822519428::1730850914::0::1::::<><>::
 normal.png::CompressedTexture2D::5117070241263268203::1730850914::1730851160::1::::<><>::
 splat.png::CompressedTexture2D::5451727336161911944::1730850914::1730851160::1::::<><>::
-::res://scenes/maps/oasis/::1731793098
+::res://scenes/maps/oasis/::1731793261
 oasis.gd::GDScript::-1::1731730702::0::1::::<>Node3D<>::
-oasis.tscn::PackedScene::5537656669525484767::1731793098::0::1::::<><>::res://scenes/maps/oasis/oasis.gd<>res://addons/zylann.hterrain/hterrain.gd<>res://scenes/maps/oasis/map_data/data.hterrain<>res://addons/zylann.hterrain/hterrain_texture_set.gd<>uid://cl280gxenqt7a::::res://scenes/birds/seagull.tscn<>uid://dk5gh0s8yeus2::::res://assets/mesh_lib/road.tres<>uid://cbnrxmxka2mw4::::res://assets/mesh_lib/buildings.tres<>uid://bce7vjfkkau86::::res://scenes/kit/buildings/sky_20.tscn<>uid://bqvahti2j4sbq::::res://scenes/kit/buildings/sky_30.tscn<>uid://dejgjwi0epnnj::::res://scenes/kit/buildings/sky_60.tscn<>uid://bl56je43h6t68::::res://assets/mesh_lib/decoration.tres<>uid://bioihci5wjmea::::res://assets/mesh_lib/tree.tres<>uid://bkytxwf6dr2b1::::res://scenes/kit/buildings/sky_45.tscn<>uid://jkrflm2p7oxq::::res://scenes/kit/buildings/stadium.tscn<>uid://bna4bjw8ch5b3::::res://audios/Chasing the Horizon.ogg<>res://scenes/general/random_wind.gd<>uid://cw7iim743wdvu::::res://assets/texture/fog.png<>uid://dasq7fksviibh::::res://audios/howling-wind.ogg
+oasis.tscn::PackedScene::5537656669525484767::1731793261::0::1::::<><>::res://scenes/maps/oasis/oasis.gd<>res://addons/zylann.hterrain/hterrain.gd<>res://scenes/maps/oasis/map_data/data.hterrain<>res://addons/zylann.hterrain/hterrain_texture_set.gd<>uid://cl280gxenqt7a::::res://scenes/birds/seagull.tscn<>uid://dk5gh0s8yeus2::::res://assets/mesh_lib/road.tres<>uid://cbnrxmxka2mw4::::res://assets/mesh_lib/buildings.tres<>uid://bce7vjfkkau86::::res://scenes/kit/buildings/sky_20.tscn<>uid://bqvahti2j4sbq::::res://scenes/kit/buildings/sky_30.tscn<>uid://dejgjwi0epnnj::::res://scenes/kit/buildings/sky_60.tscn<>uid://bl56je43h6t68::::res://assets/mesh_lib/decoration.tres<>uid://bioihci5wjmea::::res://assets/mesh_lib/tree.tres<>uid://bkytxwf6dr2b1::::res://scenes/kit/buildings/sky_45.tscn<>uid://jkrflm2p7oxq::::res://scenes/kit/buildings/stadium.tscn<>uid://bna4bjw8ch5b3::::res://audios/Chasing the Horizon.ogg<>res://scenes/general/random_wind.gd<>uid://cw7iim743wdvu::::res://assets/texture/fog.png<>uid://dasq7fksviibh::::res://audios/howling-wind.ogg
 ::res://scenes/maps/oasis/map_data/::1731793074
 color.png::CompressedTexture2D::8738797534709021675::1731593199::1731625566::1::::<><>::
 data.hterrain::Resource::-1::1731792823::0::1::::<><>::
@@ -1774,9 +1775,9 @@ data.hterrain::Resource::-1::1731593199::0::1::::<><>::
 height.res::Image::2313911215207619758::1731593199::0::1::::<><>::
 normal.png::CompressedTexture2D::676967065953679938::1731593199::1731625566::1::::<><>::
 splat.png::CompressedTexture2D::7065391826385141984::1731593199::1731625566::1::::<><>::
-::res://scenes/maps/town/::1731793098
+::res://scenes/maps/town/::1731793261
 town.gd::GDScript::-1::1731730629::0::1::::<>Node3D<>::
-town.gdshader::Shader::-1::1731793098::0::1::::<><>::
+town.gdshader::Shader::-1::1731793261::0::1::::<><>::
 town.tscn::PackedScene::5618630737060769364::1731455636::0::1::::<><>::res://scenes/maps/town/town.gd<>uid://cbnrxmxka2mw4::::res://assets/mesh_lib/buildings.tres<>uid://bq5i6y7jbdojc::::res://scenes/kit/nature/trees_4.tscn<>uid://dk5gh0s8yeus2::::res://assets/mesh_lib/road.tres<>uid://cdy0r6nd1gury::::res://scenes/kit/nature/trees_16.tscn<>uid://bkytxwf6dr2b1::::res://scenes/kit/buildings/sky_45.tscn<>res://addons/zylann.hterrain/hterrain.gd<>uid://cl280gxenqt7a::::res://scenes/birds/seagull.tscn<>uid://c6g7rkb1f4uyp::::res://scenes/kit/buildings/sky_building_bridge.tscn<>res://scenes/maps/town/map_data/data.hterrain<>uid://jkrflm2p7oxq::::res://scenes/kit/buildings/stadium.tscn<>res://addons/zylann.hterrain/hterrain_texture_set.gd<>uid://8nb3p41nn1u1::::res://scenes/maps/town/town_slot0_albedo_bump.png<>uid://r4p6mkqnppep::::res://scenes/maps/town/town_slot1_albedo_bump.png<>uid://bl56je43h6t68::::res://assets/mesh_lib/decoration.tres<>uid://bobbnp3nrg7lp::::res://scenes/maps/town/town_slot2_albedo_bump.png<>uid://dhwsixj5ctps3::::res://scenes/maps/town/town_slot3_albedo_bump.png<>uid://dejgjwi0epnnj::::res://scenes/kit/buildings/sky_60.tscn<>uid://byhy0iac748tx::::res://scenes/maps/town/town_slot2_normal_roughness.png<>uid://bqvahti2j4sbq::::res://scenes/kit/buildings/sky_30.tscn<>uid://he65psked2bv::::res://scenes/maps/town/town_slot3_normal_roughness.png<>uid://7sdom7ls4dq1::::res://audios/Fate-from-Above-ext.ogg
 town_slot0_albedo_bump.png::CompressedTexture2D::2343180303928764642::1730850914::1730851161::1::::<><>::
 town_slot0_normal_roughness.png::CompressedTexture2D::8847309527122440462::1730850914::1730851161::1::::<><>::
@@ -1807,9 +1808,9 @@ test_car_collision.tscn::PackedScene::2765544366457999609::1730850914::0::1::::<
 tween_test.gd::GDScript::-1::1730850914::0::1::::<>Node2D<>::
 tween_test.tscn::PackedScene::8280046597066960836::1731594102::0::1::::<><>::uid://bqjn1jayv55pf::::res://icon.svg<>res://scenes/test/tween_test.gd
 water.tscn::PackedScene::3088585553740119683::1731593199::0::1::::<><>::
-::res://shaders/::1731793098
-glow.gdshader::Shader::-1::1731793098::0::1::::<><>::
-ocean.gdshader::Shader::-1::1731793098::0::1::::<><>::
+::res://shaders/::1731793261
+glow.gdshader::Shader::-1::1731793261::0::1::::<><>::
+ocean.gdshader::Shader::-1::1731793261::0::1::::<><>::
 water_mat.tres::ShaderMaterial::6035643967697850451::1731593199::0::1::::<><>::res://resources/Shaders/water/ocean.gdshader
 ::res://t_data/::1730851161
 color.png::CompressedTexture2D::7060841261579089555::1730850914::1730851161::1::::<><>::
