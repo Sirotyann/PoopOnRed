@@ -94,9 +94,6 @@ func init_foods():
 		var food = Normal_Food_Models[i].instantiate()
 		add_child(food)
 		food.position = Normal_Food_Model_COORDS[i].global_position
-	
-func _process(delta):
-	pass
 
 func _on_bg_finished():
 	$BG.play()

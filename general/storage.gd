@@ -60,9 +60,9 @@ func print_status():
 	print(get_status())
 	print("------ ----- ----- -----")
 
-func get_var(name):
+func get_var(var_name):
 	if(user_status == null): read_status()
-	return user_status.get(name)
+	return user_status.get(var_name)
 
 func set_var(key, val):
 	if(user_status == null): read_status()
@@ -70,8 +70,8 @@ func set_var(key, val):
 	save_status(user_status)
 
 func complete_scene(scene):
-	var name = "is_{scene}_completed".format({"scene": scene})
-	set_var(name, true)
+	var var_name = "is_{scene}_completed".format({"scene": scene})
+	set_var(var_name, true)
 
 func complete_game():
 	set_var("completed_times", get_var("completed_times") + 1)

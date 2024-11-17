@@ -6,7 +6,6 @@ const Red_Car_count := 1
 
 var PathDispatcher = preload("res://general/path_dispatcher.gd")
 
-var Sequence = preload("res://scenes/general/sequence.gd")
 @onready var sequence = Sequence.new()
 
 # Vehicles

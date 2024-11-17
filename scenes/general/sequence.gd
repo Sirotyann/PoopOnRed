@@ -31,7 +31,6 @@ func game_win():
 	tree.paused = false
 
 func game_dead(player):
-	print('General.mode : ', General.mode)
 	player.play_death_animation()
 	var tree = get_tree()
 	dead.emit()
