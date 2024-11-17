@@ -145,6 +145,7 @@ wait_time = 0.08
 stream = ExtResource("3_cklca")
 
 [node name="HidePreTimer" type="Timer" parent="."]
+wait_time = 3.0
 one_shot = true
 
 [node name="PreLayer" type="CanvasLayer" parent="."]

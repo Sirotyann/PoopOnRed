@@ -1,6 +1,5 @@
 extends Node2D
 
-var Settings = preload("res://settings.gd")
 const loading = preload("res://scenes/general/loading.tscn")
 
 @onready var Practice = $CanvasLayer/MainMenu/Practice
@@ -15,7 +14,14 @@ var is_maps_manu_shown := false
 
 func _ready():
 	#Storage.instance.clear_status()
-	Storage.instance.print_status()
+	#Storage.instance.print_status()
+	
+	if Storage.instance.get_var("completed_times") > 0:
+		$CanvasLayer/HBoxContainer/Normal.visible = false
+		$CanvasLayer/HBoxContainer/Complete.visible = true
+	else:
+		$CanvasLayer/HBoxContainer/Complete.visible = false
+		$CanvasLayer/HBoxContainer/Normal.visible = true
 	
 	if Settings.device == "iPhone":
 		Quit.visible = false
@@ -35,7 +41,7 @@ func _ready():
 	if Storage.instance.get_var("is_firstshot_completed"):
 		Firstshot.rainbow = true
 		SunnyTown.disabled = false
-	elif Storage.instance.get_var("firstshot_played") >= Settings.EnoughPracticeCount:
+	elif Storage.instance.get_var("firstshot_played") >= 1:
 		SunnyTown.disabled = false
 	
 	if Storage.instance.get_var("is_town_completed"):
@@ -79,9 +85,10 @@ func toggle_practice_maps():
 func start_game():
 	$AudioStreamPlayer.stop()
 	General.mode = 'play'
-	var current_map = Storage.instance.get_var("playing_map")
-	var path = General.MapScenePath[current_map]
-	switch_scence(path)
+	get_tree().change_scene_to_file("res://scenes/general/life.tscn")
+	#var current_map = Storage.instance.get_var("playing_map")
+	#var path = General.MapScenePath[current_map]
+	#switch_scence(path)
 
 func switch_to_practice():
 	General.mode = 'practice'

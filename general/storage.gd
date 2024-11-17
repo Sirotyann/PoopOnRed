@@ -19,7 +19,8 @@ var Empty_Status = {
 	"has_eaten": false,
 	"has_poop_on_car": false,
 	"playing_map": "firstshot",
-	"completed_times": 0
+	"completed_times": 0,
+	"life": Settings.MaxLife
 }
 
 static var instance := Storage.new()
@@ -59,7 +60,7 @@ func print_status():
 	print("------ user status -----")
 	print(get_status())
 	print("------ ----- ----- -----")
-
+	
 func get_var(var_name):
 	if(user_status == null): read_status()
 	return user_status.get(var_name)
@@ -75,8 +76,16 @@ func complete_scene(scene):
 
 func complete_game():
 	set_var("completed_times", get_var("completed_times") + 1)
-	set_var("playing_map", General.map_queue[0])
+	reset_play()
 
+## play mode
+func life_lost():
+	var life = get_var("life")
+	set_var("life", life - 1)
+	
+func reset_play():
+	set_var("life", Settings.MaxLife)
+	set_var("playing_map", General.map_queue[0])
 ### ---------------
 
 func get_is_first_time():

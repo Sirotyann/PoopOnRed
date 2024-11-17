@@ -39,3 +39,8 @@ res://scenes/general/random_wind.gd
 res://settings.gd
 res://scenes/maps/oasis/map_data/height.res
 res://scenes/maps/oasis/map_data/data.hterrain
+res://scenes/general/life.tscn
+res://scenes/general/label.gd
+res://scenes/general/loading.tscn
+res://scenes/general/life.gd
+res://scenes/maps/fog_valley/fog_valley.tscn

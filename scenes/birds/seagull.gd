@@ -47,7 +47,7 @@ var wind_offset := Vector3(0, 0, 0)
 @onready var TouchControls = $Control/TouchControls
 
 func _ready():
-	if General.is_dev:
+	if Settings.is_dev:
 		$DevLayer/WinButton.visible = true
 	else:
 		$DevLayer/WinButton.visible = false

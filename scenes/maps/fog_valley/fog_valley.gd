@@ -2,7 +2,7 @@ extends Node3D
 
 const Veichle_Speed := 5.5
 const Veichle_Total_Count := 80 # total_capacity: 102 
-const Red_Car_count := 1
+const Red_Car_count := 2
 
 var PathDispatcher = preload("res://general/path_dispatcher.gd")
 
@@ -55,7 +55,6 @@ var cars_to_add = []
 #@onready var veichle_paths = [ $Paths/Path10 ]
 
 func _ready():
-	#$Camera3D.set_current(true)
 	$WorldEnvironment.environment.fog_enabled = true
 	$BG.play()
 	$BG.volume_db = -10.0
