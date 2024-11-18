@@ -2,11 +2,10 @@ extends Node3D
 
 const Veichle_Speed := 5.5
 const Veichle_Total_Count := 80 # total_capacity: 102 
-const Red_Car_count := 1
+const Red_Car_count := 2
 
 var PathDispatcher = preload("res://general/path_dispatcher.gd")
 
-var Sequence = preload("res://scenes/general/sequence.gd")
 @onready var sequence = Sequence.new()
 
 # Vehicles
@@ -56,10 +55,12 @@ var cars_to_add = []
 #@onready var veichle_paths = [ $Paths/Path10 ]
 
 func _ready():
-	#$Camera3D.set_current(true)
 	$WorldEnvironment.environment.fog_enabled = true
 	$BG.play()
 	$BG.volume_db = -10.0
+	
+	if General.mode == 'play':
+		Storage.instance.set_var("playing_map", "valley")
 	
 	for i in Red_Car_count:
 		var red_sedan = Sedan.instantiate()
@@ -76,6 +77,8 @@ func _ready():
 	
 	add_child(sequence)
 	sequence.connect_player($seagull)
+	sequence.connect("completed", self._on_completed)
+	sequence.connect("dead", self._on_dead)
 	
 func init_foods():
 	Fantacy_Food_Model_COORDS.shuffle()
@@ -90,9 +93,11 @@ func init_foods():
 		add_child(food)
 		food.position = Normal_Food_Model_COORDS[i].global_position
 
-	
-func _process(delta):
-	pass
-
 func _on_bg_finished():
 	$BG.play()
+
+func _on_completed():
+	Storage.instance.set_var("is_valley_completed", true)
+
+func _on_dead():
+	Storage.instance.valley_played()

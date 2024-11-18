@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://ciklkdjbvvelr"]
+
+[ext_resource type="Texture2D" uid="uid://bqjn1jayv55pf" path="res://icon.svg" id="1_y24e7"]
+
+[node name="Ratio" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
+layout_mode = 0
+offset_left = 419.0
+offset_top = 189.0
+offset_right = 459.0
+offset_bottom = 229.0
+scale = Vector2(1.96012, 1.82932)
+stretch_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="AspectRatioContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("1_y24e7")
+stretch_mode = 4

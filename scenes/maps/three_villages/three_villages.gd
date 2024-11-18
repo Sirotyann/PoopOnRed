@@ -56,6 +56,9 @@ func _ready():
 	$BG.play()
 	$BG.volume_db = -10.0
 	
+	if General.mode == 'play':
+		Storage.instance.set_var("playing_map", "village")
+	
 	for i in Red_Car_count:
 		var red_sedan = Sedan.instantiate()
 		cars_to_add.push_back(red_sedan)
@@ -76,6 +79,7 @@ func _ready():
 	$seagull.SPEED += 1.0
 	sequence.connect_player($seagull)
 	sequence.connect("completed", self._on_completed)
+	sequence.connect("dead", self._on_dead)
 	
 func init_foods():
 	Fantacy_Food_Model_COORDS.shuffle()
@@ -94,4 +98,7 @@ func _on_bg_finished():
 	$BG.play()
 
 func _on_completed():
-	Storage.instance.set_is_town_completed(true)
+	Storage.instance.set_var("is_village_completed", true)
+
+func _on_dead():
+	Storage.instance.village_played()

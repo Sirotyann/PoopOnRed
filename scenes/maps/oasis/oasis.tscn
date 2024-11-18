@@ -181,10 +181,10 @@ data = {
 [node name="SkyBUildings" type="Node3D" parent="Container"]
 
 [node name="sky_30" parent="Container/SkyBUildings" instance=ExtResource("7_ymqdg")]
-transform = Transform3D(2.24739, 0, 0, 0, 1, 0, 0, 0, 2.1252, 198.58, 1.2, 292.6)
+transform = Transform3D(2.24739, 0, 0, 0, 1, 0, 0, 0, 2.1252, 198.58, 0, 292.6)
 
 [node name="sky_31" parent="Container/SkyBUildings" instance=ExtResource("7_ymqdg")]
-transform = Transform3D(2.24739, 0, 0, 0, 1, 0, 0, 0, 2.1252, 220.55, 1.27001, 292.517)
+transform = Transform3D(2.24739, 0, 0, 0, 1, 0, 0, 0, 2.1252, 220.55, 0, 292.517)
 
 [node name="sky_building20" parent="Container/SkyBUildings" instance=ExtResource("7_68pnm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 200.042, 1.2, 263.819)
@@ -202,13 +202,13 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 234.58
 transform = Transform3D(2.01424, 0, 0, 0, 1.25078, 0, 0, 0, 1.81233, 216.085, -1.51567, 263.534)
 
 [node name="sky_62" parent="Container/SkyBUildings" instance=ExtResource("9_d38y4")]
-transform = Transform3D(-7.54471e-08, 0, 1.25854, 0, 1, 0, -1.72603, 0, -5.50125e-08, 332.53, 1.2, 310.661)
+transform = Transform3D(-7.54471e-08, 0, 1.25854, 0, 1, 0, -1.72603, 0, -5.50125e-08, 332.53, 0, 310.661)
 
 [node name="sky_32" parent="Container/SkyBUildings" instance=ExtResource("7_ymqdg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 360.478, 1.2, 312.132)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 360.478, 0, 312.132)
 
 [node name="sky_33" parent="Container/SkyBUildings" instance=ExtResource("7_ymqdg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 360.478, 1.2, 305.467)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 360.478, 0, 305.467)
 
 [node name="stadium" parent="Container/SkyBUildings" instance=ExtResource("13_l58en")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 358.132, 1.2, 295.94)
@@ -270,4 +270,5 @@ process_material = SubResource("ParticleProcessMaterial_o1cmy")
 draw_pass_1 = SubResource("QuadMesh_xwiiw")
 
 [connection signal="finished" from="BG" to="." method="_on_bg_finished"]
+[connection signal="finished" from="WindAudio" to="." method="play_wind"]
 [connection signal="wind_change" from="RandomWind" to="." method="apply_wind"]

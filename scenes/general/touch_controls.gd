@@ -4,8 +4,10 @@ extends CanvasLayer
 
 const Accuracy := 0.3
 
+@onready var JoyStick = $HBoxContainer/JoyStick
+
 func get_direction() -> Vector2:
-	var direction = $JoyStick.get_joystick_dir()
+	var direction = JoyStick.get_joystick_dir()
 	var horizontal = 0 
 	var vertical = 0
 	if direction[0] < -Accuracy:
@@ -25,6 +27,3 @@ func _on_shoot_pressed() -> void:
 
 func _on_shoot_released() -> void:
 	pooping = false
-
-#func _process(_delta: float) -> void:
-	#print(get_direction())

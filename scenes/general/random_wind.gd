@@ -11,33 +11,37 @@ var rng = RandomNumberGenerator.new()
 const min_time := 3.0
 const max_time := 8.0
 
-const min_vx := 0.5
+const min_vx := 0.1
 const max_vx := 2.0
 
-const min_vz := 0.5
+const min_vz := 0.1
 const max_vz := 2.0
+
+# 前一次风的偏移量
+const prev_wind_offset_rate := 0.2
 
 signal wind_change
 
 var current_wind := Vector3(0.0, 0.0, 0.0)
+var prev_wind := Vector3(0.0, 0.0, 0.0) 
 
 func start():
 	if timer == null:
 		timer = Timer.new()
 		timer.wait_time = rng.randf_range(min_time, max_time)
-		print("Random wind start  ", timer.wait_time)
+		
 		timer.connect('timeout', on_timeout)
 		add_child(timer)
 		timer.start()
 
 func on_timeout():
-	if(rng.randf_range(0.0, 1.0) > 0.80):
+	if(rng.randf_range(0.0, 1.0) > 0.9):
 		current_wind = Vector3(0.0, 0.0, 0.0)
 	else:
-		var vx = get_random_velocity(min_vx, max_vx)
-		var vz = get_random_velocity(min_vz, max_vz)
+		var vx = get_random_velocity(min_vx, max_vx) + prev_wind.x * prev_wind_offset_rate
+		var vz = get_random_velocity(min_vz, max_vz) + prev_wind.z * prev_wind_offset_rate
 		current_wind = Vector3(vx, 0.0, vz)
-	
+	#print("set wind   ", current_wind)
 	refresh_timer()
 	wind_change.emit()
 

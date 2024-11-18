@@ -1,56 +1,420 @@
-[gd_scene load_steps=5 format=3 uid="uid://bduk111pwxt03"]
+[gd_scene load_steps=18 format=3 uid="uid://bduk111pwxt03"]
 
 [ext_resource type="Script" path="res://scenes/maps/MapSelection.gd" id="1_c26jd"]
 [ext_resource type="Texture2D" uid="uid://c76in3ca5xqgn" path="res://assets/images/background-3.jpg" id="2_5wsiu"]
+[ext_resource type="Texture2D" uid="uid://dogriq8xkecdb" path="res://assets/images/seagull-king-1.jpeg" id="3_svhmc"]
+[ext_resource type="Texture2D" uid="uid://dvc5rkk8ta6l5" path="res://assets/images/seagull_on_roof.jpg" id="4_kwg84"]
 [ext_resource type="AudioStream" uid="uid://bo146jsxvubgd" path="res://audios/map-selection.ogg" id="4_qag5y"]
+[ext_resource type="Texture2D" uid="uid://gwc23e7rpuwa" path="res://assets/images/black.jpg" id="4_qmvxr"]
+[ext_resource type="Texture2D" uid="uid://de551g2cnfbek" path="res://assets/images/seagull_night.jpeg" id="5_fvx2h"]
 [ext_resource type="PackedScene" uid="uid://b8jbj3f5jek44" path="res://scenes/buttons/feather.tscn" id="6_me1y8"]
+[ext_resource type="PackedScene" uid="uid://dyf16ciwtxl8n" path="res://scenes/general/key_settings.tscn" id="6_xh1ha"]
+[ext_resource type="Texture2D" uid="uid://cqhbvnsck2gv3" path="res://assets/images/seagull_night_2.jpeg" id="6_yusko"]
+[ext_resource type="Texture2D" uid="uid://bejfpjpg8ebu1" path="res://assets/images/buttons/cog.png" id="7_tbn85"]
+[ext_resource type="Texture2D" uid="uid://wd23aiecc2f7" path="res://assets/images/buttons/cog_pressed.png" id="8_2no5e"]
+[ext_resource type="Texture2D" uid="uid://b2kpedrpqyp32" path="res://assets/images/buttons/cog_hover.png" id="9_4hlur"]
+
+[sub_resource type="Animation" id="Animation_ncsd2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Maps/Firstshot:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-520, -80)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Maps/SunnyTown:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-520, -49.2753)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/Maps/FoggyValley:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-520, -16.8478)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/Maps/ThreeVillages:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-520, 15.0362)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CanvasLayer/Maps/Oasis:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-520, 47.6449)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CanvasLayer/MapsBG:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-600, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_qj4g4"]
+resource_name = "hide_maps"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Maps/Firstshot:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(60, -80), Vector2(-520, -80)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Maps/SunnyTown:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(60, -49.275), Vector2(-520, -49.2753)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/Maps/FoggyValley:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(60, -16.848), Vector2(-520, -16.8478)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/Maps/ThreeVillages:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(60, 15.036), Vector2(-520, 15.0362)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CanvasLayer/Maps/Oasis:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(60, 47.645), Vector2(-520, 47.6449)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CanvasLayer/MapsBG:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-600, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_byobl"]
+resource_name = "show_maps"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Maps/Firstshot:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-520, -80), Vector2(60, -80)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Maps/SunnyTown:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-520, -49.2753), Vector2(60, -49.275)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/Maps/FoggyValley:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-520, -16.8478), Vector2(60, -16.848)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/Maps/ThreeVillages:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-520, 15.0362), Vector2(60, 15.036)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CanvasLayer/Maps/Oasis:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-520, 47.6449), Vector2(60, 47.645)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CanvasLayer/MapsBG:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-600, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ukdyd"]
+_data = {
+"RESET": SubResource("Animation_ncsd2"),
+"hide_maps": SubResource("Animation_qj4g4"),
+"show_maps": SubResource("Animation_byobl")
+}
 
 [node name="MapSelection" type="Node2D"]
 script = ExtResource("1_c26jd")
 
-[node name="TextureRect" type="TextureRect" parent="."]
-modulate = Color(0.521141, 0.521141, 0.521141, 1)
-offset_right = 1280.0
-offset_bottom = 720.0
-scale = Vector2(0.898873, 0.899219)
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Normal" type="TextureRect" parent="CanvasLayer/HBoxContainer"]
+visible = false
+modulate = Color(0.404511, 0.404511, 0.404511, 1)
+layout_mode = 2
+size_flags_horizontal = 3
 texture = ExtResource("2_5wsiu")
 
-[node name="Practice" parent="." instance=ExtResource("6_me1y8")]
-position = Vector2(297, 47)
-key = "MAP_0"
+[node name="Complete1" type="TextureRect" parent="CanvasLayer/HBoxContainer"]
+visible = false
+modulate = Color(0.404511, 0.404511, 0.404511, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("3_svhmc")
 
-[node name="SunnyTown" parent="." instance=ExtResource("6_me1y8")]
-position = Vector2(297, 160)
+[node name="Complete2" type="TextureRect" parent="CanvasLayer/HBoxContainer"]
+visible = false
+modulate = Color(0.404511, 0.404511, 0.404511, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("4_kwg84")
+
+[node name="Complete3" type="TextureRect" parent="CanvasLayer/HBoxContainer"]
+visible = false
+modulate = Color(0.404511, 0.404511, 0.404511, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("5_fvx2h")
+
+[node name="Complete4" type="TextureRect" parent="CanvasLayer/HBoxContainer"]
+modulate = Color(0.404511, 0.404511, 0.404511, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("6_yusko")
+
+[node name="MainMenu" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = -20.0
+offset_bottom = 1060.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Start" parent="CanvasLayer/MainMenu" instance=ExtResource("6_me1y8")]
+position = Vector2(-214, 47)
+key = "Button_Start"
+
+[node name="Practice" parent="CanvasLayer/MainMenu" instance=ExtResource("6_me1y8")]
+position = Vector2(-214, -161)
+key = "Button_Practice"
+color = "blue"
+
+[node name="MapsBG" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = -600.0
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MapsBG"]
+modulate = Color(1, 1, 1, 0.470588)
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("4_qmvxr")
+expand_mode = 1
+
+[node name="Maps" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -49.0
+offset_bottom = 51.0
+grow_vertical = 2
+scale = Vector2(1, 5.52)
+size_flags_horizontal = 4
+
+[node name="Firstshot" parent="CanvasLayer/Maps" instance=ExtResource("6_me1y8")]
+position = Vector2(-520, -80)
+scale = Vector2(1, 0.181159)
+key = "MAP_0"
+color = "cyan"
+
+[node name="SunnyTown" parent="CanvasLayer/Maps" instance=ExtResource("6_me1y8")]
+position = Vector2(-520, -49.2753)
+scale = Vector2(1, 0.181159)
 key = "MAP_1"
 disabled = true
+color = "red"
 
-[node name="FoggyValley" parent="." instance=ExtResource("6_me1y8")]
-position = Vector2(297, 277)
+[node name="FoggyValley" parent="CanvasLayer/Maps" instance=ExtResource("6_me1y8")]
+position = Vector2(-520, -16.8478)
+scale = Vector2(1, 0.181159)
 key = "MAP_2"
 disabled = true
+color = "purple"
 
-[node name="ThreeVillages" parent="." instance=ExtResource("6_me1y8")]
-position = Vector2(297, 395)
+[node name="ThreeVillages" parent="CanvasLayer/Maps" instance=ExtResource("6_me1y8")]
+position = Vector2(-520, 15.0362)
+scale = Vector2(1, 0.181159)
 key = "MAP_3"
 disabled = true
+color = "green"
 
-[node name="Oasis" parent="." instance=ExtResource("6_me1y8")]
-position = Vector2(297, 516)
+[node name="Oasis" parent="CanvasLayer/Maps" instance=ExtResource("6_me1y8")]
+position = Vector2(-520, 47.6449)
+scale = Vector2(1, 0.181159)
 key = "MAP_4"
 disabled = true
+color = "yellow"
 
-[node name="Quit" parent="." instance=ExtResource("6_me1y8")]
-position = Vector2(820, 520)
+[node name="KeySettings" parent="CanvasLayer" instance=ExtResource("6_xh1ha")]
+visible = false
+
+[node name="Quit" parent="CanvasLayer" instance=ExtResource("6_me1y8")]
+position = Vector2(1400, 866)
 key = "QUIT"
 color = "red"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -180.0
+offset_bottom = 180.0
+grow_horizontal = 0
+
+[node name="TextureButton" type="TextureButton" parent="CanvasLayer/HBoxContainer2"]
+layout_mode = 2
+texture_normal = ExtResource("7_tbn85")
+texture_pressed = ExtResource("8_2no5e")
+texture_hover = ExtResource("9_4hlur")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_qag5y")
 volume_db = -20.0
 
-[connection signal="clicked" from="Practice" to="." method="switch_to_practice"]
-[connection signal="clicked" from="SunnyTown" to="." method="switch_to_sunny_town"]
-[connection signal="clicked" from="FoggyValley" to="." method="switch_to_foggy_valley"]
-[connection signal="clicked" from="ThreeVillages" to="." method="switch_to_three_villages"]
-[connection signal="clicked" from="Oasis" to="." method="switch_to_oasis"]
-[connection signal="clicked" from="Quit" to="." method="quit"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ukdyd")
+}
+
+[connection signal="clicked" from="CanvasLayer/MainMenu/Start" to="." method="start_game"]
+[connection signal="clicked" from="CanvasLayer/MainMenu/Practice" to="." method="toggle_practice_maps"]
+[connection signal="clicked" from="CanvasLayer/Maps/Firstshot" to="." method="switch_to_practice"]
+[connection signal="clicked" from="CanvasLayer/Maps/SunnyTown" to="." method="switch_to_sunny_town"]
+[connection signal="clicked" from="CanvasLayer/Maps/FoggyValley" to="." method="switch_to_foggy_valley"]
+[connection signal="clicked" from="CanvasLayer/Maps/ThreeVillages" to="." method="switch_to_three_villages"]
+[connection signal="clicked" from="CanvasLayer/Maps/Oasis" to="." method="switch_to_oasis"]
+[connection signal="close" from="CanvasLayer/KeySettings" to="." method="_on_key_settings_close"]
+[connection signal="clicked" from="CanvasLayer/Quit" to="." method="quit"]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer2/TextureButton" to="." method="toggle_key_settings"]

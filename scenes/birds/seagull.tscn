@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://cl280gxenqt7a"]
+[gd_scene load_steps=31 format=4 uid="uid://cl280gxenqt7a"]
 
 [ext_resource type="Script" path="res://scenes/birds/seagull.gd" id="1_mdl4l"]
 [ext_resource type="AudioStream" uid="uid://dasq7fksviibh" path="res://audios/howling-wind.ogg" id="2_4nw0m"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" path="res://scenes/birds/guide.gd" id="12_35cao"]
 [ext_resource type="Texture2D" uid="uid://bhb2n1caww4lo" path="res://assets/images/bubble.png" id="13_1vuam"]
 [ext_resource type="Texture2D" uid="uid://b38uij6hpfe0b" path="res://assets/images/bubble_flipped.png" id="14_l5cha"]
+[ext_resource type="FontFile" uid="uid://ctno0lg21fevr" path="res://assets/font/Atma-Bold.ttf" id="14_tfqki"]
 [ext_resource type="PackedScene" uid="uid://1emjb3rwrrvq" path="res://scenes/general/touch_controls.tscn" id="15_f1yf2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_48aya"]
@@ -24,7 +25,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("black:modulate")
+tracks/0/path = NodePath("HBoxContainer3/death_bg:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -41,7 +42,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("damage_bg:modulate")
+tracks/0/path = NodePath("HBoxContainer2/damage_bg:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -53,7 +54,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("damage_bg:self_modulate")
+tracks/1/path = NodePath("HBoxContainer2/damage_bg:self_modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -70,7 +71,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("black:modulate")
+tracks/0/path = NodePath("HBoxContainer3/death_bg:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -291,32 +292,59 @@ libraries = {
 "": SubResource("AnimationLibrary_v1j6a")
 }
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
-offset_right = 1151.0
-offset_bottom = 648.0
-scale = Vector2(1.00421, 1.05221)
-alignment = 1
+[node name="PoopPanelContainer" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -226.0
+offset_top = 2.0
+offset_right = -186.0
+offset_bottom = 42.0
+grow_horizontal = 0
 
-[node name="PoopPanel" parent="CanvasLayer/HBoxContainer" instance=ExtResource("2_jelsa")]
-position = Vector2(1014, -2)
+[node name="PoopPanel" parent="CanvasLayer/PoopPanelContainer" instance=ExtResource("2_jelsa")]
+position = Vector2(0, -3.304)
+scale = Vector2(1.68421, 1.65221)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.68421, 1.65221)
+alignment = 1
 
 [node name="TimeLeft" parent="CanvasLayer/HBoxContainer" instance=ExtResource("2_jq2j0")]
 position = Vector2(18, 8)
 scale = Vector2(1.08, 1.16)
 
-[node name="damage_bg" type="TextureRect" parent="CanvasLayer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="damage_bg" type="TextureRect" parent="CanvasLayer/HBoxContainer2"]
 process_mode = 3
 modulate = Color(1, 1, 1, 0)
 self_modulate = Color(1, 1, 1, 0)
-offset_right = 1156.0
-offset_bottom = 651.0
+layout_mode = 2
+size_flags_horizontal = 3
 texture = ExtResource("4_i4eqc")
 
-[node name="black" type="Sprite2D" parent="CanvasLayer"]
-process_mode = 3
+[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="death_bg" type="TextureRect" parent="CanvasLayer/HBoxContainer3"]
 modulate = Color(1, 1, 1, 0)
-position = Vector2(599, 325)
-scale = Vector2(125.633, 81.1361)
+layout_mode = 2
+size_flags_horizontal = 3
 texture = ExtResource("5_65d1a")
 
 [node name="PreSuccessAudio" type="AudioStreamPlayer" parent="."]
@@ -337,6 +365,7 @@ stream = ExtResource("5_ro0w1")
 stream = ExtResource("7_3ckal")
 
 [node name="DeathAudio" type="AudioStreamPlayer" parent="."]
+process_mode = 3
 stream = ExtResource("10_jbhf7")
 
 [node name="Sprite" type="Node3D" parent="."]
@@ -442,13 +471,43 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.545098)
 
-[node name="TimeIntro" type="Control" parent="Guide"]
-layout_mode = 3
-anchors_preset = 0
+[node name="PoopIntroContainer" type="HBoxContainer" parent="Guide"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -515.0
+offset_top = 68.0
+offset_right = -475.0
+offset_bottom = 108.0
+grow_horizontal = 0
+
+[node name="PoopIntro" type="Control" parent="Guide/PoopIntroContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Guide/PoopIntroContainer/PoopIntro"]
+layout_mode = 2
+offset_right = 381.0
+offset_bottom = 189.0
+texture = ExtResource("14_l5cha")
+
+[node name="Label" type="Label" parent="Guide/PoopIntroContainer/PoopIntro"]
+layout_mode = 2
+offset_left = 26.0
+offset_top = 85.0
+offset_right = 351.0
+offset_bottom = 120.0
+theme_override_fonts/font = ExtResource("14_tfqki")
+theme_override_font_sizes/font_size = 25
+text = "Eat food to produce poops!"
+
+[node name="TimeIntroContainer" type="HBoxContainer" parent="Guide"]
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="TextureRect" type="TextureRect" parent="Guide/TimeIntro"]
+[node name="TimeIntro" type="Control" parent="Guide/TimeIntroContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Guide/TimeIntroContainer/TimeIntro"]
 layout_mode = 0
 offset_left = 21.0
 offset_top = 57.0
@@ -457,46 +516,37 @@ offset_bottom = 246.0
 scale = Vector2(1.34792, 1.41467)
 texture = ExtResource("13_1vuam")
 
-[node name="Label" type="Label" parent="Guide/TimeIntro"]
+[node name="Label" type="Label" parent="Guide/TimeIntroContainer/TimeIntro"]
 layout_mode = 0
 offset_left = 77.0
 offset_top = 196.0
 offset_right = 502.0
 offset_bottom = 231.0
+theme_override_fonts/font = ExtResource("14_tfqki")
 theme_override_font_sizes/font_size = 25
 text = "Pooping on a car will increase time!"
 
-[node name="PoopIntro" type="Control" parent="Guide"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 577.0
-offset_top = 17.0
-offset_right = 617.0
-offset_bottom = 57.0
-
-[node name="TextureRect" type="TextureRect" parent="Guide/PoopIntro"]
-layout_mode = 0
-offset_left = 21.0
-offset_top = 57.0
-offset_right = 402.0
-offset_bottom = 246.0
-scale = Vector2(1.34792, 1.41467)
-texture = ExtResource("14_l5cha")
-
-[node name="Label" type="Label" parent="Guide/PoopIntro"]
-layout_mode = 0
-offset_left = 77.0
-offset_top = 196.0
-offset_right = 502.0
-offset_bottom = 231.0
-theme_override_font_sizes/font_size = 25
-text = "Eat food to produce poops!"
-
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 8
 
 [node name="TouchControls" parent="Control" instance=ExtResource("15_f1yf2")]
-visible = false
+
+[node name="DevLayer" type="CanvasLayer" parent="."]
+
+[node name="WinButton" type="Button" parent="DevLayer"]
+z_index = 6
+offset_left = 1586.0
+offset_top = 17.0
+offset_right = 1678.0
+offset_bottom = 85.0
+text = "Win"
+
+[connection signal="button_down" from="DevLayer/WinButton" to="." method="dev_win"]

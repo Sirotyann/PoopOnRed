@@ -6,7 +6,6 @@ const Red_Car_count := 1
 
 var PathDispatcher = preload("res://general/path_dispatcher.gd")
 
-var Sequence = preload("res://scenes/general/sequence.gd")
 @onready var sequence = Sequence.new()
 
 # Vehicles
@@ -50,10 +49,18 @@ var cars_to_add = []
 
 @onready var veichle_paths = [ $Paths/Path01, $Paths/Path02 ]
 
+var wind_volumn := -15.0
+
 func _ready():
 	$WorldEnvironment.environment.fog_enabled = true
 	$BG.play()
 	$BG.volume_db = -10.0
+	
+	if General.mode == 'play':
+		Storage.instance.set_var("playing_map", "oasis")
+		
+	play_wind()
+	$WindAudio.volume_db = wind_volumn
 	
 	$seagull.SPEED = 5.6
 	
@@ -72,6 +79,8 @@ func _ready():
 	
 	add_child(sequence)
 	sequence.connect_player($seagull)
+	sequence.connect("completed", self._on_completed)
+	sequence.connect("dead", self._on_dead)
 	
 	$RandomWind.start()
 	#RandomWind.instance.start()
@@ -94,13 +103,23 @@ func init_foods():
 func _on_bg_finished():
 	$BG.play()
 
+func play_wind():
+	$WindAudio.play()
+
 func apply_wind():
-	print('！！！！！！ Apply Wind')
+	var max_wind = pow($RandomWind.max_vx, 2) + pow($RandomWind.max_vz, 2)
 	var wind = $RandomWind.get_wind()
-	print(wind)
-	if(wind == Vector3(0.0,0.0,0.0)):
-		print("### No wind")
-		$WindAudio.stop()
-	else:
-		$WindAudio.play()
+	var value = (pow(wind.x, 2) + pow(wind.z, 2))/max_wind
+	var volumn = 30.0 * value - 15.0
+	
+	#print("value={value}  volumn={volumn}  max_wind={max_wind}".format({"value": value, "volumn": volumn, "max_wind": max_wind}))
+
+	var tween = get_tree().create_tween()
+	tween.tween_property($WindAudio, "volume_db", volumn, 1)
 	$seagull.wind_offset = wind
+
+func _on_completed():
+	Storage.instance.set_var("is_oasis_completed", true)
+
+func _on_dead():
+	Storage.instance.oasis_played()

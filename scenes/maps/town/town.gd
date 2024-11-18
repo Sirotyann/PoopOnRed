@@ -6,7 +6,6 @@ const Veichle_Total_Count := 100
 const Red_Car_count := 2
 
 var PathDispatcher = preload("res://general/path_dispatcher.gd")
-var Sequence = preload("res://scenes/general/sequence.gd")
 
 # Vehicles
 const Delivery = preload("res://scenes/kit/cars/delivery.tscn")
@@ -60,6 +59,9 @@ func _ready():
 	$BG.play()
 	$BG.volume_db = -10.0
 	
+	if General.mode == 'play':
+		Storage.instance.set_var("playing_map", "town")
+		
 	for i in Red_Car_count:
 		var red_sedan = Sedan.instantiate()
 		cars_to_add.push_back(red_sedan)
@@ -78,6 +80,7 @@ func _ready():
 	add_child(sequence)
 	sequence.connect_player($Container/seagull)
 	sequence.connect("completed", self._on_completed)
+	sequence.connect("dead", self._on_dead)
 	
 func init_foods():
 	Fantacy_Food_Model_COORDS.shuffle()
@@ -91,12 +94,12 @@ func init_foods():
 		var food = Normal_Food_Models[i].instantiate()
 		add_child(food)
 		food.position = Normal_Food_Model_COORDS[i].global_position
-	
-func _process(delta):
-	pass
 
 func _on_bg_finished():
 	$BG.play()
 
 func _on_completed():
-	Storage.instance.set_is_town_completed(true)
+	Storage.instance.set_var("is_town_completed", true)
+
+func _on_dead():
+	Storage.instance.town_played()

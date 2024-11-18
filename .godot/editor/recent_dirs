@@ -1,8 +1,13 @@
+res://assets/images
+res://assets/images/buttons
+res://scenes/buttons
+res://assets/font
+/Users/c_li/Workshop/Game/export/windows
+res://
+/Users/c_li/Workshop/Game/tools
 /Users/c_li/Workshop/Game/export/ios
 res://assets/images/bird
-res://
 res://assets/texture
-res://assets/images
 res://audios
 res://assets/mesh_lib
 res://scenes/maps/oasis/map_data
@@ -11,7 +16,6 @@ res://shaders
 res://assets/texture/Grass003_2K-JPG
 res://assets/texture/Rock031_2K-JPG
 res://scenes/maps/three_villages
-res://assets/images/buttons
 res://scenes/general
 /Users/c_li/Workshop/Game/export
 res://scenes/maps/practice/map_data

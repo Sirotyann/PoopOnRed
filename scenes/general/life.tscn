@@ -1,0 +1,76 @@
+[gd_scene load_steps=8 format=3 uid="uid://c5wgdu4g7b74s"]
+
+[ext_resource type="Script" path="res://scenes/general/life.gd" id="1_l5qai"]
+[ext_resource type="Texture2D" uid="uid://yn2wq3oqquma" path="res://assets/images/bird/bird-1.png" id="1_yb1h8"]
+[ext_resource type="Texture2D" uid="uid://bveavtod3ta6v" path="res://assets/images/bird/bird-2.png" id="2_4ue3i"]
+[ext_resource type="FontFile" uid="uid://ctno0lg21fevr" path="res://assets/font/Atma-Bold.ttf" id="3_328aw"]
+
+[sub_resource type="Gradient" id="Gradient_ab0jq"]
+interpolation_mode = 1
+colors = PackedColorArray(0.133333, 0.203922, 0.227451, 1, 0.133333, 0.203922, 0.227451, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_2ffgc"]
+gradient = SubResource("Gradient_ab0jq")
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gcd7s"]
+animations = [{
+"frames": [{
+"duration": 3.0,
+"texture": ExtResource("1_yb1h8")
+}, {
+"duration": 3.0,
+"texture": ExtResource("2_4ue3i")
+}],
+"loop": true,
+"name": &"fly",
+"speed": 5.0
+}]
+
+[node name="Life" type="Node2D"]
+script = ExtResource("1_l5qai")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = SubResource("GradientTexture1D_2ffgc")
+
+[node name="CenterBox" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/CenterBox"]
+top_level = true
+position = Vector2(851, 546)
+scale = Vector2(0.457447, 0.457447)
+sprite_frames = SubResource("SpriteFrames_gcd7s")
+animation = &"fly"
+
+[node name="Label" type="Label" parent="CanvasLayer/CenterBox"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_328aw")
+theme_override_font_sizes/font_size = 50
+text = "x 3"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

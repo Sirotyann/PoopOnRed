@@ -495,9 +495,4 @@ collision_mask = 53
 [node name="BG" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("21_08vl6")
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.475891, -0.733444, 0.485373, 0.0185487, 0.560119, 0.828205, -0.879309, -0.385132, 0.28016, 339.665, 94.1722, 277.692)
-visible = false
-fov = 85.484
-
 [connection signal="finished" from="BG" to="." method="_on_bg_finished"]

@@ -7,8 +7,6 @@ signal guide_over
 
 var Poop = preload("res://scenes/birds/poop.tscn")
 
-var Settings = preload("res://settings.gd")
-
 @onready var StatusAnimation = $CanvasLayer/CanvasAnimationPlayer
 
 const VEHICLE_TIME_AWARD := 15.0 # 每次命中普通车的时间奖励
@@ -39,25 +37,34 @@ var should_rotate_camera := true
 
 var should_show_guide := false
 
+var is_dead := false # 为了让事件只发一次出去
+
 # wind
 var wind_offset := Vector3(0, 0, 0)
 
+@onready var TouchControls = $Control/TouchControls
+
 func _ready():
-	if Storage.instance.get_is_practice_completed():
-		$Guide.queue_free()
+	if Config.is_dev:
+		$DevLayer/WinButton.visible = true
 	else:
-		can_excrete = false
+		$DevLayer/WinButton.visible = false
+	
+	if !Storage.instance.get_var("is_guide_played"):
 		show_guide()
+		can_excrete = false
+	else:
+		$Guide.visible = false
 		
 	$CanvasLayer/HBoxContainer/TimeLeft.connect("time_out", self.time_out)
 	$CanvasLayer/HBoxContainer/TimeLeft.connect("danger_warning", self.danger_warning)
 	$CanvasLayer/HBoxContainer/TimeLeft.connect("danger_warning_cancel", self.danger_warning_cancel)
 
 func _process(_delta):
-	if Settings.mode == "MOBILE":
-		$Control/TouchControls.visible = true
+	if Config.mode == "MOBILE":
+		TouchControls.visible = true
 	else:
-		$Control/TouchControls.visible = false
+		TouchControls.visible = false
 		
 	if is_shoot():
 		shoot()
@@ -83,14 +90,14 @@ func _process(_delta):
 		should_rotate_camera = !should_rotate_camera
 
 func is_shoot() -> bool:
-	if Settings.mode == "MOBILE":
-		return $Control/TouchControls.pooping
+	if Config.mode == "MOBILE":
+		return TouchControls.pooping
 	else:
 		return Input.is_action_pressed("shoot")
 
 func get_input_direction() -> Vector2:
-	if Settings.mode == "MOBILE":
-		return $Control/TouchControls.get_direction()
+	if Config.mode == "MOBILE":
+		return TouchControls.get_direction()
 	else:
 		var result := Vector2(0, 0)
 		if Input.is_action_pressed("left"):
@@ -111,8 +118,8 @@ func _physics_process(delta):
 	if !$Sprite/AnimationPlayer.is_playing():
 		$Sprite/AnimationPlayer.play('fly')
 	
-	if Input.is_action_just_pressed("hover"):
-		is_hover = !is_hover
+	#if Input.is_action_just_pressed("hover"):
+		#is_hover = !is_hover
 		
 	var fly_speed := 1.0
 	
@@ -236,11 +243,11 @@ func recover_guesture(delta):
 
 # --- excrete ---
 func shoot():
-	if can_excrete and $CanvasLayer/HBoxContainer/PoopPanel.count > 0:
+	if can_excrete and $CanvasLayer/PoopPanelContainer/PoopPanel.count > 0:
 		var poo: RigidBody3D = Poop.instantiate()
 		poo.rotation = self.rotation
 		poo.give_force(self.velocity)
-		$CanvasLayer/HBoxContainer/PoopPanel.minus(1)
+		$CanvasLayer/PoopPanelContainer/PoopPanel.minus(1)
 		
 		$PoopAudio.play()
 		
@@ -270,7 +277,7 @@ func refresh_excrete():
 # --- eat food ---
 func hit_food(food):
 	$SuccessAudio.play()
-	$CanvasLayer/HBoxContainer/PoopPanel.add(food.poop_value)
+	$CanvasLayer/PoopPanelContainer/PoopPanel.add(food.poop_value)
 	food.queue_free()
 	
 # --- wind
@@ -282,18 +289,22 @@ func reset_wind():
 	self.wind_offset = Vector3(0, 0, 0)
 
 # --- effects --- 
-func play_death_particle():
+func play_death_animation():
 	StatusAnimation.play("death")
-	
-func time_out(): 
-	$DeathAudio.play()
-	StatusAnimation.play("death")
-	timeout.emit()
+
+func time_out():
+	if !is_dead:
+		is_dead = true
+		$DeathAudio.play()
+		StatusAnimation.play("death")
+		timeout.emit()
 
 func game_over():
-	$DeathAudio.play()
-	StatusAnimation.play("death")
-	dead.emit()
+	if !is_dead:
+		is_dead = true
+		$DeathAudio.play()
+		StatusAnimation.play("death")
+		dead.emit()
 
 func danger_warning():
 	StatusAnimation.play("damage") 
@@ -322,9 +333,13 @@ func show_guide():
 	$Guide.connect("over", self.remove_guide)
 	
 func remove_guide():
-	Storage.instance.set_is_practice_completed(true)
+	Storage.instance.set_var("is_guide_played", true)
 	guide_over.emit()
 	should_show_guide = false
 	get_tree().paused = false
 	$Guide.queue_free()
 	can_excrete = true
+
+# --- dev ---
+func dev_win():
+	poop_on_red_vehicle()

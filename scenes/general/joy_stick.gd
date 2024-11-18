@@ -13,7 +13,7 @@ func _ready() -> void:
 func _input(event):
 	if event is InputEventScreenTouch:
 		var distance = event.position.distance_to(knob.global_position)
-		if event.pressed and distance < max_distance:
+		if event.pressed and distance < max_distance * 2:
 			set_process(true)
 		elif not event.pressed:
 			set_process(false)

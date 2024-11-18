@@ -1,0 +1,157 @@
+[gd_scene load_steps=11 format=3 uid="uid://dyf16ciwtxl8n"]
+
+[ext_resource type="Script" path="res://scenes/general/key_settings.gd" id="1_n3s8w"]
+[ext_resource type="Texture2D" uid="uid://de551g2cnfbek" path="res://assets/images/seagull_night.jpeg" id="1_no16s"]
+[ext_resource type="FontFile" uid="uid://ctno0lg21fevr" path="res://assets/font/Atma-Bold.ttf" id="2_eono3"]
+[ext_resource type="PackedScene" uid="uid://wh323godt6s" path="res://scenes/buttons/setting_button.tscn" id="3_jxd83"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3p8td"]
+bg_color = Color(0.973137, 0.35716, 0.307423, 0.470588)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_arfp2"]
+bg_color = Color(0.860062, 0.168351, 0.149406, 0.470588)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g4258"]
+bg_color = Color(0.95, 0.215333, 0.19, 0.470588)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jsp4n"]
+bg_color = Color(0.2706, 0.554457, 0.82, 0.470588)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_86cro"]
+bg_color = Color(0.1586, 0.391823, 0.61, 0.470588)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wdui5"]
+bg_color = Color(0.1809, 0.433602, 0.67, 0.470588)
+
+[node name="KeySettings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_n3s8w")
+
+[node name="BGContainer" type="HBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="BGContainer"]
+modulate = Color(0.302372, 0.436005, 0.547911, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("1_no16s")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+z_index = 8
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -562.0
+offset_top = -431.0
+offset_right = 558.0
+offset_bottom = 228.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BGContainer" type="HBoxContainer" parent="PanelContainer"]
+visible = false
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/BGContainer"]
+modulate = Color(0.302372, 0.436005, 0.547911, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("1_no16s")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ActionList" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="InputButton" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList" instance=ExtResource("3_jxd83")]
+layout_mode = 2
+
+[node name="InputButton2" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList" instance=ExtResource("3_jxd83")]
+layout_mode = 2
+
+[node name="InputButton3" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList" instance=ExtResource("3_jxd83")]
+layout_mode = 2
+
+[node name="InputButton4" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList" instance=ExtResource("3_jxd83")]
+layout_mode = 2
+
+[node name="InputButton5" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList" instance=ExtResource("3_jxd83")]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ResetButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 28
+theme_override_styles/hover = SubResource("StyleBoxFlat_3p8td")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_arfp2")
+theme_override_styles/normal = SubResource("StyleBoxFlat_g4258")
+text = "Reset"
+
+[node name="DoneButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 28
+theme_override_styles/hover = SubResource("StyleBoxFlat_jsp4n")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_86cro")
+theme_override_styles/normal = SubResource("StyleBoxFlat_wdui5")
+text = "Done"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextEdit" type="TextEdit" parent="CanvasLayer"]
+visible = false
+offset_left = 621.0
+offset_top = 296.0
+offset_right = 629.0
+offset_bottom = 362.0
+scale = Vector2(1.56, 1)
+text = "w"
+placeholder_text = "w"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+visible = false
+offset_left = 491.0
+offset_top = 296.0
+offset_right = 597.0
+offset_bottom = 362.0
+
+[node name="Label" type="Label" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.979333, 0.38, 1)
+theme_override_fonts/font = ExtResource("2_eono3")
+theme_override_font_sizes/font_size = 40
+text = "Climb: "
+
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ResetButton" to="." method="_on_rest_button_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/DoneButton" to="." method="_on_done_button_pressed"]
