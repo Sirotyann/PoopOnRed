@@ -7,8 +7,6 @@ signal guide_over
 
 var Poop = preload("res://scenes/birds/poop.tscn")
 
-var Settings = preload("res://settings.gd")
-
 @onready var StatusAnimation = $CanvasLayer/CanvasAnimationPlayer
 
 const VEHICLE_TIME_AWARD := 15.0 # 每次命中普通车的时间奖励
@@ -47,7 +45,7 @@ var wind_offset := Vector3(0, 0, 0)
 @onready var TouchControls = $Control/TouchControls
 
 func _ready():
-	if Settings.is_dev:
+	if Config.is_dev:
 		$DevLayer/WinButton.visible = true
 	else:
 		$DevLayer/WinButton.visible = false
@@ -63,7 +61,7 @@ func _ready():
 	$CanvasLayer/HBoxContainer/TimeLeft.connect("danger_warning_cancel", self.danger_warning_cancel)
 
 func _process(_delta):
-	if Settings.mode == "MOBILE":
+	if Config.mode == "MOBILE":
 		TouchControls.visible = true
 	else:
 		TouchControls.visible = false
@@ -92,13 +90,13 @@ func _process(_delta):
 		should_rotate_camera = !should_rotate_camera
 
 func is_shoot() -> bool:
-	if Settings.mode == "MOBILE":
+	if Config.mode == "MOBILE":
 		return TouchControls.pooping
 	else:
 		return Input.is_action_pressed("shoot")
 
 func get_input_direction() -> Vector2:
-	if Settings.mode == "MOBILE":
+	if Config.mode == "MOBILE":
 		return TouchControls.get_direction()
 	else:
 		var result := Vector2(0, 0)

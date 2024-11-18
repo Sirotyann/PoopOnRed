@@ -1,11 +1,18 @@
-[gd_scene load_steps=11 format=3 uid="uid://bduk111pwxt03"]
+[gd_scene load_steps=18 format=3 uid="uid://bduk111pwxt03"]
 
 [ext_resource type="Script" path="res://scenes/maps/MapSelection.gd" id="1_c26jd"]
 [ext_resource type="Texture2D" uid="uid://c76in3ca5xqgn" path="res://assets/images/background-3.jpg" id="2_5wsiu"]
 [ext_resource type="Texture2D" uid="uid://dogriq8xkecdb" path="res://assets/images/seagull-king-1.jpeg" id="3_svhmc"]
+[ext_resource type="Texture2D" uid="uid://dvc5rkk8ta6l5" path="res://assets/images/seagull_on_roof.jpg" id="4_kwg84"]
 [ext_resource type="AudioStream" uid="uid://bo146jsxvubgd" path="res://audios/map-selection.ogg" id="4_qag5y"]
 [ext_resource type="Texture2D" uid="uid://gwc23e7rpuwa" path="res://assets/images/black.jpg" id="4_qmvxr"]
+[ext_resource type="Texture2D" uid="uid://de551g2cnfbek" path="res://assets/images/seagull_night.jpeg" id="5_fvx2h"]
 [ext_resource type="PackedScene" uid="uid://b8jbj3f5jek44" path="res://scenes/buttons/feather.tscn" id="6_me1y8"]
+[ext_resource type="PackedScene" uid="uid://dyf16ciwtxl8n" path="res://scenes/general/key_settings.tscn" id="6_xh1ha"]
+[ext_resource type="Texture2D" uid="uid://cqhbvnsck2gv3" path="res://assets/images/seagull_night_2.jpeg" id="6_yusko"]
+[ext_resource type="Texture2D" uid="uid://bejfpjpg8ebu1" path="res://assets/images/buttons/cog.png" id="7_tbn85"]
+[ext_resource type="Texture2D" uid="uid://wd23aiecc2f7" path="res://assets/images/buttons/cog_pressed.png" id="8_2no5e"]
+[ext_resource type="Texture2D" uid="uid://b2kpedrpqyp32" path="res://assets/images/buttons/cog_hover.png" id="9_4hlur"]
 
 [sub_resource type="Animation" id="Animation_ncsd2"]
 length = 0.001
@@ -254,17 +261,38 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Normal" type="TextureRect" parent="CanvasLayer/HBoxContainer"]
+visible = false
 modulate = Color(0.404511, 0.404511, 0.404511, 1)
 layout_mode = 2
 size_flags_horizontal = 3
 texture = ExtResource("2_5wsiu")
 
-[node name="Complete" type="TextureRect" parent="CanvasLayer/HBoxContainer"]
+[node name="Complete1" type="TextureRect" parent="CanvasLayer/HBoxContainer"]
 visible = false
 modulate = Color(0.404511, 0.404511, 0.404511, 1)
 layout_mode = 2
 size_flags_horizontal = 3
 texture = ExtResource("3_svhmc")
+
+[node name="Complete2" type="TextureRect" parent="CanvasLayer/HBoxContainer"]
+visible = false
+modulate = Color(0.404511, 0.404511, 0.404511, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("4_kwg84")
+
+[node name="Complete3" type="TextureRect" parent="CanvasLayer/HBoxContainer"]
+visible = false
+modulate = Color(0.404511, 0.404511, 0.404511, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("5_fvx2h")
+
+[node name="Complete4" type="TextureRect" parent="CanvasLayer/HBoxContainer"]
+modulate = Color(0.404511, 0.404511, 0.404511, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("6_yusko")
 
 [node name="MainMenu" type="VBoxContainer" parent="CanvasLayer"]
 anchors_preset = 8
@@ -349,10 +377,27 @@ key = "MAP_4"
 disabled = true
 color = "yellow"
 
+[node name="KeySettings" parent="CanvasLayer" instance=ExtResource("6_xh1ha")]
+visible = false
+
 [node name="Quit" parent="CanvasLayer" instance=ExtResource("6_me1y8")]
 position = Vector2(1400, 866)
 key = "QUIT"
-color = "blue"
+color = "red"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -180.0
+offset_bottom = 180.0
+grow_horizontal = 0
+
+[node name="TextureButton" type="TextureButton" parent="CanvasLayer/HBoxContainer2"]
+layout_mode = 2
+texture_normal = ExtResource("7_tbn85")
+texture_pressed = ExtResource("8_2no5e")
+texture_hover = ExtResource("9_4hlur")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_qag5y")
@@ -370,4 +415,6 @@ libraries = {
 [connection signal="clicked" from="CanvasLayer/Maps/FoggyValley" to="." method="switch_to_foggy_valley"]
 [connection signal="clicked" from="CanvasLayer/Maps/ThreeVillages" to="." method="switch_to_three_villages"]
 [connection signal="clicked" from="CanvasLayer/Maps/Oasis" to="." method="switch_to_oasis"]
+[connection signal="close" from="CanvasLayer/KeySettings" to="." method="_on_key_settings_close"]
 [connection signal="clicked" from="CanvasLayer/Quit" to="." method="quit"]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer2/TextureButton" to="." method="toggle_key_settings"]

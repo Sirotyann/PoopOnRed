@@ -44,3 +44,10 @@ res://scenes/general/label.gd
 res://scenes/general/loading.tscn
 res://scenes/general/life.gd
 res://scenes/maps/fog_valley/fog_valley.tscn
+res://config.gd
+res://scenes/general/completed.gd
+res://scenes/general/settings.tscn
+res://scenes/general/key_settings.tscn
+res://scenes/buttons/setting_button.tscn
+res://scenes/buttons/setting_button.gd
+res://scenes/general/key_settings.gd

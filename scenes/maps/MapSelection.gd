@@ -9,21 +9,33 @@ const loading = preload("res://scenes/general/loading.tscn")
 @onready var ThreeVillages = $CanvasLayer/Maps/ThreeVillages
 @onready var Oasis = $CanvasLayer/Maps/Oasis
 @onready var Quit = $CanvasLayer/Quit
+@onready var KeySettings = $CanvasLayer/KeySettings
 
 var is_maps_manu_shown := false
+
+var is_key_setting_shown := false
 
 func _ready():
 	#Storage.instance.clear_status()
 	#Storage.instance.print_status()
 	
-	if Storage.instance.get_var("completed_times") > 0:
-		$CanvasLayer/HBoxContainer/Normal.visible = false
-		$CanvasLayer/HBoxContainer/Complete.visible = true
+	for bg in $CanvasLayer/HBoxContainer.get_children():
+		bg.visible = false
+	
+	if Storage.instance.get_var("completed_times") <= 0:
+		$CanvasLayer/HBoxContainer/Normal.visible = true
+	elif Storage.instance.get_var("completed_times") == 1:
+		$CanvasLayer/HBoxContainer/Complete1.visible = true
+	elif Storage.instance.get_var("completed_times") == 2:
+		$CanvasLayer/HBoxContainer/Complete2.visible = true
+	elif Storage.instance.get_var("completed_times") == 3:
+		$CanvasLayer/HBoxContainer/Complete3.visible = true
+	elif Storage.instance.get_var("completed_times") >= 4:
+		$CanvasLayer/HBoxContainer/Complete4.visible = true
 	else:
-		$CanvasLayer/HBoxContainer/Complete.visible = false
 		$CanvasLayer/HBoxContainer/Normal.visible = true
 	
-	if Settings.device == "iPhone":
+	if Config.device == "iPhone":
 		Quit.visible = false
 	
 	play_bg_audio()
@@ -47,19 +59,19 @@ func _ready():
 	if Storage.instance.get_var("is_town_completed"):
 		FoggyValley.disabled = false
 		SunnyTown.rainbow = true
-	elif Storage.instance.get_var("town_played") >= Settings.EnoughPracticeCount:
+	elif Storage.instance.get_var("town_played") >= Config.EnoughPracticeCount:
 		FoggyValley.disabled = false
 
 	if Storage.instance.get_var("is_valley_completed"):
 		ThreeVillages.disabled = false
 		FoggyValley.rainbow = true
-	elif Storage.instance.get_var("valley_played") >= Settings.EnoughPracticeCount:
+	elif Storage.instance.get_var("valley_played") >= Config.EnoughPracticeCount:
 		ThreeVillages.disabled = false
 	
 	if Storage.instance.get_var("is_village_completed"):
 		Oasis.disabled = false
 		ThreeVillages.rainbow = true
-	elif Storage.instance.get_var("village_played") >= Settings.EnoughPracticeCount:
+	elif Storage.instance.get_var("village_played") >= Config.EnoughPracticeCount:
 		Oasis.disabled = false
 	
 	if Storage.instance.get_var("is_oasis_completed"):
@@ -125,3 +137,15 @@ func quit():
 
 func play_bg_audio():
 	$AudioStreamPlayer.play()
+
+func toggle_key_settings():
+	if is_key_setting_shown:
+		KeySettings.visible = false
+		is_key_setting_shown = false
+	else:
+		KeySettings.visible = true
+		is_key_setting_shown = true
+
+func _on_key_settings_close() -> void:
+	KeySettings.visible = false
+	is_key_setting_shown = false

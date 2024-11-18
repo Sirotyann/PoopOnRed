@@ -1,12 +1,10 @@
 extends Node2D
 
-var Settings = preload("res://settings.gd")
-
 @onready var QuitButon = $CanvasLayer/VBoxContainer/Quit
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	if Settings.device == "iPhone":
+	if Config.device == "iPhone":
 		QuitButon.visible = false
 		
 	play_audio()

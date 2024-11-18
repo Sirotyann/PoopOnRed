@@ -5,7 +5,7 @@ signal completed
 signal dead
 
 func connect_player(player):
-	#print("MaxLife : ", Settings.MaxLife)
+	#print("MaxLife : ", Config.MaxLife)
 	player.connect('completed', self.game_win)
 	player.connect('dead', self.game_dead.bind(player))
 	player.connect('timeout', self.game_dead.bind(player))

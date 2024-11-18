@@ -1,8 +1,11 @@
-/Users/c_li/Workshop/Game/export/ios
 res://assets/images
-res://assets/font
-res://
 res://assets/images/buttons
+res://scenes/buttons
+res://assets/font
+/Users/c_li/Workshop/Game/export/windows
+res://
+/Users/c_li/Workshop/Game/tools
+/Users/c_li/Workshop/Game/export/ios
 res://assets/images/bird
 res://assets/texture
 res://audios

@@ -20,7 +20,7 @@ var Empty_Status = {
 	"has_poop_on_car": false,
 	"playing_map": "firstshot",
 	"completed_times": 0,
-	"life": Settings.MaxLife
+	"life": Config.MaxLife
 }
 
 static var instance := Storage.new()
@@ -84,7 +84,7 @@ func life_lost():
 	set_var("life", life - 1)
 	
 func reset_play():
-	set_var("life", Settings.MaxLife)
+	set_var("life", Config.MaxLife)
 	set_var("playing_map", General.map_queue[0])
 ### ---------------
 
