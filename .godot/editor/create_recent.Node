@@ -1,10 +1,11 @@
-Button
+VScrollBar
+Label
+VBoxContainer
 HBoxContainer
+Button
 TextureButton
 Control
-Label
 MarginContainer
-VBoxContainer
 ScrollContainer
 PanelContainer
 TextEdit

@@ -19,21 +19,29 @@ func _ready():
 	#Storage.instance.clear_status()
 	#Storage.instance.print_status()
 	
+	#Storage.instance.set_var("completed_dates", [
+		#"2024-10-20 10:01",
+		#"2024-10-20 10:02",
+		#"2024-10-20 10:03",
+		#"2024-10-20 10:04",
+		#"2024-10-20 10:05",
+		#"2024-10-20 10:06",
+		#"2024-10-20 10:07",
+		#"2024-10-20 10:08",
+		#"2024-10-20 10:09",
+		#"2024-10-20 10:10",
+		#"2024-10-20 10:11",
+		#"2024-10-20 10:12",
+		#"2024-10-20 10:13",
+		#"2024-10-20 10:14"
+		#
+	#])
+	 
+	if Config.mode == "MOBILE":
+		$CanvasLayer/SettingsBox.visible = false
+	
 	for bg in $CanvasLayer/HBoxContainer.get_children():
 		bg.visible = false
-	
-	if Storage.instance.get_var("completed_times") <= 0:
-		$CanvasLayer/HBoxContainer/Normal.visible = true
-	elif Storage.instance.get_var("completed_times") == 1:
-		$CanvasLayer/HBoxContainer/Complete1.visible = true
-	elif Storage.instance.get_var("completed_times") == 2:
-		$CanvasLayer/HBoxContainer/Complete2.visible = true
-	elif Storage.instance.get_var("completed_times") == 3:
-		$CanvasLayer/HBoxContainer/Complete3.visible = true
-	elif Storage.instance.get_var("completed_times") >= 4:
-		$CanvasLayer/HBoxContainer/Complete4.visible = true
-	else:
-		$CanvasLayer/HBoxContainer/Normal.visible = true
 	
 	if Config.device == "iPhone":
 		Quit.visible = false
@@ -83,8 +91,41 @@ func _ready():
 	ThreeVillages.refresh_style()
 	Oasis.refresh_style()
 	
+	show_glory()
+	
 	#Oasis.disabled = true
 	#Oasis.refresh_style()
+
+func show_glory():
+	if Storage.instance.get_var("completed_times") <= 0:
+		$CanvasLayer/HBoxContainer/Normal.visible = true
+	elif Storage.instance.get_var("completed_times") == 1:
+		$CanvasLayer/HBoxContainer/Complete1.visible = true
+	elif Storage.instance.get_var("completed_times") == 2:
+		$CanvasLayer/HBoxContainer/Complete2.visible = true
+	elif Storage.instance.get_var("completed_times") == 3:
+		$CanvasLayer/HBoxContainer/Complete3.visible = true
+	elif Storage.instance.get_var("completed_times") >= 4:
+		$CanvasLayer/HBoxContainer/Complete4.visible = true
+	else:
+		$CanvasLayer/HBoxContainer/Normal.visible = true
+	
+	if Storage.instance.get_var("completed_times") > 0 and len(Storage.instance.get_var("completed_dates")) > 0:
+		$CanvasLayer/GloryContainer.visible = true
+		$CanvasLayer/GloryContainer/GloryMoment.text = tr("GloryMoment")
+		var moments = Storage.instance.get_var("completed_dates")
+		moments.reverse()
+		for index in min(len(moments), 9):
+			var label = $CanvasLayer/GloryContainer/Label.duplicate()
+			if len(moments) > 9 and index == 8:
+				label.text = "......"
+			else:
+				label.text = moments[index]
+			$CanvasLayer/GloryContainer.add_child(label)
+			label.visible = true
+			
+	else:
+		$CanvasLayer/GloryContainer.visible = false
 
 func toggle_practice_maps():
 	if is_maps_manu_shown:

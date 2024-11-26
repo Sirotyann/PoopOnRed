@@ -1,0 +1,56 @@
+[gd_scene load_steps=5 format=3 uid="uid://pmswq4tl7cme"]
+
+[ext_resource type="Script" path="res://scenes/general/passed.gd" id="1_h46wa"]
+[ext_resource type="Texture2D" uid="uid://bwxmljeho0jpi" path="res://assets/images/seagull_red_car_1.jpg" id="2_pkexp"]
+[ext_resource type="PackedScene" uid="uid://b8jbj3f5jek44" path="res://scenes/buttons/feather.tscn" id="3_fdp3q"]
+[ext_resource type="AudioStream" uid="uid://epycmxiesweh" path="res://audios/success.ogg" id="5_u032p"]
+
+[node name="Complete" type="Node2D"]
+scale = Vector2(0.997651, 0.99385)
+script = ExtResource("1_h46wa")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_pkexp")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -278.0
+offset_right = 20.0
+offset_bottom = -238.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(18.16, 4.68)
+
+[node name="Quit" parent="CanvasLayer/HBoxContainer2" instance=ExtResource("3_fdp3q")]
+position = Vector2(-7.81938, 15.3846)
+scale = Vector2(0.0549367, 0.212361)
+key = "QUIT"
+color = "blue"
+
+[node name="Restart" parent="CanvasLayer/HBoxContainer2" instance=ExtResource("3_fdp3q")]
+position = Vector2(23.5132, 16.2393)
+scale = Vector2(0.0549367, 0.212361)
+key = "RESTART"
+color = "green"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_u032p")
+
+[connection signal="clicked" from="CanvasLayer/HBoxContainer2/Quit" to="." method="quit"]
+[connection signal="clicked" from="CanvasLayer/HBoxContainer2/Restart" to="." method="restart"]

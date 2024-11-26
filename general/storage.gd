@@ -20,6 +20,7 @@ var Empty_Status = {
 	"has_poop_on_car": false,
 	"playing_map": "firstshot",
 	"completed_times": 0,
+	"completed_dates": [],
 	"life": Config.MaxLife
 }
 
@@ -76,6 +77,19 @@ func complete_scene(scene):
 
 func complete_game():
 	set_var("completed_times", get_var("completed_times") + 1)
+		
+	var time = Time.get_datetime_dict_from_system()
+	var time_str = "{y}-{m}-{d} {h}:{min}".format({
+		'y':time.year, 
+		'm':time.month,
+		'd':time.day,
+		'h':time.hour,
+		'min':time.minute
+	})
+	var completed_dates = Storage.instance.get_var('completed_dates')
+	completed_dates.append(time_str)
+	Storage.instance.set_var('completed_dates', completed_dates)
+	
 	reset_play()
 
 ## play mode

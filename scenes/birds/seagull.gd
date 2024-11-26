@@ -96,6 +96,20 @@ func is_shoot() -> bool:
 		return Input.is_action_pressed("shoot")
 
 func get_input_direction() -> Vector2:
+	#if Config.mode == "MOBILE" and Config.Accelerometer:
+		#var accel = Input.get_accelerometer()
+		#const offset = 0.8
+		#var result := Vector2(0, 0)
+		#if accel.x <= -offset:
+			#result[0] = -1
+		#elif accel.x >= offset:
+			#result[0] = 1
+			#
+		#if accel.y <= -offset-0.5:
+			#result[1] = -1
+		#elif accel.y >= offset-0.5:
+			#result[1] = 1
+		#return result
 	if Config.mode == "MOBILE":
 		return TouchControls.get_direction()
 	else:

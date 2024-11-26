@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bduk111pwxt03"]
+[gd_scene load_steps=19 format=3 uid="uid://bduk111pwxt03"]
 
 [ext_resource type="Script" path="res://scenes/maps/MapSelection.gd" id="1_c26jd"]
 [ext_resource type="Texture2D" uid="uid://c76in3ca5xqgn" path="res://assets/images/background-3.jpg" id="2_5wsiu"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://bejfpjpg8ebu1" path="res://assets/images/buttons/cog.png" id="7_tbn85"]
 [ext_resource type="Texture2D" uid="uid://wd23aiecc2f7" path="res://assets/images/buttons/cog_pressed.png" id="8_2no5e"]
 [ext_resource type="Texture2D" uid="uid://b2kpedrpqyp32" path="res://assets/images/buttons/cog_hover.png" id="9_4hlur"]
+[ext_resource type="FontFile" uid="uid://ctno0lg21fevr" path="res://assets/font/Atma-Bold.ttf" id="13_arjqg"]
 
 [sub_resource type="Animation" id="Animation_ncsd2"]
 length = 0.001
@@ -261,7 +262,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Normal" type="TextureRect" parent="CanvasLayer/HBoxContainer"]
-visible = false
 modulate = Color(0.404511, 0.404511, 0.404511, 1)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -289,6 +289,7 @@ size_flags_horizontal = 3
 texture = ExtResource("5_fvx2h")
 
 [node name="Complete4" type="TextureRect" parent="CanvasLayer/HBoxContainer"]
+visible = false
 modulate = Color(0.404511, 0.404511, 0.404511, 1)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -380,12 +381,38 @@ color = "yellow"
 [node name="KeySettings" parent="CanvasLayer" instance=ExtResource("6_xh1ha")]
 visible = false
 
+[node name="GloryContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -349.0
+offset_top = 223.0
+offset_right = -71.0
+offset_bottom = 351.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+
+[node name="GloryMoment" type="Label" parent="CanvasLayer/GloryContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.913725, 0.694118, 0.0745098, 1)
+theme_override_fonts/font = ExtResource("13_arjqg")
+theme_override_font_sizes/font_size = 40
+text = "Glory time"
+
+[node name="Label" type="Label" parent="CanvasLayer/GloryContainer"]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0.48542, 0.789055, 0.984999, 1)
+theme_override_fonts/font = ExtResource("13_arjqg")
+theme_override_font_sizes/font_size = 35
+text = "2024-11-24 11:11"
+
 [node name="Quit" parent="CanvasLayer" instance=ExtResource("6_me1y8")]
 position = Vector2(1400, 866)
 key = "QUIT"
 color = "red"
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer"]
+[node name="SettingsBox" type="HBoxContainer" parent="CanvasLayer"]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -393,7 +420,7 @@ offset_left = -180.0
 offset_bottom = 180.0
 grow_horizontal = 0
 
-[node name="TextureButton" type="TextureButton" parent="CanvasLayer/HBoxContainer2"]
+[node name="TextureButton" type="TextureButton" parent="CanvasLayer/SettingsBox"]
 layout_mode = 2
 texture_normal = ExtResource("7_tbn85")
 texture_pressed = ExtResource("8_2no5e")
@@ -417,4 +444,4 @@ libraries = {
 [connection signal="clicked" from="CanvasLayer/Maps/Oasis" to="." method="switch_to_oasis"]
 [connection signal="close" from="CanvasLayer/KeySettings" to="." method="_on_key_settings_close"]
 [connection signal="clicked" from="CanvasLayer/Quit" to="." method="quit"]
-[connection signal="pressed" from="CanvasLayer/HBoxContainer2/TextureButton" to="." method="toggle_key_settings"]
+[connection signal="pressed" from="CanvasLayer/SettingsBox/TextureButton" to="." method="toggle_key_settings"]

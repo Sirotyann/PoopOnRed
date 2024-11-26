@@ -1,7 +1,6 @@
 extends Node2D
 
 @onready var QuitButton = $CanvasLayer/HBoxContainer2/Quit
-@onready var HeroLabel = $CanvasLayer/Hero/Label
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -11,11 +10,6 @@ func _ready():
 
 	play_audio()
 	$AudioStreamPlayer.connect("finished", self.play_audio)
-	
-	var time = Storage.instance.get_var('completed_dates').back()
-	var hero_text = tr("BecomeHero")
-	print(hero_text)
-	HeroLabel.text = "{time}\n{content}".format({"time": time, "content": hero_text})
 	
 func play_audio():
 	$AudioStreamPlayer.play()

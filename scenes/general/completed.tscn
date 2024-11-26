@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bsht3xn3g0pcn"]
+[gd_scene load_steps=6 format=3 uid="uid://bsht3xn3g0pcn"]
 
 [ext_resource type="Script" path="res://scenes/general/completed.gd" id="1_8sle1"]
 [ext_resource type="AudioStream" uid="uid://epycmxiesweh" path="res://audios/success.ogg" id="2_t5wty"]
 [ext_resource type="Texture2D" uid="uid://bwxmljeho0jpi" path="res://assets/images/seagull_red_car_1.jpg" id="2_ys227"]
 [ext_resource type="PackedScene" uid="uid://b8jbj3f5jek44" path="res://scenes/buttons/feather.tscn" id="3_olvvk"]
+[ext_resource type="FontFile" uid="uid://ctno0lg21fevr" path="res://assets/font/Atma-Bold.ttf" id="4_ac0qs"]
 
 [node name="Complete" type="Node2D"]
 scale = Vector2(0.997651, 0.99385)
@@ -48,6 +49,31 @@ position = Vector2(23.5132, 16.2393)
 scale = Vector2(0.0549367, 0.212361)
 key = "RESTART"
 color = "green"
+
+[node name="Hero" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -862.0
+offset_top = 248.0
+offset_right = 205.0
+offset_bottom = 551.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="CanvasLayer/Hero"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.986546, 0.537344, 0.635313, 1)
+theme_override_colors/font_shadow_color = Color(0.124751, 0.108081, 0.692481, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("4_ac0qs")
+theme_override_font_sizes/font_size = 60
+text = "On 2024-11-24,
+the red car was pooped on 
+and you became a hero of the seagulls"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_t5wty")

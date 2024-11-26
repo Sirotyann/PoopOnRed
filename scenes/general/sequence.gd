@@ -17,7 +17,7 @@ func game_win():
 	await tree.create_timer(4.0).timeout
 	
 	if General.mode == 'practice':
-		tree.change_scene_to_file("res://scenes/general/completed.tscn")
+		tree.change_scene_to_file("res://scenes/general/passed.tscn")
 	else:
 		var scene = Storage.instance.get_var("playing_map")
 		Storage.instance.complete_scene(scene)
