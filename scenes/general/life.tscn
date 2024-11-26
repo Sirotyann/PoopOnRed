@@ -49,25 +49,26 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = 6.0
+offset_top = -46.0
+offset_right = 73.0
+offset_bottom = 36.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/CenterBox"]
-top_level = true
-position = Vector2(851, 546)
-scale = Vector2(0.457447, 0.457447)
-sprite_frames = SubResource("SpriteFrames_gcd7s")
-animation = &"fly"
+alignment = 1
 
 [node name="Label" type="Label" parent="CanvasLayer/CenterBox"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_328aw")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 45
 text = "x 3"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/CenterBox"]
+top_level = true
+position = Vector2(914, 545)
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_gcd7s")
+animation = &"fly"
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 3.0

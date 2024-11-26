@@ -2,10 +2,10 @@ extends Node
 
 class_name Config
 
-const is_dev := true # false  false
+const is_dev := false # false  false
 
 const mode := "MOBILE" # MOBILE / PC
-const device := "PC" # iPhone / PC
+const device := "iPhone" # iPhone / PC
 
 const EnoughPracticeCount := 5
 const MaxLife := 3

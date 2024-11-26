@@ -5,7 +5,6 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	TranslationServer.set_locale("zh")
 	if Config.device == "iPhone":
 		QuitButton.visible = false
 

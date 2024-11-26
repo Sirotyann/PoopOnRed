@@ -107,6 +107,7 @@ func get_is_first_time():
 	return user_status.is_first_time
 
 func set_is_first_time(val):
+	if(user_status == null): read_status()
 	user_status.is_first_time = val
 	save_status(user_status)
 

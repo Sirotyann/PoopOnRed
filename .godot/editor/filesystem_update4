@@ -24,3 +24,8 @@ res://assets/mesh_lib/road.tres
 res://assets/mesh_lib/buildings.tres
 res://assets/mesh_lib/decoration.tres
 res://scenes/birds/seagull.tscn
+res://scenes/general/life.tscn
+res://scenes/general/loading.tscn
+res://scenes/general/intro.tscn
+res://scenes/general/intro.gd
+res://scenes/general/life.gd

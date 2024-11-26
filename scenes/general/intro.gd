@@ -24,7 +24,6 @@ var total_chars
 func _ready() -> void:
 	var locale = OS.get_locale().to_lower()
 	
-	TranslationServer.set_locale("en")
 	if locale.contains("zh"):
 		TranslationServer.set_locale("zh")
 	else:
@@ -35,11 +34,15 @@ func _ready() -> void:
 	
 	#Storage.clear_status()
 	#TranslationServer.set_locale("zh")
+	#Storage.instance.set_is_first_time(true)
+	
 	var is_first_time = Storage.instance.get_is_first_time()
 	
 	if !is_first_time: 
 		go_to_next()
 	else:
+		$PreLayer.visible = true
+		$PreLayer/LabelContainer/Label.text = tr("PRE")
 		$HidePreTimer.start()
 		Storage.instance.set_is_first_time(false)
 		#$Start.visible = false

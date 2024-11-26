@@ -1,10 +1,10 @@
+HBoxContainer
+Control
+VBoxContainer
 VScrollBar
 Label
-VBoxContainer
-HBoxContainer
 Button
 TextureButton
-Control
 MarginContainer
 ScrollContainer
 PanelContainer
@@ -12,4 +12,3 @@ TextEdit
 TextureRect
 CanvasLayer
 Timer
-AnimationPlayer
