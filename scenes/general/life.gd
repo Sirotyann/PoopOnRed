@@ -3,15 +3,11 @@ extends Node2D
 const loading = preload("res://scenes/general/loading.tscn")
 
 @onready var label = $CanvasLayer/CenterBox/Label
-@onready var sprite = $CanvasLayer/CenterBox/AnimatedSprite2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var life = Storage.instance.get_var("life")
 	label.text = "x {val}".format({"val": life})
-	sprite.play("fly")
-	#var screen_size = get_viewport().size
-	#sprite.position.x = screen_size[0] / 2 - 60
 	$Timer.start()
 	
 func _on_timer_timeout() -> void:

@@ -1,5 +1,7 @@
-HBoxContainer
 Control
+Sprite2D
+TextureRect
+HBoxContainer
 VBoxContainer
 VScrollBar
 Label
@@ -9,6 +11,4 @@ MarginContainer
 ScrollContainer
 PanelContainer
 TextEdit
-TextureRect
 CanvasLayer
-Timer
