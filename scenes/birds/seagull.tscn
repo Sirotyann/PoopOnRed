@@ -296,10 +296,9 @@ libraries = {
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -226.0
-offset_top = 2.0
-offset_right = -186.0
-offset_bottom = 42.0
+offset_left = -250.0
+offset_right = -210.0
+offset_bottom = 40.0
 grow_horizontal = 0
 
 [node name="PoopPanel" parent="CanvasLayer/PoopPanelContainer" instance=ExtResource("2_jelsa")]
@@ -310,6 +309,8 @@ scale = Vector2(1.68421, 1.65221)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 30.0
+offset_right = 30.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.68421, 1.65221)
@@ -540,13 +541,23 @@ size_flags_vertical = 8
 [node name="TouchControls" parent="Control" instance=ExtResource("15_f1yf2")]
 
 [node name="DevLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="WinButton" type="Button" parent="DevLayer"]
 z_index = 6
-offset_left = 1586.0
-offset_top = 17.0
-offset_right = 1678.0
-offset_bottom = 85.0
+offset_left = 1469.0
+offset_top = 12.0
+offset_right = 1561.0
+offset_bottom = 80.0
 text = "Win"
 
+[node name="ClearButton" type="Button" parent="DevLayer"]
+z_index = 6
+offset_left = 1336.0
+offset_top = 12.0
+offset_right = 1428.0
+offset_bottom = 80.0
+text = "Clear"
+
 [connection signal="button_down" from="DevLayer/WinButton" to="." method="dev_win"]
+[connection signal="button_down" from="DevLayer/ClearButton" to="." method="dev_clear"]

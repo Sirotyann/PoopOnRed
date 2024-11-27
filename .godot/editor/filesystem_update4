@@ -29,3 +29,7 @@ res://scenes/general/loading.tscn
 res://scenes/general/intro.tscn
 res://scenes/general/intro.gd
 res://scenes/general/life.gd
+res://scenes/maps/three_villages/three_villages.tscn
+res://scenes/maps/three_villages/map_data/height.res
+res://scenes/maps/three_villages/map_data/data.hterrain
+res://assets/mesh_lib/tree.tres

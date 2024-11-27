@@ -46,9 +46,9 @@ var wind_offset := Vector3(0, 0, 0)
 
 func _ready():
 	if Config.is_dev:
-		$DevLayer/WinButton.visible = true
+		$DevLayer.visible = true
 	else:
-		$DevLayer/WinButton.visible = false
+		$DevLayer.visible = false
 	
 	if !Storage.instance.get_var("is_guide_played"):
 		show_guide()
@@ -357,3 +357,6 @@ func remove_guide():
 # --- dev ---
 func dev_win():
 	poop_on_red_vehicle()
+
+func dev_clear():
+	Storage.instance.clear_status()

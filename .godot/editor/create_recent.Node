@@ -1,3 +1,4 @@
+Button
 Control
 Sprite2D
 TextureRect
@@ -5,7 +6,6 @@ HBoxContainer
 VBoxContainer
 VScrollBar
 Label
-Button
 TextureButton
 MarginContainer
 ScrollContainer
