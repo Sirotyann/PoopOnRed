@@ -22,6 +22,7 @@ var Empty_Status = {
 	"completed_times": 0,
 	"completed_dates": [],
 	"life": Config.MaxLife
+	#"keys": ["", "", "", "", ""]
 }
 
 static var instance := Storage.new()

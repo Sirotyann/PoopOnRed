@@ -296,14 +296,17 @@ libraries = {
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -250.0
-offset_right = -210.0
-offset_bottom = 40.0
+offset_left = -449.0
+offset_top = 16.0
+offset_right = -409.0
+offset_bottom = 56.0
 grow_horizontal = 0
+scale = Vector2(10.9072, 1.91888)
+alignment = 2
 
 [node name="PoopPanel" parent="CanvasLayer/PoopPanelContainer" instance=ExtResource("2_jelsa")]
-position = Vector2(0, -3.304)
-scale = Vector2(1.68421, 1.65221)
+position = Vector2(0, -1.72184)
+scale = Vector2(0.154413, 0.861028)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
 anchors_preset = 15

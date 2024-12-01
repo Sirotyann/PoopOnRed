@@ -177,8 +177,6 @@ func _physics_process(delta):
 	var rotation_x = rotations[0]
 	var rotation_y = rotations[1]
 	
-	#print("Wind offset: {x} {y} {z}".format({"x": wind_offset.x, "y": wind_offset.y, "z": wind_offset.z}))
-	
 	velocity.z = -cos(deg_to_rad(rotation_y)) * speed + wind_offset.z
 	velocity.x = -sin(deg_to_rad(rotation_y)) * speed + wind_offset.x
 	
@@ -291,7 +289,8 @@ func refresh_excrete():
 # --- eat food ---
 func hit_food(food):
 	$SuccessAudio.play()
-	$CanvasLayer/PoopPanelContainer/PoopPanel.add(food.poop_value)
+	var food_val = food.poop_value if General.mode != 'practice' else food.poop_value * 3
+	$CanvasLayer/PoopPanelContainer/PoopPanel.add(food_val)
 	food.queue_free()
 	
 # --- wind

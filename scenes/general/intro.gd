@@ -29,6 +29,9 @@ func _ready() -> void:
 	else:
 		TranslationServer.set_locale("en")
 	
+	if Config.mode != "MOBILE":
+		General.load_saved_keys()
+	
 	#Storage.instance.clear_status()
 	#TranslationServer.set_locale("zh")
 	

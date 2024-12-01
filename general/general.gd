@@ -25,3 +25,7 @@ static func get_next_map(current):
 		return map_queue[index + 1]
 	else:
 		return map_queue[0]
+
+static func load_saved_keys():
+	print('load saved keys')
+	

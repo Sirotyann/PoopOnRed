@@ -1,8 +1,8 @@
+HBoxContainer
 Button
 Control
 Sprite2D
 TextureRect
-HBoxContainer
 VBoxContainer
 VScrollBar
 Label
