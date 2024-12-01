@@ -220,9 +220,11 @@ transform = Transform3D(-0.242938, 0, 0.970042, 0, 1, 0, -0.970042, 0, -0.242938
 [node name="Paths" type="Node3D" parent="."]
 
 [node name="Path01" type="Path3D" parent="Paths"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
 curve = SubResource("Curve3D_ewqtf")
 
 [node name="Path02" type="Path3D" parent="Paths"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
 curve = SubResource("Curve3D_l50r6")
 
 [node name="BG" type="AudioStreamPlayer" parent="."]

@@ -31,3 +31,16 @@ res://scenes/birds/seagull.gd
 res://scenes/maps/three_villages/map_data/height.res
 res://scenes/maps/three_villages/map_data/data.hterrain
 res://scenes/kit/cars/delivery.tscn
+res://scenes/kit/cars/hatchback_sports.tscn
+res://scenes/kit/cars/police.tscn
+res://scenes/kit/cars/sedan-blue.tscn
+res://scenes/kit/cars/sedan-green.tscn
+res://scenes/kit/cars/sedan-sports.tscn
+res://scenes/kit/cars/suv-black.tscn
+res://scenes/kit/cars/suv-blue.tscn
+res://scenes/kit/cars/suv-green.tscn
+res://scenes/kit/cars/suv_luxury.tscn
+res://scenes/kit/cars/suv_white.tscn
+res://scenes/kit/cars/taxi.tscn
+res://scenes/kit/cars/truck.tscn
+res://scenes/kit/cars/truck_flat.tscn
