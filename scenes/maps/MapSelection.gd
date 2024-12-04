@@ -16,6 +16,7 @@ var is_maps_manu_shown := false
 var is_key_setting_shown := false
 
 func _ready():
+	print('has InAppStore: ', Engine.has_singleton("InAppStore"))
 	#Storage.instance.clear_status()
 	#Storage.instance.print_status()
 	
