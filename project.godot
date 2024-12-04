@@ -17,6 +17,8 @@ boot_splash/bg_color=Color(0.122993, 0.197108, 0.249311, 1)
 boot_splash/image="res://assets/images/bird/bird-1.png"
 boot_splash/fullsize=false
 config/icon="res://icon.png"
+config/macos_native_icon="res://icon_round.icns"
+config/windows_native_icon="res://icon.ico"
 
 [display]
 
@@ -115,5 +117,6 @@ locale/translations=PackedStringArray("res://strings.en.translation", "res://str
 [rendering]
 
 renderer/rendering_method="mobile"
+textures/vram_compression/import_s3tc_bptc=true
 textures/vram_compression/import_etc2_astc=true
 viewport/size/viewport_height=972

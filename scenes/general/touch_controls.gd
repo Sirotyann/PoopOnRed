@@ -2,7 +2,7 @@ extends CanvasLayer
 
 @export var pooping := false
 
-const Accuracy := 0.3
+const Accuracy := 0.45
 
 @onready var JoyStick = $HBoxContainer/JoyStick
 
