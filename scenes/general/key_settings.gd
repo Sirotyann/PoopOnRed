@@ -19,10 +19,9 @@ var user_prefs = UserPreferences.load_or_create()
 
 func load_input_map() -> void:
 	var prefs = UserPreferences.load_or_create()
-	print("prefs: ", prefs.input_map)
+	
 	if prefs.input_map.keys().size() > 0:
 		for action in prefs.input_map.keys():
-			print("action: ", action, prefs.input_map[action])
 			InputMap.action_erase_events(action)
 			InputMap.action_add_event(action, prefs.input_map[action])
 	else:

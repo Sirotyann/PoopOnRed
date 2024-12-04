@@ -22,15 +22,12 @@ var total_chars
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var locale = OS.get_locale().to_lower()
+	var locale = General.get_locale()
 	
 	if locale.contains("zh"):
 		TranslationServer.set_locale("zh")
 	else:
 		TranslationServer.set_locale("en")
-	
-	if Config.mode != "MOBILE":
-		General.load_saved_keys()
 	
 	#Storage.instance.clear_status()
 	#TranslationServer.set_locale("zh")

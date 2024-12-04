@@ -1,4 +1,3 @@
-res://scenes/maps/MapSelection.tscn
 res://assets/mesh_lib/road.tres
 res://shaders/glow.gdshader
 res://assets/mesh_lib/buildings.tres
@@ -6,8 +5,13 @@ res://assets/mesh_lib/decoration.tres
 res://scenes/maps/town/town.gdshader
 res://assets/texture/water.tres
 res://shaders/ocean.gdshader
-res://scenes/maps/MapSelection.gd
-res://ios/plugins/inappstore/README.md
+res://scenes/maps/MapSelection.tscn
+res://general/storage.gd
+res://scenes/maps/practice/practice.tscn
 res://scenes/general/touch_controls.tscn
-res://README.md
-res://config.gd
+res://scenes/general/key_settings.tscn
+res://scenes/maps/MapSelection.gd
+res://general/general.gd
+res://scenes/general/intro.gd
+res://main.tscn
+res://scenes/general/key_settings.gd

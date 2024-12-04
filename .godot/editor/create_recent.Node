@@ -1,11 +1,11 @@
-HBoxContainer
 Button
+Label
+HBoxContainer
 Control
 Sprite2D
 TextureRect
 VBoxContainer
 VScrollBar
-Label
 TextureButton
 MarginContainer
 ScrollContainer

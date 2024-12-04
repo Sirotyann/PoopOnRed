@@ -26,6 +26,10 @@ static func get_next_map(current):
 	else:
 		return map_queue[0]
 
-static func load_saved_keys():
-	print('load saved keys')
+static func get_locale():
+	var locale = Storage.instance.get_var("locale")
+	if locale:
+		return locale
+	else:
+		return OS.get_locale().to_lower()
 	

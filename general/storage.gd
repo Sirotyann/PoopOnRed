@@ -21,7 +21,8 @@ var Empty_Status = {
 	"playing_map": "firstshot",
 	"completed_times": 0,
 	"completed_dates": [],
-	"life": Config.MaxLife
+	"life": Config.MaxLife,
+	"locale": null
 	#"keys": ["", "", "", "", ""]
 }
 

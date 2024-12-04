@@ -10,6 +10,7 @@ const loading = preload("res://scenes/general/loading.tscn")
 @onready var Oasis = $CanvasLayer/Maps/Oasis
 @onready var Quit = $CanvasLayer/Quit
 @onready var KeySettings = $CanvasLayer/KeySettings
+@onready var LangButton = $CanvasLayer/LangBox/LangButton
 
 var is_maps_manu_shown := false
 
@@ -18,25 +19,8 @@ var is_key_setting_shown := false
 func _ready():
 	#Storage.instance.clear_status()
 	#Storage.instance.print_status()
-	
-	#Storage.instance.set_var("completed_dates", [
-		#"2024-10-20 10:01",
-		#"2024-10-20 10:02",
-		#"2024-10-20 10:03",
-		#"2024-10-20 10:04",
-		#"2024-10-20 10:05",
-		#"2024-10-20 10:06",
-		#"2024-10-20 10:07",
-		#"2024-10-20 10:08",
-		#"2024-10-20 10:09",
-		#"2024-10-20 10:10",
-		#"2024-10-20 10:11",
-		#"2024-10-20 10:12",
-		#"2024-10-20 10:13",
-		#"2024-10-20 10:14"
-		#
-	#])
 	 
+	# keyboard setting
 	if Config.mode == "MOBILE":
 		$CanvasLayer/SettingsBox.visible = false
 	
@@ -50,13 +34,6 @@ func _ready():
 	$AudioStreamPlayer.connect('finished', self.play_bg_audio)
 	
 	$CanvasLayer/MapsBG.position.y = -550
-	
-	Firstshot.refresh_text()
-	SunnyTown.refresh_text()
-	FoggyValley.refresh_text()
-	ThreeVillages.refresh_text()
-	Oasis.refresh_text()
-	Quit.refresh_text()
 
 	if Storage.instance.get_var("is_firstshot_completed"):
 		Firstshot.rainbow = true
@@ -90,11 +67,26 @@ func _ready():
 	FoggyValley.refresh_style()
 	ThreeVillages.refresh_style()
 	Oasis.refresh_style()
-	
+	refresh_text()
 	show_glory()
 	
 	#Oasis.disabled = true
 	#Oasis.refresh_style()
+
+func refresh_text():
+	Firstshot.refresh_text()
+	SunnyTown.refresh_text()
+	FoggyValley.refresh_text()
+	ThreeVillages.refresh_text()
+	Oasis.refresh_text()
+	Quit.refresh_text()
+	
+	# set locale
+	var locale = General.get_locale()
+	if locale.contains("zh"):
+		LangButton.text = "EN"
+	else:
+		LangButton.text = "中文"
 
 func show_glory():
 	if Storage.instance.get_var("completed_times") <= 0:
@@ -190,3 +182,16 @@ func toggle_key_settings():
 func _on_key_settings_close() -> void:
 	KeySettings.visible = false
 	is_key_setting_shown = false
+
+# lang
+func switch_lang():
+	var locale = General.get_locale()
+	if locale.contains("zh"):
+		TranslationServer.set_locale("en")
+		Storage.instance.set_var("locale", "en")
+	else:		
+		TranslationServer.set_locale("zh")
+		Storage.instance.set_var("locale", "zh")
+		
+	get_tree().change_scene_to_file("res://scenes/general/intro.tscn")
+	 
