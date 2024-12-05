@@ -21,7 +21,10 @@ var Empty_Status = {
 	"playing_map": "firstshot",
 	"completed_times": 0,
 	"completed_dates": [],
-	"life": Config.MaxLife
+	"life": Config.MaxLife,
+	"pooponred_foggy_valley": false,
+	"pooponred_three_village": false,
+	"pooponred_oasis": false
 	#"keys": ["", "", "", "", ""]
 }
 

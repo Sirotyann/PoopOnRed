@@ -26,8 +26,11 @@ func game_win():
 			tree.change_scene_to_file("res://scenes/general/completed.tscn")
 		else:
 			var next = General.get_next_map(scene)
-			Storage.instance.set_var("playing_map", next)
-			tree.change_scene_to_file("res://scenes/general/life.tscn")
+			if General.does_map_need_purchase(next):
+				tree.change_scene_to_file("res://scenes/inappstore/purchase.tscn")
+			else:
+				Storage.instance.set_var("playing_map", next)
+				tree.change_scene_to_file("res://scenes/general/life.tscn")
 	tree.paused = false
 
 func game_dead(player):

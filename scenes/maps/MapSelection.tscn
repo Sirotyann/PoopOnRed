@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bduk111pwxt03"]
+[gd_scene load_steps=21 format=3 uid="uid://bduk111pwxt03"]
 
 [ext_resource type="Script" path="res://scenes/maps/MapSelection.gd" id="1_c26jd"]
 [ext_resource type="Texture2D" uid="uid://c76in3ca5xqgn" path="res://assets/images/background-3.jpg" id="2_5wsiu"]
@@ -14,6 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://wd23aiecc2f7" path="res://assets/images/buttons/cog_pressed.png" id="8_2no5e"]
 [ext_resource type="Texture2D" uid="uid://b2kpedrpqyp32" path="res://assets/images/buttons/cog_hover.png" id="9_4hlur"]
 [ext_resource type="FontFile" uid="uid://ctno0lg21fevr" path="res://assets/font/Atma-Bold.ttf" id="13_arjqg"]
+[ext_resource type="Texture2D" uid="uid://byrcy1wys1buv" path="res://assets/images/purchase/shop.png" id="14_whr5w"]
+[ext_resource type="Texture2D" uid="uid://cdc72t02txt4s" path="res://assets/images/purchase/shop_pressed.png" id="15_0u713"]
 
 [sub_resource type="Animation" id="Animation_ncsd2"]
 length = 0.001
@@ -414,11 +416,14 @@ key = "QUIT"
 color = "red"
 
 [node name="SettingsBox" type="HBoxContainer" parent="CanvasLayer"]
+visible = false
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -180.0
-offset_bottom = 180.0
+offset_left = -220.0
+offset_top = 15.0
+offset_right = -40.0
+offset_bottom = 195.0
 grow_horizontal = 0
 
 [node name="TextureButton" type="TextureButton" parent="CanvasLayer/SettingsBox"]
@@ -426,6 +431,21 @@ layout_mode = 2
 texture_normal = ExtResource("7_tbn85")
 texture_pressed = ExtResource("8_2no5e")
 texture_hover = ExtResource("9_4hlur")
+
+[node name="InAppBox" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -220.0
+offset_top = 15.0
+offset_right = -40.0
+offset_bottom = 195.0
+grow_horizontal = 0
+
+[node name="TextureButton" type="TextureButton" parent="CanvasLayer/InAppBox"]
+layout_mode = 2
+texture_normal = ExtResource("14_whr5w")
+texture_pressed = ExtResource("15_0u713")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_qag5y")
@@ -446,3 +466,4 @@ libraries = {
 [connection signal="close" from="CanvasLayer/KeySettings" to="." method="_on_key_settings_close"]
 [connection signal="clicked" from="CanvasLayer/Quit" to="." method="quit"]
 [connection signal="pressed" from="CanvasLayer/SettingsBox/TextureButton" to="." method="toggle_key_settings"]
+[connection signal="pressed" from="CanvasLayer/InAppBox/TextureButton" to="." method="go_shopping"]

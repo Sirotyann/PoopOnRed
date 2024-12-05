@@ -109,7 +109,7 @@ func _on_button_down() -> void:
 		$TextureButton.position.x += 3
 
 func _on_button_up() -> void:
-	if !disabled:
+	if !disabled or Config.device == 'iPhone':
 		$TextureButton.position.y -= 3
 		$TextureButton.position.x -= 3
 		clicked.emit()

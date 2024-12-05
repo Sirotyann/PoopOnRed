@@ -23,7 +23,7 @@ const CLIMB_SPEED := 0.3
 const DIVE_SPEED := 1.25
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/3d/default_gravity") * 0.7
+var gravity = ProjectSettings.get_setting("physics/3d/default_gravity") * 0.5
 var default_gravity_speed = gravity
 var dive_speed_offset := 0.0 # dive 以后的速度加成
 

@@ -1,10 +1,11 @@
 /Users/c_li/Workshop/Game/export/ios
+res://assets/images/purchase
+res://assets/font
+res://assets/images
 /Users/c_li/Workshop/Game/export/windows
 /Users/c_li/Workshop/Game/export/macos
 /Users/c_li/Workshop/Game/export
 res://assets/images/bird
-res://assets/font
-res://assets/images
 res://assets/images/buttons
 res://scenes/buttons
 res://
@@ -19,5 +20,3 @@ res://assets/texture/Grass003_2K-JPG
 res://assets/texture/Rock031_2K-JPG
 res://scenes/maps/three_villages
 res://scenes/general
-res://scenes/maps/practice/map_data
-res://t_data

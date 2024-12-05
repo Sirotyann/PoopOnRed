@@ -56,11 +56,11 @@ func _ready():
 	$BG.play()
 	$BG.volume_db = -10.0
 	
-	if General.mode == 'play':
-		Storage.instance.set_var("playing_map", "oasis")
-		
 	play_wind()
 	$WindAudio.volume_db = wind_volumn
+	
+	if General.mode == 'play':
+		Storage.instance.set_var("playing_map", "oasis")
 	
 	$seagull.SPEED = 5.6
 	
@@ -112,8 +112,6 @@ func apply_wind():
 	var value = (pow(wind.x, 2) + pow(wind.z, 2))/max_wind
 	var volumn = 30.0 * value - 15.0
 	
-	#print("value={value}  volumn={volumn}  max_wind={max_wind}".format({"value": value, "volumn": volumn, "max_wind": max_wind}))
-
 	var tween = get_tree().create_tween()
 	tween.tween_property($WindAudio, "volume_db", volumn, 1)
 	$seagull.wind_offset = wind

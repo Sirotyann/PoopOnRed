@@ -12,40 +12,21 @@ const loading = preload("res://scenes/general/loading.tscn")
 @onready var KeySettings = $CanvasLayer/KeySettings
 
 var is_maps_manu_shown := false
-
 var is_key_setting_shown := false
 
+var _appstore = null
+
 func _ready():
-	print('has InAppStore: ', Engine.has_singleton("InAppStore"))
 	#Storage.instance.clear_status()
-	#Storage.instance.print_status()
-	
-	#Storage.instance.set_var("completed_dates", [
-		#"2024-10-20 10:01",
-		#"2024-10-20 10:02",
-		#"2024-10-20 10:03",
-		#"2024-10-20 10:04",
-		#"2024-10-20 10:05",
-		#"2024-10-20 10:06",
-		#"2024-10-20 10:07",
-		#"2024-10-20 10:08",
-		#"2024-10-20 10:09",
-		#"2024-10-20 10:10",
-		#"2024-10-20 10:11",
-		#"2024-10-20 10:12",
-		#"2024-10-20 10:13",
-		#"2024-10-20 10:14"
-		#
-	#])
-	 
+	if Config.device == "iPhone":
+		Quit.visible = false
+		#init_inappstore()
+		
 	if Config.mode == "MOBILE":
 		$CanvasLayer/SettingsBox.visible = false
 	
 	for bg in $CanvasLayer/HBoxContainer.get_children():
 		bg.visible = false
-	
-	if Config.device == "iPhone":
-		Quit.visible = false
 	
 	play_bg_audio()
 	$AudioStreamPlayer.connect('finished', self.play_bg_audio)
@@ -86,6 +67,16 @@ func _ready():
 	if Storage.instance.get_var("is_oasis_completed"):
 		Oasis.rainbow = true
 	
+	# in app purchase
+	if Config.device == 'iPhone':
+		SunnyTown.disabled = false
+		FoggyValley.disabled = !Storage.instance.get_var("pooponred_foggy_valley")
+		ThreeVillages.disabled = !Storage.instance.get_var("pooponred_three_village")
+		Oasis.disabled = !Storage.instance.get_var("pooponred_oasis")
+		print("pooponred_foggy_valley : ", Storage.instance.get_var("pooponred_foggy_valley"))
+		print("pooponred_three_village : ", Storage.instance.get_var("pooponred_three_village"))
+		print("pooponred_oasis : ", Storage.instance.get_var("pooponred_oasis"))	
+	
 	Firstshot.refresh_style()
 	SunnyTown.refresh_style()
 	FoggyValley.refresh_style()
@@ -96,6 +87,15 @@ func _ready():
 	
 	#Oasis.disabled = true
 	#Oasis.refresh_style()
+
+#func init_inappstore():
+	#print('init_inappstore')
+	#if Engine.has_singleton("InAppStore"):
+		#print("Init inappstore")
+		#_appstore = Engine.get_singleton('InAppStore')
+		#var result = _appstore.request_product_info({ "product_ids": ["pooponred_foggy_valley", "pooponred_three_village", "pooponred_oasis"] })
+		#print(result)
+		
 
 func show_glory():
 	if Storage.instance.get_var("completed_times") <= 0:
@@ -155,19 +155,28 @@ func switch_to_sunny_town():
 	switch_scence("res://scenes/maps/town/town.tscn")
 
 func switch_to_foggy_valley():
-	General.mode = 'practice'
-	$AudioStreamPlayer.stop()
-	switch_scence("res://scenes/maps/fog_valley/fog_valley.tscn")
+	if Config.device == 'iPhone' and !Storage.instance.get_var("pooponred_foggy_valley"):
+		go_shopping()
+	else:
+		General.mode = 'practice'
+		$AudioStreamPlayer.stop()
+		switch_scence("res://scenes/maps/fog_valley/fog_valley.tscn")
 
 func switch_to_three_villages():
-	General.mode = 'practice'
-	$AudioStreamPlayer.stop()
-	switch_scence("res://scenes/maps/three_villages/three_villages.tscn")
+	if Config.device == 'iPhone' and !Storage.instance.get_var("pooponred_three_village"):
+		go_shopping()
+	else:
+		General.mode = 'practice'
+		$AudioStreamPlayer.stop()
+		switch_scence("res://scenes/maps/three_villages/three_villages.tscn")
 
 func switch_to_oasis():
-	General.mode = 'practice'
-	$AudioStreamPlayer.stop()
-	switch_scence("res://scenes/maps/oasis/oasis.tscn")
+	if Config.device == 'iPhone' and !Storage.instance.get_var("pooponred_oasis"):
+		go_shopping()
+	else:
+		General.mode = 'practice'
+		$AudioStreamPlayer.stop()
+		switch_scence("res://scenes/maps/oasis/oasis.tscn")
 
 func switch_scence(path):
 	var LoadingScene = loading.instantiate()
@@ -191,3 +200,6 @@ func toggle_key_settings():
 func _on_key_settings_close() -> void:
 	KeySettings.visible = false
 	is_key_setting_shown = false
+
+func go_shopping() -> void:
+	switch_scence("res://scenes/inappstore/purchase.tscn")
