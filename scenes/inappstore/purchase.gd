@@ -18,10 +18,7 @@ var in_app_store = null
 var processing := false
 
 # Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	#TranslationServer.set_locale("zh")
-	#show_success('pooponred_three_village')
-	
+func _ready() -> void:	
 	OasisPrice.text = tr('pooponred_oasis')
 	OasisName.text = tr('MAP_4')
 	
@@ -36,44 +33,32 @@ func _ready() -> void:
 	
 	if Engine.has_singleton("InAppStore"):
 		in_app_store = Engine.get_singleton("InAppStore")
-		var result = in_app_store.request_product_info( { "product_ids": ["pooponred_foggy_valley", "pooponred_three_village", "pooponred_oasis"] } )
-		if result == OK:
-			print("successfully get product info")
-		else:
-			print("failed requesting product info")
+		in_app_store.request_product_info( { "product_ids": ["pooponred_foggy_valley", "pooponred_three_village", "pooponred_oasis"] } )
 		$Timer.start()
 	else:
 		show_error()
-		print("InAppStore not found")
 	
 	FoggyValleyTick.visible = !!Storage.instance.get_var("pooponred_foggy_valley")
 	ThreeVillagesTick.visible = !!Storage.instance.get_var("pooponred_three_village")
 	OasisTick.visible = !!Storage.instance.get_var("pooponred_oasis")
 
 func purchase_oasis() -> void:
-	print('purchase_oasis', processing)
-	if Storage.instance.get_var("pooponred_oasis") or processing: pass
-	purchase_product("pooponred_oasis")
+	if !Storage.instance.get_var("pooponred_oasis") and !processing:
+		purchase_product("pooponred_oasis")
 
 func purchase_three_villages() -> void:
-	print('purchase_three_villages', processing)
-	if Storage.instance.get_var("pooponred_three_village") or processing: pass
-	purchase_product("pooponred_three_village")
+	if !Storage.instance.get_var("pooponred_three_village") and !processing:
+		purchase_product("pooponred_three_village")
 
 func purchase_foggy_valley() -> void:
-	print('purchase_foggy_valley ', processing)
-	if Storage.instance.get_var("pooponred_foggy_valley") or processing: pass
-	purchase_product("pooponred_foggy_valley")
+	if !Storage.instance.get_var("pooponred_foggy_valley") and !processing:
+		purchase_product("pooponred_foggy_valley")
 
 func purchase_product(product_id) -> void:
-	print('purchase_product : ', product_id)
 	if in_app_store:
 		in_app_store.set_auto_finish_transaction(true)
-		#var restored = in_app_store.restore_purchases()
-		#print("restored")
-		#print(restored)
 		var result = in_app_store.purchase({ "product_id": product_id })
-		print("purchase_product result: ", result)
+		
 		if result == OK:
 			processing = true
 			ProcessingLabel.visible = true
@@ -84,7 +69,8 @@ func restore_purchased() -> void:
 	if in_app_store:
 		in_app_store.set_auto_finish_transaction(true)
 		var restored = in_app_store.restore_purchases()
-		print("restored ", restored)
+		processing = true
+		ProcessingLabel.visible = true
 
 func back() -> void:
 	get_tree().change_scene_to_file("res://scenes/maps/MapSelection.tscn")
@@ -92,7 +78,6 @@ func back() -> void:
 func check_events():
 	while in_app_store and in_app_store.get_pending_event_count() > 0:
 		var event = in_app_store.pop_pending_event()
-		print('event.result : ', event.result)
 		if event.type == "purchase" or event.type == "restore":
 			if event.result == "ok":
 				Storage.instance.set_var(event.product_id, true)
