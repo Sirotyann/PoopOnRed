@@ -144,7 +144,7 @@ directional_shadow_max_distance = 100.5
 environment = SubResource("Environment_yqmpc")
 
 [node name="Paths" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 1.05, 2.08165e-12)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1, 0)
 top_level = true
 
 [node name="Path00" type="Path3D" parent="Paths"]
@@ -154,6 +154,7 @@ curve = SubResource("Curve3D_vcha6")
 curve = SubResource("Curve3D_fbbmv")
 
 [node name="Path11" type="Path3D" parent="Paths"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 curve = SubResource("Curve3D_iiw0l")
 
 [node name="Path12" type="Path3D" parent="Paths"]
