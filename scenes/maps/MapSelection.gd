@@ -73,9 +73,6 @@ func _ready():
 		FoggyValley.disabled = !Storage.instance.get_var("pooponred_foggy_valley")
 		ThreeVillages.disabled = !Storage.instance.get_var("pooponred_three_village")
 		Oasis.disabled = !Storage.instance.get_var("pooponred_oasis")
-		print("pooponred_foggy_valley : ", Storage.instance.get_var("pooponred_foggy_valley"))
-		print("pooponred_three_village : ", Storage.instance.get_var("pooponred_three_village"))
-		print("pooponred_oasis : ", Storage.instance.get_var("pooponred_oasis"))	
 	
 	Firstshot.refresh_style()
 	SunnyTown.refresh_style()

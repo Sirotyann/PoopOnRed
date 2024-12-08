@@ -12,3 +12,5 @@ res://scenes/buttons/feather.tscn
 res://config.gd
 res://scenes/maps/MapSelection.tscn
 res://scenes/inappstore/purchase.tscn
+res://general/storage.gd
+res://scenes/maps/MapSelection.gd
