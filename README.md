@@ -1,4 +1,4 @@
-# drop
+# Poop on red
 In this game, you will be stepping into the wings of a bird who needs a bathroom. 
 You might think “Just poop on the ground!” 
 BUT, it won’t be as easy as you think. 
